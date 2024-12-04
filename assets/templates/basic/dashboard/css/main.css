@@ -3642,7 +3642,7 @@ input[type=number] {
 
 @media screen and (max-width: 575px) {
     .dashboard-fluid .dashboard-header__right {
-        display: none;
+        margin-left: 420px;
     }
 }
 
