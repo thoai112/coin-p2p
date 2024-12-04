@@ -60,11 +60,16 @@
                             </div>
                         @endif
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('market') }}">@lang('Market')</a>
                         
+                    </li> --}}
+                    
+                    {{-- NAV P2P --}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('p2p')}}">@lang('P2P')</a>
+                        
                     </li>
-
                     <li class="nav-item has-mega-menu">
                         <a class="nav-link" href="javascript:void(0)">@lang('Trade')</a>
                         <div class="mega-menu">
