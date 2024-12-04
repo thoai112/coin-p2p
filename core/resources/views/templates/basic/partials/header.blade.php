@@ -96,7 +96,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('crypto_currencies') }}">@lang('Crypto Currency')</a>
                     </li>
                     @php
@@ -111,7 +111,7 @@
                     @endforeach
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('contact') }}"> @lang('Contact') </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <ul class="header-right d-lg-block d-none">
