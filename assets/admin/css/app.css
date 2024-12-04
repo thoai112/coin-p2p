@@ -5116,11 +5116,12 @@ th.w-85 {
 }
 
 .sidebar__logo .sidebar__main-logo {
-  width: 90%;
+  width: 100%;
 }
 
 .sidebar__logo .sidebar__main-logo img {
-  max-height: 75px;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 @media (max-width: 991px) {
