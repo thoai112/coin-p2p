@@ -3640,6 +3640,13 @@ input[type=number] {
     gap: 15px;
 }
 
+@media screen and (max-width: 575px) {
+    .dashboard-fluid .dashboard-header__right {
+        gap: 15px;
+        margin-left: 420px;
+    }
+}
+
 .dashboard-fluid .dashboard-header .copy-link {
     border: 1px solid hsl(var(--white)/0.3);
     border-radius: 6px;
@@ -3685,12 +3692,12 @@ input[type=number] {
 }
 
 @media screen and (max-width: 575px) {
-    .dashboard-fluid .dashboard-header__right {
-        margin-left: 420px;
-    }
+
     .dashboard-fluid .dashboard-header .copy-link input {
         width: calc(100% - 50px);
     }
+
+
 }
 
 .dashboard-fluid .dashboard-header .copy-link__icon {
