@@ -5116,7 +5116,7 @@ th.w-85 {
 }
 
 .sidebar__logo .sidebar__main-logo {
-  width: 100%;
+  text-align: center;
 }
 
 .sidebar__logo .sidebar__main-logo img {
@@ -5124,11 +5124,11 @@ th.w-85 {
   max-height: 100px;
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
   .sidebar__logo .sidebar__main-logo {
     width: 100%;
   }
-}
+} */
 
 .navbar__expand {
   margin-left: auto;
