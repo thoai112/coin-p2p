@@ -3,7 +3,8 @@
 @endphp
 <div class="dashboard-header">
     <div class="dashboard-header__inner">
-        <div class="dashboard-header__left">
+        {{-- LINK HREF --}}
+        {{-- <div class="dashboard-header__left">
             <div class="copy-link">
                 <input type="text" class="copyText" value="{{ route('home') }}?reference={{ $user->username }}" readonly>
                 <button class="copy-link__button copyTextBtn" data-bs-toggle="tooltip"  data-bs-placement="right" title="@lang('Copy URL')">
@@ -11,11 +12,12 @@
                     </span>
                 </button>
             </div>
-        </div>
+        </div> --}}
         <div class="dashboard-header__right">
-            <a href="{{ route('trade') }}" target="_blank" class="btn btn--base outline btn--sm trade-btn">
+            {{-- TOPBAR USER --}}
+            {{-- <a href="{{ route('trade') }}" target="_blank" class="btn btn--base outline btn--sm trade-btn">
                 <span class="icon-trade"></span> @lang('TRADE')
-            </a>
+            </a> --}}
             <div class="user-info">
                 <div class="user-info__right">
                     <div class="user-info__button">
