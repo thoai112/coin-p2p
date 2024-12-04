@@ -70,7 +70,7 @@
                         <a class="nav-link" href="{{route('p2p')}}">@lang('P2P')</a>
                         
                     </li>
-                    <li class="nav-item has-mega-menu">
+                    {{-- <li class="nav-item has-mega-menu">
                         <a class="nav-link" href="javascript:void(0)">@lang('Trade')</a>
                         <div class="mega-menu">
                             <div class="mega-menu__inner">
@@ -100,7 +100,7 @@
                                 </ul>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('crypto_currencies') }}">@lang('Crypto Currency')</a>
                     </li>
