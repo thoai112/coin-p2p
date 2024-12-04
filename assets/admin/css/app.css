@@ -5115,11 +5115,11 @@ th.w-85 {
   flex-shrink: 0;
 }
 
-.sidebar__logo .sidebar__main-logo {
+/* .sidebar__logo .sidebar__main-logo {
   text-align: center;
-}
+} */
 
-.sidebar__logo .sidebar__main-logo img {
+.sidebar__logo .sidebar__logo img {
   max-width: 100px;
   max-height: 100px;
 }
