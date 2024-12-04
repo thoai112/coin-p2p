@@ -46,7 +46,7 @@
                     <input type="number" step="any" placeholder="@lang('Amount')"
                         class="form-control form--control filter-amount" value="{{ $request->amount ?? '' }}">
                 </div>
-                <div class="col-xl-3 col-sm-4" id="currency-col">
+                {{-- <div class="col-xl-3 col-sm-4" id="currency-col">
                     <div class="p2p-custom--dropdown mb-4">
                         <div class="p2p-custom--dropdown-right dropdown currency-dropdown">
                             <div class="p2p-custom--dropdown-select" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,7 +88,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-sm-4 col-xl-3 " id="payment-method-col">
                     <div class="p2p-custom--dropdown mb-4 payment-method-dropdown">
                         <div class="p2p-custom--dropdown-right dropdown">
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-4">
+                {{-- <div class="col-xl-3 col-sm-4">
                     <div class="p2p-custom--dropdown mb-4 country-dropdown">
                         <div class="p2p-custom--dropdown-right dropdown">
                             <div class="p2p-custom--dropdown-select" data-bs-toggle="dropdown" aria-expanded="false">
@@ -192,7 +192,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
