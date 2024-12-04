@@ -4,15 +4,15 @@
 <div class="dashboard-header">
     <div class="dashboard-header__inner">
         {{-- LINK HREF --}}
-        {{-- <div class="dashboard-header__left">
-            <div class="copy-link">
+        <div class="dashboard-header__left">
+            {{-- <div class="copy-link">
                 <input type="text" class="copyText" value="{{ route('home') }}?reference={{ $user->username }}" readonly>
                 <button class="copy-link__button copyTextBtn" data-bs-toggle="tooltip"  data-bs-placement="right" title="@lang('Copy URL')">
                     <span class="copy-link__icon"><i class="las la-copy"></i>
                     </span>
                 </button>
-            </div>
-        </div> --}}
+            </div> --}}
+        </div>
         <div class="dashboard-header__right">
             {{-- TOPBAR USER --}}
             {{-- <a href="{{ route('trade') }}" target="_blank" class="btn btn--base outline btn--sm trade-btn">
