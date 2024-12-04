@@ -3812,6 +3812,11 @@ input[type=number] {
 }
 
 @media screen and (max-width: 575px) {
+
+    .dashboard-fluid .user-info{
+        margin-top: 20px;
+        margin-left: 50px;
+    }
     .dashboard-fluid .user-info__right {
         margin-top: 20px;
     }
