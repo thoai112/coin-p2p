@@ -20,6 +20,11 @@
         </div>
         
         <div class="container">
+
+            <div class="banner-right__center">
+                <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_one, '300x300') }}">
+            </div>
+            
             <div class="row align-items-center">
                 {{-- <div class="col-lg-6">
                     <div class="banner-content ">
@@ -60,9 +65,7 @@
                         </div> --}}
                     {{-- </div> --}}
 
-                    <div class="banner-right__center">
-                        <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_one, '300x300') }}">
-                    </div>
+
                 </div>
             </div>
             <div class="row">

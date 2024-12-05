@@ -3813,30 +3813,31 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 
 .banner-right__center{
     position: relative;
-    justify-content: center;
-    justify-items: center;
-    bottom: -50px;
     z-index: -1;
-    width: 400px;
+    width: 300;
     transition: 0.3s;
-    animation: UpDownCow 5s linear infinite;
+    animation: UpDownJump 5s linear infinite;
+    margin: -100px calc(100% - 65%) 0 0;
 }
 
 @media screen and (max-width: 1499px) {
     .banner-right__center {
-        width: 350px;
+        width: 250px;
+        margin-top: 50px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .banner-right__center {
-        width: 300px;
+        width: 200px;
+        margin-top: 50px;
     }
 }
 
 @media screen and (max-width: 575px) {
     .banner-right__center {
-        width: 250px;
+        width: 150px;
+        margin-top: 50px;
     }
 }
 @keyframes UpDownJump {
