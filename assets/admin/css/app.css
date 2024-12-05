@@ -7671,14 +7671,14 @@ label.required:after {
 }
 
 .sidebar__menu-wrapper::-webkit-scrollbar-track {
-  background: #071251; 
+  background: #112e45; 
 }
  
 .sidebar__menu-wrapper::-webkit-scrollbar-thumb {
-  background: #4634ff; 
+  background: #112e42; 
 }
 .sidebar__menu-wrapper::-webkit-scrollbar-thumb:hover {
-  background: #4634ff !important; 
+  background: #112e42 !important; 
 }
 
 .sidebar__menu-wrapper::-webkit-scrollbar-thumb:hover {
