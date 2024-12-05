@@ -5337,7 +5337,7 @@ th.w-85 {
 }
 
 .sidebar[class*='bg--'] .sidebar__menu .sidebar-menu-item > a:hover {
-  background-color: #4634ff59;
+  background-color: #3d3824;
 }
 
 .sidebar[class*='bg--'] .sidebar__menu .sidebar-menu-item .menu-icon,
@@ -5346,7 +5346,7 @@ th.w-85 {
 }
 
 .sidebar[class*='bg--'] .sidebar__menu .sidebar-menu-item .side-menu--open {
-  background-color: #4634ff !important;
+  background-color: #3d3824 !important;
 }
 
 .sidebar[class*='bg--'] .sidebar__menu .sidebar-dropdown > a::before {
@@ -5394,7 +5394,7 @@ th.w-85 {
 
 .sidebar[class*='bg--white'] .sidebar__menu .sidebar-menu-item > a:hover .menu-icon,
 .sidebar[class*='bg--white'] .sidebar__menu .sidebar-menu-item > a:hover .menu-title {
-  color: #4634ff;
+  color: #3d3824;
 }
 
 .sidebar[class*='bg--white'] .sidebar__menu .sidebar-menu-item .menu-icon,
@@ -5408,7 +5408,7 @@ th.w-85 {
 
 .sidebar.pill--bg-1 .sidebar-menu-item .side-menu--open,
 .sidebar.pill--bg-1 .sidebar-menu-item.active > a {
-  background-color: #4634ff;
+  background-color: #3d3824;
 }
 
 .sidebar.pill--bg-2 .sidebar-menu-item .side-menu--open,
