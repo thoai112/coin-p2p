@@ -3817,7 +3817,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     width: 300;
     transition: 0.3s;
     animation: UpDownJump 5s linear infinite;
-    margin: -100px calc(100% - 65%) 0 0;
+    margin: -100px 0 0 calc(100% - 65%);
 }
 
 @media screen and (max-width: 1499px) {
