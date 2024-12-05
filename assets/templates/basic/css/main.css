@@ -3730,14 +3730,17 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 
 .banner-content__title {
     color: hsl(var(--heading-color));
-    margin-bottom: 70px;
+    align-items: center;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
 }
 
-@media screen and (max-width: 1399px) {
+/* @media screen and (max-width: 1399px) {
     .banner-content__title {
         margin-bottom: 30px;
     }
-}
+} */
 
 .banner-content__title-base {
     color: hsl(var(--base));
