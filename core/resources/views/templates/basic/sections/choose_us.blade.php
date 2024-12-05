@@ -11,19 +11,11 @@
             <div class="col-lg-6">
                 <div class="section-heading">
                     <h2 class="section-heading__title">{{ __(@$content->data_values->heading) }} </h2>
-                    
+
                     @foreach ($elements as $element)
-                        <div class="col-lg-3 col-md-6 col-sm-6 col-xsm-6">
-                            <div class="coincheck-item">
-                                <div class="coincheck-item__icon">
-                                    @php  echo @$element->data_values->icon; @endphp
-                                </div>
-                                <h4 class="coincheck-item__title"> {{ __(@$element->data_values->heading) }}</h4>
-                                <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
-                            </div>
-                        </div>
+                        <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
                     @endforeach
-                    
+
                 </div>
             </div>
 
