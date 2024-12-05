@@ -3633,7 +3633,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 .banner-section {
     position: relative;
     z-index: 1;
-    padding: 235px 0 55px;
+    padding: 100px 0 55px;
     overflow: hidden;
 }
 
@@ -3817,27 +3817,24 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     width: 300;
     transition: 0.8s;
     animation: UpDownJump 2s ease-in-out infinite;
-    margin: -100px 0 0 calc(100% - 65%);
+    margin-left: calc(100% - 65%);
 }
 
 @media screen and (max-width: 1499px) {
     .banner-right__center {
         width: 250px;
-        margin-top: 50px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .banner-right__center {
         width: 200px;
-        margin-top: 50px;
     }
 }
 
 @media screen and (max-width: 575px) {
     .banner-right__center {
         width: 150px;
-        margin-top: 50px;
     }
 }
 @keyframes UpDownJump {
