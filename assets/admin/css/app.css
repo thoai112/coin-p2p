@@ -5217,17 +5217,17 @@ th.w-85 {
 }
 
 .sidebar__menu .sidebar-menu-item > a:hover .menu-icon {
-  color: #4634ff;
-  text-shadow: 1px 2px 5px #4634ff;
+  color: #807921;
+  text-shadow: 1px 2px 5px #807921;
 }
 
 .sidebar__menu .sidebar-menu-item > a:hover .menu-title {
-  color: #4634ff;
+  color: #807921;
 }
 
 .sidebar__menu .sidebar-menu-item .side-menu--open,
 .sidebar__menu .sidebar-menu-item.active > a {
-  background-color: #4634ff !important;
+  background-color: #807921 !important;
 }
 
 .sidebar__menu .menu-icon {
