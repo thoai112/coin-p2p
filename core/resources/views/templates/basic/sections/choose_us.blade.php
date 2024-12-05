@@ -8,7 +8,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-7">
                 <div class="section-heading">
                     <h2 class="section-heading__title">{{ __(@$content->data_values->heading) }} </h2>
 
@@ -19,8 +19,12 @@
                 </div>
             </div>
 
-            <div class="col-lg-4">
-                <img src="{{ getImage('assets/images/frontend/choose_us/' . @$content->data_values->rotate_image, '400x400') }}">
+            <div class="col-lg-5">
+
+                <div class="banner-right__center">
+                    <img src="{{ getImage('assets/images/frontend/choose_us/' . @$content->data_values->image, '400x400') }}">
+                </div>
+                
             </div>
         </div>
         {{-- <div class="row justify-content-center gy-4">
