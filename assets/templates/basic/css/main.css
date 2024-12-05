@@ -3841,18 +3841,14 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     }
 }
 @keyframes UpDownJump {
-    0% {
-        bottom: 80px;
-    }
-
-    50% {
-        bottom: 70px;
-    }
-
+    0%,
     100% {
-        bottom: 100px;
+      transform: translateY(0);
     }
-}
+    50% {
+      transform: translateY(-20px);
+    }
+  }
 /* .banner-right__thumb {
     width: 500px;
     position: relative;
