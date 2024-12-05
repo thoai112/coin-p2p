@@ -3811,6 +3811,47 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     }
 }
 
+.banner-right__center{
+    position: relative;
+    justify-content: center;
+    justify-items: center;
+    bottom: -50px;
+    z-index: -1;
+    width: 400px;
+    transition: 0.3s;
+    animation: UpDownCow 5s linear infinite;
+}
+
+@media screen and (max-width: 1499px) {
+    .banner-right__center {
+        width: 350px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-right__center {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .banner-right__center {
+        width: 250px;
+    }
+}
+@keyframes UpDownJump {
+    0% {
+        bottom: 80px;
+    }
+
+    50% {
+        bottom: 70px;
+    }
+
+    100% {
+        bottom: 100px;
+    }
+}
 /* .banner-right__thumb {
     width: 500px;
     position: relative;
