@@ -37,18 +37,18 @@
                     </div>
                 </div> --}}
 
-                <div class="banner-right__thumb">
-                            <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_one, '300x100') }}">
-                            {{-- <div class="banner-right__thumb-shape">
+                {{-- <div class="banner-right__thumb">
+                            <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_one, '300x300') }}">
+                                <div class="banner-right__thumb-shape">
                                 <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_two, '155x155') }}">
-                            </div> --}}
-                            {{-- <div class="banner-right__shape">
+                            </div>
+                            <div class="banner-right__shape">
                                 <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_three, '450x285') }}">
-                            </div> --}}
-                        </div>
+                            </div> 
+                        </div> --}}
                
-                <div class="col-lg-6">
-                    <div class="banner-right">
+                {{-- <div class="col-lg-6">
+                    <div class="banner-right"> --}}
                         
                         {{-- <div class="banner-right__shape">
                             <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_three, '450x285') }}">
@@ -58,7 +58,7 @@
                             <div class="banner-right__shape-bg-two bg"></div>
                             <div class="banner-right__shape-bg-three bg"></div>
                         </div> --}}
-                    </div>
+                    {{-- </div> --}}
                 </div>
             </div>
             <div class="row">
