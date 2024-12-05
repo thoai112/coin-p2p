@@ -24,8 +24,11 @@
             <div class="banner-right__center">
                 <img src="{{ getImage('assets/images/frontend/banner/' . @$banner->data_values->image_one, '300x300') }}">
             </div>
-            
+
             <div class="row align-items-center">
+                <h1 class="banner-content__title">
+                    @php echo highLightedString(@$banner->data_values->heading); @endphp
+                </h1>
                 {{-- <div class="col-lg-6">
                     <div class="banner-content ">
                         <h1 class="banner-content__title">
