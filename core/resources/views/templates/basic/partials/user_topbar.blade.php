@@ -15,9 +15,9 @@
         </div>
         <div class="dashboard-header__right">
             {{-- TOPBAR USER --}}
-            {{-- <a href="{{ route('trade') }}" target="_blank" class="btn btn--base outline btn--sm trade-btn">
-                <span class="icon-trade"></span> @lang('TRADE')
-            </a> --}}
+            <a href="{{ route('home') }}" target="_blank" class="btn btn--base outline btn--sm trade-btn">
+                <span class="icon-trade"></span> @lang('Home')
+            </a>
             <div class="user-info">
                 <div class="user-info__right">
                     <div class="user-info__button">
