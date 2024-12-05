@@ -462,7 +462,7 @@ a {
 }
 
 .bg--dark {
-  --color: #071251;
+  --color: #081B29;
   background-color: var(--color) !important;
 }
 
