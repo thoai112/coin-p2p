@@ -22,9 +22,9 @@
     --light-s: 0%;
     --light-l: 100%;
     --light: var(--light-h) var(--light-s) var(--light-l);
-    --black-h: 205.45;
-    --black-s: 67.35%;
-    --black-l: 9.61%;
+    --black-h: 0;
+    --black-s: 0%;
+    --black-l: 100%;
     --black: var(--black-h) var(--black-s) var(--black-l);
     --static-black: 205.45 67.35% 9.61%;
     --heading-color: var(--black);
@@ -226,7 +226,7 @@
 
 [data-theme=light] {
     /* ========================= Color Variables Start =========================== */
-    --white: 0 0% 0%;
+    --white: 205.45 67.35% 9.61%;
     --light-h: 217;
     --light-s: 6%;
     --light-l: 60%;
