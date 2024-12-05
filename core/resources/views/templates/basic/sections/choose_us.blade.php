@@ -20,7 +20,7 @@
             </div>
 
             <div class="col-lg-4">
-
+                <img src="{{ getImage('assets/images/frontend/choose_us/' . @$content->data_values->rotate_image, '400x400') }}">
             </div>
         </div>
         {{-- <div class="row justify-content-center gy-4">
