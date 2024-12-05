@@ -8,13 +8,19 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-6">
+                <div class="section-heading">
+                    <h2 class="section-heading__title">{{ __(@$content->data_values->heading) }} </h2>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
                 <div class="section-heading">
                     <h2 class="section-heading__title">{{ __(@$content->data_values->heading) }} </h2>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center gy-4">
+        {{-- <div class="row justify-content-center gy-4">
             @foreach ($elements as $element)
             <div class="col-lg-3 col-md-6 col-sm-6 col-xsm-6">
                 <div class="coincheck-item">
@@ -26,6 +32,6 @@
                 </div>
             </div>
             @endforeach
-        </div>
+        </div> --}}
     </div>
 </div>
