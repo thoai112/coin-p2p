@@ -3642,7 +3642,7 @@ input[type=number] {
 
 @media screen and (max-width: 575px) {
     .dashboard-fluid .dashboard-header__right {
-        margin-left: calc(100% - 70px);
+        margin-left: calc(100% - 160px);
     }
 }
 
@@ -4866,9 +4866,9 @@ span.input-group-text {
 }
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 575px) {
     .trade-btn {
-        margin-top: 1.5rem !important;
+        margin-top: 0.5rem !important;
     }
 }
 
