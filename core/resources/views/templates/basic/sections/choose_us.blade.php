@@ -8,7 +8,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="section-heading">
                     <h2 class="section-heading__title">{{ __(@$content->data_values->heading) }} </h2>
 
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-4">
 
             </div>
         </div>
