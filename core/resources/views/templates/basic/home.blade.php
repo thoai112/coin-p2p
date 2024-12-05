@@ -29,6 +29,10 @@
                 <h1 class="banner-content__title">
                     @php echo highLightedString(@$banner->data_values->heading); @endphp
                 </h1>
+                <p class="banner-content__desc">
+                    @php echo highLightedString(@$banner->data_values->subheading,'fw-bold'); @endphp
+                </p>
+                
                 {{-- <div class="col-lg-6">
                     <div class="banner-content ">
                         <h1 class="banner-content__title">
