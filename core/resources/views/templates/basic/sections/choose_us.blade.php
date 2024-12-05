@@ -22,7 +22,7 @@
             <div class="col-lg-5">
 
                 <div class="banner-right__center">
-                    <img src="{{ getImage('assets/images/frontend/choose_us/' . @$content->data_values->image, '400x400') }}">
+                    <img src="{{ getImage('assets/images/frontend/choose_us/' . @$content->data_values->rotate_image, '400x400') }}">
                 </div>
                 
             </div>
