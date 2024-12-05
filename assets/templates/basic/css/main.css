@@ -3817,10 +3817,12 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 .banner-right__center{
     position: relative;
     z-index: -1;
-    width: 300;
     transition: 0.8s;
     animation: UpDownJump 2s ease-in-out infinite;
-    margin-left: calc(100% - 65%);
+    align-items: center;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
 }
 
 @media screen and (max-width: 1499px) {
