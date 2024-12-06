@@ -2144,9 +2144,6 @@ input[type=number] {
     border-radius: 10px;
 }
 
-.table_cow {
-    border-radius: 10px;
-}
 
 .table.table-two thead tr th {
     background-color: #0d1e23 !important;
@@ -2190,6 +2187,7 @@ input[type=number] {
     font-weight: 400;
     border-bottom: 0;
     max-width: 170px;
+    border-radius: 8px;
 }
 
 .table tbody {

@@ -37,7 +37,7 @@
         </div>
         <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
             <thead>
-                <tr class="table_cow">
+                <tr>
                     <th>@lang('Code')</th>
                     <th>@lang('Basic Unit')</th>
                     <th>@lang('VND')</th>
