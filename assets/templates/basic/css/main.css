@@ -2028,13 +2028,13 @@ input[type=number] {
     font-size: 14px;
 }
 
-table tr:last-child td:last-child {
+/* table tr:last-child td:last-child {
     border-bottom-right-radius: 10px;
   }
   
-table tr:last-child th:first-child {
+table tr:first-child th:first-child {
     border-bottom-left-radius: 10px;
-  }
+  } */
 
 .table-section {
     position: relative;
@@ -2212,6 +2212,7 @@ table tr:last-child th:first-child {
     vertical-align: middle;
     padding: 10px 15px;
     border-width: 1px;
+    border-radius: 10px;
     border: 0;
     font-family: var(--heading-font);
     color: hsl(var(--black)/0.7);
