@@ -2144,10 +2144,13 @@ input[type=number] {
     border-radius: 10px;
 }
 
+.table_cow {
+    border-radius: 10px;
+}
+
 .table.table-two thead tr th {
     background-color: #0d1e23 !important;
     padding: 10px 3px;
-    border-radius: 8px;
 }
 
 .table.table-two tbody {
