@@ -2311,6 +2311,7 @@ input[type=number] {
 
 .coin-pair-list-table tbody tr td {
     border-top: 1.5px solid #181d20ad;
+    border-radius: 10px;
 }
 
 [data-theme=dark] .coin-pair-list-table tbody tr td {
