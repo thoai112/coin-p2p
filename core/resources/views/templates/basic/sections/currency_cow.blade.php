@@ -30,11 +30,11 @@
     <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
         <thead>
             <tr class="">
-                <th>@lang('Pair')</th>
-                <th>@lang('Price')</th>
-                <th>@lang('1h Change')</th>
-                <th>@lang('24h Change')</th>
-                <th class="text-start">@lang('Marketcap')</th>
+                <th>@lang('Code')</th>
+                <th>@lang('Basic Unit')</th>
+                <th>@lang('VND')</th>
+                {{-- <th>@lang('24h Change')</th>
+                <th class="text-start">@lang('Marketcap')</th> --}}
             </tr>
         </thead>
         <tbody id="market-list-body"></tbody>
@@ -48,7 +48,7 @@
     @endif
 </div>
 
-@push('script')
+{{-- @push('script')
     <script>
         "use strict";
         (function($) {
@@ -209,7 +209,7 @@
 
         })(jQuery);
     </script>
-@endpush
+@endpush --}}
 
 @if (!app()->offsetExists('pusher_script'))
 @push('script-lib')
