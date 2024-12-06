@@ -75,6 +75,7 @@
     <div class="currency-item-cow">
         <div class="section-heading">
             <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
+            <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
 
             {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
