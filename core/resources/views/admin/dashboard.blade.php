@@ -36,10 +36,7 @@
             <x-widget style="6" link="{{ route('admin.currency.fiat') }}" icon="las la-dollar-sign" title="Total Fiat Currencies"
                 value="{{ $widget['total_fiat_currency'] }}" bg="primary" />
         </div><!-- dashboard-w1 end -->
-        <div class="col-xxl-3 col-sm-6">
-            <x-widget style="6" link="{{ route('admin.currency.cow') }}" icon="las la-dollar-sign" title="Total Cow Currencies"
-                value="{{ $widget['total_cow_currency'] }}" bg="primary" />
-        </div><!-- dashboard-w1 end -->
+
     </div>
 
     <div class="row mb-none-30 mb-3 align-items-center gy-4">
