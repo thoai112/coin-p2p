@@ -232,6 +232,20 @@
     </script>
 @endpush --}}
 
+<script>
+    $(window).scroll(function() {
+        var scrollPosition = $(window).scrollTop();
+        var elementPosition = $('.currency-item-cow').offset().top;
+        var windowHeight = $(window).height();
+
+        if (scrollPosition + windowHeight > elementPosition) {
+            $('.currency-item-cow').fadeIn();
+        } else {
+            $('.currency-item-cow').fadeOut();
+        }
+    });
+</script>
+
 @if (!app()->offsetExists('pusher_script'))
     @push('script-lib')
         <script src="{{ asset('assets/global/js/pusher.min.js') }}"></script>
