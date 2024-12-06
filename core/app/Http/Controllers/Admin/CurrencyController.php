@@ -33,9 +33,9 @@ class CurrencyController extends Controller
 
     public function cow()
     {
-        $pageTitle            = "Cow Currency List";
+        $pageTitle            = "Cow Currency History";
         $currencies           = $this->currencyData('fiat');
-        $type                 = Status::FIAT_CURRENCY;
+        $type                 = Status::COW_CURRENCY;
         $currencyDataProvider = defaultCurrencyDataProvider(false);
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
     }
