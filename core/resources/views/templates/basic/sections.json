@@ -39,6 +39,7 @@
         "builder": true,
         "name": "Currency Cow Section",
         "content": {
+            "table_heading":"text",
             "cow_heading": "text",
             "cow_subheading": "text"
         },
