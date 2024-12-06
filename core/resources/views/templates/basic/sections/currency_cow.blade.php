@@ -88,8 +88,9 @@
         $(window).scroll(function() {
             var rect = $('.currency-item-cow')[0].getBoundingClientRect();
             var windowHeight = $(window).height();
+            var elementHeight = $('.currency-item-cow').height();
 
-            if (rect.top < windowHeight) {
+            if (rect.top + elementHeight <= windowHeight) {
                 $('.currency-item-cow').fadeIn();
             } else {
                 $('.currency-item-cow').fadeOut();
