@@ -24,7 +24,7 @@
     --light: var(--light-h) var(--light-s) var(--light-l);
     --black-h: 0;
     --black-s: 0%;
-    --black-l: 100%;
+    --black-l: 50%;
     --black: var(--black-h) var(--black-s) var(--black-l);
     --static-black: 205.45 67.35% 9.61%;
     --heading-color: var(--black);
