@@ -56,11 +56,36 @@
         @endif
     </div>
 </div>
-<div class="col-lg-5">
+{{-- <div class="col-lg-5">
     <div class="currency-item-cow">
         <div class="section-heading">
             <h3 class="section-heading__title"> test title </h3>
 
+            @foreach ($elements as $element)
+                <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
+            @endforeach
+
+        </div>
+    </div>
+</div> --}}
+
+<div class="col-lg-5">
+    <div class="currency-item-cow">
+        <div class="section-heading">
+            <h3 class="section-heading__title"> test title </h3>
+            <script>
+                $(window).scroll(function() {
+                    var scrollPosition = $(window).scrollTop();
+                    var elementPosition = $('.currency-item-cow').offset().top;
+                    var windowHeight = $(window).height();
+
+                    if (scrollPosition + windowHeight > elementPosition) {
+                        $('.currency-item-cow').fadeIn();
+                    } else {
+                        $('.currency-item-cow').fadeOut();
+                    }
+                });
+            </script>
             {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
             @endforeach --}}
@@ -232,19 +257,6 @@
     </script>
 @endpush --}}
 
-<script>
-    $(window).scroll(function() {
-        var scrollPosition = $(window).scrollTop();
-        var elementPosition = $('.currency-item-cow').offset().top;
-        var windowHeight = $(window).height();
-
-        if (scrollPosition + windowHeight > elementPosition) {
-            $('.currency-item-cow').fadeIn();
-        } else {
-            $('.currency-item-cow').fadeOut();
-        }
-    });
-</script>
 
 @if (!app()->offsetExists('pusher_script'))
     @push('script-lib')
