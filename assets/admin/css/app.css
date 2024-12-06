@@ -3383,6 +3383,8 @@ select:focus-within {
 /* table css start */
 .table {
   margin-bottom: 0;
+  box-shadow: 0 0 0 1px var(--base);
+  border-radius: 10px !important;
 }
 
 .table > :not(:first-child) {
