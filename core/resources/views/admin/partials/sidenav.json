@@ -193,6 +193,19 @@
                     "title": "Fiat Currency",
                     "route_name": "admin.currency.fiat",
                     "menu_active": "admin.currency.fiat"
+                },
+                {
+                    "keyword": [
+                        "Cow currency",
+                        "Manage Currency",
+                        "Cow currency",
+                        "Traditional currency",
+                        "Paper money",
+                        "Cow management"
+                    ],
+                    "title": "Cow Currency",
+                    "route_name": "admin.currency.fiat",
+                    "menu_active": "admin.currency.fiat"
                 }
             ]
         },
