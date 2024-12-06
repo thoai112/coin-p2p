@@ -4739,7 +4739,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     border-radius: 25px;
     border-color: hsl(var(--base));
     transition: 0.2s linear;
-    border-width: 3px;
+    border-width: 2px;
     text-align: center;
     justify-items: center;
     margin-left: 5%;
