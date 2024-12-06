@@ -31,6 +31,10 @@
         "builder": false,
         "name": "Coin Pair Section"
     },
+    "list_currency": {
+        "builder": false,
+        "name": "Currency Section"
+    },
     "choose_us": {
         "builder": true,
         "name": "Choose Us Section",
