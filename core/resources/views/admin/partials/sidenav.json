@@ -204,8 +204,8 @@
                         "Cow management"
                     ],
                     "title": "Cow Currency",
-                    "route_name": "admin.currency.fiat",
-                    "menu_active": "admin.currency.fiat"
+                    "route_name": "admin.currency.cow",
+                    "menu_active": "admin.currency.cow"
                 }
             ]
         },
