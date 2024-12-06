@@ -57,7 +57,9 @@
     </div>
 </div>
 <div class="col-lg-5">
-    <h1> test data </h1>
+    <div class="currency-item">
+        <h1> test data </h1>
+    </div>
 </div>
 
 {{-- @push('script')
