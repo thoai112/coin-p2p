@@ -56,6 +56,9 @@
         @endif
     </div>
 </div>
+<div class="col-lg-5">
+    <h1> test data </h1>
+</div>
 
 {{-- @push('script')
     <script>
