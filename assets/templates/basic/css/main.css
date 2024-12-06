@@ -4737,7 +4737,6 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     transition: 0.2s linear;
     border-width: 3px;
     text-align: center;
-    justify-content: center;
     justify-items: center;
     margin-left: 5%;
 }

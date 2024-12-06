@@ -58,7 +58,14 @@
 </div>
 <div class="col-lg-5">
     <div class="currency-item-cow">
-        <h1> test data </h1>
+        <div class="section-heading">
+            <h2 class="section-heading__title"> test title </h2>
+
+            {{-- @foreach ($elements as $element)
+                <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
+            @endforeach --}}
+
+        </div>
     </div>
 </div>
 
