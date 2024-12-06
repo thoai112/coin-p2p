@@ -234,7 +234,7 @@
         "content": {
             "images": {
                 "image": {
-                    "size": "600x600"
+                    "size": "300x300"
                 }
             },
             "heading_one": "text",
@@ -250,7 +250,7 @@
         "content": {
             "images": {
                 "image": {
-                    "size": "600x600"
+                    "size": "300x300"
                 }
             },
             "title": "text",

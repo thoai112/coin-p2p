@@ -1821,3 +1821,32 @@ ALTER TABLE `orders` ADD `stop_rate` DECIMAL(28,8) NOT NULL DEFAULT '0' COMMENT 
 ALTER TABLE `orders` CHANGE `order_type` `order_type` TINYINT(1) NOT NULL DEFAULT '1' COMMENT '1=Limit Order, 2=Market Order,3=Stop Limit order';
 ALTER TABLE `orders` CHANGE `status` `status` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0=Open,1=Completed,2=pending,9=canceled';
 INSERT INTO `cron_jobs` (`id`, `name`, `alias`, `action`, `url`, `cron_schedule_id`, `next_run`, `last_run`, `is_running`, `is_default`, `created_at`, `updated_at`) VALUES (NULL, 'Stop Limit Order', 'stop_limit_order', '[\"App\\\\Http\\\\Controllers\\\\CronController\", \"stopLimitOrder\"]', NULL, '2', NULL, NULL, '1', '1', NULL, NULL);
+
+
+
+
+-- CREATE TABLE `cow_currencies` (
+--   `id` bigint UNSIGNED NOT NULL,
+--   `type` tinyint(1) NOT NULL DEFAULT '3' COMMENT '1=Crypto,2=Fiat,3=Cow',
+--   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `sign` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `symbol` varchar(55) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `timestamp` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   `rate` decimal(28,8) NOT NULL DEFAULT '0.00000000' COMMENT 'only for cow currency',
+--   `rates` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'currenccies rates',
+--   `ranking` int NOT NULL DEFAULT '0',
+--   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=Enable,0=Disable',
+--   `last_update` int NOT NULL DEFAULT '0',
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ALTER TABLE `currencies`
+--   ADD PRIMARY KEY (`id`),
+--   ADD UNIQUE KEY `currencies_name_unique` (`name`),
+--   ADD UNIQUE KEY `currencies_symbol_unique` (`symbol`);
+
+
+-- ALTER TABLE `currencies`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
