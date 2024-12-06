@@ -2188,6 +2188,7 @@ input[type=number] {
     border-bottom: 0;
     max-width: 170px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .table tbody {
