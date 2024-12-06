@@ -20,7 +20,7 @@
     --static-white: 0 0% 100%;
     --light-h: 0;
     --light-s: 0%;
-    --light-l: 100%;
+    --light-l: 30%;
     --light: var(--light-h) var(--light-s) var(--light-l);
     --black-h: 0;
     --black-s: 0%;
