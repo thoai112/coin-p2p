@@ -4728,6 +4728,102 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 }
 
 /*=========================== currency section css end here ===========================*/
+/*=========================== currency_cow section css start here ===========================*/
+.currency-item-cow {
+    padding: 20px;
+    background-color: hsl(var(--body-background));
+    border-radius: 10px;
+    border-color: hsl(var(--base));
+    transition: 0.2s linear;
+}
+
+@media screen and (max-width: 767px) {
+    .currency-item-cow {
+        padding: 15px;
+    }
+}
+
+.currency-item-cow:hover {
+    box-shadow: var(--box-shadow-two);
+}
+
+.currency-item-cow__icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.currency-item-cow__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.currency-item-cow__icon-link {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: hsl(var(--black)/0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsl(var(--black)/0.4);
+}
+
+.currency-item-cow__icon-link:hover {
+    color: hsl(var(--static-white));
+    background-color: hsl(var(--base));
+}
+
+.currency-item-cow__coin {
+    padding-left: 15px;
+}
+
+@media screen and (max-width: 575px) {
+    .currency-item-cow__coin {
+        padding-left: 8px;
+    }
+}
+
+.currency-item-cow__coin-title {
+    margin-bottom: 0px;
+}
+
+.currency-item-cow__content {
+    padding-left: 45px;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 575px) {
+    .currency-item-cow__content {
+        padding-left: 35px;
+    }
+}
+
+.currency-item-cow__content-date {
+    margin-bottom: 0;
+    color: hsl(var(--black));
+    font-family: var(--body-font);
+    font-weight: 300;
+}
+
+.currency-item-cow__content-number {
+    margin-bottom: 0;
+    color: hsl(var(--body-color)) !important;
+}
+
+
+.button {
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 575px) {
+    .button {
+        margin-top: 25px;
+    }
+}
+
+/*=========================== currency_cow section css end here ===========================*/
 /*=================== product-section css start here ===================*/
 .product-section {
     position: relative;

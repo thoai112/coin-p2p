@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="col-lg-5">
-    <div class="currency-item">
+    <div class="currency-item-cow">
         <h1> test data </h1>
     </div>
 </div>
