@@ -2140,11 +2140,14 @@ input[type=number] {
     border-collapse: collapse;
     border-collapse: separate;
     border-spacing: 0px 0px;
+    box-shadow: 0 0 0 1px var(--base);
+    border-radius: 10px;
 }
 
 .table.table-two thead tr th {
     background-color: #0d1e23 !important;
     padding: 10px 3px;
+    border-radius: 8px;
 }
 
 .table.table-two tbody {
