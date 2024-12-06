@@ -88,7 +88,11 @@ class Currency extends Model
             $html = '';
             if ($this->type == Status::CRYPTO_CURRENCY) {
                 $html = '<span class="badge badge--primary">' . trans('Crypto') . '</span>';
-            } else {
+            } 
+            else if($this->type == Status::COW_CURRENCY) {
+                $html = '<span class="badge badge--primary">' . trans('Cow') . '</span>';
+            }
+            else {
                 $html = '<span class="badge badge--success">' . trans('Fiat') . '</span>';
             }
             return $html;
