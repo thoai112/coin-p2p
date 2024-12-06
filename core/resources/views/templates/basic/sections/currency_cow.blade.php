@@ -85,18 +85,19 @@
 
 @push('script')
     <script>
-        $(window).scroll(function() {
-            var rect = $('.currency-item-cow')[0].getBoundingClientRect();
-            var windowHeight = $(window).height();
-            var elementHeight = $('.currency-item-cow').height();
-            var scrollbarHeight = $(window).height() - $(document).height();
-
-            if (rect.top + elementHeight <= windowHeight + scrollbarHeight) {
-                $('.currency-item-cow').fadeIn();
-            } else {
-                $('.currency-item-cow').fadeOut();
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, {
+            threshold: 1.0,
         });
+
+        observer.observe(document.querySelector('.currency-item-cow'));
     </script>
 @endpush
 {{-- @push('script')

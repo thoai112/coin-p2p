@@ -4743,12 +4743,17 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     text-align: center;
     justify-items: center;
     margin-left: 5%;
+    opacity: 0;
 }
 
 @media screen and (max-width: 767px) {
     .currency-item-cow {
         padding: 15px;
     }
+}
+
+.currency-item-cow.visible {
+    opacity: 1;
 }
 
 .currency-item-cow:hover {
