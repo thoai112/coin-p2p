@@ -35,6 +35,20 @@
         "builder": false,
         "name": "Currency Section"
     },
+    "currency_cow": {
+        "builder": true,
+        "name": "Currency Cow Section",
+        "content": {
+            "cow_heading": "text",
+            "cow_subheading": "text"
+        },
+        "element": {
+            "icon": "icon",
+            "heading": "text",
+            "subheading": "text",
+            "modal": true
+        }
+    },
     "choose_us": {
         "builder": true,
         "name": "Choose Us Section",
