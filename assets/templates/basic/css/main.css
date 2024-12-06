@@ -2028,6 +2028,14 @@ input[type=number] {
     font-size: 14px;
 }
 
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  
+table tr:last-child th:first-child {
+    border-bottom-left-radius: 10px;
+  }
+
 .table-section {
     position: relative;
     z-index: 1;
@@ -2177,10 +2185,6 @@ input[type=number] {
 
 .table.table-two tbody tr td::before {
     color: hsl(var(--white)/0.7);
-}
-
-.table thead tr{
-    border-radius: 10px;
 }
 
 .table thead tr th {
