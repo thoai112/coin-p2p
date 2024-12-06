@@ -2179,6 +2179,10 @@ input[type=number] {
     color: hsl(var(--white)/0.7);
 }
 
+.table thead tr{
+    border-radius: 10px;
+}
+
 .table thead tr th {
     background-color: hsl(var(--white));
     padding: 15px 20px;
