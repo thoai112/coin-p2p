@@ -17,7 +17,7 @@
                 </button>
             </div>
             <div class="market-list__left">
-                @if (@$meta->from_section)
+                {{-- @if (@$meta->from_section)
                     <a href="{{ route('market') }}" class="btn btn--sm btn--base outline">
                         <i class="las la-coins"></i> @lang('All Pair')
                     </a>
@@ -27,7 +27,12 @@
                             placeholder="@lang('Search here ')...">
                         <i class="las la-search"></i>
                     </form>
-                @endif
+                @endif --}}
+                <form class="market-list-search">
+                    <input type="search" name="market_list_serach" class="market-list-search-field form--control"
+                        placeholder="@lang('Search here ')...">
+                    <i class="las la-search"></i>
+                </form>
             </div>
         </div>
         <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
