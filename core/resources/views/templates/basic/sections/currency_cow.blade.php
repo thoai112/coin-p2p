@@ -1,51 +1,55 @@
 @php
     $meta = (object) $meta;
 @endphp
-<div class="table-wrapper">
-    <div class=" table-wrapper__item">
-        <div class="table-header-menu">
-            <button type="button" class="table-header-menu__link market-type active" data-type="all">
-                <i class="las la-border-all"></i> @lang('All')
-            </button>
-            <button type="button" class="table-header-menu__link market-type" data-type="crypto">
-                <i class="las la-coins"></i> @lang('Crypto')
-            </button>
-            <button type="button" class="table-header-menu__link market-type" data-type="fiat"><i class="las la-hryvnia"></i>
-                @lang('Fiat')
-            </button>
+<div class="col-lg-7">
+    <div class="table-wrapper">
+        <div class=" table-wrapper__item">
+            <div class="table-header-menu">
+                <button type="button" class="table-header-menu__link market-type active" data-type="all">
+                    <i class="las la-border-all"></i> @lang('All')
+                </button>
+                <button type="button" class="table-header-menu__link market-type" data-type="crypto">
+                    <i class="las la-coins"></i> @lang('Crypto')
+                </button>
+                <button type="button" class="table-header-menu__link market-type" data-type="fiat"><i
+                        class="las la-hryvnia"></i>
+                    @lang('Fiat')
+                </button>
+            </div>
+            <div class="market-list__left">
+                @if (@$meta->from_section)
+                    <a href="{{ route('market') }}" class="btn btn--sm btn--base outline">
+                        <i class="las la-coins"></i> @lang('All Pair')
+                    </a>
+                @else
+                    <form class="market-list-search">
+                        <input type="search" name="market_list_serach" class="market-list-search-field form--control"
+                            placeholder="@lang('Search here ')...">
+                        <i class="las la-search"></i>
+                    </form>
+                @endif
+            </div>
         </div>
-        <div class="market-list__left">
-            @if (@$meta->from_section)
-            <a href="{{ route('market') }}" class="btn btn--sm btn--base outline">
-                <i class="las la-coins"></i> @lang('All Pair')
-            </a>
-            @else
-            <form class="market-list-search">
-                <input type="search" name="market_list_serach" class="market-list-search-field form--control"  placeholder="@lang('Search here ')...">
-                <i class="las la-search"></i>
-            </form>
-            @endif
-        </div>
-    </div>
-    <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
-        <thead>
-            <tr class="">
-                <th>@lang('Code')</th>
-                <th>@lang('Basic Unit')</th>
-                <th>@lang('VND')</th>
-                {{-- <th>@lang('24h Change')</th>
+        <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
+            <thead>
+                <tr class="">
+                    <th>@lang('Code')</th>
+                    <th>@lang('Basic Unit')</th>
+                    <th>@lang('VND')</th>
+                    {{-- <th>@lang('24h Change')</th>
                 <th class="text-start">@lang('Marketcap')</th> --}}
-            </tr>
-        </thead>
-        <tbody id="market-list-body"></tbody>
-    </table>
-    @if (!@$meta->from_section  )
-    <div class="text-center mt-5">
-        <button type="button" class="btn btn--base outline btn--sm load-more-market-list d-none">
-            <i class="fa fa-spinner"></i> @lang('Load More')
-        </button>
+                </tr>
+            </thead>
+            <tbody id="market-list-body"></tbody>
+        </table>
+        @if (!@$meta->from_section)
+            <div class="text-center mt-5">
+                <button type="button" class="btn btn--base outline btn--sm load-more-market-list d-none">
+                    <i class="fa fa-spinner"></i> @lang('Load More')
+                </button>
+            </div>
+        @endif
     </div>
-    @endif
 </div>
 
 {{-- @push('script')
@@ -212,9 +216,9 @@
 @endpush --}}
 
 @if (!app()->offsetExists('pusher_script'))
-@push('script-lib')
-    <script src="{{ asset('assets/global/js/pusher.min.js') }}"></script>
-    <script src="{{ asset('assets/global/js/broadcasting.js') }}"></script>
-@endpush
+    @push('script-lib')
+        <script src="{{ asset('assets/global/js/pusher.min.js') }}"></script>
+        <script src="{{ asset('assets/global/js/broadcasting.js') }}"></script>
+    @endpush
     @php app()->offsetSet('pusher_script',true) @endphp
 @endif
