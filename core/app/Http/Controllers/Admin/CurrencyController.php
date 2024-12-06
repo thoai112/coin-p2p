@@ -31,6 +31,16 @@ class CurrencyController extends Controller
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
     }
 
+    public function cow()
+    {
+        $pageTitle            = "Cow Currency List";
+        $currencies           = $this->currencyData('fiat');
+        $type                 = Status::FIAT_CURRENCY;
+        $currencyDataProvider = defaultCurrencyDataProvider(false);
+        return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
+    }
+
+
     private function currencyData($scope = null)
     {
         $query = Currency::query();
