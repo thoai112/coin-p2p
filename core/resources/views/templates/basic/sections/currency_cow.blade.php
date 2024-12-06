@@ -86,11 +86,10 @@
 @push('script')
     <script>
         $(window).scroll(function() {
-            var scrollPosition = $(window).scrollTop();
-            var elementPosition = $('.currency-item-cow').offset().top;
+            var rect = $('.currency-item-cow')[0].getBoundingClientRect();
             var windowHeight = $(window).height();
 
-            if (scrollPosition + windowHeight > elementPosition) {
+            if (rect.top < windowHeight) {
                 $('.currency-item-cow').fadeIn();
             } else {
                 $('.currency-item-cow').fadeOut();
