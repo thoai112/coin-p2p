@@ -2187,7 +2187,7 @@ input[type=number] {
     font-weight: 400;
     border-bottom: 0;
     max-width: 170px;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .table tbody {
