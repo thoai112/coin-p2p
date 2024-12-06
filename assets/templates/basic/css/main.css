@@ -6874,7 +6874,7 @@ tr.skeleton::after {
 
 .table thead tr th:last-child,
 .table tbody tr td:last-child {
-    text-align: right;
+    text-align: center;
 }
 
 .tradingview-widget-copyright {
