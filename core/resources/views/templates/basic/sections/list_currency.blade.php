@@ -7,9 +7,9 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <x-flexible-view :view="$activeTemplate.'sections.currency_cow'" :meta="['from_section' => true ]" />
-            </div>
+            
+            <x-flexible-view :view="$activeTemplate.'sections.currency_cow'" :meta="['from_section' => true ]" />
+        
         </div>
     </div>
 </div>
