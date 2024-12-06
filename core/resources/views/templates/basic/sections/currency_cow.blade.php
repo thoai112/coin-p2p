@@ -1,5 +1,7 @@
 @php
     $meta = (object) $meta;
+    $content = getContent('currency_cow.content', true);
+    $elements = getContent('currency_cow.element', orderById: true);
 @endphp
 <div class="col-lg-7">
     <div class="table-wrapper">
@@ -72,7 +74,7 @@
 <div class="col-lg-5">
     <div class="currency-item-cow">
         <div class="section-heading">
-            <h4 class="section-heading__title"> test title </h4>
+            <h4 class="section-heading__title"> {{ __(@$element->data_values->cow_heading) }} </h4>
 
             {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
