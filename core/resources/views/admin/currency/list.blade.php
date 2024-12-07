@@ -23,6 +23,8 @@
                                         <td>
                                             @if ($type == Status::CRYPTO_CURRENCY)
                                                 {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
+                                            @elseif ($type == Status::COW_CURRENCY)
+                                                {{ showAmount(@$currency->rate) }}
                                             @else
                                                 {{ showAmount(@$currency->rate) }}
                                             @endif
