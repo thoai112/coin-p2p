@@ -35,9 +35,10 @@ class CurrencyController extends Controller
     public function cow()
     {
         $pageTitle            = "Cow Currency History";
-        $currencies           = $this->cowData('fiat');
+        $currencies           = $this->cowData('cow');
         #$type                 = Status::COW_CURRENCY;
-        $type = $currencies->avg('rate');
+        $cow                  = $this->currencyData('fiat');
+        $type                 = $cow->avg('rate');
         $currencyDataProvider = defaultCurrencyDataProvider(false);
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
     }
