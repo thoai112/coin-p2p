@@ -35,8 +35,9 @@ class CurrencyController extends Controller
     public function cow()
     {
         $pageTitle            = "Cow Currency History";
-        $currencies           = $this->cowData('cow');
-        $type                 = Status::COW_CURRENCY;
+        $currencies           = $this->cowData('fiat');
+        #$type                 = Status::COW_CURRENCY;
+        $type = $currencies->avg('rate');
         $currencyDataProvider = defaultCurrencyDataProvider(false);
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
     }
@@ -55,6 +56,18 @@ class CurrencyController extends Controller
     }
     
     private function cowData($scope = null)
+    {
+        $query = CowCurrency::query();
+        if ($scope) {
+            $query->$scope();
+        }
+        if ($scope == 'cow') {
+            $query->rankOrdering();
+        }
+        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+    }
+
+    private function saveCow($scope = null)
     {
         $query = CowCurrency::query();
         if ($scope) {
@@ -125,8 +138,10 @@ class CurrencyController extends Controller
             }
             $marketData->price = $request->price;
             $marketData->save();
+
         }
         return returnBack($message, 'success');
+
     }
 
     public function import(Request $request)
