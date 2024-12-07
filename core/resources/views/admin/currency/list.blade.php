@@ -61,14 +61,14 @@
                                     @endforelse
                                 </tbody>
                             </table>
-                        @endif
+                        {{-- @endif --}}
                     </div>
                 </div>
                 @if ($currencies->hasPages())
                     <div class="card-footer py-4">
                         {{ paginateLinks($currencies) }}
                     </div>
-                {{-- @endif --}}
+                @endif
             </div>
         </div>
     </div>
