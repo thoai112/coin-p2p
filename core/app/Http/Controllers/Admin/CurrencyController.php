@@ -35,7 +35,7 @@ class CurrencyController extends Controller
     public function cow()
     {
         $pageTitle            = "Cow Currency History";
-        $currencies           = $this->cowData('fiat');
+        $currencies           = $this->cowData('cow');
         $type                 = Status::COW_CURRENCY;
         $currencyDataProvider = defaultCurrencyDataProvider(false);
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
@@ -60,7 +60,7 @@ class CurrencyController extends Controller
         if ($scope) {
             $query->$scope();
         }
-        if ($scope == 'crypto') {
+        if ($scope == 'cow') {
             $query->rankOrdering();
         }
         return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
