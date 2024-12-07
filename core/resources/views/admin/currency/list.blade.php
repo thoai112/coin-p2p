@@ -24,7 +24,7 @@
                                             @if ($type == Status::CRYPTO_CURRENCY)
                                                 {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
                                             @elseif ($type == Status::COW_CURRENCY)
-                                                {{ showAmount(@$currency->rate) }}
+                                                {{ showAmount(@$currency->rate+5) }}
                                             @else
                                                 {{ showAmount(@$currency->rate) }}
                                             @endif
