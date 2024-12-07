@@ -5,58 +5,63 @@
             <div class="card">
                 <div class="card-body p-0">
                     <div class="table-responsive--md  table-responsive">
-                        <table class="table table--light style--two">
-                            <thead>
-                                <tr>
-                                    <th>@lang('Currency')</th>
-                                    <th>@lang('Price')</th>
-                                    <th>@lang('Status')</th>
-                                    <th>@lang('Action')</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse($currencies as $currency)
+                        @if ($type != Status::COW_CURRENCY)
+                            <table class="table table--light style--two">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <x-currency :currency=$currency />
-                                        </td>
-                                        <td>
-                                            @if ($type == Status::CRYPTO_CURRENCY)
-                                                {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
-                                            @elseif ($type == Status::COW_CURRENCY)
-                                                {{ showAmount(@$currency->rate+5) }}
-                                            @else
-                                                {{ showAmount(@$currency->rate) }}
-                                            @endif
-                                        </td>
-                                        <td> @php echo $currency->statusBadge; @endphp </td>
-                                        <td>
-                                            <div class="button--group">
-                                                <button type="button" class="btn btn-sm btn-outline--primary editBtn"
-                                                    data-currency='@json($currency)' data-image="{{ $currency->image_url }}">
-                                                    <i class="la la-pencil"></i>@lang('Edit')
-                                                </button>
-                                                @if ($currency->status == Status::DISABLE)
-                                                    <button class="btn btn-sm btn-outline--success confirmationBtn" data-question="@lang('Are you sure to enable this currency')?"
-                                                        data-action="{{ route('admin.currency.status', $currency->id) }}">
-                                                        <i class="la la-eye"></i> @lang('Enable')
-                                                    </button>
+                                        <th>@lang('Currency')</th>
+                                        <th>@lang('Price')</th>
+                                        <th>@lang('Status')</th>
+                                        <th>@lang('Action')</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse($currencies as $currency)
+                                        <tr>
+                                            <td>
+                                                <x-currency :currency=$currency />
+                                            </td>
+                                            <td>
+                                                @if ($type == Status::CRYPTO_CURRENCY)
+                                                    {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
+                                                @elseif ($type == Status::COW_CURRENCY)
+                                                    {{ showAmount(@$currency->rate + 5) }}
                                                 @else
-                                                    <button class="btn btn-sm btn-outline--danger confirmationBtn" data-question="@lang('Are you sure to disable this currency')?"
-                                                        data-action="{{ route('admin.currency.status', $currency->id) }}">
-                                                        <i class="la la-eye-slash"></i> @lang('Disable')
-                                                    </button>
+                                                    {{ showAmount(@$currency->rate) }}
                                                 @endif
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td class="text-muted text-center" colspan="100%">{{ __($emptyMessage) }}</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                            </td>
+                                            <td> @php echo $currency->statusBadge; @endphp </td>
+                                            <td>
+                                                <div class="button--group">
+                                                    <button type="button" class="btn btn-sm btn-outline--primary editBtn"
+                                                        data-currency='@json($currency)'
+                                                        data-image="{{ $currency->image_url }}">
+                                                        <i class="la la-pencil"></i>@lang('Edit')
+                                                    </button>
+                                                    @if ($currency->status == Status::DISABLE)
+                                                        <button class="btn btn-sm btn-outline--success confirmationBtn"
+                                                            data-question="@lang('Are you sure to enable this currency')?"
+                                                            data-action="{{ route('admin.currency.status', $currency->id) }}">
+                                                            <i class="la la-eye"></i> @lang('Enable')
+                                                        </button>
+                                                    @else
+                                                        <button class="btn btn-sm btn-outline--danger confirmationBtn"
+                                                            data-question="@lang('Are you sure to disable this currency')?"
+                                                            data-action="{{ route('admin.currency.status', $currency->id) }}">
+                                                            <i class="la la-eye-slash"></i> @lang('Disable')
+                                                        </button>
+                                                    @endif
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="text-muted text-center" colspan="100%">{{ __($emptyMessage) }}</td>
+                                        </tr>
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                 </div>
                 @if ($currencies->hasPages())
@@ -90,33 +95,38 @@
                                 <div class="row">
                                     <div class="form-group col-lg-12">
                                         <label>@lang('Name')</label>
-                                        <input type="text" class="form-control" name="name" value="{{ old('name') }}" required>
+                                        <input type="text" class="form-control" name="name"
+                                            value="{{ old('name') }}" required>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>@lang('Symbol')</label>
-                                        <input type="text" class="form-control" name="symbol" value="{{ old('symbol') }}" required>
+                                        <input type="text" class="form-control" name="symbol"
+                                            value="{{ old('symbol') }}" required>
                                     </div>
                                     <div class="form-group col-lg-6">
                                         <label>@lang('Sign')</label>
-                                        <input type="text" class="form-control" name="sign" value="{{ old('sign') }}">
+                                        <input type="text" class="form-control" name="sign"
+                                            value="{{ old('sign') }}">
                                     </div>
                                     <div class="form-group col-lg-12">
                                         <label>@lang('Price')</label>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" step="any" name="price" value="{{ old('price') }}"
-                                                required>
+                                            <input type="number" class="form-control" step="any" name="price"
+                                                value="{{ old('price') }}" required>
                                             <span class="input-group-text">{{ __(gs('cur_text')) }}</span>
                                         </div>
                                     </div>
                                     <div class="form-group col-lg-12">
                                         <label>@lang('P2P SN')</label>
-                                        <input type="number" class="form-control" name="p2p_sn" value="{{ old('p2p_sn') }}">
+                                        <input type="number" class="form-control" name="p2p_sn"
+                                            value="{{ old('p2p_sn') }}">
                                     </div>
                                     @if ($type == Status::CRYPTO_CURRENCY)
                                         <div class="form-group col-lg-12">
                                             <label>@lang('Highlight Coin')</label>
-                                            <input type="checkbox" data-width="100%" data-height="40px" data-onstyle="-success" data-offstyle="-danger"
-                                                data-bs-toggle="toggle" data-on="@lang('YES')" data-off="@lang('NO')"
+                                            <input type="checkbox" data-width="100%" data-height="40px"
+                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
+                                                data-on="@lang('YES')" data-off="@lang('NO')"
                                                 name="is_highlighted_coin">
                                         </div>
                                     @endif
