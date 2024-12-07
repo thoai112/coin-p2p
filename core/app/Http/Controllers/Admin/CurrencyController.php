@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Constants\Status;
 use App\Models\Currency;
+use App\Models\CowCurrency;
 use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
@@ -34,7 +35,7 @@ class CurrencyController extends Controller
     public function cow()
     {
         $pageTitle            = "Cow Currency History";
-        $currencies           = $this->currencyData('fiat');
+        $currencies           = $this->cowData('fiat');
         $type                 = Status::COW_CURRENCY;
         $currencyDataProvider = defaultCurrencyDataProvider(false);
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
@@ -53,6 +54,19 @@ class CurrencyController extends Controller
         return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
     }
     
+    private function cowData($scope = null)
+    {
+        $query = CowCurrency::query();
+        if ($scope) {
+            $query->$scope();
+        }
+        if ($scope == 'crypto') {
+            $query->rankOrdering();
+        }
+        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+    }
+
+
     public function save(Request $request, $id = 0)
     {
         $imageValidation = $id ? 'nullable' : 'required';
