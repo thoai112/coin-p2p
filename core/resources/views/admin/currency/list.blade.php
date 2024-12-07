@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body p-0">
                     <div class="table-responsive--md  table-responsive">
-                        @if ($type != Status::COW_CURRENCY)
+                        {{-- @if ($type != Status::COW_CURRENCY) --}}
                             <table class="table table--light style--two">
                                 <thead>
                                     <tr>
@@ -68,7 +68,7 @@
                     <div class="card-footer py-4">
                         {{ paginateLinks($currencies) }}
                     </div>
-                @endif
+                {{-- @endif --}}
             </div>
         </div>
     </div>
