@@ -36,11 +36,11 @@ class CurrencyController extends Controller
     {
         $pageTitle            = "Cow Currency History";
         $currencies           = $this->cowData('cow');
-        #$type                 = Status::COW_CURRENCY;
+        $type                 = Status::COW_CURRENCY;
         $cow                  = $this->currencyData('fiat');
-        $type                 = $cow->avg('rate');
+        $avgcow                 = $cow->avg('rate');
         $currencyDataProvider = defaultCurrencyDataProvider(false);
-        return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
+        return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'avgcow', 'currencyDataProvider'));
     }
 
 
