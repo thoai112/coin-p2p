@@ -6,7 +6,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6">
                 <div class="banner-content">
-                    <h3 class="banner-content__title mb-3">
+                    <h3 class="mb-3">
                         @php echo highLightedString($p2pBanner->heading); @endphp
                     </h3>
                     <span class="banner-content__subtitle mb-2"> {{ __($p2pBanner->subheading) }} </span>
