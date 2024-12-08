@@ -5,17 +5,24 @@
             <div class="card">
                 <div class="card-body p-0">
                     <div class="table-responsive--md  table-responsive">
-                        {{-- @if ($type != Status::COW_CURRENCY) --}}
-                            <table class="table table--light style--two">
-                                <thead>
+                        <table class="table table--light style--two">
+                            <thead>
+                                @if ($type != Status::COW_CURRENCY)
                                     <tr>
                                         <th>@lang('Currency')</th>
                                         <th>@lang('Price')</th>
                                         <th>@lang('Status')</th>
                                         <th>@lang('Action')</th>
                                     </tr>
-                                </thead>
-                                <tbody>
+                                @else
+                                    <th>@lang('Data')</th>
+                                    <th>@lang('Price')</th>
+                                    <th>@lang('Status')</th>
+                                    <th>@lang('Action')</th>
+                                @endif
+                            </thead>
+                            <tbody>
+                                @if ($type != Status::COW_CURRENCY)
                                     @forelse($currencies as $currency)
                                         <tr>
                                             <td>
@@ -24,10 +31,6 @@
                                             <td>
                                                 @if ($type == Status::CRYPTO_CURRENCY)
                                                     {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
-                                                @elseif ($type == Status::COW_CURRENCY)
-                                                    {{-- {{ showAmount(@$currency->rate) }} --}}
-                                                    {{-- {{showAmount(avgcow)}} --}}
-                                                    {{$avgcow}}
                                                 @else
                                                     {{ showAmount(@$currency->rate) }}
                                                 @endif
@@ -61,8 +64,9 @@
                                             <td class="text-muted text-center" colspan="100%">{{ __($emptyMessage) }}</td>
                                         </tr>
                                     @endforelse
-                                </tbody>
-                            </table>
+                                @endif
+                            </tbody>
+                        </table>
                         {{-- @endif --}}
                     </div>
                 </div>
@@ -137,8 +141,7 @@
                                             <label>@lang('Using Cow')</label>
                                             <input type="checkbox" data-width="100%" data-height="40px"
                                                 data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
-                                                data-on="@lang('YES')" data-off="@lang('NO')"
-                                                name="is_cow">
+                                                data-on="@lang('YES')" data-off="@lang('NO')" name="is_cow">
                                         </div>
                                     @endif
                                 </div>
