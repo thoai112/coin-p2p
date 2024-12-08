@@ -132,6 +132,15 @@
                                                 name="is_highlighted_coin">
                                         </div>
                                     @endif
+                                    @if ($type == Status::FIAT_CURRENCY)
+                                        <div class="form-group col-lg-12">
+                                            <label>@lang('Highlight Coin')</label>
+                                            <input type="checkbox" data-width="100%" data-height="40px"
+                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
+                                                data-on="@lang('YES')" data-off="@lang('NO')"
+                                                name="is_cow">
+                                        </div>
+                                    @endif
                                 </div>
 
                             </div>
@@ -268,7 +277,15 @@
                         modal.find('input[name=is_highlighted_coin]').bootstrapToggle('off');
                     }
                 @endif
+                @if ($type == Status::FIAT_CURRENCY)
+                    if (data.highlighted_coin == 1) {
+                        modal.find('input[name=is_cow]').bootstrapToggle('on');
+                    } else {
+                        modal.find('input[name=is_cow]').bootstrapToggle('off');
+                    }
+                @endif
                 modal.find('.modal-title').text("@lang('Update Currency')");
+
                 $('input[name=symbol]').trigger('input');
                 $(modal).modal('show');
             });
