@@ -123,12 +123,12 @@
                                             <span class="input-group-text">{{ __(gs('cur_text')) }}</span>
                                         </div>
                                     </div>
-                                    <div class="form-group col-lg-12">
-                                        <label>@lang('P2P SN')</label>
-                                        <input type="number" class="form-control" name="p2p_sn"
-                                            value="{{ old('p2p_sn') }}">
-                                    </div>
                                     @if ($type == Status::CRYPTO_CURRENCY)
+                                        <div class="form-group col-lg-12">
+                                            <label>@lang('P2P SN')</label>
+                                            <input type="number" class="form-control" name="p2p_sn"
+                                                value="{{ old('p2p_sn') }}">
+                                        </div>
                                         <div class="form-group col-lg-12">
                                             <label>@lang('Highlight Coin')</label>
                                             <input type="checkbox" data-width="100%" data-height="40px"
@@ -138,6 +138,16 @@
                                         </div>
                                     @endif
                                     @if ($type == Status::FIAT_CURRENCY)
+                                        <div class="form-group col-lg-6">
+                                            <label>@lang('P2P SN')</label>
+                                            <input type="number" class="form-control" name="p2p_sn"
+                                                value="{{ old('p2p_sn') }}">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>@lang('Basic Unit')</label>
+                                            <input type="number" class="form-control" name="basicunit"
+                                                value="{{ old('basicunit') }}">
+                                        </div>
                                         <div class="form-group col-lg-12">
                                             <label>@lang('Using Cow')</label>
                                             <input type="checkbox" data-width="100%" data-height="40px"
@@ -274,6 +284,7 @@
                 modal.find("input[name=sign]").val(data.sign);
                 modal.find("input[name=p2p_sn]").val(data.p2p_sn);
                 modal.find("input[name=price]").val(getAmount(data.rate));
+                modal.find("input[name=basicunit]").val(data.basicunit);
                 @if ($type == Status::CRYPTO_CURRENCY)
                     if (data.highlighted_coin == 1) {
                         modal.find('input[name=is_highlighted_coin]').bootstrapToggle('on');
@@ -282,6 +293,7 @@
                     }
                 @endif
                 @if ($type == Status::FIAT_CURRENCY)
+                    
                     if (data.iscow == 1) {
                         modal.find('input[name=is_cow]').bootstrapToggle('on');
                     } else {

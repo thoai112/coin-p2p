@@ -1850,3 +1850,17 @@ INSERT INTO `cron_jobs` (`id`, `name`, `alias`, `action`, `url`, `cron_schedule_
 
 -- ALTER TABLE `currencies`
 --   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+
+
+
+
+-- CREATE TABLE `cow_histories` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `currency_id` int(10) UNSIGNED NOT NULL DEFAULT 0,
+--   `symbol` text DEFAULT NULL,
+--   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+--   `price` decimal(28,8) NOT NULL DEFAULT 0.00000000,
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
