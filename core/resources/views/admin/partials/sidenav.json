@@ -353,19 +353,6 @@
                 }
             ]
         },
-        "manage_referral": {
-            "title": "Manage Referral",
-            "icon": "las la-tree",
-            "menu_active": "admin.referrals.index",
-            "route_name": "admin.referrals.index",
-            "keyword": [
-                "manage referral",
-                "Referral management",
-                "Referral program",
-                "Referral system",
-                "Referral control"
-            ]
-        },
         "deposits": {
             "title": "Deposits",
             "icon": "las la-file-invoice-dollar",
