@@ -15,7 +15,8 @@
                                         <th>@lang('Action')</th>
                                     </tr>
                                 @else
-                                    <th>@lang('Data')</th>
+                                    <th>@lang('Date Time')</th>
+                                    <th>@lang('Name')</th>
                                     <th>@lang('Price')</th>
                                     <th>@lang('Status')</th>
                                     <th>@lang('Action')</th>
