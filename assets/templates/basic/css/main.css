@@ -2252,12 +2252,11 @@ table tr:first-child th:first-child {
         justify-content: space-between;
         gap: 15px;
         padding: 10px 15px;
-        border: none;
         max-width: unset;
     }
 
     .table--responsive--md tbody tr td:last-child {
-        border: none;
+
     }
 
     .table--responsive--md tbody tr td:first-child {
@@ -2297,12 +2296,11 @@ table tr:first-child th:first-child {
         gap: 15px;
         text-align: right;
         padding: 10px 15px;
-        border: none;
         max-width: unset;
     }
 
     .table--responsive--lg tbody tr td:last-child {
-        border: none;
+
     }
 
     .table--responsive--lg tbody tr td:first-child {
@@ -2318,7 +2316,7 @@ table tr:first-child th:first-child {
 
 @media screen and (max-width: 991px) {
     .table--responsive--lg tbody tr td {
-        border: none;
+
     }
 }
 
