@@ -134,7 +134,7 @@
                                     @endif
                                     @if ($type == Status::FIAT_CURRENCY)
                                         <div class="form-group col-lg-12">
-                                            <label>@lang('Highlight Coin')</label>
+                                            <label>@lang('Using Cow')</label>
                                             <input type="checkbox" data-width="100%" data-height="40px"
                                                 data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
                                                 data-on="@lang('YES')" data-off="@lang('NO')"
@@ -278,7 +278,7 @@
                     }
                 @endif
                 @if ($type == Status::FIAT_CURRENCY)
-                    if (data.highlighted_coin == 1) {
+                    if (data.iscow == 1) {
                         modal.find('input[name=is_cow]').bootstrapToggle('on');
                     } else {
                         modal.find('input[name=is_cow]').bootstrapToggle('off');
