@@ -74,7 +74,7 @@ class CowCurrency extends Model
 
     public function scopeCOW($query)
     {
-        $query->where('type', Status::COW_CURRENCY);
+        $query->where('type', Status::COW_CURRENCY, 'status', Status::ENABLE);
     }
 
     public function scopeRankOrdering($query)
