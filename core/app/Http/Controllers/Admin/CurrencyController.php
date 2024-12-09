@@ -114,6 +114,7 @@ class CurrencyController extends Controller
         $currency->sign             = $request->sign ?? null;
         $currency->p2p_sn           = $request->p2p_sn ?? 0;
         $currency->basicunit        = $request->basicunit ?? 0;
+        $currency->minorSingle      = $request->minorSingle ?? null;
         $currency->highlighted_coin = $request->is_highlighted_coin ? Status::YES : Status::NO;
         $currency->iscow            = $request->is_cow ? Status::YES : Status::NO;
 
