@@ -138,17 +138,17 @@
                                         </div>
                                     @endif
                                     @if ($type == Status::FIAT_CURRENCY)
-                                        <div class="form-group col-lg-6">
+                                        <div class="form-group col-lg-4">
                                             <label>@lang('P2P SN')</label>
                                             <input type="number" class="form-control" name="p2p_sn"
                                                 value="{{ old('p2p_sn') }}">
                                         </div>
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-4">
                                             <label>@lang('Basic Unit')</label>
                                             <input type="number" class="form-control" name="basicunit"
                                                 value="{{ old('basicunit') }}">
                                         </div>
-                                        <div class="form-group col-lg-3">
+                                        <div class="form-group col-lg-4">
                                             <label>@lang('Minor Single')</label>
                                             <input type="text" class="form-control" name="minorSingle"
                                                 value="{{ old('minorSingle') }}">
