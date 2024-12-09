@@ -3871,6 +3871,43 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     position: relative;
 } */
 
+.banner-right__rotate{
+    position: relative;
+    z-index: -1;
+    transition: 0.8s;
+    animation: rotateY 10s infinite;
+    align-items: center;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1499px) {
+    .banner-right__rotate {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .banner-right__rotate {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .banner-right__rotate {
+        width: 150px;
+    }
+}
+@keyframes rotateY {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
 .banner-right__thumb {
     position: absolute;
     left: 70px;
