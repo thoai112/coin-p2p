@@ -53,6 +53,9 @@ class CurrencyController extends Controller
         if ($scope == 'crypto') {
             $query->rankOrdering();
         }
+        if ($scope == 'fiat') {
+            $query->symbolOrdering();
+        }
         return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
     }
     

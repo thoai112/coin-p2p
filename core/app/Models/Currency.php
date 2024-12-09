@@ -77,6 +77,11 @@ class Currency extends Model
         $query->where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE);
     }
 
+    public function scopeSymbol($query)
+    {
+        return $query->orderByRaw('symbol ASC');
+    }
+
     public function scopeRankOrdering($query)
     {
         return $query->orderByRaw('ranking = 0 ASC, ranking ASC');
