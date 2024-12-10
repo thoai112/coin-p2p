@@ -3882,6 +3882,10 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     justify-content: center;
 }
 
+.baner-right__rotate img{
+    padding-top: 20%;
+}
+
 @media screen and (max-width: 1499px) {
     .banner-right__rotate img{
         max-width: 250px;
@@ -3891,6 +3895,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 @media screen and (max-width: 767px) {
     .banner-right__rotate img{
         max-width: 200px;
+        padding-top: 0 ;
     }
 }
 
