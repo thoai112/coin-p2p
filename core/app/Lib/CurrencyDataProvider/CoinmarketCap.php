@@ -347,7 +347,7 @@ class CoinmarketCap extends CurrencyDataProvider
 
         if (!$currencyHitory) {
             foreach ($currencies as $currency) {
-    
+                if ($currency->symbol == 'SSP') continue;
                 $cowHistories[] = [
                     'currency_id' => $currency->id,
                     'symbol'      => $currency->symbol,
@@ -364,6 +364,7 @@ class CoinmarketCap extends CurrencyDataProvider
         {   
             foreach ($currencies as $currency) {
                 $existingHistory = CowHistories::whereDate('time', '=', $checkDate)->where('currency_id', $currency->id)->first();
+                if ($currency->symbol == 'SSP') continue;
                 if ($existingHistory) {
                     $existingHistory->update(['price' => floatval(1 /$pricefiat[$currency->symbol])]);
                 } else {
