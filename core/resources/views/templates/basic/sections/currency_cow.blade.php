@@ -121,7 +121,7 @@
             });
 
             function getPairList() {
-                let action = "{{ route('market.list') }}";
+                let action = "{{ route('cow.list') }}";
                 $.ajax({
                     url: action,
                     type: "GET",
@@ -152,7 +152,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.pairs.length <= 0) {
+                        if (resp.currencies.length <= 0) {
                             html += `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
@@ -166,9 +166,9 @@
                             return;
                         }
                         let tradeUlr = "{{ route('trade', ':symbol') }}";
-                        $.each(resp.pairs || [], function(i, pair) {
-                            let marketData = pair.market_data;
-                            let htmlClass = marketData.html_classes || {};
+                        $.each(resp.currencies || [], function(i, currency) {
+                            // let marketData = pair.market_data;
+                            // let htmlClass = marketData.html_classes || {};
                             html += `
                             <tr class="${!loadMore ? 'skeleton' : ''}">
                                 <td>
