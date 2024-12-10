@@ -2196,6 +2196,7 @@ table tr:first-child th:first-child {
     border-bottom: 0;
     max-width: 170px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .table tbody {
@@ -2323,12 +2324,12 @@ table tr:first-child th:first-child {
 
 .coin-pair-list-table tbody tr td {
     border-top: 1.5px solid #181d20ad;
-    text-align: center;
+    justify-items : center;
 }
 
 [data-theme=dark] .coin-pair-list-table tbody tr td {
     border-top: 1.5px solid #181d200f;
-    text-align: center;
+    justify-items: center;
 }
 
 [data-theme=light] .coin-pair-list-table a.btn {
