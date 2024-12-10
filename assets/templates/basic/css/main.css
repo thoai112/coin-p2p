@@ -3883,11 +3883,19 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 }
 
 .baner-right__rotate img{
-    padding-top: 20%;
+    margin-top: 50%;
 }
 
 @media screen and (max-width: 1499px) {
     .banner-right__rotate img{
+        margin-top: 50%;
+        max-width: 250px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .banner-right__rotate img{
+        margin-top: 0;
         max-width: 250px;
     }
 }
@@ -3895,7 +3903,6 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 @media screen and (max-width: 767px) {
     .banner-right__rotate img{
         max-width: 200px;
-        padding-top: 0 ;
     }
 }
 
