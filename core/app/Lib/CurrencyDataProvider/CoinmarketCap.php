@@ -362,7 +362,7 @@ class CoinmarketCap extends CurrencyDataProvider
                     'currency_id' => $currency->id,
                     'symbol'      => $currency->symbol,
                     'time'       =>  $checkDate,
-                    'price'       => floatval(1 /$pricefiat[$symbol]),
+                    'price'       => floatval(1 /$pricefiat[$currency->symbol]),
                     'created_at'  => $now,
                     'updated_at'  => $now
                 ];
