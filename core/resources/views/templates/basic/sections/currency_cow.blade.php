@@ -121,7 +121,7 @@
             });
 
             function getPairList() {
-                let action = "{{ route('cow.list') }}";
+                let action = "{{ route('crypto_currency.list') }}";
                 $.ajax({
                     url: action,
                     type: "GET",
