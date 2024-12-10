@@ -160,7 +160,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.pairs.length <= 0) {
+                        if (resp.currencies.length <= 0) {
                             html += `<tr class="text-center">
                             <td colspan="100%">
                                 <div class="empty-thumb">
