@@ -340,9 +340,9 @@ class CoinmarketCap extends CurrencyDataProvider
         $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->first();
 
         $cowHistories = [];
-        $marketData = [];
+        // $marketData = [];
  
-        $pricefiat  = $this->getPriceFiatHistory($parameters);
+        $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
         if (!$currencyHitory) {
             foreach ($currencies->currencies as $item) {
@@ -357,12 +357,12 @@ class CoinmarketCap extends CurrencyDataProvider
             }
             CowHistories::insertOrIgnore($cowHistories);
         }
-        else
-        {   
-            foreach ($currencies->currencies as $item) {
-                $currencyHitory->where(currency_id, $item->id)->update(['price' => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0]);
-            }
-        }
+        // else
+        // {   
+        //     foreach ($currencies->currencies as $item) {
+        //         $currencyHitory->where(currency_id, $item->id)->update(['price' => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0]);
+        //     }
+        // }
 
         return returnBack($message, 'success');
     }
