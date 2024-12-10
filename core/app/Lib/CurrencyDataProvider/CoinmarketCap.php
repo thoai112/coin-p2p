@@ -8,6 +8,8 @@ use App\Lib\CurlRequest;
 use App\Models\Currency;
 use App\Models\CurrencyDataProvider as CurrencyDataProviderModel;
 use App\Models\MarketData;
+use App\Models\CowHistories;
+use Carbon\Carbon;
 use Exception;
 
 class CoinmarketCap extends CurrencyDataProvider
@@ -163,7 +165,7 @@ class CoinmarketCap extends CurrencyDataProvider
      * @return object
      *
      */
-    public function getPriceFiat($key = null)
+    public function getPriceFiat($parameters = null)
     {
         $url = 'https://www.xe.com/api/protected/midmarket-converter/';
         $headers = [
@@ -185,6 +187,23 @@ class CoinmarketCap extends CurrencyDataProvider
         // } else {
         //     throw new Exception("Key not found in response data");
         // }
+    }
+
+    public function getPriceFiatHistory($parameters = null)
+    {   
+        $url = 'https://www.xe.com/_next/data/mlR33XfT8TyH6PzaYIcW3/en/currencytables.json';
+        $headers = [
+            'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
+        ];
+        $qs       = $parameters ?  http_build_query($parameters) : "";
+        $response = CurlRequest::curlContent("{$url}?{$qs}", $headers);
+        $data = json_decode($response, true);
+        $cover = $data['pageProps']['historicRates'];
+        $result = array();
+        foreach ($cover as $item) {
+            $result[$item['currency']] = $item['rate'];
+        }
+        return $result;
     }
 
     /**
@@ -257,6 +276,8 @@ class CoinmarketCap extends CurrencyDataProvider
      *
      */
 
+
+
     public function import($parameters, $type)
     {
 
@@ -309,4 +330,51 @@ class CoinmarketCap extends CurrencyDataProvider
         MarketData::insertOrIgnore($marketData);
         return $importCount;
     }
+
+
+    public function saveCowData($parameters)
+    {   
+        $currencies = $this->cowData('cow');
+        $checkDate  = Carbon::parse(trim($parameters['date']))->format('Y-m-d');
+        $now        = now();
+        $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->first();
+
+        $cowHistories = [];
+        $marketData = [];
+ 
+        $pricefiat  = $this->getPriceFiatHistory($parameters);
+
+        if (!$currencyHitory) {
+            foreach ($currencies->currencies as $item) {
+                $cowHistories[] = [
+                    'currency_id' => $item->id,
+                    'symbol'     => @$item->symbol,
+                    'time'       => @$checkdate,
+                    'price'       => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ];
+            }
+            CowHistories::insertOrIgnore($cowHistories);
+        }
+        else
+        {   
+            foreach ($currencies->currencies as $item) {
+                $currencyHitory->where(currency_id, $item->id)->update(['price' => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0]);
+            }
+        }
+
+        return returnBack($message, 'success');
+    }
+
+    private function cowData($scope = null)
+    {
+        $query = Currency::query();
+        if ($scope) {
+            $query->$scope();
+        }
+        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+    }
+
 }
+

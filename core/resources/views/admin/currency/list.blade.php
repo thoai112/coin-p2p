@@ -232,6 +232,7 @@
             <i class="las la-plus"></i>@lang('New Currency')
         </button>
     </div>
+    <x-search-form dateSearch='yes' placeholder='Username / Email' />
 @endpush
 
 @push('script')
@@ -308,6 +309,11 @@
                 modal.find('.modal-title').text("@lang('Update Currency')");
 
                 $('input[name=symbol]').trigger('input');
+                $(modal).modal('show');
+            });
+
+            $('.importBtn').on('click', function(e) {
+                let modal = $("#import-modal");
                 $(modal).modal('show');
             });
 

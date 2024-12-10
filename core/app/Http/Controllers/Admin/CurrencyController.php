@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
 use App\Models\MarketData;
+use App\Models\CowHistories;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 
@@ -145,15 +146,12 @@ class CurrencyController extends Controller
             }
             $marketData->price = $request->price;
             $marketData->save();
-
         }
         return returnBack($message, 'success');
-
     }
 
     public function import(Request $request)
     {
-
         $validator = Validator::make($request->all(), [
             'start' => 'nullable|integer|gte:1',
             'limit' => 'nullable|integer|gte:1|lte:100',
@@ -207,5 +205,29 @@ class CurrencyController extends Controller
             'currencies' => $currencies,
             'more'       => $currencies->hasMorePages()
         ]);
+    }
+
+
+    public function saveCowData(Request $request)
+    {
+        $checkDate      = explode('-', $request->date);
+        $date = Carbon::parse(trim($checkDate[0]))->format('Y-m-d');
+        $parameters = [
+            'from' => $request->from ?? 'USD',
+            'date' => $request->date ?? now(),
+        ];
+
+        try {
+            $import = defaultCurrencyDataProvider()->saveCowData($parameters);
+            return response()->json([
+                'success' => true,
+                'message' => "$import currencies import successfully"
+            ]);
+        } catch (Exception $ex) {
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage()
+            ]);
+        }
     }
 }

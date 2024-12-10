@@ -128,6 +128,8 @@ abstract class CurrencyDataProvider
      */
     abstract protected function apiCall($parameters);
 
+    abstract protected function getPriceFiatHistory($parameters);
+
     /**
      * Sets an exception with the provided message.
      *

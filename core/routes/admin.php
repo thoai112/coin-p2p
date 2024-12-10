@@ -96,6 +96,7 @@ Route::middleware('admin')->group(function () {
         Route::post('/save/{id?}', 'save')->name('save');
         Route::post('/status/{id?}', 'status')->name('status');
         Route::post('/import', 'import')->name('import');
+        Route::post('/save-cow', 'saveCowData')->name('save.cow');
     });
 
     // Market Manager
