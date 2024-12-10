@@ -275,9 +275,7 @@ class SiteController extends Controller
         ->searchable(['name', 'symbol']);
 
         $total      = (clone $query)->count();
-        $currencies = (clone $query)->skip($request->skip ?? 0)
-            ->take($request->limit ?? 20)
-            ->get();
+        $currencies = (clone $query)->get();
 
         return response()->json([
             'success'    => true,
