@@ -30,7 +30,7 @@
                 </form>
             </div>
         </div>
-        <table class="table">
+        <table class="table coin-pair-list-table  coin-pair-list">
             <thead>
                 <tr>
                     <th>@lang('Code')</th>
