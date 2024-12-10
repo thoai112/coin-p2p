@@ -334,11 +334,11 @@ class CoinmarketCap extends CurrencyDataProvider
 
     public function saveCowData($parameters)
     {   
-        $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->first();
+        $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->get();
 
         $checkDate  = Carbon::parse(trim($parameters['date']))->format('Y-m-d');
         $now        = now();
-        $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->first();
+        $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->get();
 
         $cowHistories = [];
         // $marketData = [];
