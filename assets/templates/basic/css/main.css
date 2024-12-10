@@ -2323,10 +2323,12 @@ table tr:first-child th:first-child {
 
 .coin-pair-list-table tbody tr td {
     border-top: 1.5px solid #181d20ad;
+    text-align: center;
 }
 
 [data-theme=dark] .coin-pair-list-table tbody tr td {
     border-top: 1.5px solid #181d200f;
+    text-align: center;
 }
 
 [data-theme=light] .coin-pair-list-table a.btn {
