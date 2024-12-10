@@ -224,7 +224,7 @@
 
 @push('breadcrumb-plugins')
     <div class="d-flex flex-wrap gap-2 justify-content-between">
-        <x-search-form placeholder="Name,Symbol...." />
+        <x-search-form dateSearch='yes' placeholder="Name,Symbol...." />
         <button type="button" class="btn btn-outline--info importBtn">
             <i class="las la-angle-down"></i> @lang('Import Currency')
         </button>
@@ -232,7 +232,6 @@
             <i class="las la-plus"></i>@lang('New Currency')
         </button>
     </div>
-    <x-search-form dateSearch='yes'/>
 @endpush
 
 @push('script')
