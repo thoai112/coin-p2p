@@ -11,6 +11,7 @@ use App\Models\MarketData;
 use App\Models\CowHistories;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class CoinmarketCap extends CurrencyDataProvider
 {
@@ -335,7 +336,8 @@ class CoinmarketCap extends CurrencyDataProvider
     public function saveCowData($parameters)
     {   
         $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->first();
-        echo $currencies;
+        Log::info('Currencies:', $currencies);
+        dd($currencies);
         $checkDate  = Carbon::parse(trim($parameters['date']))->format('Y-m-d');
         $now        = now();
         $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->first();
