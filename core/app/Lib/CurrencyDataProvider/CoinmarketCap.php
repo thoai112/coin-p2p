@@ -344,7 +344,7 @@ class CoinmarketCap extends CurrencyDataProvider
  
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
-        if ($currencyHitory) {
+        if (!$currencyHitory) {
             // foreach ($currencies->currencies as $item) {
             //     $cowHistories[] = [
             //         'currency_id' => $item->id,
@@ -364,7 +364,7 @@ class CoinmarketCap extends CurrencyDataProvider
                 // if (MarketData::where('pair_id', 0)->where('currency_id', $currency->id)->exists()) continue;
     
                 $cowHistories[] = [
-                    'currency_id' => $currency->id,
+                    'currency_id' => @$currency->id,
                     'symbol'      => $currency->symbol,
                     'time'       =>  $checkdate,
                     'price'       => floatval(1 /$pricefiat[$item->symbol]),
