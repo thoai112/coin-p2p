@@ -357,16 +357,16 @@ class CoinmarketCap extends CurrencyDataProvider
             // }
             // CowHistories::insertOrIgnore($cowHistories);
             foreach ($currencies as $currency) {
-                $currency = Currency::where('symbol', @$currency['symbol'])->first();
+                // $currency = Currency::where('symbol', @$currency['symbol'])->first();
     
-                if (!$currency) continue;
+                // if (!$currency) continue;
     
                 // if (MarketData::where('pair_id', 0)->where('currency_id', $currency->id)->exists()) continue;
     
                 $cowHistories[] = [
                     'currency_id' => $currency->id,
-                    'symbol'      => @$currency->symbol,
-                    'time'       =>  @$checkdate,
+                    'symbol'      => $currency->symbol,
+                    'time'       =>  $checkdate,
                     'price'       => floatval(1 /$pricefiat[$item->symbol]),
                     'created_at'  => $now,
                     'updated_at'  => $now
