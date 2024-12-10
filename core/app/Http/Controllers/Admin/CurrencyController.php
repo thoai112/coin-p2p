@@ -10,6 +10,7 @@ use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
 use App\Models\MarketData;
 use App\Models\CowHistories;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 
