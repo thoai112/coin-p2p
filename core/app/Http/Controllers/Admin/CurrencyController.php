@@ -211,11 +211,11 @@ class CurrencyController extends Controller
 
     public function saveCowData(Request $request)
     {
-        $checkDate      = explode('-', $request->date);
-        $date = Carbon::parse(trim($checkDate[0]))->format('Y-m-d');
+        // $checkDate      = $request;
+        // $date = Carbon::parse(trim($checkDate))->format('Y-m-d');
         $parameters = [
             'from' => $request->from ?? 'USD',
-            'date' => $request->date ?? now(),
+            'date' => Carbon::parse(trim($request->date))->format('Y-m-d') ?? Carbon::parse(trim(now()))->format('Y-m-d'),
         ];
 
         try {

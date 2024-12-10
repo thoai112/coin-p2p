@@ -189,7 +189,7 @@
                         <div class="modal-body">
                             <div class="form-group">
                                 <label class="form--label">@lang('from')</label>
-                                <input type="text" class="form-control form--control" name="from" required>
+                                <input type="text" class="form-control form--control" name="from">
                             </div>
                             <div class="form-group">
                                 <label class="form--label">@lang('date')</label>
