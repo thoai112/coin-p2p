@@ -335,7 +335,7 @@ class CoinmarketCap extends CurrencyDataProvider
     public function saveCowData($parameters)
     {   
         $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->first();
-        dd($currencies);
+
         $checkDate  = Carbon::parse(trim($parameters['date']))->format('Y-m-d');
         $now        = now();
         $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->first();
@@ -345,17 +345,17 @@ class CoinmarketCap extends CurrencyDataProvider
  
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
-        if (!$currencyHitory) {
-            foreach ($currencies->currencies as $item) {
-                $cowHistories[] = [
-                    'currency_id' => 1,
-                    'symbol'      => 'USD',
-                    'time'        => $now,
-                    'price'       => 5.000,
-                    'created_at'  => $now,
-                    'updated_at'  => $now,
-                ];
-            }
+        // if (!$currencyHitory) {
+        //     foreach ($currencies->currencies as $item) {
+        //         $cowHistories[] = [
+        //             'currency_id' => 1,
+        //             'symbol'      => 'USD',
+        //             'time'        => $now,
+        //             'price'       => 5.000,
+        //             'created_at'  => $now,
+        //             'updated_at'  => $now,
+        //         ];
+        //     }
             // foreach ($currencies as $currency) {
             //     $currency = Currency::where('id', $currency['id'])->first();
         
@@ -372,8 +372,8 @@ class CoinmarketCap extends CurrencyDataProvider
             //         'updated_at'  => $now
             //     ];
             // }
-            $importCount = CowHistories::insert($cowHistories);
-        }
+        //     $importCount = CowHistories::insert($cowHistories);
+        // }
         // else
         // {   
         //     foreach ($currencies->currencies as $item) {
@@ -381,7 +381,7 @@ class CoinmarketCap extends CurrencyDataProvider
         //     }
         // }
 
-        return $importCount;
+        return $pricefiat['AUD'];
     }
 
 }
