@@ -357,16 +357,30 @@ class CoinmarketCap extends CurrencyDataProvider
                     'updated_at'  => $now
                 ];
             }
-            $importCount = CowHistories::insertOrIgnore($cowHistories);
+            
+            CowHistories::insertOrIgnore($cowHistories);
         }
         else
         {   
             foreach ($currencies as $currency) {
-                CowHistories::whereDate('time', '=', $checkDate)->where(currency_id, $currency->id)->update(['price' => floatval(1 /$pricefiat[$currency->symbol])]);
+                $existingHistory = CowHistories::whereDate('time', '=', $checkDate)->where('currency_id', $currency->id)->first();
+                if ($existingHistory) {
+                    $existingHistory->update(['price' => floatval(1 /$pricefiat[$currency->symbol])]);
+                } else {
+                    CowHistories::create([
+                        'currency_id' => $currency->id,
+                        'symbol'      => $currency->symbol,
+                        'time'       =>  $checkDate,
+                        'price'       => floatval(1 /$pricefiat[$currency->symbol]),
+                        'created_at'  => $now,
+                        'updated_at'  => $now
+                    ]);
+                }
             }
+            
         }
 
-        return $importCount;
+        return count($cowHistories);
     }
 
 }
