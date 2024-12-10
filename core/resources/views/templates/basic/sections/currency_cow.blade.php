@@ -188,14 +188,10 @@
                                 </div>
                             </td>
                             <td>
-                               <span class="market-price-${marketData.id} ${htmlClass.price_change != undefined ? htmlClass.price_change : '' }">
-                                    ${showAmount(marketData.price)}
-                                </span>
+                              
                             </td>
                             <td>
-                                <span class="market-percent-change-1h-${marketData.id} ${htmlClass.percent_change_1h || ''}">
-                                    ${showAmount(marketData.percent_change_1h,2)}%
-                                </span>
+                               
                             </td>
                         </tr>
                         `
