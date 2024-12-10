@@ -128,7 +128,7 @@
             });
 
             function getPairList() {
-                let action = "{{ route('cow.list') }}";
+                let action = "{{ route('market.list') }}";
                 $.ajax({
                     url: action,
                     type: "GET",
@@ -140,16 +140,15 @@
                         limit,
                         search
                     },
-                    beforeSend: function() {
-                        if (loadMore) {
+                    beforeSend:function(){
+                        if(loadMore){
                             $('.load-more-market-list').html(`<i class="fa fa-spinner fa-spin"></i>`)
                         }
                     },
-                    complete: function() {
-                        if (loadMore) {
-                            $('.load-more-market-list').html(
-                                `<i class="fa fa-spinner"></i> @lang('Load More')`)
-                        } else {
+                    complete:function(){
+                        if(loadMore){
+                            $('.load-more-market-list').html(`<i class="fa fa-spinner"></i> @lang('Load More')`)
+                        }else{
                             removeSkeleton();
                         }
                     },
@@ -162,39 +161,50 @@
                         let html = '';
                         if (resp.pairs.length <= 0) {
                             html += `<tr class="text-center">
-                            <td colspan="100%">
-                                <div class="empty-thumb">
-                                    <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                    <p class="empty-sell">${loadMore ? 'No more pair found' : 'No pair found'}</p>
-                                </div>
-                            </td>
-                        </tr>`;
+                                <td colspan="100%">
+                                    <div class="empty-thumb">
+                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
+                                        <p class="empty-sell">${loadMore ? 'No more pair found' : 'No pair found'}</p>
+                                    </div>
+                                </td>
+                            </tr>`;
                             $('.load-more-market-list').addClass('d-none');
-                            loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(
-                                html);
+                            loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
                             return;
                         }
                         let tradeUlr = "{{ route('trade', ':symbol') }}";
                         $.each(resp.pairs || [], function(i, pair) {
-                            // let marketData = pair.market_data;
-                            // let htmlClass = marketData.html_classes || {};
+                            let marketData = pair.market_data;
+                            let htmlClass = marketData.html_classes || {};
                             html += `
-                        <tr class="${!loadMore ? 'skeleton' : ''}">
-                            <td>
-                                <div class="customer d-flex align-items-center">
-                                    <div class="customer__content">
-                                        <h6 class="customer__name">${pair}</h6>
+                            <tr class="${!loadMore ? 'skeleton' : ''}">
+                                <td>
+                                    <div class="customer d-flex align-items-center">
+                                        <div class="pair-thumb">
+                                            <div class="coin-img-one">
+                                                <img src="${pair.coin.image_url}">
+                                            </div>
+                                            <div class="coin-img-two">
+                                                <img src="${pair.market.currency.image_url}">
+                                            </div>
+                                        </div>
+                                        <div class="customer__content">
+                                            <h6 class="customer__name">${pair.symbol}</h6>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td>
-                              
-                            </td>
-                            <td>
-                               
-                            </td>
-                        </tr>
-                        `
+                                </td>
+                                <td>
+                                   <span class="market-price-${marketData.id} ${htmlClass.price_change != undefined ? htmlClass.price_change : '' }">
+                                        ${showAmount(marketData.price)}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="market-percent-change-1h-${marketData.id} ${htmlClass.percent_change_1h || ''}">
+                                        ${showAmount(marketData.percent_change_1h,2)}%
+                                    </span>
+                                </td>
+                            </tr>
+                            `
                         });
 
 
