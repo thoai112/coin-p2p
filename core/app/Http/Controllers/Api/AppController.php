@@ -270,57 +270,6 @@ class AppController extends Controller
         ]);
     }
 
-
-
-    public function cowList(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'type' => 'required|in:all,crypto,fiat',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json([
-                'remark'  => 'validation_error',
-                'status'  => 'error',
-                'message' => ['error' => $validator->errors()->all()],
-            ]);
-        }
-
-        $query = Currency::searchable(['symbol'])->select('id', 'rate', 'basicunit', 'symbol');
-
-        // if ($request->type != 'all') {
-        //     $query->whereHas('market', function ($q) use ($request) {
-        //         $q->whereHas('currency', function ($c) use ($request) {
-        //             if ($request->type == 'crypto') {
-        //                 return $c->crypto();
-        //             }
-        //             $c->fiat();
-        //         });
-        //     });
-        // }
-
-        // $query = $query->with(':id,name,currency_id', 'coin:id,name,symbol,image', 'market.currency:id,name,symbol,image', 'marketData')
-        //     ->withCount('trade as total_trade')
-        //     ->orderBy('total_trade', 'desc');
-
-        $total = (clone $query)->count();
-        $pairs = (clone $query)->paginate(getPaginate());
-
-        $notify[] = 'Cow list';
-        return response()->json([
-            'remark'  => 'market_list',
-            'status'  => 'success',
-            'message' => ['success' => $notify],
-            'data'    => [
-                'pairs' => $pairs,
-                'total' => $total,
-            ],
-        ]);
-    }
-
-
-
-
     public function cryptoList(Request $request)
     {
         $query = Currency::active()->crypto()->with('marketData')->rankOrdering()->searchable(['name', 'symbol']);

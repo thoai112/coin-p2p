@@ -268,6 +268,23 @@ class SiteController extends Controller
         ]);
     }
 
+
+    public function cowList(Request $request)
+    {
+        $query = Currency::active()->fiat()->randOrdering()->get();
+
+        $total      = (clone $query)->count();
+        $currencies = (clone $query)->skip($request->skip ?? 0)
+            ->take($request->limit ?? 20)
+            ->get();
+
+        return response()->json([
+            'success'    => true,
+            'currencies' => $currencies,
+            'total'      => $total,
+        ]);
+    }
+
     public function pwaConfiguration()
     {
         $gs = gs();
