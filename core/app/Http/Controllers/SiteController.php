@@ -271,7 +271,7 @@ class SiteController extends Controller
 
     public function cowList(Request $request)
     {
-        $query = Currency::where('type', Status::FIAT_CURRENCY)->searchable(['name', 'symbol']);
+        $query = Currency::where('type', Status::FIAT_CURRENCY)->get();
 
         $total      = (clone $query)->count();
         $currencies = (clone $query)->skip($request->skip ?? 0)
