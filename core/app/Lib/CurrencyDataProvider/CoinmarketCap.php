@@ -294,6 +294,7 @@ class CoinmarketCap extends CurrencyDataProvider
         $pricefiat  = $this->getPriceFiat();
 
         foreach ($data->data as $item) {
+            if (@$item->symbol == 'SSP') continue;
             $currencies[] = [
                 'type'       => @$type,
                 'name'       => @$item->name,
