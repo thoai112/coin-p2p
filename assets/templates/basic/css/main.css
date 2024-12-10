@@ -3841,20 +3841,20 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 }
 
 @media screen and (max-width: 1499px) {
-    .banner-right__center {
-        width: 250px;
+    .banner-right__center img{
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .banner-right__center {
-        width: 200px;
+    .banner-right__center img{
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .banner-right__center {
-        width: 150px;
+    .banner-right__center img{
+        width: 50%;
     }
 }
 @keyframes UpDownJump {
