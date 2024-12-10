@@ -338,24 +338,14 @@ class CoinmarketCap extends CurrencyDataProvider
 
         $checkDate  = Carbon::parse(trim($parameters['date']))->format('Y-m-d');
         $now        = now();
-        $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->get();
+        $currencyHitory = CowHistories::whereDate('time', '=', $checkDate)->whereDate('time', '<=', $now)->exists();
 
         $cowHistories = [];
         // $marketData = [];
  
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
-        if ($currencyHitory) {
-            // foreach ($currencies->currencies as $item) {
-            //     $cowHistories[] = [
-            //         'currency_id' => 1,
-            //         'symbol'      => 'USD',
-            //         'time'        => $now,
-            //         'price'       => 5.000,
-            //         'created_at'  => $now,
-            //         'updated_at'  => $now,
-            //     ];
-            // }
+        if (!$currencyHitory) {
             foreach ($currencies as $currency) {
     
                 $cowHistories[] = [
@@ -367,14 +357,14 @@ class CoinmarketCap extends CurrencyDataProvider
                     'updated_at'  => $now
                 ];
             }
-            $importCount = CowHistories::insert($cowHistories);
+            $importCount = CowHistories::insertOrIgnore($cowHistories);
         }
-        // else
-        // {   
-        //     foreach ($currencies->currencies as $item) {
-        //         $currencyHitory->where(currency_id, $item->id)->update(['price' => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0]);
-        //     }
-        // }
+        else
+        {   
+            foreach ($currencies as $currency) {
+                CowHistories::whereDate('time', '=', $checkDate)->where(currency_id, $currency->id)->update(['price' => floatval(1 /$pricefiat[$currency->symbol])]);
+            }
+        }
 
         return $importCount;
     }
