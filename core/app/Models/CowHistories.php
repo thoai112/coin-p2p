@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CowHistories extends Model
 {
     use GlobalStatus;
+
+    protected $fillable = ['price'];
 }
