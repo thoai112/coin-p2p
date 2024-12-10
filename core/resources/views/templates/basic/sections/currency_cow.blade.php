@@ -175,15 +175,15 @@
                             return;
                         }
                         let tradeUlr = "{{ route('trade', ':symbol') }}";
-                        $.each(resp.pairs || [], function(i, pair) {
-                            let marketData = pair.market_data;
-                            let htmlClass = marketData.html_classes || {};
+                        $.each(resp.currencies || [], function(i, currency) {
+                            // let marketData = pair.market_data;
+                            // let htmlClass = marketData.html_classes || {};
                             html += `
                         <tr class="${!loadMore ? 'skeleton' : ''}">
                             <td>
                                 <div class="customer d-flex align-items-center">
                                     <div class="customer__content">
-                                        <h6 class="customer__name">${pair.symbol}</h6>
+                                        <h6 class="customer__name">${currency.symbol}</h6>
                                     </div>
                                 </div>
                             </td>
