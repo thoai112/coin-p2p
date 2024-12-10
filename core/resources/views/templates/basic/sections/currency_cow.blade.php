@@ -165,23 +165,21 @@
                             loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
                             return;
                         }
-                        let tradeUlr = "{{ route('trade', ':symbol') }}";
+                        // let tradeUlr = "{{ route('trade', ':symbol') }}";
                         $.each(resp.currencies || [], function(i, currency) {
-                            // let marketData = pair.market_data;
-                            // let htmlClass = marketData.html_classes || {};
                             html += `
                             <tr class="${!loadMore ? 'skeleton' : ''}">
                                 <td>
                                     <div class="customer d-flex align-items-center">
                                         <div class="customer__content">
-                                            <h6 class="customer__name">${currency.currencies.symbol}</h6>
+                                            <h6 class="customer__name">${currency.symbol}</h6>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                      <div class="customer d-flex align-items-center">
                                         <div class="customer__content">
-                                            <h6 class="customer__name">${currency.currencies.basicunit}${currency.currencies.minorSingle}</h6>
+                                            <h6 class="customer__name">${currency.basicunit}${currency.minorSingle}</h6>
                                         </div>
                                     </div>
                                    
@@ -189,7 +187,7 @@
                                 <td>
                                     <div class="customer d-flex align-items-center">
                                         <div class="customer__content">
-                                            <h6 class="customer__name">${currency.currencies.rate}</h6>
+                                            <h6 class="customer__name">${currency.rate}</h6>
                                         </div>
                                     </div>
                                    
