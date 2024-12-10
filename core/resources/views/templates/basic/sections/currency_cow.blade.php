@@ -175,7 +175,7 @@
                             return;
                         }
                         let tradeUlr = "{{ route('trade', ':symbol') }}";
-                        $.each(resp.currencies || [], function(i, currency) {
+                        $.each(resp.currencies || [], function(i, currencies) {
                             // let marketData = pair.market_data;
                             // let htmlClass = marketData.html_classes || {};
                             html += `
@@ -183,7 +183,7 @@
                             <td>
                                 <div class="customer d-flex align-items-center">
                                     <div class="customer__content">
-                                        <h6 class="customer__name">${currency.symbol}</h6>
+                                        <h6 class="customer__name">${currencies}</h6>
                                     </div>
                                 </div>
                             </td>
