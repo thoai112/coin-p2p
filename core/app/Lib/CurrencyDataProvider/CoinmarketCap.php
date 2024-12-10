@@ -381,7 +381,7 @@ class CoinmarketCap extends CurrencyDataProvider
         //     }
         // }
 
-        return $pricefiat['AUD'];
+        return $currencies;
     }
 
 }
