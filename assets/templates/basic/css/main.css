@@ -6837,7 +6837,7 @@ label.required:after {
 }
 
 .market-list-search .market-list-search-field {
-    background-color: #000;
+    background-color: #0e5b7285;
     color: hsl(var(--base));
     border: 1px solid #181d20;
     border-radius: 5px;
