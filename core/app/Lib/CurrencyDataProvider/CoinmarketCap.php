@@ -372,7 +372,7 @@ class CoinmarketCap extends CurrencyDataProvider
                     'updated_at'  => $now
                 ];
             }
-            CowHistories::insertOrIgnore($cowHistories);
+            $importCount = CowHistories::insertOrIgnore($cowHistories);
         }
         // else
         // {   
@@ -381,7 +381,7 @@ class CoinmarketCap extends CurrencyDataProvider
         //     }
         // }
 
-        return returnBack($message, 'success');
+        return $importCount;
     }
 
 }
