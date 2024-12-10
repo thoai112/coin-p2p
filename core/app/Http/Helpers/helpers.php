@@ -696,7 +696,7 @@ function highLightedString($string, $className = 'text--base'): string
 function copyRightText(): string
 {
     $text = '&copy; ' . date('Y') . ' <a href="' . route('home') . '" class="text--base"> ' . trans(gs('site_name')) . '
-</a>. ' .trans('design and developed by Cow') . '.' . trans('All Rights Reserved') . '.';
+</a>, ' .trans('design and developed by Cow') . '. ' . trans('All Rights Reserved') . '.';
     return $text;
 }
 
