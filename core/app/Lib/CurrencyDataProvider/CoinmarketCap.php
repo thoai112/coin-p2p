@@ -345,7 +345,7 @@ class CoinmarketCap extends CurrencyDataProvider
  
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
-        if (!$currencyHitory) {
+        if ($currencyHitory) {
             // foreach ($currencies->currencies as $item) {
             //     $cowHistories[] = [
             //         'currency_id' => 1,
