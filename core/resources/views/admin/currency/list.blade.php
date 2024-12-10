@@ -188,13 +188,12 @@
                         <input type="hidden" name="type" value="{{ $type }}">
                         <div class="modal-body">
                             <div class="form-group">
-                                <label class="form--label">@lang('From')</label>
-                                <small title="@lang('Statr from ')"><i class="las la-circle-info"></i></small>
-                                <input type="number" class="form-control form--control" name="from" required>
+                                <label class="form--label">@lang('from')</label>
+                                <input type="text" class="form-control form--control" name="from" required>
                             </div>
                             <div class="form-group">
                                 <label class="form--label">@lang('date')</label>
-                                <input type="number" class="form-control form--control" name="date">
+                                <input type="text" class="form-control form--control" name="date">
                             </div>
                         </div>
                         <div class="modal-footer">
