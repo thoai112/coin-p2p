@@ -121,7 +121,7 @@
             });
 
             function getPairList() {
-                let action = "{{ route('market.list') }}";
+                let action = "{{ route('cow.list') }}";
                 $.ajax({
                     url: action,
                     type: "GET",
@@ -152,7 +152,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.pairs.length <= 0) {
+                        if (resp.currencies.length <= 0) {
                             html += `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
@@ -166,35 +166,31 @@
                             return;
                         }
                         // let tradeUlr = "{{ route('trade', ':symbol') }}";
-                        $.each(resp.pairs || [], function(i, pair) {
+                        $.each(resp.currencies || [], function(i, currency) {
                             let marketData = pair.market_data;
                             let htmlClass = marketData.html_classes || {};
                             html += `
                             <tr class="${!loadMore ? 'skeleton' : ''}">
                                 <td>
                                     <div class="customer d-flex align-items-center">
-                                        <div class="pair-thumb">
-                                            <div class="coin-img-one">
-                                                <img src="${pair.coin.image_url}">
-                                            </div>
-                                            <div class="coin-img-two">
-                                                <img src="${pair.market.currency.image_url}">
-                                            </div>
-                                        </div>
                                         <div class="customer__content">
-                                            <h6 class="customer__name">${pair.symbol}</h6>
+                                            <h6 class="customer__name">${currency.symbol}</h6>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
-                                   <span class="market-price-${marketData.id} ${htmlClass.price_change != undefined ? htmlClass.price_change : '' }">
-                                        ${showAmount(marketData.price)}
-                                    </span>
+                                  <div class="customer d-flex align-items-center">
+                                        <div class="customer__content">
+                                            <h6 class="customer__name">${currency.symbol}</h6>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
-                                    <span class="market-percent-change-1h-${marketData.id} ${htmlClass.percent_change_1h || ''}">
-                                        ${showAmount(marketData.percent_change_1h,2)}%
-                                    </span>
+                                    <div class="customer d-flex align-items-center">
+                                        <div class="customer__content">
+                                            <h6 class="customer__name">${currency.symbol}</h6>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             `
