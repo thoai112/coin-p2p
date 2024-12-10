@@ -373,7 +373,7 @@ class CoinmarketCap extends CurrencyDataProvider
         if ($scope) {
             $query->$scope();
         }
-        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+        return $query;
     }
 
 }
