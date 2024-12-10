@@ -271,7 +271,7 @@ class SiteController extends Controller
 
     public function cowList(Request $request)
     {
-        $query = Currency::active()->fiat()->with('marketData')->rankOrdering()
+        $query = Currency::active()->fiat()->rankOrdering()
         ->searchable(['name', 'symbol']);
 
         $total      = (clone $query)->count();
