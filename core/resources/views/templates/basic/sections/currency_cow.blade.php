@@ -128,7 +128,7 @@
             });
 
             function getPairList() {
-                let action = "{{ route('market.list') }}";
+                let action = "{{ route('history.list') }}";
                 $.ajax({
                     url: action,
                     type: "GET",

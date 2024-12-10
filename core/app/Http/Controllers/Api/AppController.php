@@ -270,6 +270,8 @@ class AppController extends Controller
         ]);
     }
 
+
+
     public function cryptoList(Request $request)
     {
         $query = Currency::active()->crypto()->with('marketData')->rankOrdering()->searchable(['name', 'symbol']);
