@@ -232,7 +232,7 @@
             <i class="las la-plus"></i>@lang('New Currency')
         </button>
     </div>
-    <x-search-form dateSearch='yes' placeholder='Username / Email' />
+    <x-search-form dateSearch='yes'/>
 @endpush
 
 @push('script')
