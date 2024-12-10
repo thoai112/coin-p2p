@@ -358,7 +358,7 @@ class CoinmarketCap extends CurrencyDataProvider
             // CowHistories::insertOrIgnore($cowHistories);
             foreach ($currencies as $currency) {
                 // $currency = Currency::where('symbol', @$currency['symbol'])->first();
-    
+                echo $currency . "<br>";
                 // if (!$currency) continue;
     
                 // if (MarketData::where('pair_id', 0)->where('currency_id', $currency->id)->exists()) continue;
