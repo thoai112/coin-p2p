@@ -182,37 +182,59 @@
                         <i class="las la-times"></i>
                     </button>
                 </div>
-                <form action="{{ route('admin.currency.import') }}" id="import-form" method="POST">
-                    @csrf
-                    <input type="hidden" name="type" value="{{ $type }}">
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <div class="p-2 bg--info rounded">
-                                @if ($type == Status::CRYPTO_CURRENCY)
-                                    <p class="text-white">
-                                        @lang("Cryptocurrency import from $currencyDataProvider->name. The start field represents the starting rank of the cryptocurrency to be imported. For example, if you enter 2, the import will start with the cryptocurrency ranked 2nd on $currencyDataProvider->name & limit field represents the maximum number of cryptocurrencies to be imported. Maximum 100 cryptocurrencies you will import at a time")
-                                    </p>
-                                @else
-                                    <p class="text-white">
-                                        @lang("Currency import from $currencyDataProvider->name. The start field represents the starting $currencyDataProvider->name rank of the currency to be imported. For example, if you enter 2, the import will start with the currency ranked 2nd on $currencyDataProvider->name & limit field represents the maximum number of currencies to be imported. Maximum 100 currencies you will import at a time")
-                                    </p>
-                                @endif
+                @if($type != Status::COW_CURRENCY)
+                    <form action="{{ route('admin.currency.import') }}" id="import-form" method="POST">
+                        @csrf
+                        <input type="hidden" name="type" value="{{ $type }}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <div class="p-2 bg--info rounded">
+                                    @if ($type == Status::CRYPTO_CURRENCY)
+                                        <p class="text-white">
+                                            @lang("Cryptocurrency import from $currencyDataProvider->name. The start field represents the starting rank of the cryptocurrency to be imported. For example, if you enter 2, the import will start with the cryptocurrency ranked 2nd on $currencyDataProvider->name & limit field represents the maximum number of cryptocurrencies to be imported. Maximum 100 cryptocurrencies you will import at a time")
+                                        </p>
+                                    @else
+                                        <p class="text-white">
+                                            @lang("Currency import from $currencyDataProvider->name. The start field represents the starting $currencyDataProvider->name rank of the currency to be imported. For example, if you enter 2, the import will start with the currency ranked 2nd on $currencyDataProvider->name & limit field represents the maximum number of currencies to be imported. Maximum 100 currencies you will import at a time")
+                                        </p>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form--label">@lang('Start')</label>
+                                <small title="@lang('Statr from ')"><i class="las la-circle-info"></i></small>
+                                <input type="number" class="form-control form--control" name="start" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form--label">@lang('Limit')</label>
+                                <input type="number" class="form-control form--control" name="limit">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form--label">@lang('Start')</label>
-                            <small title="@lang('Statr from ')"><i class="las la-circle-info"></i></small>
-                            <input type="number" class="form-control form--control" name="start" required>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn--primary w-100 h-45 ">@lang('Import')</button>
                         </div>
-                        <div class="form-group">
-                            <label class="form--label">@lang('Limit')</label>
-                            <input type="number" class="form-control form--control" name="limit">
+                    </form>
+                @else{
+                    <form action="{{ route('admin.currency.save.cow') }}" id="import-form" method="POST">
+                        @csrf
+                        <input type="hidden" name="type" value="{{ $type }}">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="form--label">@lang('From')</label>
+                                <small title="@lang('Statr from ')"><i class="las la-circle-info"></i></small>
+                                <input type="number" class="form-control form--control" name="from" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form--label">@lang('date')</label>
+                                <input type="number" class="form-control form--control" name="date">
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn--primary w-100 h-45 ">@lang('Import')</button>
-                    </div>
-                </form>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn--primary w-100 h-45 ">@lang('Import')</button>
+                        </div>
+                    </form>
+                }
+                @endif
                 <div class="modal-loader">
                     <div class="spinner-border text-primary" role="status"></div>
                 </div>
@@ -224,7 +246,7 @@
 
 @push('breadcrumb-plugins')
     <div class="d-flex flex-wrap gap-2 justify-content-between">
-        <x-search-form dateSearch='yes' placeholder="Name,Symbol...." />
+        <x-search-form  placeholder="Name,Symbol...." />
         <button type="button" class="btn btn-outline--info importBtn">
             <i class="las la-angle-down"></i> @lang('Import Currency')
         </button>
