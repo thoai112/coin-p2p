@@ -30,7 +30,7 @@
                 </form>
             </div>
         </div>
-        <table class="table coin-pair-list-table table--responsive--lg coin-pair-list">
+        <table class="table">
             <thead>
                 <tr>
                     <th>@lang('Code')</th>
@@ -157,7 +157,7 @@
                                 <td colspan="100%">
                                     <div class="empty-thumb">
                                         <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="empty-sell">${loadMore ? 'No more pair found' : 'No pair found'}</p>
+                                        <p class="empty-sell">${loadMore ? 'No more value found' : 'No value found'}</p>
                                     </div>
                                 </td>
                             </tr>`;
