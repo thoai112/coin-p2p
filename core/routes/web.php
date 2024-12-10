@@ -42,7 +42,7 @@ Route::namespace('P2P')->group(function () {
 Route::controller('SiteController')->group(function () {
     Route::get('/pwa/configuration', 'pwaConfiguration')->name('pwa.configuration');
     Route::get('/market/list', 'marketList')->name('market.list');
-    Route::get('/history/list', 'currencies')->name('history.list');
+    Route::get('/cow/list', 'cowList')->name('cow.list');
     Route::get('/crypto/list', 'cryptoCurrencyList')->name('crypto_currency.list');
     Route::get('/market', 'market')->name('market');
     Route::post('/subscribe', 'subscribe')->name('subscribe');
