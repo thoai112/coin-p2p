@@ -345,35 +345,30 @@ class CoinmarketCap extends CurrencyDataProvider
  
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
-        // if (!$currencyHitory) {
-        //     foreach ($currencies->currencies as $item) {
-        //         $cowHistories[] = [
-        //             'currency_id' => 1,
-        //             'symbol'      => 'USD',
-        //             'time'        => $now,
-        //             'price'       => 5.000,
-        //             'created_at'  => $now,
-        //             'updated_at'  => $now,
-        //         ];
-        //     }
-            // foreach ($currencies as $currency) {
-            //     $currency = Currency::where('id', $currency['id'])->first();
-        
-            //     // if (!$currency) continue;
-    
-            //     // if (MarketData::where('pair_id', 0)->where('currency_id', $currency->id)->exists()) continue;
-    
+        if (!$currencyHitory) {
+            // foreach ($currencies->currencies as $item) {
             //     $cowHistories[] = [
-            //         'currency_id' => $currency->id,
-            //         'symbol'      => $currency->symbol,
-            //         'time'       =>  $checkdate,
-            //         'price'       => floatval(1 /$pricefiat[$item->symbol]),
+            //         'currency_id' => 1,
+            //         'symbol'      => 'USD',
+            //         'time'        => $now,
+            //         'price'       => 5.000,
             //         'created_at'  => $now,
-            //         'updated_at'  => $now
+            //         'updated_at'  => $now,
             //     ];
             // }
-        //     $importCount = CowHistories::insert($cowHistories);
-        // }
+            foreach ($currencies as $currency) {
+    
+                $cowHistories[] = [
+                    'currency_id' => $currency->id,
+                    'symbol'      => $currency->symbol,
+                    'time'       =>  $checkdate,
+                    'price'       => floatval(1 /$pricefiat[$item->symbol]),
+                    'created_at'  => $now,
+                    'updated_at'  => $now
+                ];
+            }
+            $importCount = CowHistories::insert($cowHistories);
+        }
         // else
         // {   
         //     foreach ($currencies->currencies as $item) {
@@ -381,7 +376,7 @@ class CoinmarketCap extends CurrencyDataProvider
         //     }
         // }
 
-        return $currencies;
+        return $importCount;
     }
 
 }
