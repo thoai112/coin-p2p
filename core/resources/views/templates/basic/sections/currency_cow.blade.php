@@ -10,13 +10,13 @@
                 <button type="button" class="table-header-menu__link market-type active" data-type="all">
                     <i class="las la-border-all"></i> @lang('All')
                 </button>
-                {{-- <button type="button" class="table-header-menu__link market-type" data-type="crypto">
+                <button type="button" class="table-header-menu__link market-type" data-type="crypto">
                     <i class="las la-coins"></i> @lang('Crypto')
                 </button>
                 <button type="button" class="table-header-menu__link market-type" data-type="fiat"><i
                         class="las la-hryvnia"></i>
                     @lang('Fiat')
-                </button> --}}
+                </button>
             </div>
             <div class="market-list__left">
                 {{-- @if (@$meta->from_section)
@@ -240,7 +240,7 @@
         })(jQuery);
     </script>
 @endpush
-{{-- @push('script')
+@push('script')
     <script>
         "use strict";
         (function($) {
@@ -401,7 +401,7 @@
 
         })(jQuery);
     </script>
-@endpush --}}
+@endpush
 
 
 @if (!app()->offsetExists('pusher_script'))
