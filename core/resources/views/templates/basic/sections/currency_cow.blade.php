@@ -182,14 +182,6 @@
                         <tr class="${!loadMore ? 'skeleton' : ''}">
                             <td>
                                 <div class="customer d-flex align-items-center">
-                                    <div class="pair-thumb">
-                                        <div class="coin-img-one">
-                                            <img src="${pair.coin.image_url}">
-                                        </div>
-                                        <div class="coin-img-two">
-                                            <img src="${pair.market.currency.image_url}">
-                                        </div>
-                                    </div>
                                     <div class="customer__content">
                                         <h6 class="customer__name">${pair.symbol}</h6>
                                     </div>
