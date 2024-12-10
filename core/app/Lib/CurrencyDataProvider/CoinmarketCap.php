@@ -361,8 +361,8 @@ class CoinmarketCap extends CurrencyDataProvider
                 $cowHistories[] = [
                     'currency_id' => $currency->id,
                     'symbol'      => $currency->symbol,
-                    'time'       =>  $checkdate,
-                    'price'       => floatval(1 /$pricefiat[$item->symbol]),
+                    'time'       =>  $checkDate,
+                    'price'       => floatval(1 /$pricefiat[$symbol]),
                     'created_at'  => $now,
                     'updated_at'  => $now
                 ];
