@@ -3842,19 +3842,19 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 
 @media screen and (max-width: 1499px) {
     .banner-right__center img{
-        width: 80%;
+        max-width: 250px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .banner-right__center img{
-        width: 80%;
+        max-width: 200px;
     }
 }
 
 @media screen and (max-width: 575px) {
     .banner-right__center img{
-        width: 50%;
+        max-width: 150px;
     }
 }
 @keyframes UpDownJump {
@@ -3883,20 +3883,20 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 }
 
 @media screen and (max-width: 1499px) {
-    .banner-right__rotate {
-        width: 250px;
+    .banner-right__rotate img{
+        max-width: 250px;
     }
 }
 
 @media screen and (max-width: 767px) {
-    .banner-right__rotate {
-        width: 200px;
+    .banner-right__rotate img{
+        max-width: 200px;
     }
 }
 
 @media screen and (max-width: 575px) {
-    .banner-right__rotate {
-        width: 150px;
+    .banner-right__rotate img{
+        max-width: 150px;
     }
 }
 @keyframes rotateY {
