@@ -345,17 +345,34 @@ class CoinmarketCap extends CurrencyDataProvider
         $pricefiat  = $this->getPriceFiatHistory(@$parameters);
 
         if (!$currencyHitory) {
-            foreach ($currencies->currencies as $item) {
+            // foreach ($currencies->currencies as $item) {
+            //     $cowHistories[] = [
+            //         'currency_id' => $item->id,
+            //         'symbol'     => @$item->symbol,
+            //         'time'       => @$checkdate,
+            //         'price'       => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0,
+            //         'created_at' => $now,
+            //         'updated_at' => $now,
+            //     ];
+            // }
+            // CowHistories::insertOrIgnore($cowHistories);
+            foreach ($currencies as $currency) {
+                $currency = Currency::where('symbol', @$currency['symbol'])->first();
+    
+                if (!$currency) continue;
+    
+                // if (MarketData::where('pair_id', 0)->where('currency_id', $currency->id)->exists()) continue;
+    
                 $cowHistories[] = [
-                    'currency_id' => $item->id,
-                    'symbol'     => @$item->symbol,
-                    'time'       => @$checkdate,
-                    'price'       => $item->quote->USD->price ?? floatval(1 /$pricefiat[$item->symbol]) ?? 0,
-                    'created_at' => $now,
-                    'updated_at' => $now,
+                    'currency_id' => $currency->id,
+                    'symbol'      => @$currency->symbol,
+                    'time'       =>  @$checkdate,
+                    'price'       => floatval(1 /$pricefiat[$item->symbol]),
+                    'created_at'  => $now,
+                    'updated_at'  => $now
                 ];
             }
-            CowHistories::insertOrIgnore($cowHistories);
+            CowHistories::insertOrIgnore($marketData);
         }
         // else
         // {   
