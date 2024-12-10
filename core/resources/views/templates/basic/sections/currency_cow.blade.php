@@ -205,19 +205,6 @@
                                     ${showAmount(marketData.percent_change_1h,2)}%
                                 </span>
                             </td>
-                            <td>
-                                 <span class="market-percent-change-24h-${marketData.id} ${htmlClass.percent_change_24h || ''}">
-                                    ${showAmount(marketData.percent_change_24h,2)}%
-                                </span>
-                            </td>
-                            <td>
-                                <span class="market-market_cap-${marketData.id}"> ${showAmount(marketData.market_cap)}</span>
-                            </td>
-                            <td class="text-end">
-                                <a href="${tradeUlr.replace(':symbol',pair.symbol)}" class="btn btn--sm outline">
-                                    <i class="fas fa-chart-line"></i> @lang('Trade')
-                                </a>
-                            </td>
                         </tr>
                         `
                         });
