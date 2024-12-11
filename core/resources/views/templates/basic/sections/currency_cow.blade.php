@@ -30,6 +30,7 @@
                 </form>
             </div>
         </div>
+        <div class="table-container">
         <table class="table coin-pair-list-table coin-pair-list">
             <thead>
                 <tr>
@@ -42,6 +43,7 @@
             </thead>
             <tbody id="market-list-body"></tbody>
         </table>
+        </div>
         @if (!@$meta->from_section)
             <div class="text-center mt-5">
                 <button type="button" class="btn btn--base outline btn--sm load-more-market-list d-none">
