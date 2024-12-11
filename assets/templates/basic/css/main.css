@@ -4815,8 +4815,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 .currency-item-cow {
     padding: 20px;
     background-color: hsl(var(--body-background));
-    border-radius: 25px;
-    border-color: hsl(var(--base));
+    border-radius: 15px;
     transition: 0.2s linear;
     border-width: 2px;
     text-align: center;
@@ -4826,6 +4825,8 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     height: 40%;
     margin-top: 13%;
     max-width: 40%;
+    box-shadow: 0 0 0 2px hsl(var(--base));
+
 }
 
 @media screen and (max-width: 991px) {
