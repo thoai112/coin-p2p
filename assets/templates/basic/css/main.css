@@ -2190,7 +2190,7 @@ table tr:first-child th:first-child {
 .table thead tr th {
     background-color: hsl(var(--white));
     padding: 15px 20px;
-    color: hsl(var(--body-color));
+    color: hsl(var(--base));
     font-family: var(--heading-font);
     font-weight: 400;
     border-bottom: 0;
