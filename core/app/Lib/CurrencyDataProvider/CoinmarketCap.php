@@ -361,11 +361,13 @@ class CoinmarketCap extends CurrencyDataProvider
             }
             
             CowHistories::insertOrIgnore($cowHistories);
+            
             CowCurrency::create([
                 'type' => Status::COW_CURRENCY,
+                'name' => 'COW',
                 'symbol'      => 'COW',
-                'timestamp'       =>  $checkDate,
-                'rate'       => $currencies->avg('rate'),
+                'timestamp'   => $checkDate,
+                'rate'        => $currencies->avg('rate'),
                 'created_at'  => $now,
                 'updated_at'  => $now
             ]);
@@ -390,8 +392,8 @@ class CoinmarketCap extends CurrencyDataProvider
                 }
             }
 
-            $existingCow =  CowCurrency::whereDate('time', '=', $checkDate)->first();
-            $existingCow->update(['rate' => $currencies->avg('rate')]);
+            // $existingCow =  CowCurrency::whereDate('time', '=', $checkDate)->first();
+            // $existingCow->update(['rate' => $currencies->avg('rate')]);
             
             
         }
