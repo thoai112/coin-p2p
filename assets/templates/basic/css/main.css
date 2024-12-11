@@ -4813,6 +4813,7 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     justify-items: center;
     margin-left: 5%;
     opacity: 0;
+    height: 40%;
 }
 
 @media screen and (max-width: 767px) {
