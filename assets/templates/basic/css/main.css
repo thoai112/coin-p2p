@@ -2057,7 +2057,7 @@ table tr:first-child th:first-child {
 
 @media screen and (max-width: 991px) {
     .table-wrapper{
-        width:70%;
+        width:60%;
     }
 }
 
@@ -4830,7 +4830,8 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 @media screen and (max-width: 991px) {
     .currency-item-cow {
         padding: 15px;
-        width: 36%;
+        margin-left:2%;
+        width: 37%;
     }
 }
 
