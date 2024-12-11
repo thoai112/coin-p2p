@@ -2070,6 +2070,7 @@ table tr:first-child th:first-child {
     max-height: 400px;
     overflow-y: auto;
     scrollbar-width: none;
+    border-radius: 10px;
 }
 
 
