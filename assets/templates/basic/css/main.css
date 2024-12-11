@@ -2061,6 +2061,12 @@ table tr:first-child th:first-child {
     }
 }
 
+.table-body-container{
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
 
 .table-wrapper__item {
     display: flex;

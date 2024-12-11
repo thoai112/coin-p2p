@@ -5,14 +5,14 @@
 @endphp
 <div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
-        <div class=" table-wrapper__item">
-            <div class="table-header-menu">
-                <button type="button" class="table-header-menu__link market-type active" data-type="fiat">
-                    <i class="las la-border-all"></i> @lang('All')
-                </button>
-            </div>
-            <div class="market-list__left">
-                {{-- @if (@$meta->from_section)
+    <div class=" table-wrapper__item">
+        <div class="table-header-menu">
+            <button type="button" class="table-header-menu__link market-type active" data-type="fiat">
+                <i class="las la-border-all"></i> @lang('All')
+            </button>
+        </div>
+        <div class="market-list__left">
+            {{-- @if (@$meta->from_section)
                     <a href="{{ route('market') }}" class="btn btn--sm btn--base outline">
                         <i class="las la-coins"></i> @lang('All Pair')
                     </a>
@@ -23,44 +23,44 @@
                         <i class="las la-search"></i>
                     </form>
                 @endif --}}
-                <form class="market-list-search">
-                    <input type="search" name="market_list_serach" class="market-list-search-field form--control"
-                        placeholder="@lang('Search here ')...">
-                    <i class="las la-search"></i>
-                </form>
-            </div>
+            <form class="market-list-search">
+                <input type="search" name="market_list_serach" class="market-list-search-field form--control"
+                    placeholder="@lang('Search here ')...">
+                <i class="las la-search"></i>
+            </form>
         </div>
-        <div class="table-container">
-        <table class="table coin-pair-list-table coin-pair-list">
-            <thead>
-                <tr>
-                    <th>@lang('CODE')</th>
-                    <th>@lang('BASIC UNIT')</th>
-                    <th>@lang('VND')</th>
-                    {{-- <th>@lang('24h Change')</th>
+    </div>
+    <table class="table coin-pair-list-table coin-pair-list">
+        <thead>
+            <tr>
+                <th>@lang('CODE')</th>
+                <th>@lang('BASIC UNIT')</th>
+                <th>@lang('VND')</th>
+                {{-- <th>@lang('24h Change')</th>
                 <th class="text-start">@lang('Marketcap')</th> --}}
-                </tr>
-            </thead>
+            </tr>
+        </thead>
+        <div class="table-body-container">
             <tbody id="market-list-body"></tbody>
-        </table>
         </div>
-        @if (!@$meta->from_section)
-            <div class="text-center mt-5">
-                <button type="button" class="btn btn--base outline btn--sm load-more-market-list d-none">
-                    <i class="fa fa-spinner"></i> @lang('Load More')
-                </button>
-            </div>
-        @endif
+    </table>
+    @if (!@$meta->from_section)
+        <div class="text-center mt-5">
+            <button type="button" class="btn btn--base outline btn--sm load-more-market-list d-none">
+                <i class="fa fa-spinner"></i> @lang('Load More')
+            </button>
+        </div>
+    @endif
     {{-- </div> --}}
 </div>
 
 <div class="col-lg-5 currency-item-cow">
-   
-        <div class="section-heading">
-            <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
-            <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
 
-            {{-- @foreach ($elements as $element)
+    <div class="section-heading">
+        <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
+        <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
+
+        {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
             @endforeach --}}
 
@@ -135,15 +135,16 @@
                         limit,
                         search
                     },
-                    beforeSend:function(){
-                        if(loadMore){
+                    beforeSend: function() {
+                        if (loadMore) {
                             $('.load-more-market-list').html(`<i class="fa fa-spinner fa-spin"></i>`)
                         }
                     },
-                    complete:function(){
-                        if(loadMore){
-                            $('.load-more-market-list').html(`<i class="fa fa-spinner"></i> @lang('Load More')`)
-                        }else{
+                    complete: function() {
+                        if (loadMore) {
+                            $('.load-more-market-list').html(
+                                `<i class="fa fa-spinner"></i> @lang('Load More')`)
+                        } else {
                             removeSkeleton();
                         }
                     },
@@ -164,7 +165,8 @@
                                 </td>
                             </tr>`;
                             $('.load-more-market-list').addClass('d-none');
-                            loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
+                            loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(
+                                html);
                             return;
                         }
                         // let tradeUlr = "{{ route('trade', ':symbol') }}";
