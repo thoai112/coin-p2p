@@ -6881,6 +6881,19 @@ label.required:after {
     width: 300px;
 }
 
+@media screen and (max-width: 991px) {
+    .market-list-search {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .market-list-search {
+        width: 130px;
+    }
+}
+
+
 .market-list-search .market-list-search-field {
     background-color: #0e5b7285;
     color: hsl(var(--base));
