@@ -40,8 +40,6 @@
                 <th class="text-start">@lang('Marketcap')</th> --}}
             </tr>
         </thead>
-    </table>
-    <table>
         <div class="table-body-container">
             <tbody id="market-list-body"></tbody>
         </div>
