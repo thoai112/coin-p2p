@@ -40,9 +40,9 @@
                 <th class="text-start">@lang('Marketcap')</th> --}}
             </tr>
         </thead>
-        <div class="table-body-container">
-            <tbody id="market-list-body"></tbody>
-        </div>
+
+        <tbody id="market-list-body" class="table-body-container"></tbody>
+
     </table>
     @if (!@$meta->from_section)
         <div class="text-center mt-5">
