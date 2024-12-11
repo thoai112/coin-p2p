@@ -2110,7 +2110,7 @@ table tr:first-child th:first-child {
 
 @media screen and (max-width: 767px) {
     .table-header-menu {
-        margin-bottom: 15px;
+        margin-bottom: 0px;
     }
 }
 
