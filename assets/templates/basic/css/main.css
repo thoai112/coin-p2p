@@ -4816,6 +4816,13 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     height: 40%;
 }
 
+@media screen and (max-width: 991px) {
+    .currency-item-cow {
+        padding: 15px;
+        width: 26%;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .currency-item-cow {
         padding: 15px;
