@@ -398,7 +398,7 @@ class CoinmarketCap extends CurrencyDataProvider
             
         }
 
-        return count($cowHistories);
+        return count($currencies);
     }
 
 }
