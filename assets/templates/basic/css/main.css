@@ -4824,12 +4824,13 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     margin-left: 5%;
     opacity: 0;
     height: 40%;
-    margin-top: 30%;
+    margin-top: 13%;
 }
 
 @media screen and (max-width: 991px) {
     .currency-item-cow {
         padding: 15px;
+        margin-top: 20%;
         margin-left:2%;
         width: 37%;
     }
@@ -4838,6 +4839,14 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
 @media screen and (max-width: 767px) {
     .currency-item-cow {
         padding: 15px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .currency-item-cow {
+        padding: 12px;
+        margin-left: 0;
+
     }
 }
 
