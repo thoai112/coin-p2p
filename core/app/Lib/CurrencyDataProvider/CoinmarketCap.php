@@ -9,6 +9,7 @@ use App\Models\Currency;
 use App\Models\CurrencyDataProvider as CurrencyDataProviderModel;
 use App\Models\MarketData;
 use App\Models\CowHistories;
+use App\Models\CowCurrency;
 use Carbon\Carbon;
 use Exception;
 
@@ -360,6 +361,15 @@ class CoinmarketCap extends CurrencyDataProvider
             }
             
             CowHistories::insertOrIgnore($cowHistories);
+            CowCurrency::create([
+                'type' => Status::COW_CURRENCY,
+                'symbol'      => 'COW',
+                'timestamp'       =>  $checkDate,
+                'rate'       => $currencies->avg('rate'),
+                'created_at'  => $now,
+                'updated_at'  => $now
+            ]);
+
         }
         else
         {   
@@ -379,6 +389,10 @@ class CoinmarketCap extends CurrencyDataProvider
                     ]);
                 }
             }
+
+            $existingCow =  CowCurrency::whereDate('time', '=', $checkDate)->first();
+            $existingCow->update(['rate' => $currencies->avg('rate')]);
+            
             
         }
 
