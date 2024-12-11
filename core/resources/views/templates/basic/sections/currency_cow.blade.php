@@ -30,7 +30,7 @@
             </form>
         </div>
     </div>
-    <div class="market-table__right">
+    <div class="table-container">
         <table class="table coin-pair-list-table coin-pair-list">
             <thead>
                 <tr>
