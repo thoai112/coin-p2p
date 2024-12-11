@@ -33,8 +33,8 @@
         <table class="table coin-pair-list-table  coin-pair-list">
             <thead>
                 <tr>
-                    <th>@lang('Code')</th>
-                    <th>@lang('Basic Unit')</th>
+                    <th>@lang('CODE')</th>
+                    <th>@lang('BASIC UNIT')</th>
                     <th>@lang('VND')</th>
                     {{-- <th>@lang('24h Change')</th>
                 <th class="text-start">@lang('Marketcap')</th> --}}
