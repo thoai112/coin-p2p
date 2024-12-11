@@ -3,7 +3,7 @@
     $content = getContent('currency_cow.content', true);
     $elements = getContent('currency_cow.element', orderById: true);
 @endphp
-<div class="col-lg-7 table-wrapper">
+<div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
         <div class=" table-wrapper__item">
             <div class="table-header-menu">
