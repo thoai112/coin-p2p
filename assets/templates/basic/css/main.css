@@ -2065,6 +2065,8 @@ table tr:first-child th:first-child {
     max-height: 400px;
     overflow-y: auto;
     scrollbar-width: none;
+    box-shadow: 0 0 0 2px hsl(var(--base));
+    border-radius: 10px;
 }
 
 
