@@ -2054,6 +2054,15 @@ table tr:first-child th:first-child {
     opacity: 0.06;
 }
 
+
+@media screen and (max-width: 767px) {
+    .table-wrapper{
+        width:70%;
+    }
+}
+
+
+
 .table-wrapper__item {
     display: flex;
     justify-content: space-between;
