@@ -2058,6 +2058,8 @@ table tr:first-child th:first-child {
 @media screen and (max-width: 991px) {
     .table-wrapper{
         width:70%;
+        max-height: 350px;
+        overflow-y: auto;
     }
 }
 
