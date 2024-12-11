@@ -2192,7 +2192,7 @@ table tr:first-child th:first-child {
     padding: 15px 20px;
     color: hsl(var(--base));
     font-family: var(--heading-font);
-    font-weight: 400;
+    font-weight: 500;
     border-bottom: 0;
     max-width: 170px;
     border-radius: 10px;
