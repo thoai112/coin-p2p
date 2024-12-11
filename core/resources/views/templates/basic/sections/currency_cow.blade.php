@@ -3,8 +3,8 @@
     $content = getContent('currency_cow.content', true);
     $elements = getContent('currency_cow.element', orderById: true);
 @endphp
-<div class="col-lg-7">
-    <div class="table-wrapper">
+<div class="col-lg-7 table-wrapper">
+    {{-- <div class="table-wrapper"> --}}
         <div class=" table-wrapper__item">
             <div class="table-header-menu">
                 <button type="button" class="table-header-menu__link market-type active" data-type="fiat">
@@ -30,7 +30,7 @@
                 </form>
             </div>
         </div>
-        <table class="table coin-pair-list-table  coin-pair-list">
+        <table class="table coin-pair-list-table coin-pair-list">
             <thead>
                 <tr>
                     <th>@lang('CODE')</th>
@@ -49,7 +49,7 @@
                 </button>
             </div>
         @endif
-    </div>
+    {{-- </div> --}}
 </div>
 
 <div class="col-lg-5">
