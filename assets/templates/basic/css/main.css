@@ -2216,6 +2216,7 @@ table tr:first-child th:first-child {
 .table tbody {
     border: 0 !important;
     background-color: hsl(var(--white));
+    max-height: 300px;
 }
 
 .table tbody tr:last-child {
