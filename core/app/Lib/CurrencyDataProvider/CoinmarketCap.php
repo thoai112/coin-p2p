@@ -307,6 +307,7 @@ class CoinmarketCap extends CurrencyDataProvider
                 'ranking'    => @$item->cmc_rank ?? 0,
                 'rate'       => $item->quote->USD->price ?? floatval(1 /$pricefiat['rates'][$item->symbol]) ?? 0,
                 'basicunit'  => ($type == Status::FIAT_CURRENCY) ?? $basicunit[$item->symbol]['numToBasic'] ?? '',
+                'minorSingle'  => ($type == Status::FIAT_CURRENCY) ?? $basicunit[$item->symbol]['minorSingle'] ?? '',
                 'created_at' => $now,
                 'updated_at' => $now,
             ];
