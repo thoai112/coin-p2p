@@ -293,7 +293,7 @@ class CoinmarketCap extends CurrencyDataProvider
         $marketData = [];
         $now        = now();
         $pricefiat  = $this->getPriceFiat();
-        $basicunit = json_decode(file_get_contents('core/app/Lib/CurrencyDataProvider/currencies.json'));
+        #$basicunit = json_decode(file_get_contents('core/app/Lib/CurrencyDataProvider/currencies.json'));
        
 
         foreach ($data->data as $item) {
