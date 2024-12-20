@@ -107,12 +107,23 @@
 
 /* tabs list design start here */
 
-.coin-list {
+/* .coin-list {
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
     gap: 5px;
+} */
+
+.coin-list {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
 }
 
 .coin-list__item {

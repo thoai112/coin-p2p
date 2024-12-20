@@ -1290,6 +1290,7 @@ button:focus {
 .btn--base {
     background-color: hsl(var(--base)) !important;
     color: hsl(var(--static-white)) !important;
+    padding: 20px 0;
 }
 
 .btn--base:hover,
