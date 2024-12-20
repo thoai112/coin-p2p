@@ -294,8 +294,7 @@ class CoinmarketCap extends CurrencyDataProvider
         $now        = now();
         $pricefiat  = $this->getPriceFiat();
         $basicunit  = json_decode(file_get_contents(resource_path('views/admin/p2p/currencies.json')));
-        // 'basicunit'  => ($type == Status::FIAT_CURRENCY) ? $basicunit[$item->symbol]['numToBasic'] : '',
-        // 'minorSingle' => ($type == Status::FIAT_CURRENCY) ? $basicunit[$item->symbol]['minorSingle'] : null,
+
        
 
         foreach ($data->data as $item) {
@@ -307,6 +306,8 @@ class CoinmarketCap extends CurrencyDataProvider
                 'sign'       => @$item->sign ?? '',
                 'ranking'    => @$item->cmc_rank ?? 0,
                 'rate'       => $item->quote->USD->price ?? floatval(1 /$pricefiat['rates'][$item->symbol]) ?? 0,
+                'basicunit'  => ($type == Status::FIAT_CURRENCY) ? $basicunit[$item->symbol]['numToBasic'] : '',
+                'minorSingle' => ($type == Status::FIAT_CURRENCY) ? $basicunit[$item->symbol]['minorSingle'] : null,
                 'created_at' => $now,
                 'updated_at' => $now,
             ];
