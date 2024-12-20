@@ -219,7 +219,7 @@ class CoinmarketCap extends CurrencyDataProvider
     public function getPriceFiatHistory($parameters = null)
     {   
         $buildid_url = 'https://www.xe.com/currencytables';
-        $build_id = getBuildId($buildid_url);
+        $build_id = $this->getBuildId($buildid_url);
         $url = "https://www.xe.com/_next/data/{$build_id}/currencytables.json";
         $headers = [
             'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
