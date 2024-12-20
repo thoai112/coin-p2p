@@ -192,7 +192,7 @@ class CoinmarketCap extends CurrencyDataProvider
 
     public function getPriceFiatHistory($parameters = null)
     {   
-        $url = 'https://www.xe.com/_next/data/mlR33XfT8TyH6PzaYIcW3/en/currencytables.json';
+        $url = 'https://www.xe.com/_next/data/D5s0KzSHTAQFGFotzaLZF/currencytables.json';
         $headers = [
             'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
         ];
