@@ -198,9 +198,9 @@ class CoinmarketCap extends CurrencyDataProvider
         }
     
         // Parse the HTML content
-        $dom = new DOMDocument();
+        $dom = new \DOMDocument();
         @$dom->loadHTML($response);
-        $xpath = new DOMXPath($dom);
+        $xpath = new \DOMXPath($dom);
     
         // Extract the buildId value using regex (assuming it's within a script tag)
         $script_tags = $xpath->query('//script[contains(text(), "buildId")]');
