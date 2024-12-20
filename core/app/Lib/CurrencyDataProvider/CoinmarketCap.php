@@ -190,9 +190,37 @@ class CoinmarketCap extends CurrencyDataProvider
         // }
     }
 
+    function getBuildId($api_url) {
+        // Fetch the HTML data from the API
+        $response = file_get_contents($api_url);
+        if ($response === FALSE) {
+            die('Error occurred while fetching the API data.');
+        }
+    
+        // Parse the HTML content
+        $dom = new DOMDocument();
+        @$dom->loadHTML($response);
+        $xpath = new DOMXPath($dom);
+    
+        // Extract the buildId value using regex (assuming it's within a script tag)
+        $script_tags = $xpath->query('//script[contains(text(), "buildId")]');
+        $build_id = null;
+        if ($script_tags->length > 0) {
+            $script_content = $script_tags->item(0)->nodeValue;
+            if (preg_match('/"buildId":"(.*?)"/', $script_content, $matches)) {
+                $build_id = $matches[1];
+            }
+        }
+    
+        // Return the extracted buildId
+        return $build_id;
+    }
+    
     public function getPriceFiatHistory($parameters = null)
     {   
-        $url = 'https://www.xe.com/_next/data/D5s0KzSHTAQFGFotzaLZF/currencytables.json';
+        $buildid_url = 'https://www.xe.com/currencytables';
+        $build_id = getBuildId($buildid_url);
+        $url = "https://www.xe.com/_next/data/{$build_id}/currencytables.json";
         $headers = [
             'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
         ];
