@@ -56,6 +56,14 @@ class SiteController extends Controller
     }
 
 
+    public function treding()
+    {
+        $pageTitle = 'Trending';
+        $sections = Page::where('tempname', activeTemplate())->where('slug', 'trending')->first();
+        return view('Template::trending', compact('pageTitle', 'sections'));
+    }
+
+
     public function contactSubmit(Request $request)
     {
         $request->validate([
