@@ -300,10 +300,11 @@ class SiteController extends Controller
             $currenciesHistory = (clone $query)->get();
             $currencies = [];
             foreach ($currenciesHistory as $currency) {
-                $currency = Currency::where('id', @$currency['currency_id'])->first();
+                $currency = Currency::where('id', @$currency->currency_id)->first();
                 
                 $currencies[] = [
-                    'currency_id' => @$currency->currency_id,
+                    'id'          => @$currency->id,
+                    'name'        => @$currency->name,
                     'symbol'      => @$currency->symbol,
                     'rate'        => @$currency->price,
                     'time'        => @$currency->time,
