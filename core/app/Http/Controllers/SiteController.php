@@ -319,7 +319,7 @@ class SiteController extends Controller
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => $currencies -> avg('rate'),
+            'cow'        => ($formattedRequestDate === $formattedDateTime)?$currencies->avg('rate'): $currenciesHistories->avg('price'),
             'total'      => $total,
         ]);
     }
