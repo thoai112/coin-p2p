@@ -297,19 +297,18 @@ class SiteController extends Controller
         else{
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
-            $currenciesHistories = (clone $query)->get();
+            $currencies = (clone $query)->get();
 
-            $currencies = [];
-            foreach ($currenciesHistories as $currency) {
+            $currenciesx = [];
+            foreach ($currencies as $currency) {
                 $currency = Currency::active()->cow()->where('id', @$currency->currency_id)->first();
                 
-                $currencies[] = [
+                $currenciesx[] = [
                     'id'          => @$currency->id,
-                    'currency_id' => @$currency['currency_id'],
                     'name'        => @$currency->name,
                     'symbol'      => @$currency->symbol,
-                    'rate'        => @$currency['price'],
-                    'time'        => @$currency['time'],
+                    'rate'        => @$currency->price,
+                    'time'        => @$currency->time,
                     'basicunit'   => $currency->basicunit,
                     'minorSingle' => $currency->minorSingle,
                     'created_at'  => @$currency->created_at,
@@ -321,7 +320,7 @@ class SiteController extends Controller
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'currenciesx' => $currencies,
+            'currenciesx' => $currenciesx,
             'cow'        => $currencies-> avg('rate'),
             'total'      => $total,
         ]);
