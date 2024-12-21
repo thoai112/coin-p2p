@@ -406,15 +406,15 @@ class CoinmarketCap extends CurrencyDataProvider
             //     'updated_at'  => $now
             //     ];
 
-            $cowCurrencies = new CowCurrency();
-            $cowCurrencies->type = Status::COW_CURRENCY;
-            $cowCurrencies->name = 'COW';
-            $cowCurrencies->symbol = 'COW';
-            $cowCurrencies->timestamp = $checkDate;
-            $cowCurrencies->rate = $currencies->avg('rate');
-            $cowCurrencies->created_at = $now;
-            $cowCurrencies->updated_at = $now;
-            $cowCurrencies->save();
+            CowHistories::create([
+                'type' => Status::COW_CURRENCY,
+                'name' => 'COW',
+                'symbol'      => 'COW',
+                'timestamp'   => $checkDate,
+                'rate'        => $currencies->avg('rate'),
+                'created_at'  => $now,
+                'updated_at'  => $now
+            ]);
 
         }
         else
