@@ -301,18 +301,18 @@ class SiteController extends Controller
 
             $currenciesx = [];
             foreach ($currencies as $currency) {
-                $currency = Currency::active()->cow()->where('id', @$currency->currency_id)->first();
+                $currencyhis = Currency::active()->cow()->where('id', $currency->currency_id)->first();
         
                 $currenciesx[] = [
-                    'id'          => @$currency->id,
-                    'name'        => @$currency->name,
-                    'symbol'      => @$currency->symbol,
-                    'rate'        => @$currency->price,
-                    'time'        => @$currency->time,
-                    'basicunit'   => $currency->basicunit,
-                    'minorSingle' => $currency->minorSingle,
-                    'created_at'  => @$currency->created_at,
-                    'updated_at'  => @$currency->updated_at,
+                    'id'          => $currency->id,
+                    'name'        => $currency->name,
+                    'symbol'      => $currency->symbol,
+                    'rate'        => $currency->price,
+                    'time'        => $currency->time,
+                    'basicunit'   => $currencyhis->basicunit,
+                    'minorSingle' => $currencyhis->minorSingle,
+                    'created_at'  => $currency->created_at,
+                    'updated_at'  => $currency->updated_at,
                 ];
             }
 
