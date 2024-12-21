@@ -50,6 +50,7 @@ Route::controller('SiteController')->group(function () {
     Route::get('/crypto/currency/{symbol}', 'cryptoCurrencyDetails')->name('crypto.details');
     Route::get('/about-us', 'about')->name('about');
     Route::post('pusher/auth/{socketId}/{channelName}', "pusherAuthentication");
+    Route::get('/trending', 'trending')->name('trending');
 
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact', 'contactSubmit');
