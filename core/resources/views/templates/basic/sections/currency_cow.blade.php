@@ -86,7 +86,7 @@
         (function($){
             "use strict"
 
-            const datePicker = $('.date-range').daterangepicker({
+            const datePicker = $('.date-range').datepicker({
                 autoUpdateInput: false,
                 locale: {
                     cancelLabel: 'Clear'
