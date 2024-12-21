@@ -426,8 +426,8 @@ class CoinmarketCap extends CurrencyDataProvider
                 }
             }
 
-            // $existingCow =  CowCurrency::whereDate('time', '=', $checkDate)->first();
-            // $existingCow->update(['rate' => $currencies->avg('rate')]);
+            $existingCow =  CowCurrency::whereDate('time', '=', $checkDate)->first();
+            $existingCow->update(['rate' => $currencies->avg('rate')]);
             
             
         }
