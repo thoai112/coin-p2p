@@ -71,9 +71,9 @@
                                             <td>{{ showDateTime($currency->created_at) }}</td>
                                             <td>{{ $currency->name }}</td>
                                             <td>
-                                                {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
+                                                {{ showAmount(@$currency->rate) }}
                                             </td>
-                                            <td> @php echo $currency->statusBadge; @endphp </td>
+                                            <td> @php echo $currency->type; @endphp </td>
                                             <td>
                                                 <div class="button--group">
                                                     <button type="button" class="btn btn-sm btn-outline--primary editBtn"
