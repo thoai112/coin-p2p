@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Constants\Status;
 use App\Models\AdminNotification;
 use App\Models\CoinPair;
+use App\Models\CowHistories;
 use App\Models\Currency;
 use App\Models\Frontend;
 use App\Models\Language;
@@ -289,6 +290,11 @@ class SiteController extends Controller
 
         if ($formattedRequestDate === $formattedDateTime) {
             $query      = Currency::active()->cow()->symbolOrdering()->searchable(['name', 'symbol']);
+            $total      = (clone $query)->count();
+            $currencies = (clone $query)->get();
+        }
+        else{
+            $query      = CowHistories::where('date', $request->date)->symbolOrdering()->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
         }
