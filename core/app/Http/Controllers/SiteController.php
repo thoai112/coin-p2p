@@ -297,7 +297,22 @@ class SiteController extends Controller
         else{
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
-            $currencies = (clone $query)->get();
+            $currenciesHistory = (clone $query)->get();
+            $currencies = [];
+            foreach ($currenciesHistory as $currency) {
+                $currency = Currency::where('id', @$currency['currency_id'])->first();
+                
+                $currencies[] = [
+                    'currency_id' => @$currency->currency_id,
+                    'symbol'      => @$currency->symbol,
+                    'rate'        => @$currency->price,
+                    'time'        => @$currency->time,
+                    'basicunit'   => $currency->basicunit,
+                    'minorSingle' => $currency->minorSingle,
+                    'created_at'  => @$currency->created_at,
+                    'updated_at'  => @$currency->updated_at,
+                ];
+            }
 
         }
         return response()->json([
