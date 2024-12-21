@@ -7,7 +7,7 @@
     {{-- <div class="table-wrapper"> --}}
     <div class=" table-wrapper__item">
         <div class="table-header-menu">
-            <button type="button" class="table-header-menu__link market-type active" data-type="fiat" id="showDateRangePicker">
+            <button type="button" class="table-header-menu__link market-type active date-range" data-type="fiat" id="showDateRangePicker">
                 <i class="las la-border-all"></i> @lang('All')
             </button>
         </div>
