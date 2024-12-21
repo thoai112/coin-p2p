@@ -17,6 +17,7 @@ class CowCurrency extends Model
     protected $appends = [
         'image_url'
     ];
+    protected $guarded = ['rate']; 
 
     public function nameAndSymbol(): Attribute
     {
