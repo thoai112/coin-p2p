@@ -119,10 +119,6 @@
                 $('.date-range').data('daterangepicker').setEndDate(new Date(dateRange[1]));
             }
 
-            $('#showDateRangePicker').on('click', function() {
-                $('.date-range').click();
-            });
-
         })(jQuery)
     </script>
 @endpush
@@ -166,9 +162,10 @@
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
                 $(this).addClass('active');
-                type = $(this).data('type');
-                resetVariable()
-                getPairList();
+                $('.date-range').click();
+                // type = $(this).data('type');
+                // resetVariable()
+                // getPairList();
             });
 
             $('.load-more-market-list').on('click', function(e) {
