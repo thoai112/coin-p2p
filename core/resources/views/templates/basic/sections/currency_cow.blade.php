@@ -87,7 +87,7 @@
         (function($) {
             "use strict"
 
-            const datePicker = $('.date-range').daterangepicker({
+            const datePicker = $('.date-range').datepicker({
                 autoUpdateInput: false,
                 locale: {
                     cancelLabel: 'Clear'
@@ -109,17 +109,17 @@
                 maxDate: moment()
             });
 
-            const changeDatePickerText = (event, startDate, endDate) => {
-                $(event.target).val(startDate.format('MMMM DD, YYYY') + ' - ' + endDate.format('MMMM DD, YYYY'));
+            const changeDatePickerText = (event, startDate) => {
+                $(event.target).val(startDate.format('MMMM DD, YYYY'));
             }
 
-            $('.date-range').on('apply.daterangepicker', (event, picker) => changeDatePickerText(event, picker
-                .startDate, picker.endDate));
+            $('.date-range').on('apply.datepicker', (event, picker) => changeDatePickerText(event, picker
+                .startDate));
 
             if ($('.date-range').val()) {
                 let dateRange = $('.date-range').val().split(' - ');
-                $('.date-range').data('daterangepicker').setStartDate(new Date(dateRange[0]));
-                $('.date-range').data('daterangepicker').setEndDate(new Date(dateRange[1]));
+                $('.date-range').data('datepicker').setStartDate(new Date(dateRange[0]));
+                // $('.date-range').data('daterangepicker').setEndDate(new Date(dateRange[1]));
             }
         })(jQuery);
     </script>
