@@ -7,7 +7,7 @@
     {{-- <div class="table-wrapper"> --}}
     <div class=" table-wrapper__item">
         <div class="table-header-menu">
-            <button type="button" class="table-header-menu__link market-type active" data-type="fiat">
+            <button type="button" class="table-header-menu__link market-type active" data-type="fiat" id="showDateRangePicker">
                 <i class="las la-border-all"></i> @lang('All')
             </button>
         </div>
@@ -71,6 +71,62 @@
 
     </div>
 </div>
+
+
+@push('script-lib')
+    <script src="{{ asset('assets/admin/js/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/daterangepicker.min.js') }}"></script>
+@endpush
+
+@push('style-lib')
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/daterangepicker.css') }}">
+@endpush
+@push('script')
+    <script>
+        (function($){
+            "use strict"
+
+            const datePicker = $('.date-range').daterangepicker({
+                autoUpdateInput: false,
+                locale: {
+                    cancelLabel: 'Clear'
+                },
+                showDropdowns: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 15 Days': [moment().subtract(14, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(30, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+                    'Last 6 Months': [moment().subtract(6, 'months').startOf('month'), moment().endOf('month')],
+                    'This Year': [moment().startOf('year'), moment().endOf('year')],
+                },
+                maxDate: moment()
+            });
+            const changeDatePickerText = (event, startDate, endDate) => {
+                $(event.target).val(startDate.format('MMMM DD, YYYY') + ' - ' + endDate.format('MMMM DD, YYYY'));
+            }
+
+
+            $('.date-range').on('apply.daterangepicker', (event, picker) => changeDatePickerText(event, picker.startDate, picker.endDate));
+
+
+            if ($('.date-range').val()) {
+                let dateRange = $('.date-range').val().split(' - ');
+                $('.date-range').data('daterangepicker').setStartDate(new Date(dateRange[0]));
+                $('.date-range').data('daterangepicker').setEndDate(new Date(dateRange[1]));
+            }
+
+            $('#showDateRangePicker').on('click', function() {
+                $('.date-range').click();
+            });
+
+        })(jQuery)
+    </script>
+@endpush
+
 
 
 @push('script')
