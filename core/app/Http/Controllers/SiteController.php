@@ -302,7 +302,7 @@ class SiteController extends Controller
             $currenciesx = [];
             foreach ($currencies as $currency) {
                 $currency = Currency::active()->cow()->where('id', @$currency->currency_id)->first();
-                
+        
                 $currenciesx[] = [
                     'id'          => @$currency->id,
                     'name'        => @$currency->name,
