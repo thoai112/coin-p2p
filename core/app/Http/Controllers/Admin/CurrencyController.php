@@ -70,7 +70,7 @@ class CurrencyController extends Controller
         if ($scope == 'cow') {
             $query->rankOrdering();
         }
-        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+        return $query->with('marketData')->searchable(['name', 'symbol'])->paginate(getPaginate());
     }
 
     private function saveCow($scope = null)
