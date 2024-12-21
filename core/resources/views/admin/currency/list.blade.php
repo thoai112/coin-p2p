@@ -71,7 +71,7 @@
                                             <td>{{ showDateTime($currency->timestamp) }}</td>
                                             <td>{{ $currency->name }}</td>
                                             <td>
-                                                {{ showAmount(@$currency->rate) }}
+                                                {{ showAmount(@$currency->rate ?? @$currency->price) }}
                                             </td>
                                             <td> @php echo $currency->type; @endphp </td>
                                             <td>

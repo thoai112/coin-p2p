@@ -302,7 +302,7 @@ class SiteController extends Controller
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => $currencies->avg('rate'),
+            'cow'        => $currencies->avg('rate') ?? $currencies->avg('price'),
             'total'      => $total,
         ]);
     }
