@@ -68,7 +68,7 @@
                                 @else
                                     @forelse($currencies as $currency)
                                         <tr>
-                                            <td>{{ showDateTime($currency->created_at) }}</td>
+                                            <td>{{ showDateTime($currency->timestamp) }}</td>
                                             <td>{{ $currency->name }}</td>
                                             <td>
                                                 {{ showAmount(@$currency->rate) }}
