@@ -47,6 +47,7 @@ Route::controller('SiteController')->group(function () {
     Route::get('/market', 'market')->name('market');
     Route::post('/subscribe', 'subscribe')->name('subscribe');
     Route::get('/crypto-currency', 'crypto')->name('crypto_currencies');
+    Route::get('/trending', 'trending')->name('trending');
     Route::get('/crypto/currency/{symbol}', 'cryptoCurrencyDetails')->name('crypto.details');
     Route::get('/about-us', 'about')->name('about');
     Route::post('pusher/auth/{socketId}/{channelName}', "pusherAuthentication");
