@@ -65,6 +65,30 @@
                                             <td class="text-muted text-center" colspan="100%">{{ __($emptyMessage) }}</td>
                                         </tr>
                                     @endforelse
+                                @else
+                                    @forelse($currencies as $currency)
+                                        <tr>
+                                            <td>{{ showDateTime($currency->created_at) }}</td>
+                                            <td>{{ $currency->name }}</td>
+                                            <td>
+                                                {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
+                                            </td>
+                                            <td> @php echo $currency->statusBadge; @endphp </td>
+                                            <td>
+                                                <div class="button--group">
+                                                    <button type="button" class="btn btn-sm btn-outline--primary editBtn"
+                                                        data-currency='@json($currency)'
+                                                        data-image="{{ $currency->image_url }}">
+                                                        <i class="la la-pencil"></i>@lang('Edit')
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td class="text-muted text-center" colspan="100%">{{ __($emptyMessage) }}</td>
+                                        </tr>
+                                    @endforelse
                                 @endif
                             </tbody>
                         </table>
