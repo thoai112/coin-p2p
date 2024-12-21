@@ -56,7 +56,7 @@ class SiteController extends Controller
     }
 
 
-    public function treding()
+    public function trending()
     {
         $pageTitle = 'Trending';
         $sections = Page::where('tempname', activeTemplate())->where('slug', 'trending')->first();
