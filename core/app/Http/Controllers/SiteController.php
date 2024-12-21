@@ -294,7 +294,7 @@ class SiteController extends Controller
             $currencies = (clone $query)->get();
         }
         else{
-            $query      = CowHistories::whereDate('time', '=', $formattedDateTime)->symbolOrdering()->searchable(['name', 'symbol']);
+            $query      = CowHistories::whereDate('time', '=', $formattedDateTime)->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
         }
