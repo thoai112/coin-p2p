@@ -1,6 +1,24 @@
-@extends($activeTemplate . 'layouts.frontend')
+@extends($activeTemplate.'layouts.frontend')
 @section('content')
-<div>
-    <h1>Trending</h1>
-</div>
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-end">
+                    <a href="{{ route('home') }}" class="fw-bold home-link"> <i class="las la-long-arrow-alt-left"></i> @lang('Go to Home')</a>
+                </div>
+                <div class="card custom--card">
+                    <div class="card-header">
+                        <h5 class="card-title">{{ __($pageTitle) }}</h5>
+                    </div>
+                    <div class="card-body">
+                        @php
+                            echo $cookie->data_values->description
+                        @endphp
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection
