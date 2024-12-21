@@ -292,17 +292,18 @@ class SiteController extends Controller
             $query      = Currency::active()->cow()->symbolOrdering()->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
+            
         }
         else{
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
-        }
 
+        }
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => $currencies->avg('rate') ?? $currencies->avg('price'),
+            'cow'        => $currencies-> avg('rate'),
             'total'      => $total,
         ]);
     }
