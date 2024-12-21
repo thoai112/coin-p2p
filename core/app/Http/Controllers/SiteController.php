@@ -300,7 +300,7 @@ class SiteController extends Controller
             $currenciesHistories = (clone $query)->get();
             $currencies = [];
             foreach ($currenciesHistories as $currency) {
-                $currencyhis = Currency::active()->cow()->where('id', $currency->currency_id)->first();
+                $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
         
                 $currencies[] = [
                     'id'          => $currency->id,
