@@ -1,15 +1,3 @@
-{{-- @extends($activeTemplate.'layouts.frontend')
-@section('content')
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <h1 class="text-center">@lang('Trending')</h1>
-        </div>
-    </div>
-</section>
-@endsection --}}
-
-
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
     <section class="trade-section">
@@ -22,7 +10,7 @@
                         <div id="current-price-dot"></div>
                     </div>
                 </div>
-                <div class="trade-section__right">
+                {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
                     </button>
@@ -104,11 +92,103 @@
                         </button>
 
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
 
     
 @endsection
+
+@push('style')
+    <style>
+        #chart-container {
+            width: 100%;
+            background-color: hsl(var(--footer-bg));
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px
+        }
+
+        #trading-controls {
+            background-color: #2a2e39;
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+        }
+
+        .btn-custom {
+            background-color: #4caf50;
+            color: white;
+            width: 100%;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: #1e222d;
+            border: 1px solid #363c4e;
+            color: #d1d4dc;
+            margin-bottom: 15px;
+        }
+
+        #countdown {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #direction-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1000;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            pointer-events: none;
+            display: none;
+        }
+
+        #current-price-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #35c75a;
+            pointer-events: none;
+            animation: pulse 0.1s infinite;
+        }
+
+        #binaryTable tbody,
+        tr {
+            cursor: pointer;
+        }
+
+        .empty-thumb {
+            padding: 0 !important;
+            min-height: 145px !important;
+        }
+
+        .table tbody tr td:nth-last-child(3) {
+            color: hsl(var(--white) / 0.7);
+        }
+    </style>
+@endpush
 
