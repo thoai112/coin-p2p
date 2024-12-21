@@ -406,7 +406,7 @@ class CoinmarketCap extends CurrencyDataProvider
             //     'updated_at'  => $now
             //     ];
 
-            CowHistories::create([
+            CowCurrency::create([
                 'type' => Status::COW_CURRENCY,
                 'name' => 'COW',
                 'symbol'      => 'COW',
