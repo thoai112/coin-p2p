@@ -73,6 +73,7 @@ class CurrencyController extends Controller
         return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
     }
 
+
     private function saveCow($scope = null)
     {
         $query = CowCurrency::query();

@@ -199,13 +199,13 @@ class SiteController extends Controller
     public function market()
     {
         $pageTitle = 'Market List';
-        $sections  = Page::where('tempname',activeTemplate())->where('slug', 'market')->first();
+        $sections  = Page::where('tempname', activeTemplate())->where('slug', 'market')->first();
         return view('Template::market_list', compact('pageTitle', 'sections'));
     }
     public function crypto()
     {
         $pageTitle = 'Cryptocurrency';
-        $sections  = Page::where('tempname',activeTemplate())->where('slug', 'crypto-currency')->first();
+        $sections  = Page::where('tempname', activeTemplate())->where('slug', 'crypto-currency')->first();
         return view('Template::crypto_currency', compact('pageTitle', 'sections'));
     }
 
@@ -271,11 +271,27 @@ class SiteController extends Controller
 
     public function cowList(Request $request)
     {
-        $query = Currency::active()->cow()->symbolOrdering()
-        ->searchable(['name', 'symbol']);
+        // $validator = Validator::make($request->all(), [
+        //     'date' => 'required|in:all,crypto,fiat',
+        // ]);
 
-        $total      = (clone $query)->count();
-        $currencies = (clone $query)->get();
+        // if ($validator->fails()) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => $validator->errors()->all(),
+        //     ]);
+        // }
+
+        $dateTime = now();
+
+        $formattedRequestDate = Carbon::parse($request->date)->format('Y-m-d');
+        $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
+
+        if ($formattedRequestDate === $formattedDateTime) {
+            $query      = Currency::active()->cow()->symbolOrdering()->searchable(['name', 'symbol']);
+            $total      = (clone $query)->count();
+            $currencies = (clone $query)->get();
+        }
 
         return response()->json([
             'success'    => true,
@@ -341,7 +357,7 @@ class SiteController extends Controller
     public function about()
     {
         $pageTitle = "About Us";
-        $sections  = Page::where('tempname',activeTemplate())->where('slug', 'about-us')->firstOrFail();
+        $sections  = Page::where('tempname', activeTemplate())->where('slug', 'about-us')->firstOrFail();
         return view('Template::about', compact('pageTitle', 'sections'));
     }
 }

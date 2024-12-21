@@ -105,6 +105,7 @@
             let skip = 0;
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
+            let date = "{{ now()->format('Y-m-d') }}";
 
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
@@ -134,6 +135,7 @@
                     dataType: 'json',
                     cache: false,
                     data: {
+                        date,
                         type,
                         skip,
                         limit,
