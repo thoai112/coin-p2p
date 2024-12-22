@@ -114,14 +114,14 @@
         #chart-container {
             width: 100%;
             height: 200px;
-            background-color: hsl(var(--footer-bg));
+            background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
             border-radius: 8px
         }
 
         #trading-controls {
-            background-color: #2a2e39;
+            background-color: #2a2e3942;
             border-radius: 10px;
             padding: 20px;
             height: 100%;
@@ -135,8 +135,8 @@
 
         .form-control,
         .form-select {
-            background-color: #1e222d;
-            border: 1px solid #363c4e;
+            background-color: #1e222d46;
+            border: 1px solid #363c4e1f;
             color: #d1d4dc;
             margin-bottom: 15px;
         }
