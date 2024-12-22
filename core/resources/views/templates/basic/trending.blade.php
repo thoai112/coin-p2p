@@ -388,7 +388,7 @@
                     const data = await response.json();
                     const chartData = data.map(d => ({
                         time: d[0] / 1000,
-                        value: parseFloat(d[4])
+                        value: d[4]
                     }));
 
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) === i);
