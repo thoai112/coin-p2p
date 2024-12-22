@@ -336,6 +336,7 @@
             //     }
             // }
 
+            
             function initializeChart() {
 
                 chart = LightweightCharts.createChart(
@@ -368,6 +369,9 @@
 
             }
 
+
+            loadHistoricalData();
+            
             async function loadHistoricalData() {
                 try {
                     const response = await fetch(BINANCE_API_URL);
