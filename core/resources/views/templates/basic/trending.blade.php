@@ -196,7 +196,7 @@
         }
 
         .table tbody tr td:nth-last-child(3) {
-            color: #0a1e558e;
+            color: hsl(var(--white) / 0.7);
         }
     </style>
 @endpush
