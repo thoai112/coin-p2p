@@ -378,7 +378,7 @@
                 }
                 loadHistoricalData();
                 initializeWebSocket();
-                // setupDirectionIndicators()
+                setupDirectionIndicators()
 
             }
 
