@@ -574,60 +574,12 @@
                 });
             });
 
-            $(".trade-amount").each(function() {
-                var amountIncrement = $(this).find(".trade-amount__increment");
-                var amountDecrement = $(this).find(".trade-amount__decrement");
-                var amountInput = $(this).find(".trade-amount__input");
-
-                amountIncrement.on("click", function() {
-                    var oldValue = parseFloat(amountInput.val());
-                    var newVal = oldValue + Number(incrementAmount);
-                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
-                });
-
-                amountDecrement.on("click", function() {
-                    var oldValue = parseFloat(amountInput.val());
-                    if (oldValue <= minTradeAmount) {
-                        var newVal = oldValue;
-                    } else {
-                        var newVal = oldValue - Number(incrementAmount);
-                    }
-                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
-                });
-            });
-
+            /* ==================== Assets Dropdown Slider JS End ===================== */
 
 
             let page = 1;
             let isLoading = false;
-
-            $('.terminal-body .tab-content').on('scroll', function() {
-                let div = $(this).get(0);
-                if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
-                    if (!isLoading) {
-                        isLoading = true;
-                        page++;
-                        $.ajax({
-                            url: "{{ route('user.binary.trade.history') }}",
-                            method: "GET",
-                            data: {
-                                page: page
-                            },
-                            success: function(response) {
-                                $('.loading-spinner').remove();
-                                if (response.trades.length > 0) {
-                                    $('#closedTradeTable tbody').append(response.trades);
-                                }
-                                isLoading = false;
-                            },
-                            error: function() {
-                                $('.loading-spinner').remove();
-                                isLoading = false;
-                            }
-                        });
-                    }
-                }
-            });
+            
 
         })(jQuery)
     </script>
