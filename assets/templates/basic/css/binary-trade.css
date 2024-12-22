@@ -953,7 +953,7 @@ body {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 100px);
 }
 
 .trade-section__right {
