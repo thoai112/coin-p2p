@@ -232,6 +232,20 @@
             
            
 
+            function showLoading() {
+                $('body').append(`<div id="loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                        <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <div style="color: white; margin-top: 1rem; font-size: 1.1rem;">Loading...</div>
+                    </div>
+                </div>`);
+            }
+
+            function hideLoading() {
+                $('#loading-overlay').remove();
+            }
 
             chartPropertiesFunc(chartHeight)
 
@@ -309,34 +323,33 @@
                 BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1m`;
             }
 
-            // function cleanupChart() {
-            //     if (webSocket) {
-            //         webSocket.close();
-            //         webSocket = null;
-            //     }
-            //     if (chart) {
-            //         if (lineSeries) {
-            //             chart.removeSeries(lineSeries);
-            //             lineSeries = null;
-            //         }
-            //         if (areaSeries) {
-            //             chart.removeSeries(areaSeries);
-            //             areaSeries = null;
-            //         }
+            function cleanupChart() {
+                if (webSocket) {
+                    webSocket.close();
+                    webSocket = null;
+                }
+                if (chart) {
+                    if (lineSeries) {
+                        chart.removeSeries(lineSeries);
+                        lineSeries = null;
+                    }
+                    if (areaSeries) {
+                        chart.removeSeries(areaSeries);
+                        areaSeries = null;
+                    }
 
-            //         chart.remove();
-            //         chart = null;
+                    chart.remove();
+                    chart = null;
 
-            //         const container = document.getElementById('chart-container');
-            //         container.innerHTML = `
-            //                                 <div id="countdown"></div>
-            //                                 <div id="direction-indicator"></div>
-            //                                 <div id="current-price-dot"></div>
-            //                             `;
-            //     }
-            // }
+                    const container = document.getElementById('chart-container');
+                    container.innerHTML = `
+                                            <div id="countdown"></div>
+                                            <div id="direction-indicator"></div>
+                                            <div id="current-price-dot"></div>
+                                        `;
+                }
+            }
 
-            
             function initializeChart() {
 
                 chart = LightweightCharts.createChart(
@@ -365,12 +378,9 @@
                 }
                 loadHistoricalData();
                 initializeWebSocket();
-                setupDirectionIndicators()
+                // setupDirectionIndicators()
 
             }
-
-
-            loadHistoricalData();
 
             async function loadHistoricalData() {
                 try {
@@ -390,6 +400,57 @@
 
                 } catch (error) {
                     console.error('Error loading historical data:', error);
+                }
+            }
+
+            function initializeWebSocket() {
+                webSocket = new WebSocket(BINANCE_WEBSOCKET_URL);
+                webSocket.onmessage = handleWebSocketMessage;
+            }
+
+            function handleWebSocketMessage(event) {
+                const message = JSON.parse(event.data);
+                const candlestick = message.k;
+
+                lastPrice = parseFloat(candlestick.c);
+
+                const newData = {
+                    time: candlestick.t / 1000,
+                    value: lastPrice,
+                };
+                updateChartData(newData);
+                updatePriceDot(lastPrice);
+            }
+
+            function updateChartData(newData) {
+                lineSeries.update(newData);
+                areaSeries.update(newData);
+                if (investmentPriceLine) {
+                    updateInvestmentLine();
+                }
+            }
+
+            function updateInvestmentLine() {
+
+                var color = direction == 'higher' ? 'green' : 'red';
+                lineSeries.removePriceLine(investmentPriceLine);
+                investmentPriceLine = lineSeries.createPriceLine({
+                    price: investmentPriceLine.options().price,
+                    color: color,
+                    lineWidth: 2,
+                    lineStyle: LightweightCharts.LineStyle.Dashed,
+                    axisLabelVisible: true,
+                    title: investmentPriceLine.options().title,
+                });
+            }
+
+            function updatePriceDot(price) {
+                const dot = document.getElementById('current-price-dot');
+                if (dot) {
+                    const y = lineSeries.priceToCoordinate(price);
+                    const x = chart.timeScale().width() - 5;
+                    dot.style.top = `${y}px`;
+                    dot.style.left = `${x}px`;
                 }
             }
 
