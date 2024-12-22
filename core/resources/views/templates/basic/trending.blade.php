@@ -386,13 +386,14 @@
                 try {
                     const response = await fetch(BINANCE_API_URL);
                     const data = await response.json();
-                    error_log(print_r(json_decode($response, true), true));
+                    console.log(json_decode($response, true));
 
                     const chartData = data.map(d => ({
                         time: d[0] / 1000,
                         value: parseFloat(d[4])
                     }));
                     
+                    console.log('sjgdfh:', chartData);
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) === i);
 
                     lineSeries.setData(uniqueChartData);
