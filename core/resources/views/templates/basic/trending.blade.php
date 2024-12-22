@@ -330,7 +330,7 @@
                 };
             }
 
-            initalizeApi(activeCoin);
+            //initalizeApi(activeCoin);
 
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
