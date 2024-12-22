@@ -113,6 +113,7 @@
     <style>
         #chart-container {
             width: 100%;
+            height: 200px;
             background-color: hsl(var(--footer-bg));
             position: relative;
             overflow: hidden;
