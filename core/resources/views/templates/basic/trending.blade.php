@@ -11,10 +11,10 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    {{--<button type="button" class="btn--close">
+                    <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
                     </button>
-                    <div class="trade-section__block one">
+                    {{--<div class="trade-section__block one">
                         <div class="trade-amount">
                             <div class="trade-amount__input-group">
                                 <span class="trade-amount__label">@lang('Amount') (<span class="coin-symbol"></span>)</span>
