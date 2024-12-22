@@ -301,7 +301,7 @@
                 };
             }
 
-            initalizeApi('usdt_btc');
+            initalizeApi('btc_usdt');
 
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
