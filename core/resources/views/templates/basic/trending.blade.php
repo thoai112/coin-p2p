@@ -113,7 +113,7 @@
     <style>
         #chart-container {
             width: 100%;
-            height: 60%;
+            height: 400px;
             background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
