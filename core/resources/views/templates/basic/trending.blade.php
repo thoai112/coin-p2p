@@ -222,8 +222,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = 1500px;
-            let chartHeight = 200px;
+            let chartWidth = Math.ceil($(".trade-section__left").width());
+            let chartHeight = Math.ceil($(".trade-section__left").height());
             let chartProperties = null;
             let direction;
             let dataIds = [];
