@@ -100,19 +100,20 @@
     
 @endsection
 
-@push('style-lib')
-    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/slick.css') }}">
-@endpush
 
 @push('script-lib')
     <script src="{{ asset($activeTemplateTrue . 'js/slick.min.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue . 'js/lightweight-chart.js') }}"></script>
 @endpush
 
+@push('style-lib')
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/slick.css') }}">
+@endpush
+
 @push('style')
     <style>
         #chart-container {
-            width: 100%;
+            width: 60%;
             height: 400px;
             background-color: #2a2e3942;
             position: relative;
