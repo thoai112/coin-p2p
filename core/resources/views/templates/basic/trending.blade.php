@@ -10,8 +10,8 @@
                         <div id="current-price-dot"></div>
                     </div>
                 </div>
-                {{-- <div class="trade-section__right">
-                    <button type="button" class="btn--close">
+                <div class="trade-section__right">
+                    {{--<button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
                     </button>
                     <div class="trade-section__block one">
@@ -91,8 +91,8 @@
                             <span>@lang('Lower')</span>
                         </button>
 
-                    </div>
-                </div> --}}
+                    </div>--}}
+                </div> 
             </div>
         </div>
     </section>
