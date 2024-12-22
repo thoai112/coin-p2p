@@ -454,6 +454,181 @@
                 }
             }
 
+
+            function convertToSeconds(time) {
+                let parts = time.split(":");
+                let minutes = parseInt(parts[0], 10);
+                let seconds = parseInt(parts[1], 10);
+                return (minutes * 60) + seconds;
+            }
+
+            // $('[name=amount]').on('input', function(e) {
+            //     getProfit();
+            // });
+
+            // $('.trade-amount__increment').on('click', function(e) {
+            //     getProfit();
+            // });
+            // $('.trade-amount__decrement').on('click', function(e) {
+            //     getProfit();
+            // });
+
+            // function getProfit() {
+            //     let investAmount = Number($('[name=amount]').val());
+            //     let totalProfit = investAmount + (investAmount * profitPercentage / 100);
+            //     $('.percentage-box__amount').text(`+${parseFloat(totalProfit).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))}`)
+            // }
+
+            // getProfit()
+
+            /* ==================== Terminal  JS Startaz ================================= */
+            let terminal = $(".terminal");
+            let terminalToggle = terminal.find(".terminal-toggle");
+            let terminalBody = terminal.find(".terminal-body");
+            let terminalBodyTabContent = terminalBody.find(".tab-content");
+
+            terminalBodyTabContent.on('scroll', function() {
+                if ($(this).scrollTop() > 0) {
+                    $(this).addClass('scrolling');
+                } else {
+                    $(this).removeClass('scrolling');
+                }
+            });
+
+            terminalToggle.on("click", function() {
+                $(terminalBody).toggle();
+
+                if ($(terminalBody).css("display") != "none") {
+                    $(this).find("span").text("Hide History");
+                    $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
+
+                    let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
+                    $('.trade-section__left').height(tradeLeftNewHeight);
+
+                    chartPropertiesFunc(tradeLeftNewHeight);
+                    cleanupChart();
+                    initializeChart();
+
+
+                } else {
+                    $('.trade-section__left').removeAttr('style');
+                    $(this).find("span").text("Show History");
+                    $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+
+
+                    chartPropertiesFunc($('.trade-section__left').height());
+                    cleanupChart();
+                    initializeChart();
+                }
+            });
+            /* ==================== Terminal  JS End ==================================== */
+
+            /* ==================== Assets Dropdown Slider JS Start ===================== */
+            $('.assets--dropdown .dropdown-menu').on('click', function(e) {
+                e.stopPropagation(); // Prevents the dropdown from closing
+            });
+
+            $('.assets--dropdown').each((index, dropdown) => {
+                let toggle = $(dropdown).find('.dropdown-toggle');
+                let sliders = $(dropdown).find('.dropdown-slider')
+                let menuBody = $(dropdown).find('.dropdown-menu__body')
+
+                menuBody[0].scrollTop = 0;
+
+                menuBody.on('scroll', function() {
+                    if ($(this).scrollTop() > 0) {
+                        $(this).addClass('scrolling');
+                    } else {
+                        $(this).removeClass('scrolling');
+                    }
+                });
+
+                toggle.on('show.bs.dropdown', function() {
+                    menuBody[0].scrollTop = 0;
+
+                    sliders.each((index, slider) => {
+                        if (!$(slider).hasClass('slick-initialized')) {
+                            $(slider).slick({
+                                slidesToShow: 3,
+                                slidesToScroll: 1,
+                                infinite: false,
+                                arrows: true,
+                                prevArrow: '<button type="button" class="slick-prev"><i class="las la-angle-left"></i></button>',
+                                nextArrow: '<button type="button" class="slick-next"><i class="las la-angle-right"></i></button>',
+                                responsive: [{
+                                        breakpoint: 992,
+                                        settings: {
+                                            slidesToShow: 2
+                                        }
+                                    },
+                                    {
+                                        breakpoint: 425,
+                                        settings: {
+                                            slidesToShow: 1
+                                        }
+                                    }
+                                ]
+                            });
+                        }
+                    })
+                });
+            });
+
+            $(".trade-amount").each(function() {
+                var amountIncrement = $(this).find(".trade-amount__increment");
+                var amountDecrement = $(this).find(".trade-amount__decrement");
+                var amountInput = $(this).find(".trade-amount__input");
+
+                amountIncrement.on("click", function() {
+                    var oldValue = parseFloat(amountInput.val());
+                    var newVal = oldValue + Number(incrementAmount);
+                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
+                });
+
+                amountDecrement.on("click", function() {
+                    var oldValue = parseFloat(amountInput.val());
+                    if (oldValue <= minTradeAmount) {
+                        var newVal = oldValue;
+                    } else {
+                        var newVal = oldValue - Number(incrementAmount);
+                    }
+                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
+                });
+            });
+
+
+
+            let page = 1;
+            let isLoading = false;
+
+            $('.terminal-body .tab-content').on('scroll', function() {
+                let div = $(this).get(0);
+                if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
+                    if (!isLoading) {
+                        isLoading = true;
+                        page++;
+                        $.ajax({
+                            url: "{{ route('user.binary.trade.history') }}",
+                            method: "GET",
+                            data: {
+                                page: page
+                            },
+                            success: function(response) {
+                                $('.loading-spinner').remove();
+                                if (response.trades.length > 0) {
+                                    $('#closedTradeTable tbody').append(response.trades);
+                                }
+                                isLoading = false;
+                            },
+                            error: function() {
+                                $('.loading-spinner').remove();
+                                isLoading = false;
+                            }
+                        });
+                    }
+                }
+            });
+
         })(jQuery)
     </script>
 @endpush
