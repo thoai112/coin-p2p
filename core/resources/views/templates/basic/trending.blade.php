@@ -202,7 +202,7 @@
 @endpush
 
 
-@push('script')
+{{-- @push('script')
     <script>
         (function($) {
             "use strict";
@@ -213,12 +213,7 @@
                 countdownTimer.text(durationText);
             });
 
-            let coinPairId = Number(`{{ @$activeCoin->id }}`);
-            let activeCoin = `{{ @$activeCoin->symbol }}`;
-            let coinSymbol = `{{ strstr(@$activeCoin->symbol, '_', true) }}`;
-            let profitPercentage = Number(`{{ getAmount(@$activeCoin->binary_trade_profit) }}`);
-            let coinImage = `{{ getImage(getFilePath('currency') . '/' . @$activeCoin->coin->image, getFileSize('currency')) }}`;
-            let marketImage = `{{ getImage(getFilePath('currency') . '/' . @$activeCoin->market->currency->image, getFileSize('currency')) }}`
+            
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -233,9 +228,9 @@
             let direction;
             let dataIds = [];
             let isTradeRunning = false;
-            let incrementAmount = Number("{{ @$activeCoin->binary_increment_amount }}");
-            let minTradeAmount = Number("{{ @$activeCoin->min_binary_trade_amount }}");
-            let maxTradeAmount = Number("{{ @$activeCoin->max_binary_trade_amount }}");
+            // let incrementAmount = Number("{{ @$activeCoin->binary_increment_amount }}");
+            // let minTradeAmount = Number("{{ @$activeCoin->min_binary_trade_amount }}");
+            // let maxTradeAmount = Number("{{ @$activeCoin->max_binary_trade_amount }}");
 
             $(document).on('click', '.asset-compact-card__close', function(e) {
                 e.stopPropagation();
@@ -264,128 +259,7 @@
                 }
             });
 
-            $('.dropdown-slider__slide .coinBtn, tbody .coinBtn').on('click', function(e) {
-                if (isTradeRunning) {
-                    return;
-                }
-                let thisCoinPairId = $(this).data('id');
-                let topBarCoinPairId = [];
-                $.each($("#show-currency-list li"), function(index, item) {
-                    topBarCoinPairId.push($(item).find('.coinBtn').data('id'));
-                });
-
-                showLoading();
-                if (topBarCoinPairId.includes(thisCoinPairId)) {
-                    let url = `{{ route('binary.trade.tab.update') }}/${thisCoinPairId}`;
-                    $.get(url)
-                        .done(function(response) {
-                            $('#show-currency-list').find('li .coinBtn').removeClass('active');
-                            $(`#show-currency-list li .coinBtn[data-id='${thisCoinPairId}']`).addClass('active');
-                            updatePageData(response);
-                            $('.assets--dropdown .dropdown-menu').removeClass('show')
-                        })
-                        .fail(function(xhr, status, error) {
-                            notify('error', 'Something went wrong');
-                            $('.assets--dropdown .dropdown-menu').removeClass('show')
-                        })
-                        .always(function() {
-                            hideLoading();
-                        });
-                } else {
-                    let url = `{{ route('binary.trade.tab.add') }}/${thisCoinPairId}`;
-                    $.get(url)
-                        .done(function(response) {
-                            let showCurrencyList = $("#show-currency-list");
-                            if (showCurrencyList.find('li').length == 6) {
-                                showCurrencyList.find('li:last').remove();
-                            }
-                            let currencyHtml = `<li class="nav-horizontal-menu__item">
-                                                    <div class="asset-compact-card coinBtn active" data-id="${response.activeCoin.id}">
-                                                            <div class="avatar">
-                                                                <img class="avatar-img" src="${response.activeCoin.coin.image_url}" alt="img">
-                                                                <img class="avatar-img" src="${response.activeCoin.market.currency.image_url}" alt="img">
-                                                            </div>
-                                                            <div class="asset-compact-card__content">
-                                                                <h6 class="asset-compact-card__title">${response.activeCoin.symbol.replace('_','/')}</h6>
-                                                                <span class="asset-compact-card__percentage">${Number(response.activeCoin.binary_trade_profit)}%</span>
-                                                                </div>
-
-                                                                <button class="asset-compact-card__close" type="button">
-                                                                <i class="fas fa-times"></i>
-                                                            </button>
-                                                        </div>
-                                                    </li>`;
-                            $('#show-currency-list').find('li .asset-compact-card').removeClass('active');
-                            showCurrencyList.append(currencyHtml);
-                            updatePageData(response);
-                            $('.assets--dropdown .dropdown-menu').removeClass('show')
-                        })
-                        .fail(function(xhr, status, error) {
-                            $('.assets--dropdown .dropdown-menu').removeClass('show')
-                            notify('error', 'Something went wrong');
-                        })
-                        .always(function() {
-                            hideLoading();
-                        });
-                }
-
-            });
-
-            function showLoading() {
-                $('body').append(`<div id="loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
-                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
-                        <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <div style="color: white; margin-top: 1rem; font-size: 1.1rem;">Loading...</div>
-                    </div>
-                </div>`);
-            }
-
-            function hideLoading() {
-                $('#loading-overlay').remove();
-            }
-
-            $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
-                e.stopPropagation();
-                if (isTradeRunning) {
-                    return;
-                }
-                let clickedCoin = $(this);
-                coinPairId = clickedCoin.data('id');
-                let url = `{{ route('binary.trade.tab.update') }}/${coinPairId}`;
-                showLoading();
-                $.get(url, function(response) {
-                        $('#show-currency-list').find('li .coinBtn').removeClass('active');
-                        clickedCoin.addClass('active');
-                        updatePageData(response);
-                    })
-                    .fail(function(xhr, status, error) {
-                        notify('error', 'Something went wrong');
-                    })
-                    .always(function() {
-                        hideLoading();
-                    });
-            });
-
-            function updatePageData(response) {
-                cleanupChart();
-                activeCoin = response.activeCoin.symbol;
-                incrementAmount = response.activeCoin.binary_increment_amount;
-                initalizeApi(activeCoin);
-                initializeChart();
-                chartPropertiesFunc(Math.ceil($(".trade-section__left").height()))
-                coinSymbol = activeCoin.substring(0, activeCoin.indexOf('_'));
-                $('.coin-symbol').text(coinSymbol);
-                minTradeAmount = Number(response.activeCoin.min_binary_trade_amount);
-                maxTradeAmount = Number(response.activeCoin.max_binary_trade_amount);
-                $('[name=amount]').val(minTradeAmount)
-                $('.timer-value').text(response.firstDuration)
-                $('.trade-duration-presets').html(response.durations)
-                $('.percentage-box__total').text(`+${Number(response.activeCoin.binary_trade_profit)}%`)
-                profitPercentage = response.activeCoin.binary_trade_profit
-                getProfit();
-            }
+           
 
 
             chartPropertiesFunc(chartHeight)
@@ -464,32 +338,32 @@
                 BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
             }
 
-            function cleanupChart() {
-                if (webSocket) {
-                    webSocket.close();
-                    webSocket = null;
-                }
-                if (chart) {
-                    if (lineSeries) {
-                        chart.removeSeries(lineSeries);
-                        lineSeries = null;
-                    }
-                    if (areaSeries) {
-                        chart.removeSeries(areaSeries);
-                        areaSeries = null;
-                    }
+            // function cleanupChart() {
+            //     if (webSocket) {
+            //         webSocket.close();
+            //         webSocket = null;
+            //     }
+            //     if (chart) {
+            //         if (lineSeries) {
+            //             chart.removeSeries(lineSeries);
+            //             lineSeries = null;
+            //         }
+            //         if (areaSeries) {
+            //             chart.removeSeries(areaSeries);
+            //             areaSeries = null;
+            //         }
 
-                    chart.remove();
-                    chart = null;
+            //         chart.remove();
+            //         chart = null;
 
-                    const container = document.getElementById('chart-container');
-                    container.innerHTML = `
-                                            <div id="countdown"></div>
-                                            <div id="direction-indicator"></div>
-                                            <div id="current-price-dot"></div>
-                                        `;
-                }
-            }
+            //         const container = document.getElementById('chart-container');
+            //         container.innerHTML = `
+            //                                 <div id="countdown"></div>
+            //                                 <div id="direction-indicator"></div>
+            //                                 <div id="current-price-dot"></div>
+            //                             `;
+            //     }
+            // }
 
             function initializeChart() {
 
@@ -1056,4 +930,4 @@
     </script>
 @endpush
 
-
+ --}}
