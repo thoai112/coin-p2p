@@ -214,7 +214,6 @@
                 countdownTimer.text(durationText);
             });
 
-            
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -449,7 +448,7 @@
                 const dot = document.getElementById('current-price-dot');
                 if (dot) {
                     const y = lineSeries.priceToCoordinate(price);
-                    const x = chart.timeScale().width() - 5;
+                    const x = chart.timeScale().width() - 50;
                     dot.style.top = `${y}px`;
                     dot.style.left = `${x}px`;
                 }
@@ -463,26 +462,6 @@
                 return (minutes * 60) + seconds;
             }
 
-            // $('[name=amount]').on('input', function(e) {
-            //     getProfit();
-            // });
-
-            // $('.trade-amount__increment').on('click', function(e) {
-            //     getProfit();
-            // });
-            // $('.trade-amount__decrement').on('click', function(e) {
-            //     getProfit();
-            // });
-
-            // function getProfit() {
-            //     let investAmount = Number($('[name=amount]').val());
-            //     let totalProfit = investAmount + (investAmount * profitPercentage / 100);
-            //     $('.percentage-box__amount').text(`+${parseFloat(totalProfit).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))}`)
-            // }
-
-            // getProfit()
-
-            /* ==================== Terminal  JS Startaz ================================= */
 
             $('.trade-section__left').removeAttr('style');
             $(this).find("span").text("Show History");
@@ -492,48 +471,7 @@
             chartPropertiesFunc($('.trade-section__left').height());
             cleanupChart();
             initializeChart();
-            // let terminal = $(".terminal");
-            // let terminalToggle = terminal.find(".terminal-toggle");
-            // let terminalBody = terminal.find(".terminal-body");
-            // let terminalBodyTabContent = terminalBody.find(".tab-content");
-
-            // terminalBodyTabContent.on('scroll', function() {
-            //     if ($(this).scrollTop() > 0) {
-            //         $(this).addClass('scrolling');
-            //     } else {
-            //         $(this).removeClass('scrolling');
-            //     }
-            // });
-
-            // terminalToggle.on("click", function() {
-            //     $(terminalBody).toggle();
-
-            //     if ($(terminalBody).css("display") != "none") {
-            //         $(this).find("span").text("Hide History");
-            //         $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
-
-            //         let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
-            //         $('.trade-section__left').height(tradeLeftNewHeight);
-
-            //         chartPropertiesFunc(tradeLeftNewHeight);
-            //         cleanupChart();
-            //         initializeChart();
-
-
-            //     } else {
-            //         $('.trade-section__left').removeAttr('style');
-            //         $(this).find("span").text("Show History");
-            //         $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
-
-
-            //         chartPropertiesFunc($('.trade-section__left').height());
-            //         cleanupChart();
-            //         initializeChart();
-            //     }
-            // });
-            /* ==================== Terminal  JS End ==================================== */
             
-
         })(jQuery)
     </script>
 @endpush
