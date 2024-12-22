@@ -113,7 +113,6 @@
     <style>
         #chart-container {
             width: 100%;
-            height: 200px;
             background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
@@ -197,7 +196,7 @@
         }
 
         .table tbody tr td:nth-last-child(3) {
-            color: hsl(var(--white) / 0.7);
+            color: #0a1e558e;
         }
     </style>
 @endpush
