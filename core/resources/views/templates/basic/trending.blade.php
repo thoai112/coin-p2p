@@ -228,37 +228,7 @@
             let direction;
             let dataIds = [];
             let isTradeRunning = false;
-            // let incrementAmount = Number("{{ @$activeCoin->binary_increment_amount }}");
-            // let minTradeAmount = Number("{{ @$activeCoin->min_binary_trade_amount }}");
-            // let maxTradeAmount = Number("{{ @$activeCoin->max_binary_trade_amount }}");
-
-            // $(document).on('click', '.asset-compact-card__close', function(e) {
-            //     e.stopPropagation();
-            //     if (isTradeRunning) {
-            //         return;
-            //     }
-            //     let closeElement = $(this);
-            //     coinPairId = $('#show-currency-list').find('li:first').find('.coinBtn').data('id');
-            //     let thisCoinPairId = closeElement.parent('.coinBtn').data('id');
-            //     let url = `{{ route('binary.trade.tab.close') }}/${thisCoinPairId}/${coinPairId}`;
-            //     if (thisCoinPairId != coinPairId) {
-            //         showLoading();
-            //         $.get(url)
-            //             .done(function(response) {
-            //                 updatePageData(response);
-            //                 $('#show-currency-list').find('li .asset-compact-card').removeClass('active');
-            //                 $('#show-currency-list').find('li:first').find('.asset-compact-card').addClass('active');
-            //                 closeElement.closest('li').remove();
-            //             })
-            //             .fail(function(xhr, status, error) {
-            //                 notify('error', 'Something went wrong');
-            //             })
-            //             .always(function() {
-            //                 hideLoading();
-            //             });
-            //     }
-            // });
-
+            
            
 
 
@@ -418,152 +388,152 @@
                 }
             }
 
-            function initializeWebSocket() {
-                webSocket = new WebSocket(BINANCE_WEBSOCKET_URL);
-                webSocket.onmessage = handleWebSocketMessage;
-            }
+            // function initializeWebSocket() {
+            //     webSocket = new WebSocket(BINANCE_WEBSOCKET_URL);
+            //     webSocket.onmessage = handleWebSocketMessage;
+            // }
 
-            function handleWebSocketMessage(event) {
-                const message = JSON.parse(event.data);
-                const candlestick = message.k;
+            // function handleWebSocketMessage(event) {
+            //     const message = JSON.parse(event.data);
+            //     const candlestick = message.k;
 
-                lastPrice = parseFloat(candlestick.c);
+            //     lastPrice = parseFloat(candlestick.c);
 
-                const newData = {
-                    time: candlestick.t / 1000,
-                    value: lastPrice,
-                };
-                updateChartData(newData);
-                updatePriceDot(lastPrice);
-            }
+            //     const newData = {
+            //         time: candlestick.t / 1000,
+            //         value: lastPrice,
+            //     };
+            //     updateChartData(newData);
+            //     updatePriceDot(lastPrice);
+            // }
 
-            function updateChartData(newData) {
-                lineSeries.update(newData);
-                areaSeries.update(newData);
-                if (investmentPriceLine) {
-                    updateInvestmentLine();
-                }
-            }
+            // function updateChartData(newData) {
+            //     lineSeries.update(newData);
+            //     areaSeries.update(newData);
+            //     if (investmentPriceLine) {
+            //         updateInvestmentLine();
+            //     }
+            // }
 
-            function updateInvestmentLine() {
+            // function updateInvestmentLine() {
 
-                var color = direction == 'higher' ? 'green' : 'red';
-                lineSeries.removePriceLine(investmentPriceLine);
-                investmentPriceLine = lineSeries.createPriceLine({
-                    price: investmentPriceLine.options().price,
-                    color: color,
-                    lineWidth: 2,
-                    lineStyle: LightweightCharts.LineStyle.Dashed,
-                    axisLabelVisible: true,
-                    title: investmentPriceLine.options().title,
-                });
-            }
+            //     var color = direction == 'higher' ? 'green' : 'red';
+            //     lineSeries.removePriceLine(investmentPriceLine);
+            //     investmentPriceLine = lineSeries.createPriceLine({
+            //         price: investmentPriceLine.options().price,
+            //         color: color,
+            //         lineWidth: 2,
+            //         lineStyle: LightweightCharts.LineStyle.Dashed,
+            //         axisLabelVisible: true,
+            //         title: investmentPriceLine.options().title,
+            //     });
+            // }
 
-            function updatePriceDot(price) {
-                const dot = document.getElementById('current-price-dot');
-                if (dot) {
-                    const y = lineSeries.priceToCoordinate(price);
-                    const x = chart.timeScale().width() - 5;
-                    dot.style.top = `${y}px`;
-                    dot.style.left = `${x}px`;
-                }
-            }
+            // function updatePriceDot(price) {
+            //     const dot = document.getElementById('current-price-dot');
+            //     if (dot) {
+            //         const y = lineSeries.priceToCoordinate(price);
+            //         const x = chart.timeScale().width() - 5;
+            //         dot.style.top = `${y}px`;
+            //         dot.style.left = `${x}px`;
+            //     }
+            // }
 
-            function validateTradeInput(direction, amount, duration) {
-                return direction &&
-                    !isNaN(amount) &&
-                    amount > 0 &&
-                    !isNaN(duration) &&
-                    duration > 0;
-            }
+            // function validateTradeInput(direction, amount, duration) {
+            //     return direction &&
+            //         !isNaN(amount) &&
+            //         amount > 0 &&
+            //         !isNaN(duration) &&
+            //         duration > 0;
+            // }
 
-            function createInvestmentLine(amount) {
-                var color = direction == 'higher' ? 'green' : 'red';
-                investmentPriceLine = lineSeries.createPriceLine({
-                    price: lastPrice,
-                    color: color,
-                    lineWidth: 2,
-                    lineStyle: LightweightCharts.LineStyle.Dashed,
-                    axisLabelVisible: true,
-                    title: `${amount} ${coinSymbol}`,
-                });
-            }
+            // function createInvestmentLine(amount) {
+            //     var color = direction == 'higher' ? 'green' : 'red';
+            //     investmentPriceLine = lineSeries.createPriceLine({
+            //         price: lastPrice,
+            //         color: color,
+            //         lineWidth: 2,
+            //         lineStyle: LightweightCharts.LineStyle.Dashed,
+            //         axisLabelVisible: true,
+            //         title: `${amount} ${coinSymbol}`,
+            //     });
+            // }
 
-            function startTradeCountdown(duration) {
-                const countdownElement = document.querySelector('.timer-value');
-                let remainingTime = duration;
-                const countdownInterval = setInterval(() => {
-                    remainingTime--;
-                    const minutes = Math.floor(remainingTime / 60);
-                    const seconds = remainingTime % 60;
-                    countdownElement.textContent =
-                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            // function startTradeCountdown(duration) {
+            //     const countdownElement = document.querySelector('.timer-value');
+            //     let remainingTime = duration;
+            //     const countdownInterval = setInterval(() => {
+            //         remainingTime--;
+            //         const minutes = Math.floor(remainingTime / 60);
+            //         const seconds = remainingTime % 60;
+            //         countdownElement.textContent =
+            //             `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
-                    if (remainingTime <= 0) {
-                        clearInterval(countdownInterval);
-                        countdownElement.textContent = $('.trade-duration-presets li:first').text();
-                    }
-                }, 1000);
-            }
+            //         if (remainingTime <= 0) {
+            //             clearInterval(countdownInterval);
+            //             countdownElement.textContent = $('.trade-duration-presets li:first').text();
+            //         }
+            //     }, 1000);
+            // }
 
-            function scheduleTradeCompletion(duration, binaryTradeId) {
-                setTimeout(() => {
-                    const data = {
-                        '_token': "{{ csrf_token() }}",
-                        'binary_trade_id': binaryTradeId
-                    };
-                    $.ajax({
-                        type: "POST",
-                        url: "{{ route('user.binary.trade.complete') }}",
-                        data: data,
-                        success: function(response) {
-                            lineSeries.removePriceLine(investmentPriceLine);
-                            investmentPriceLine = null;
+            // function scheduleTradeCompletion(duration, binaryTradeId) {
+            //     setTimeout(() => {
+            //         const data = {
+            //             '_token': "{{ csrf_token() }}",
+            //             'binary_trade_id': binaryTradeId
+            //         };
+            //         $.ajax({
+            //             type: "POST",
+            //             url: "{{ route('user.binary.trade.complete') }}",
+            //             data: data,
+            //             success: function(response) {
+            //                 lineSeries.removePriceLine(investmentPriceLine);
+            //                 investmentPriceLine = null;
 
-                            $("#higherBtn").prop('disabled', false);
-                            $("#lowerBtn").prop('disabled', false);
+            //                 $("#higherBtn").prop('disabled', false);
+            //                 $("#lowerBtn").prop('disabled', false);
 
-                            if (response.error) {
-                                isTradeRunning = false;
-                                notify('error', response.error);
-                                return;
-                            }
+            //                 if (response.error) {
+            //                     isTradeRunning = false;
+            //                     notify('error', response.error);
+            //                     return;
+            //                 }
 
-                            if (response.win_status == 2) {
-                                notify('error', response.notification);
-                            } else {
-                                notify('success', response.notification);
-                            }
-                            isTradeRunning = false;
+            //                 if (response.win_status == 2) {
+            //                     notify('error', response.notification);
+            //                 } else {
+            //                     notify('success', response.notification);
+            //                 }
+            //                 isTradeRunning = false;
 
-                            $('#runningTradeTable tbody').find('tr').remove();
+            //                 $('#runningTradeTable tbody').find('tr').remove();
 
-                            $('#runningTradeTable tbody').html(`
-                            <tr>
-                                <td class="text-muted text-center" colspan="100%">
-                                    <div class="empty-thumb text-center p-5">
-                                        <img src="{{ getImage('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="fs-14">No trade found</p>
-                                    </div>
-                                </td>
-                            </tr>`);
+            //                 $('#runningTradeTable tbody').html(`
+            //                 <tr>
+            //                     <td class="text-muted text-center" colspan="100%">
+            //                         <div class="empty-thumb text-center p-5">
+            //                             <img src="{{ getImage('assets/images/extra_images/empty.png') }}"/>
+            //                             <p class="fs-14">No trade found</p>
+            //                         </div>
+            //                     </td>
+            //                 </tr>`);
 
-                            $("#closedTradeTable").html(response.closedTradeTable)
-                        }
-                    });
-                }, duration * 1000);
-            }
+            //                 $("#closedTradeTable").html(response.closedTradeTable)
+            //             }
+            //         });
+            //     }, duration * 1000);
+            // }
 
-            function setupDirectionIndicators() {
-                const directionIndicator = document.getElementById('direction-indicator');
-                const higherOption = document.getElementById('higherBtn');
-                const lowerOption = document.getElementById('lowerBtn');
+            // function setupDirectionIndicators() {
+            //     const directionIndicator = document.getElementById('direction-indicator');
+            //     const higherOption = document.getElementById('higherBtn');
+            //     const lowerOption = document.getElementById('lowerBtn');
 
-                if (!directionIndicator || !higherOption || !lowerOption) return;
+            //     if (!directionIndicator || !higherOption || !lowerOption) return;
 
-                setupDirectionHoverEffects(directionIndicator, higherOption, lowerOption);
-                setupCrosshairMove(directionIndicator);
-            }
+            //     setupDirectionHoverEffects(directionIndicator, higherOption, lowerOption);
+            //     setupCrosshairMove(directionIndicator);
+            // }
 
             // function setupDirectionHoverEffects(indicator, higherBtn, lowerBtn) {
             //     higherBtn.addEventListener('mouseover', () => {
@@ -688,7 +658,7 @@
             //     placeBinaryTrade($(this))
             // });
 
-            function placeBinaryTrade(directionBtn) {
+            // function placeBinaryTrade(directionBtn) {
             //     if (!auth) {
             //         notify('error', 'You must be logged in to place a trade')
             //         return;
@@ -730,147 +700,147 @@
 
             //     $("#higherBtn").prop('disabled', true);
             //     $("#lowerBtn").prop('disabled', true);
-                isTradeRunning = true;
+            //     isTradeRunning = true;
 
-                $.ajax({
-                    type: "POST",
-                    url: "{{ route('user.binary.trade.order') }}",
-                    data: data,
-                    success: function(response) {
-                        if (response.error) {
-                            isTradeRunning = false;
-                            $("#higherBtn").prop('disabled', false);
-                            $("#lowerBtn").prop('disabled', false);
-                            notify('error', response.error);
-                            return;
-                        }
-                        $('#runningTradeTable tbody').find('tr').remove();
-                        $('#runningTradeTable tbody').prepend(response.newTrade);
-                        createInvestmentLine(response.amount, response.direction);
-                        startTradeCountdown(response.duration);
-                        scheduleTradeCompletion(response.duration, response.binary_trade_id);
-                    }
-                });
-            }
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "{{ route('user.binary.trade.order') }}",
+            //         data: data,
+            //         success: function(response) {
+            //             if (response.error) {
+            //                 isTradeRunning = false;
+            //                 $("#higherBtn").prop('disabled', false);
+            //                 $("#lowerBtn").prop('disabled', false);
+            //                 notify('error', response.error);
+            //                 return;
+            //             }
+            //             $('#runningTradeTable tbody').find('tr').remove();
+            //             $('#runningTradeTable tbody').prepend(response.newTrade);
+            //             createInvestmentLine(response.amount, response.direction);
+            //             startTradeCountdown(response.duration);
+            //             scheduleTradeCompletion(response.duration, response.binary_trade_id);
+            //         }
+            //     });
+            // }
 
-            function convertToSeconds(time) {
-                let parts = time.split(":");
-                let minutes = parseInt(parts[0], 10);
-                let seconds = parseInt(parts[1], 10);
-                return (minutes * 60) + seconds;
-            }
+            // function convertToSeconds(time) {
+            //     let parts = time.split(":");
+            //     let minutes = parseInt(parts[0], 10);
+            //     let seconds = parseInt(parts[1], 10);
+            //     return (minutes * 60) + seconds;
+            // }
 
-            $('[name=amount]').on('input', function(e) {
-                getProfit();
-            });
+            // $('[name=amount]').on('input', function(e) {
+            //     getProfit();
+            // });
 
-            $('.trade-amount__increment').on('click', function(e) {
-                getProfit();
-            });
-            $('.trade-amount__decrement').on('click', function(e) {
-                getProfit();
-            });
+            // $('.trade-amount__increment').on('click', function(e) {
+            //     getProfit();
+            // });
+            // $('.trade-amount__decrement').on('click', function(e) {
+            //     getProfit();
+            // });
 
-            function getProfit() {
-                let investAmount = Number($('[name=amount]').val());
-                let totalProfit = investAmount + (investAmount * profitPercentage / 100);
-                $('.percentage-box__amount').text(`+${parseFloat(totalProfit).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))}`)
-            }
+            // function getProfit() {
+            //     let investAmount = Number($('[name=amount]').val());
+            //     let totalProfit = investAmount + (investAmount * profitPercentage / 100);
+            //     $('.percentage-box__amount').text(`+${parseFloat(totalProfit).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))}`)
+            // }
 
-            getProfit()
+            // getProfit()
 
-            /* ==================== Terminal  JS Startaz ================================= */
-            let terminal = $(".terminal");
-            let terminalToggle = terminal.find(".terminal-toggle");
-            let terminalBody = terminal.find(".terminal-body");
-            let terminalBodyTabContent = terminalBody.find(".tab-content");
+            // /* ==================== Terminal  JS Startaz ================================= */
+            // let terminal = $(".terminal");
+            // let terminalToggle = terminal.find(".terminal-toggle");
+            // let terminalBody = terminal.find(".terminal-body");
+            // let terminalBodyTabContent = terminalBody.find(".tab-content");
 
-            terminalBodyTabContent.on('scroll', function() {
-                if ($(this).scrollTop() > 0) {
-                    $(this).addClass('scrolling');
-                } else {
-                    $(this).removeClass('scrolling');
-                }
-            });
+            // terminalBodyTabContent.on('scroll', function() {
+            //     if ($(this).scrollTop() > 0) {
+            //         $(this).addClass('scrolling');
+            //     } else {
+            //         $(this).removeClass('scrolling');
+            //     }
+            // });
 
-            terminalToggle.on("click", function() {
-                $(terminalBody).toggle();
+            // terminalToggle.on("click", function() {
+            //     $(terminalBody).toggle();
 
-                if ($(terminalBody).css("display") != "none") {
-                    $(this).find("span").text("Hide History");
-                    $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
+            //     if ($(terminalBody).css("display") != "none") {
+            //         $(this).find("span").text("Hide History");
+            //         $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
 
-                    let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
-                    $('.trade-section__left').height(tradeLeftNewHeight);
+            //         let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
+            //         $('.trade-section__left').height(tradeLeftNewHeight);
 
-                    chartPropertiesFunc(tradeLeftNewHeight);
-                    cleanupChart();
-                    initializeChart();
-
-
-                } else {
-                    $('.trade-section__left').removeAttr('style');
-                    $(this).find("span").text("Show History");
-                    $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+            //         chartPropertiesFunc(tradeLeftNewHeight);
+            //         cleanupChart();
+            //         initializeChart();
 
 
-                    chartPropertiesFunc($('.trade-section__left').height());
-                    cleanupChart();
-                    initializeChart();
-                }
-            });
+            //     } else {
+            //         $('.trade-section__left').removeAttr('style');
+            //         $(this).find("span").text("Show History");
+            //         $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+
+
+            //         chartPropertiesFunc($('.trade-section__left').height());
+            //         cleanupChart();
+            //         initializeChart();
+            //     }
+            // });
             /* ==================== Terminal  JS End ==================================== */
 
             /* ==================== Assets Dropdown Slider JS Start ===================== */
-            $('.assets--dropdown .dropdown-menu').on('click', function(e) {
-                e.stopPropagation(); // Prevents the dropdown from closing
-            });
+            // $('.assets--dropdown .dropdown-menu').on('click', function(e) {
+            //     e.stopPropagation(); // Prevents the dropdown from closing
+            // });
 
-            $('.assets--dropdown').each((index, dropdown) => {
-                let toggle = $(dropdown).find('.dropdown-toggle');
-                let sliders = $(dropdown).find('.dropdown-slider')
-                let menuBody = $(dropdown).find('.dropdown-menu__body')
+            // $('.assets--dropdown').each((index, dropdown) => {
+            //     let toggle = $(dropdown).find('.dropdown-toggle');
+            //     let sliders = $(dropdown).find('.dropdown-slider')
+            //     let menuBody = $(dropdown).find('.dropdown-menu__body')
 
-                menuBody[0].scrollTop = 0;
+            //     menuBody[0].scrollTop = 0;
 
-                menuBody.on('scroll', function() {
-                    if ($(this).scrollTop() > 0) {
-                        $(this).addClass('scrolling');
-                    } else {
-                        $(this).removeClass('scrolling');
-                    }
-                });
+            //     menuBody.on('scroll', function() {
+            //         if ($(this).scrollTop() > 0) {
+            //             $(this).addClass('scrolling');
+            //         } else {
+            //             $(this).removeClass('scrolling');
+            //         }
+            //     });
 
-                toggle.on('show.bs.dropdown', function() {
-                    menuBody[0].scrollTop = 0;
+            //     toggle.on('show.bs.dropdown', function() {
+            //         menuBody[0].scrollTop = 0;
 
-                    sliders.each((index, slider) => {
-                        if (!$(slider).hasClass('slick-initialized')) {
-                            $(slider).slick({
-                                slidesToShow: 3,
-                                slidesToScroll: 1,
-                                infinite: false,
-                                arrows: true,
-                                prevArrow: '<button type="button" class="slick-prev"><i class="las la-angle-left"></i></button>',
-                                nextArrow: '<button type="button" class="slick-next"><i class="las la-angle-right"></i></button>',
-                                responsive: [{
-                                        breakpoint: 992,
-                                        settings: {
-                                            slidesToShow: 2
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 425,
-                                        settings: {
-                                            slidesToShow: 1
-                                        }
-                                    }
-                                ]
-                            });
-                        }
-                    })
-                });
-            });
+            //         sliders.each((index, slider) => {
+            //             if (!$(slider).hasClass('slick-initialized')) {
+            //                 $(slider).slick({
+            //                     slidesToShow: 3,
+            //                     slidesToScroll: 1,
+            //                     infinite: false,
+            //                     arrows: true,
+            //                     prevArrow: '<button type="button" class="slick-prev"><i class="las la-angle-left"></i></button>',
+            //                     nextArrow: '<button type="button" class="slick-next"><i class="las la-angle-right"></i></button>',
+            //                     responsive: [{
+            //                             breakpoint: 992,
+            //                             settings: {
+            //                                 slidesToShow: 2
+            //                             }
+            //                         },
+            //                         {
+            //                             breakpoint: 425,
+            //                             settings: {
+            //                                 slidesToShow: 1
+            //                             }
+            //                         }
+            //                     ]
+            //                 });
+            //             }
+            //         })
+            //     });
+            // });
 
             // $(".trade-amount").each(function() {
             //     var amountIncrement = $(this).find(".trade-amount__increment");
@@ -894,8 +864,8 @@
             //     });
             // });
 
-            let page = 1;
-            let isLoading = false;
+            // let page = 1;
+            // let isLoading = false;
 
         })(jQuery)
     </script>
