@@ -11,9 +11,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <button type="button" class="btn--close">
-                        <i class="fas fa-times"></i>
-                    </button>
+                   
                     {{--<div class="trade-section__block one">
                         <div class="trade-amount">
                             <div class="trade-amount__input-group">
@@ -197,7 +195,7 @@
         }
 
         .table tbody tr td:nth-last-child(3) {
-            color: hsl(var(--white) / 0.7);
+            color: #1e222d46;
         }
     </style>
 @endpush
