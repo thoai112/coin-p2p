@@ -387,10 +387,9 @@
                     const response = await fetch(BINANCE_API_URL);
                     const data = await response.json();
                    
-
                     const chartData = data.map(d => ({
                         time: d[0] / 1000,
-                        value: parseFloat(d[4]),
+                        value: parseFloat(d[5]),
                     }));
                     
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) === i);
