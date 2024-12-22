@@ -202,7 +202,7 @@
 @endpush
 
 
-{{-- @push('script')
+@push('script')
     <script>
         (function($) {
             "use strict";
@@ -232,32 +232,32 @@
             // let minTradeAmount = Number("{{ @$activeCoin->min_binary_trade_amount }}");
             // let maxTradeAmount = Number("{{ @$activeCoin->max_binary_trade_amount }}");
 
-            $(document).on('click', '.asset-compact-card__close', function(e) {
-                e.stopPropagation();
-                if (isTradeRunning) {
-                    return;
-                }
-                let closeElement = $(this);
-                coinPairId = $('#show-currency-list').find('li:first').find('.coinBtn').data('id');
-                let thisCoinPairId = closeElement.parent('.coinBtn').data('id');
-                let url = `{{ route('binary.trade.tab.close') }}/${thisCoinPairId}/${coinPairId}`;
-                if (thisCoinPairId != coinPairId) {
-                    showLoading();
-                    $.get(url)
-                        .done(function(response) {
-                            updatePageData(response);
-                            $('#show-currency-list').find('li .asset-compact-card').removeClass('active');
-                            $('#show-currency-list').find('li:first').find('.asset-compact-card').addClass('active');
-                            closeElement.closest('li').remove();
-                        })
-                        .fail(function(xhr, status, error) {
-                            notify('error', 'Something went wrong');
-                        })
-                        .always(function() {
-                            hideLoading();
-                        });
-                }
-            });
+            // $(document).on('click', '.asset-compact-card__close', function(e) {
+            //     e.stopPropagation();
+            //     if (isTradeRunning) {
+            //         return;
+            //     }
+            //     let closeElement = $(this);
+            //     coinPairId = $('#show-currency-list').find('li:first').find('.coinBtn').data('id');
+            //     let thisCoinPairId = closeElement.parent('.coinBtn').data('id');
+            //     let url = `{{ route('binary.trade.tab.close') }}/${thisCoinPairId}/${coinPairId}`;
+            //     if (thisCoinPairId != coinPairId) {
+            //         showLoading();
+            //         $.get(url)
+            //             .done(function(response) {
+            //                 updatePageData(response);
+            //                 $('#show-currency-list').find('li .asset-compact-card').removeClass('active');
+            //                 $('#show-currency-list').find('li:first').find('.asset-compact-card').addClass('active');
+            //                 closeElement.closest('li').remove();
+            //             })
+            //             .fail(function(xhr, status, error) {
+            //                 notify('error', 'Something went wrong');
+            //             })
+            //             .always(function() {
+            //                 hideLoading();
+            //             });
+            //     }
+            // });
 
            
 
@@ -565,171 +565,171 @@
                 setupCrosshairMove(directionIndicator);
             }
 
-            function setupDirectionHoverEffects(indicator, higherBtn, lowerBtn) {
-                higherBtn.addEventListener('mouseover', () => {
-                    const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
-                    indicator.style.background =
-                        'linear-gradient(0deg, rgba(26,205,35,0.09287464985994398) 40%, rgba(193,193,193,0) 93%)';
-                    indicator.style.height = `${currentPriceY}px`;
-                    indicator.style.top = '0';
-                    indicator.style.left = '0';
-                    indicator.style.width = '100%';
-                    indicator.style.display = 'block';
-                    showDirectionText('UP', 'green');
-                });
+            // function setupDirectionHoverEffects(indicator, higherBtn, lowerBtn) {
+            //     higherBtn.addEventListener('mouseover', () => {
+            //         const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
+            //         indicator.style.background =
+            //             'linear-gradient(0deg, rgba(26,205,35,0.09287464985994398) 40%, rgba(193,193,193,0) 93%)';
+            //         indicator.style.height = `${currentPriceY}px`;
+            //         indicator.style.top = '0';
+            //         indicator.style.left = '0';
+            //         indicator.style.width = '100%';
+            //         indicator.style.display = 'block';
+            //         showDirectionText('UP', 'green');
+            //     });
 
-                higherBtn.addEventListener('mouseout', () => {
-                    indicator.style.backgroundColor = '';
-                    indicator.style.height = 'auto';
-                    indicator.style.width = 'auto';
-                    indicator.style.display = 'none';
-                    hideDirectionText();
-                });
+            //     higherBtn.addEventListener('mouseout', () => {
+            //         indicator.style.backgroundColor = '';
+            //         indicator.style.height = 'auto';
+            //         indicator.style.width = 'auto';
+            //         indicator.style.display = 'none';
+            //         hideDirectionText();
+            //     });
 
-                lowerBtn.addEventListener('mouseover', () => {
-                    const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
-                    indicator.style.background =
-                        'linear-gradient(180deg, rgba(205,26,53,0.14329481792717091) 40%, rgba(193,193,193,0) 93%)';
-                    indicator.style.height = `calc(100% - ${currentPriceY}px)`;
-                    indicator.style.top = `${currentPriceY}px`;
-                    indicator.style.left = '0';
-                    indicator.style.width = '100%';
-                    indicator.style.display = 'block';
-                    showDirectionText('DOWN', 'red');
-                });
+            //     lowerBtn.addEventListener('mouseover', () => {
+            //         const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
+            //         indicator.style.background =
+            //             'linear-gradient(180deg, rgba(205,26,53,0.14329481792717091) 40%, rgba(193,193,193,0) 93%)';
+            //         indicator.style.height = `calc(100% - ${currentPriceY}px)`;
+            //         indicator.style.top = `${currentPriceY}px`;
+            //         indicator.style.left = '0';
+            //         indicator.style.width = '100%';
+            //         indicator.style.display = 'block';
+            //         showDirectionText('DOWN', 'red');
+            //     });
 
-                lowerBtn.addEventListener('mouseout', () => {
-                    indicator.style.backgroundColor = '';
-                    indicator.style.height = 'auto';
-                    indicator.style.width = 'auto';
-                    indicator.style.display = 'none';
-                    hideDirectionText();
+            //     lowerBtn.addEventListener('mouseout', () => {
+            //         indicator.style.backgroundColor = '';
+            //         indicator.style.height = 'auto';
+            //         indicator.style.width = 'auto';
+            //         indicator.style.display = 'none';
+            //         hideDirectionText();
 
-                });
-            }
+            //     });
+            // }
 
-            function showDirectionText(text, color) {
-                let textElement = document.getElementById('direction-text');
-                if (!textElement) {
-                    textElement = document.createElement('div');
-                    textElement.id = 'direction-text';
-                    document.getElementById('chart-container').appendChild(textElement);
-                }
+            // function showDirectionText(text, color) {
+            //     let textElement = document.getElementById('direction-text');
+            //     if (!textElement) {
+            //         textElement = document.createElement('div');
+            //         textElement.id = 'direction-text';
+            //         document.getElementById('chart-container').appendChild(textElement);
+            //     }
 
-                const arrowIcon = text === 'UP' ?
-                    '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 20L20 4M20 4H10M20 4V14" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>' :
-                    '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4L20 20M20 20V10M20 20H10" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            //     const arrowIcon = text === 'UP' ?
+            //         '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 20L20 4M20 4H10M20 4V14" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>' :
+            //         '<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4L20 20M20 20V10M20 20H10" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-                textElement.innerHTML = `<span style="font-size: 16px;">${arrowIcon}</span>`;
-                textElement.style.color = color;
-                textElement.style.position = 'absolute';
-                textElement.style.zIndex = '1000';
-                textElement.style.fontWeight = 'bold';
-                textElement.style.fontSize = '16px';
-                textElement.style.display = 'flex';
+            //     textElement.innerHTML = `<span style="font-size: 16px;">${arrowIcon}</span>`;
+            //     textElement.style.color = color;
+            //     textElement.style.position = 'absolute';
+            //     textElement.style.zIndex = '1000';
+            //     textElement.style.fontWeight = 'bold';
+            //     textElement.style.fontSize = '16px';
+            //     textElement.style.display = 'flex';
 
-                function updatePosition() {
-                    if (lineSeries && chart && lastPrice !== undefined) {
-                        const y = lineSeries.priceToCoordinate(lastPrice);
-                        const x = chart.timeScale().width();
-                        if (y !== null && x !== null) {
-                            textElement.style.left = `${x - 60}px`;
-                            textElement.style.top = text === 'UP' ? `${y - 50}px` : `${y + 10}px`;
-                        }
-                    }
-                }
+            //     function updatePosition() {
+            //         if (lineSeries && chart && lastPrice !== undefined) {
+            //             const y = lineSeries.priceToCoordinate(lastPrice);
+            //             const x = chart.timeScale().width();
+            //             if (y !== null && x !== null) {
+            //                 textElement.style.left = `${x - 60}px`;
+            //                 textElement.style.top = text === 'UP' ? `${y - 50}px` : `${y + 10}px`;
+            //             }
+            //         }
+            //     }
 
-                updatePosition();
-                if (chart) {
-                    chart.subscribeCrosshairMove(updatePosition);
-                }
-            }
+            //     updatePosition();
+            //     if (chart) {
+            //         chart.subscribeCrosshairMove(updatePosition);
+            //     }
+            // }
 
-            function hideDirectionText() {
-                const textElement = document.getElementById('direction-text');
-                if (textElement) {
-                    textElement.style.display = 'none';
-                }
-            }
+            // function hideDirectionText() {
+            //     const textElement = document.getElementById('direction-text');
+            //     if (textElement) {
+            //         textElement.style.display = 'none';
+            //     }
+            // }
 
-            function setupCrosshairMove(indicator) {
-                chart.subscribeCrosshairMove((param) => {
-                    if (param.point && param.seriesPrices?.get(lineSeries)) {
-                        const price = param.seriesPrices.get(lineSeries);
-                        const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
+            // function setupCrosshairMove(indicator) {
+            //     chart.subscribeCrosshairMove((param) => {
+            //         if (param.point && param.seriesPrices?.get(lineSeries)) {
+            //             const price = param.seriesPrices.get(lineSeries);
+            //             const currentPriceY = lineSeries.priceToCoordinate(lastPrice);
 
-                        if (price !== undefined) {
-                            indicator.style.left = `${param.point.x}px`;
-                            const higherOption = document.getElementById('higherBtn');
-                            const lowerOption = document.getElementById('lowerBtn');
+            //             if (price !== undefined) {
+            //                 indicator.style.left = `${param.point.x}px`;
+            //                 const higherOption = document.getElementById('higherBtn');
+            //                 const lowerOption = document.getElementById('lowerBtn');
 
-                            if (higherOption?.checked) {
-                                indicator.style.top = `${currentPriceY - 30}px`;
-                            } else if (lowerOption?.checked) {
-                                indicator.style.top = `${currentPriceY + 10}px`;
-                            }
-                        }
-                    }
-                });
-            }
+            //                 if (higherOption?.checked) {
+            //                     indicator.style.top = `${currentPriceY - 30}px`;
+            //                 } else if (lowerOption?.checked) {
+            //                     indicator.style.top = `${currentPriceY + 10}px`;
+            //                 }
+            //             }
+            //         }
+            //     });
+            // }
 
-            document.addEventListener('DOMContentLoaded', initializeChart);
-            let higherBtn = $('#higherBtn');
-            let lowerBtn = $('#lowerBtn');
-            let minInvest = minTradeAmount;
-            let maxInvest = maxTradeAmount;
-            let auth = "{{ auth()->check() }}";
+            // document.addEventListener('DOMContentLoaded', initializeChart);
+            // let higherBtn = $('#higherBtn');
+            // let lowerBtn = $('#lowerBtn');
+            // let minInvest = minTradeAmount;
+            // let maxInvest = maxTradeAmount;
+            // let auth = "{{ auth()->check() }}";
 
-            higherBtn.on('click', function() {
-                placeBinaryTrade($(this))
-            });
+            // higherBtn.on('click', function() {
+            //     placeBinaryTrade($(this))
+            // });
 
-            lowerBtn.on('click', function() {
-                placeBinaryTrade($(this))
-            });
+            // lowerBtn.on('click', function() {
+            //     placeBinaryTrade($(this))
+            // });
 
-            function placeBinaryTrade(directionBtn) {
-                if (!auth) {
-                    notify('error', 'You must be logged in to place a trade')
-                    return;
-                }
-                let amount = $('[name=amount]').val();
-                if (!amount) {
-                    notify('error', 'Please enter an amount to invest')
-                    return;
-                }
-                if (amount < minInvest || amount > maxInvest) {
-                    notify('error', `Investment amount must be between ${minInvest} and ${maxInvest}`)
-                    return;
-                }
-                let duration = convertToSeconds(countdownTimer.text());
+            // function placeBinaryTrade(directionBtn) {
+            //     if (!auth) {
+            //         notify('error', 'You must be logged in to place a trade')
+            //         return;
+            //     }
+            //     let amount = $('[name=amount]').val();
+            //     if (!amount) {
+            //         notify('error', 'Please enter an amount to invest')
+            //         return;
+            //     }
+            //     if (amount < minInvest || amount > maxInvest) {
+            //         notify('error', `Investment amount must be between ${minInvest} and ${maxInvest}`)
+            //         return;
+            //     }
+            //     let duration = convertToSeconds(countdownTimer.text());
 
-                direction = directionBtn.data('direction');
-                if (!direction) {
-                    notify('error', 'Please select a direction for the trade')
-                    return;
-                }
+            //     direction = directionBtn.data('direction');
+            //     if (!direction) {
+            //         notify('error', 'Please select a direction for the trade')
+            //         return;
+            //     }
 
-                let directions = ['higher', 'lower'];
-                if (!directions.includes(direction)) {
-                    notify('error', 'Invalid direction for the trade')
-                    return;
-                }
+            //     let directions = ['higher', 'lower'];
+            //     if (!directions.includes(direction)) {
+            //         notify('error', 'Invalid direction for the trade')
+            //         return;
+            //     }
 
-                let data = {
-                    '_token': "{{ csrf_token() }}",
-                    'amount': amount,
-                    'duration': duration,
-                    'direction': direction,
-                    'coin_pair_id': coinPairId
-                }
+            //     let data = {
+            //         '_token': "{{ csrf_token() }}",
+            //         'amount': amount,
+            //         'duration': duration,
+            //         'direction': direction,
+            //         'coin_pair_id': coinPairId
+            //     }
 
-                if (investmentPriceLine) {
-                    lineSeries.removePriceLine(investmentPriceLine);
-                }
+            //     if (investmentPriceLine) {
+            //         lineSeries.removePriceLine(investmentPriceLine);
+            //     }
 
-                $("#higherBtn").prop('disabled', true);
-                $("#lowerBtn").prop('disabled', true);
+            //     $("#higherBtn").prop('disabled', true);
+            //     $("#lowerBtn").prop('disabled', true);
                 isTradeRunning = true;
 
                 $.ajax({
@@ -872,62 +872,33 @@
                 });
             });
 
-            $(".trade-amount").each(function() {
-                var amountIncrement = $(this).find(".trade-amount__increment");
-                var amountDecrement = $(this).find(".trade-amount__decrement");
-                var amountInput = $(this).find(".trade-amount__input");
+            // $(".trade-amount").each(function() {
+            //     var amountIncrement = $(this).find(".trade-amount__increment");
+            //     var amountDecrement = $(this).find(".trade-amount__decrement");
+            //     var amountInput = $(this).find(".trade-amount__input");
 
-                amountIncrement.on("click", function() {
-                    var oldValue = parseFloat(amountInput.val());
-                    var newVal = oldValue + Number(incrementAmount);
-                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
-                });
+            //     amountIncrement.on("click", function() {
+            //         var oldValue = parseFloat(amountInput.val());
+            //         var newVal = oldValue + Number(incrementAmount);
+            //         amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
+            //     });
 
-                amountDecrement.on("click", function() {
-                    var oldValue = parseFloat(amountInput.val());
-                    if (oldValue <= minTradeAmount) {
-                        var newVal = oldValue;
-                    } else {
-                        var newVal = oldValue - Number(incrementAmount);
-                    }
-                    amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
-                });
-            });
-
-
+            //     amountDecrement.on("click", function() {
+            //         var oldValue = parseFloat(amountInput.val());
+            //         if (oldValue <= minTradeAmount) {
+            //             var newVal = oldValue;
+            //         } else {
+            //             var newVal = oldValue - Number(incrementAmount);
+            //         }
+            //         amountInput.val(parseFloat(newVal).toFixed(Number("{{ gs('allow_decimal_after_number') }}"))).trigger("change");
+            //     });
+            // });
 
             let page = 1;
             let isLoading = false;
 
-            $('.terminal-body .tab-content').on('scroll', function() {
-                let div = $(this).get(0);
-                if (div.scrollTop + div.clientHeight >= div.scrollHeight - 20) {
-                    if (!isLoading) {
-                        isLoading = true;
-                        page++;
-                        $.ajax({
-                            url: "{{ route('user.binary.trade.history') }}",
-                            method: "GET",
-                            data: {
-                                page: page
-                            },
-                            success: function(response) {
-                                $('.loading-spinner').remove();
-                                if (response.trades.length > 0) {
-                                    $('#closedTradeTable tbody').append(response.trades);
-                                }
-                                isLoading = false;
-                            },
-                            error: function() {
-                                $('.loading-spinner').remove();
-                                isLoading = false;
-                            }
-                        });
-                    }
-                }
-            });
         })(jQuery)
     </script>
 @endpush
 
- --}}
+
