@@ -4,7 +4,6 @@
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
                 <div class="trade-section__left">
-                    <h1 class="trade-amount">@lang('Trending Chart')</h1>
                     <div id="chart-container">
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
@@ -482,45 +481,54 @@
             // getProfit()
 
             /* ==================== Terminal  JS Startaz ================================= */
-            let terminal = $(".terminal");
-            let terminalToggle = terminal.find(".terminal-toggle");
-            let terminalBody = terminal.find(".terminal-body");
-            let terminalBodyTabContent = terminalBody.find(".tab-content");
 
-            terminalBodyTabContent.on('scroll', function() {
-                if ($(this).scrollTop() > 0) {
-                    $(this).addClass('scrolling');
-                } else {
-                    $(this).removeClass('scrolling');
-                }
-            });
-
-            terminalToggle.on("click", function() {
-                $(terminalBody).toggle();
-
-                if ($(terminalBody).css("display") != "none") {
-                    $(this).find("span").text("Hide History");
-                    $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
-
-                    let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
-                    $('.trade-section__left').height(tradeLeftNewHeight);
-
-                    chartPropertiesFunc(tradeLeftNewHeight);
-                    cleanupChart();
-                    initializeChart();
+            $('.trade-section__left').removeAttr('style');
+            $(this).find("span").text("Show History");
+            $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
-                } else {
-                    $('.trade-section__left').removeAttr('style');
-                    $(this).find("span").text("Show History");
-                    $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+            chartPropertiesFunc($('.trade-section__left').height());
+            cleanupChart();
+            initializeChart();
+            // let terminal = $(".terminal");
+            // let terminalToggle = terminal.find(".terminal-toggle");
+            // let terminalBody = terminal.find(".terminal-body");
+            // let terminalBodyTabContent = terminalBody.find(".tab-content");
+
+            // terminalBodyTabContent.on('scroll', function() {
+            //     if ($(this).scrollTop() > 0) {
+            //         $(this).addClass('scrolling');
+            //     } else {
+            //         $(this).removeClass('scrolling');
+            //     }
+            // });
+
+            // terminalToggle.on("click", function() {
+            //     $(terminalBody).toggle();
+
+            //     if ($(terminalBody).css("display") != "none") {
+            //         $(this).find("span").text("Hide History");
+            //         $(this).find("i").removeClass("la-angle-up").addClass("la-angle-down");
+
+            //         let tradeLeftNewHeight = $('.trade-section__left').height() - $(terminalBody).height();
+            //         $('.trade-section__left').height(tradeLeftNewHeight);
+
+            //         chartPropertiesFunc(tradeLeftNewHeight);
+            //         cleanupChart();
+            //         initializeChart();
 
 
-                    chartPropertiesFunc($('.trade-section__left').height());
-                    cleanupChart();
-                    initializeChart();
-                }
-            });
+            //     } else {
+            //         $('.trade-section__left').removeAttr('style');
+            //         $(this).find("span").text("Show History");
+            //         $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+
+
+            //         chartPropertiesFunc($('.trade-section__left').height());
+            //         cleanupChart();
+            //         initializeChart();
+            //     }
+            // });
             /* ==================== Terminal  JS End ==================================== */
 
             /* ==================== Assets Dropdown Slider JS Start ===================== */
