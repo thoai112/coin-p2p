@@ -10,9 +10,11 @@
                         <div id="current-price-dot"></div>
                     </div>
                 </div>
-                <div class="trade-section__right">
-                   
-                    {{--<div class="trade-section__block one">
+                {{-- <div class="trade-section__right">
+                    <button type="button" class="btn--close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <div class="trade-section__block one">
                         <div class="trade-amount">
                             <div class="trade-amount__input-group">
                                 <span class="trade-amount__label">@lang('Amount') (<span class="coin-symbol"></span>)</span>
@@ -89,8 +91,8 @@
                             <span>@lang('Lower')</span>
                         </button>
 
-                    </div>--}}
-                </div> 
+                    </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -111,7 +113,7 @@
     <style>
         #chart-container {
             width: 100%;
-            max-height: 200px;
+            height: 200px;
             background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
@@ -195,7 +197,7 @@
         }
 
         .table tbody tr td:nth-last-child(3) {
-            color: #1e222d46;
+            color: hsl(var(--white) / 0.7);
         }
     </style>
 @endpush
