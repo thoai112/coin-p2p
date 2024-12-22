@@ -530,63 +530,6 @@
             //     }
             // });
             /* ==================== Terminal  JS End ==================================== */
-
-            /* ==================== Assets Dropdown Slider JS Start ===================== */
-            $('.assets--dropdown .dropdown-menu').on('click', function(e) {
-                e.stopPropagation(); // Prevents the dropdown from closing
-            });
-
-            $('.assets--dropdown').each((index, dropdown) => {
-                let toggle = $(dropdown).find('.dropdown-toggle');
-                let sliders = $(dropdown).find('.dropdown-slider')
-                let menuBody = $(dropdown).find('.dropdown-menu__body')
-
-                menuBody[0].scrollTop = 0;
-
-                menuBody.on('scroll', function() {
-                    if ($(this).scrollTop() > 0) {
-                        $(this).addClass('scrolling');
-                    } else {
-                        $(this).removeClass('scrolling');
-                    }
-                });
-
-                toggle.on('show.bs.dropdown', function() {
-                    menuBody[0].scrollTop = 0;
-
-                    sliders.each((index, slider) => {
-                        if (!$(slider).hasClass('slick-initialized')) {
-                            $(slider).slick({
-                                slidesToShow: 3,
-                                slidesToScroll: 1,
-                                infinite: false,
-                                arrows: true,
-                                prevArrow: '<button type="button" class="slick-prev"><i class="las la-angle-left"></i></button>',
-                                nextArrow: '<button type="button" class="slick-next"><i class="las la-angle-right"></i></button>',
-                                responsive: [{
-                                        breakpoint: 992,
-                                        settings: {
-                                            slidesToShow: 2
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 425,
-                                        settings: {
-                                            slidesToShow: 1
-                                        }
-                                    }
-                                ]
-                            });
-                        }
-                    })
-                });
-            });
-
-            /* ==================== Assets Dropdown Slider JS End ===================== */
-
-
-            let page = 1;
-            let isLoading = false;
             
 
         })(jQuery)
