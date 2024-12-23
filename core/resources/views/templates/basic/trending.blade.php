@@ -227,8 +227,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = 1300;
-            let chartHeight = 500;
+            let chartWidth = $(".trade-section__left").width();
+            let chartHeight = $(".trade-section__left").height();
             let chartProperties = null;
             let direction;
             let dataIds = [];
@@ -472,7 +472,7 @@
             // $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
-            chartPropertiesFunc(1300, 400);
+            chartPropertiesFunc(chartWidth, chartHeight);
             cleanupChart();
             initializeChart();
             
