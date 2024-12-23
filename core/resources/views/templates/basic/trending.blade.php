@@ -116,6 +116,7 @@
         .trade-section__left{
             width: 80%;
         }
+
         #chart-container {
             width: 100%;
             height: 400px;
@@ -349,7 +350,6 @@
                     container.innerHTML = `
                                             <div id="countdown"></div>
                                             <div id="direction-indicator"></div>
-                                            <div id="current-price-dot"></div>
                                         `;
                 }
             }
@@ -424,7 +424,7 @@
                     value: lastPrice,
                 };
                 updateChartData(newData);
-                updatePriceDot(lastPrice);
+                // updatePriceDot(lastPrice);
             }
 
             function updateChartData(newData) {
