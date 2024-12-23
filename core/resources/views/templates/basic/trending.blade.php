@@ -224,8 +224,6 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = Math.ceil($(".trade-section__left").width());
-            let chartHeight = Math.ceil($(".trade-section__left").height());
             let chartProperties = null;
             let direction;
             let dataIds = [];
@@ -442,7 +440,6 @@
                     value: lastPrice,
                 };
                 updateChartData(newData);
-                // updatePriceDot(lastPrice);
             }
 
             function updateChartData(newData) {
@@ -465,16 +462,6 @@
                     axisLabelVisible: true,
                     title: investmentPriceLine.options().title,
                 });
-            }
-
-            function updatePriceDot(price) {
-                const dot = document.getElementById('current-price-dot');
-                if (dot) {
-                    const y = lineSeries.priceToCoordinate(price);
-                    const x = chart.timeScale().width() - 350;
-                    dot.style.top = `${y}px`;
-                    dot.style.left = `${x}px`;
-                }
             }
 
 
