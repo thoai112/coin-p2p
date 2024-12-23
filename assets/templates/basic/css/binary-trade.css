@@ -959,7 +959,6 @@ body {
 
 .trade-section__right {
   width: 100%;
-  max-width: 180px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
