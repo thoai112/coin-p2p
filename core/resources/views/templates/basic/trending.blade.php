@@ -3,14 +3,15 @@
     <section class="trade-section">
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
+                
+                </div>
                 <div class="trade-section__left">
                     <div id="chart-container">
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
                         <div id="current-price-dot"></div>
                     </div>
-                </div>
-                <div class="trade-section__right">
+                {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
                     </button>
@@ -91,8 +92,8 @@
                             <span>@lang('Lower')</span>
                         </button>
 
-                    </div>
-                </div>
+                    </div> 
+                </div>--}}
             </div>
         </div>
     </section>
