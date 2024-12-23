@@ -115,9 +115,6 @@
 
 @push('style')
     <style>
-        .trade-section__left{
-            width: 80%;
-        }
 
         #chart-container {
             width: 100%;
