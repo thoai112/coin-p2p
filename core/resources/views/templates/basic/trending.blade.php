@@ -95,12 +95,10 @@
                         </button>
 
                     </div> 
-                </div>--}}
+                </div> --}}
             </div>
         </div>
     </section>
-
-    
 @endsection
 
 
@@ -116,7 +114,6 @@
 
 @push('style')
     <style>
-
         #chart-container {
             width: 100%;
             background-color: transparent;
@@ -233,8 +230,8 @@
             let direction;
             let dataIds = [];
             let isTradeRunning = false;
-            
-           
+
+
 
             function showLoading() {
                 $('body').append(`<div id="loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
@@ -253,10 +250,22 @@
 
             // chartPropertiesFunc(chartWidth,chartHeight)
 
+            function updateChartDimensions() {
+                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+                if (chart) {
+                    chart.applyOptions({
+                        width: chartWidth,
+                        height: chartHeight
+                    });
+                }
+            }
+
             $(window).on('resize', function() {
-                chartPropertiesFunc(chartWidth,chartHeight)
+                updateChartDimensions();
             });
-            function chartPropertiesFunc(width,height) {
+
+            function chartPropertiesFunc(width, height) {
                 chartProperties = {
                     width: width,
                     height: height,
@@ -326,7 +335,8 @@
 
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
-                BINANCE_API_URL = `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
+                BINANCE_API_URL =
+                    `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
                 BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
             }
 
@@ -357,6 +367,11 @@
             }
 
             function initializeChart() {
+
+                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+
+                chartPropertiesFunc(chartWidth, chartHeight);
 
                 chart = LightweightCharts.createChart(
                     document.getElementById('chart-container'),
@@ -392,13 +407,14 @@
                 try {
                     const response = await fetch(BINANCE_API_URL);
                     const data = await response.json();
-                   
+
                     const chartData = data.map(d => ({
                         time: d[0] / 1000,
                         value: parseFloat(d[4]),
                     }));
-                    
-                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) === i);
+
+                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) ===
+                        i);
 
                     lineSeries.setData(uniqueChartData);
                     areaSeries.setData(uniqueChartData);
@@ -470,12 +486,13 @@
             }
 
 
-            chartPropertiesFunc(chartWidth, chartHeight);
-            cleanupChart();
-            initializeChart();
-            
+            $(document).ready(function() {
+                initializeChart();
+            });
+            // chartPropertiesFunc(chartWidth, chartHeight);
+            // cleanupChart();
+            // initializeChart();
+
         })(jQuery)
     </script>
 @endpush
-
-
