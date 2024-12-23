@@ -257,6 +257,7 @@
                         height: chartHeight
                     });
                 }
+                cleanupChart();
             }
 
             $(window).on('resize', function() {
@@ -468,14 +469,14 @@
             }
 
 
-            // $(document).ready(function() {
-            //     let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-            //     let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+            $(document).ready(function() {
+                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
 
-            //     chartPropertiesFunc(chartWidth, chartHeight);
-            //     cleanupChart();
-            //     initializeChart();
-            // });
+                chartPropertiesFunc(chartWidth, chartHeight);
+                cleanupChart();
+                initializeChart();
+            });
 
 
         })(jQuery)
