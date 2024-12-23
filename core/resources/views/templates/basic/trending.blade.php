@@ -1,7 +1,4 @@
 @extends($activeTemplate . 'layouts.frontend')
-@php
-    $langDetailss = @$languages->where('code', config('app.locale'))->first();
-@endphp
 @section('content')
     <section class="trade-section">
         <div class="container-fluid container-fluid--custom">
@@ -29,9 +26,7 @@
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-                            @php
-                                $langCode = @$langDetails->code;
-                            @endphp
+            
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
@@ -40,7 +35,7 @@
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ @$langCode }} </h6>
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }} </h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
