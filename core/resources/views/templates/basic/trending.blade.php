@@ -284,9 +284,11 @@
                     grid: {
                         vertLines: {
                             color: '#1E222D'
+                            visible: false,
                         },
                         horzLines: {
-                            color: '#1E222D'
+                            color: '#1E222D',
+                            visible: false,
                         },
                     },
                     crosshair: {
