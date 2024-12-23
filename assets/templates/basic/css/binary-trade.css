@@ -953,6 +953,7 @@ body {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  width: 80%;
   height: calc(100vh - 180px);
 }
 
