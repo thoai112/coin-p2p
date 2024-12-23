@@ -30,22 +30,18 @@
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn "
                                         data-id="{{ $currency->id }}">
-                                        <div class="avatar">
-                                            {{-- <img class="avatar-img"
-                                                src=""
-                                                alt=""> --}}
-                                            {{-- <img class="avatar-img"
-                                                src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->market->currency->image, getFileSize('currency')) }}"
-                                                alt=""> --}}
+                                        <div class="asset-compact-card__content">
+                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
-                                        {{-- @if (!$loop->first)
-                                            <button class="asset-compact-card__close" type="button"><i
-                                                    class="fas fa-times"></i></button>
-                                        @endif --}}
+                                        <div class="asset-compact-card__content">
+                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
+                                        </div>
                                     </div>
                                 </li>
                             @endforeach
