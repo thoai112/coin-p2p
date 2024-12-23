@@ -923,9 +923,9 @@ body {
 /* ======================= Nav Horizontal CSS End ================ */
 /* ======================= Trade Section CSS Start =============== */
 .trade-section__inner {
-  /* flex-grow: 1;
+  flex-grow: 1;
   display: -webkit-box;
-  display: -ms-flexbox; */
+  display: -ms-flexbox;
   display: flex;
   gap: 24px;
   padding: 16px 0 0px 0;

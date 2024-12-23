@@ -110,16 +110,13 @@
 
 @push('style-lib')
     <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset($activeTemplateTrue . 'css/binary-trade.css') }}">
 @endpush
 
 @push('style')
     <style>
         .trade-section__left{
             width: 80%;
-        }
-
-        .trade-section__right{
-            width: 20%;
         }
 
         #chart-container {
