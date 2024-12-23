@@ -12,6 +12,39 @@
                 </div>
                 <div class="trade-section__right">
                     <h2>@lang('Trending')</h2>
+                    <nav class="nav-horizontal">
+                        <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
+                        <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button>
+                        <ul class="nav-horizontal-menu" id="show-currency-list">
+                            {{-- @foreach ($maxTradeCoinPairs as $coinPair)
+                                <li class="nav-horizontal-menu__item">
+                                    <div class="asset-compact-card coinBtn {{ $coinPair->id == $activeCoin->id ? 'active' : '' }}"
+                                        data-id="{{ $coinPair->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        title="{{ str_replace('_', '/', $coinPair->symbol) }} - {{ getAmount($coinPair->binary_trade_profit) }}% profit">
+                                        <div class="avatar">
+                                            <img class="avatar-img"
+                                                src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->coin->image, getFileSize('currency')) }}"
+                                                alt="">
+                                            <img class="avatar-img"
+                                                src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->market->currency->image, getFileSize('currency')) }}"
+                                                alt="">
+                                        </div>
+                                        <div class="asset-compact-card__content">
+                                            <h6 class="asset-compact-card__title">{{ str_replace('_', '/', $coinPair->symbol) }}
+                                            </h6>
+                                            <span
+                                                class="asset-compact-card__percentage">{{ getAmount($coinPair->binary_trade_profit) }}%</span>
+                                        </div>
+                                        @if (!$loop->first)
+                                            <button class="asset-compact-card__close" type="button"><i
+                                                    class="fas fa-times"></i></button>
+                                        @endif
+                                    </div>
+                                </li>
+                            @endforeach --}}
+                        </ul>
+                    </nav>
+        
                 </div>
                 {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
