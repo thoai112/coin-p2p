@@ -6,9 +6,14 @@
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
                         <span >@lang('Profit')</span>
+                        <span>
+                            <span class="profit-value">0.00</span>
+                            <span class="profit-percentage">%</span>
+                        </span>
                     </div>
-                    <div class="trade-section__block two">
+                    <div class="trade-section__block one">
                         <span >@lang('Value')</span>
+                        <span >@lang('Amount')</span>
                     </div>
                     <div id="chart-container">
                         <div id="countdown"></div>
