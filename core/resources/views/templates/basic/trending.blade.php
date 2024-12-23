@@ -117,7 +117,7 @@
 @push('style')
     <style>
         #chart-container {
-            width: 1300;
+            width: 1300px;
             height: 400px;
             background-color: #2a2e3942;
             position: relative;
