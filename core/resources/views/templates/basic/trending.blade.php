@@ -26,9 +26,6 @@
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-                            @php
-                                $language = session('language', 'en');
-                            @endphp
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
