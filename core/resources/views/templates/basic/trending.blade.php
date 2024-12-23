@@ -5,15 +5,15 @@
             <div class="trade-section__inner">
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
-                        <span >@lang('Profit')</span>
+                        <span>@lang('Profit')</span>
                         <span>
                             <span class="profit-value">0.00</span>
                             <span class="profit-percentage">%</span>
                         </span>
                     </div>
                     <div class="trade-section__block two">
-                        <span >@lang('Value')</span>
-                        <span >@lang('Amount')</span>
+                        <span>@lang('Value')</span>
+                        <span>@lang('Amount')</span>
                     </div>
                     <div id="chart-container">
                         <div id="countdown"></div>
@@ -28,14 +28,18 @@
                         <ul class="nav-horizontal-menu" id="show-currency-list">
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn "
-                                        data-id="{{ $currency->id }}">
+                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ $language }}</h6>
+                                           
+                                            <h6 class="asset-compact-card__title">
+                                                @php
+                                                $langDetails = $languages->where('code', config('app.locale'))->first();
+                                                @endphp
+                                            </h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
@@ -47,7 +51,7 @@
                             @endforeach
                         </ul>
                     </nav>
-        
+
                 </div>
                 {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
