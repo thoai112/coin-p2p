@@ -874,6 +874,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 360px;
+  scrollbar-width: none;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: start;
