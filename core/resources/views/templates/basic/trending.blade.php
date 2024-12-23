@@ -281,7 +281,14 @@
                         },
                         textColor: '#D1D4DC',
                     },
-
+                    grid: {
+                        vertLines: {
+                            color: 'transparent',
+                        },
+                        horzLines: {
+                            color: 'transparent',
+                        },
+                    },
                     crosshair: {
                         mode: LightweightCharts.CrosshairMode.Normal,
                         vertLine: {
