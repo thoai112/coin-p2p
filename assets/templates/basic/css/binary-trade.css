@@ -1575,6 +1575,41 @@ body {
 }
 
 /* ======================= Header New CSS End ========================= */
+
+/* CSS for vertical navigation */
+.nav-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-vertical__btn {
+  margin: 5px 0;
+}
+
+.nav-vertical-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-vertical-menu__item {
+  margin: 5px 0;
+}
+
+.asset-compact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.asset-compact-card__content {
+  margin-top: 5px;
+}
 /* ======================= Terminal CSS Start ========================= */
 .terminal {
   width: 100%;

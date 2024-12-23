@@ -22,14 +22,14 @@
                 </div>
                 <div class="trade-section__right">
                     <h2>@lang('Trending')</h2>
-                    <nav class="nav-horizontal">
-                        <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
-                        <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button>
-                        <ul class="nav-horizontal-menu" id="show-currency-list">
+                    <nav class="nav-vertical">
+                        <button class="nav-vertical__btn prev"><i class="las la-angle-up"></i></button>
+                        <button class="nav-vertical__btn next"><i class="las la-angle-down"></i></button>
+                        <ul class="nav-vertical-menu" id="show-currency-list">
                             @foreach ($currencies as $currency)
-                                <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn "
-                                        data-id="{{ $currency->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                <li class="nav-vertical-menu__item">
+                                    <div class="asset-compact-card coinBtn"
+                                        data-id="{{ $currency->id }}" data-bs-toggle="tooltip" data-bs-placement="right"
                                         title="% profit">
                                         <div class="avatar">
                                             <img class="avatar-img"
@@ -40,14 +40,11 @@
                                                 alt=""> --}}
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}
-                                            </h6>
-                                            <span
-                                                class="asset-compact-card__percentage">%</span>
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
+                                            <span class="asset-compact-card__percentage">%</span>
                                         </div>
                                         {{-- @if (!$loop->first)
-                                            <button class="asset-compact-card__close" type="button"><i
-                                                    class="fas fa-times"></i></button>
+                                            <button class="asset-compact-card__close" type="button"><i class="fas fa-times"></i></button>
                                         @endif --}}
                                     </div>
                                 </li>
