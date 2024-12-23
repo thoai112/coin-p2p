@@ -12,7 +12,7 @@
                         </span>
                     </div>
                     <div class="trade-section__block two">
-                        <span >{{$currencies }}</span>
+                        <span >@lang('Value')</span>
                         <span >@lang('Amount')</span>
                     </div>
                     <div id="chart-container">
@@ -26,9 +26,10 @@
                         <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button>
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-                            {{-- @foreach ($maxTradeCoinPairs as $coinPair)
+                            @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn {{ $coinPair->id == $activeCoin->id ? 'active' : '' }}"
+                                    <span>{{ $currency->name }}</span>
+                                    {{-- <div class="asset-compact-card coinBtn {{ $coinPair->id == $activeCoin->id ? 'active' : '' }}"
                                         data-id="{{ $coinPair->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                         title="{{ str_replace('_', '/', $coinPair->symbol) }} - {{ getAmount($coinPair->binary_trade_profit) }}% profit">
                                         <div class="avatar">
@@ -49,9 +50,9 @@
                                             <button class="asset-compact-card__close" type="button"><i
                                                     class="fas fa-times"></i></button>
                                         @endif
-                                    </div>
+                                    </div> --}}
                                 </li>
-                            @endforeach --}}
+                            @endforeach
                         </ul>
                     </nav>
         
