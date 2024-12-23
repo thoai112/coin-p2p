@@ -450,7 +450,7 @@
                 const dot = document.getElementById('current-price-dot');
                 if (dot) {
                     const y = lineSeries.priceToCoordinate(price);
-                    const x = chart.timeScale().width() - 50;
+                    const x = chart.timeScale().width() - 350;
                     dot.style.top = `${y}px`;
                     dot.style.left = `${x}px`;
                 }
@@ -470,7 +470,7 @@
             // $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
-            chartPropertiesFunc($('.trade-section__left').width(), $('.trade-section__left').height());
+            chartPropertiesFunc(1300, 400);
             cleanupChart();
             initializeChart();
             
