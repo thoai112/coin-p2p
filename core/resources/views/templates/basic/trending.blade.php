@@ -4,10 +4,10 @@
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
                 <div class="trade-section__left">
-                    <div class="trade-section__block one">
+                    <div >
                         <span >@lang('Profit')</span>
                     </div>
-                    <div class="trade-section__block two">
+                    <div >
                         <span >@lang('Value')</span>
                     </div>
                     <div id="chart-container">
