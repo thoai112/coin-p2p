@@ -46,9 +46,9 @@ class CurrencyController extends Controller
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'avgcow', 'currencyDataProvider'));
     }
 
-    public function trending()
+    public function toptrending()
     {
-        $pageTitle            = "Trending Currency List";
+        $pageTitle            = "Top Trending List";
         $currencies           = $this->trendingData('trending');
         $type                 = Status::TRENDING;
         $currencyDataProvider = defaultCurrencyDataProvider(false);

@@ -206,7 +206,19 @@
                     "title": "Cow Currency",
                     "route_name": "admin.currency.cow",
                     "menu_active": "admin.currency.cow"
+                },
+                {
+                    "keyword": [
+                        "Trending currency",
+                        "Trending currency",
+                        "Paper money",
+                        "Trending management"
+                    ],
+                    "title": "Cow Currency",
+                    "route_name": "admin.currency.toptrending",
+                    "menu_active": "admin.currency.toptrending"
                 }
+
             ]
         },
         "manage_market": {
