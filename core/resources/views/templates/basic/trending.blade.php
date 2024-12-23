@@ -4,6 +4,7 @@
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
                 <div class="trade-section__left">
+                    <h3>@lang('Trade')</h3>
                     <div id="chart-container">
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
