@@ -10,7 +10,7 @@
                         <div id="current-price-dot"></div>
                     </div>
                 </div>
-                {{-- <div class="trade-section__right">
+                <div class="trade-section__right">
                     <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
                     </button>
@@ -92,7 +92,7 @@
                         </button>
 
                     </div>
-                </div> --}}
+                </div>
             </div>
         </div>
     </section>
@@ -113,7 +113,7 @@
 @push('style')
     <style>
         #chart-container {
-            width: 60%;
+            width: 100%;
             height: 400px;
             background-color: #2a2e3942;
             position: relative;
