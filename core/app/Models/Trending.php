@@ -11,7 +11,7 @@ class Trending extends Model
 {
     use GlobalStatus;
 
-    public function scopeCow($query)
+    public function scopeTrending($query)
     {
         $query->where('status', Status::ENABLE);
     }
