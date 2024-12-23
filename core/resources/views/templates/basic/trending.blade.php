@@ -251,8 +251,11 @@
                 $('#loading-overlay').remove();
             }
 
-            chartPropertiesFunc(chartWidth,chartHeight)
+            // chartPropertiesFunc(chartWidth,chartHeight)
 
+            $(window).on('resize', function() {
+                chartPropertiesFunc(chartWidth,chartHeight)
+            });
             function chartPropertiesFunc(width,height) {
                 chartProperties = {
                     width: width,
