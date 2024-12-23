@@ -29,6 +29,7 @@
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <span>{{ $currency->name }}</span>
+                                    <span>{{ $currency->symbol }}</span>
                                     {{-- <div class="asset-compact-card coinBtn {{ $coinPair->id == $activeCoin->id ? 'active' : '' }}"
                                         data-id="{{ $coinPair->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                         title="{{ str_replace('_', '/', $coinPair->symbol) }} - {{ getAmount($coinPair->binary_trade_profit) }}% profit">
