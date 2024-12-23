@@ -366,11 +366,6 @@
 
             function initializeChart() {
 
-                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
-
-                chartPropertiesFunc(chartWidth, chartHeight);
-
                 chart = LightweightCharts.createChart(
                     document.getElementById('chart-container'),
                     chartProperties
@@ -474,12 +469,14 @@
 
 
             $(document).ready(function() {
-                initializeChart();
+                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+
+                chartPropertiesFunc(chartWidth, chartHeight);
                 cleanupChart();
+                initializeChart();
             });
-            // chartPropertiesFunc(chartWidth, chartHeight);
-            // cleanupChart();
-            // initializeChart();
+
 
         })(jQuery)
     </script>
