@@ -1,6 +1,6 @@
 @extends($activeTemplate . 'layouts.frontend')
 @php
-    $langDetails = $languages->where('code', config('app.locale'))->first();
+    $langDetailss = @$languages->where('code', config('app.locale'))->first();
 @endphp
 @section('content')
     <section class="trade-section">
