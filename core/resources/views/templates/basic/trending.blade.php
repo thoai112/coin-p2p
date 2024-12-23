@@ -12,7 +12,7 @@
                         </span>
                     </div>
                     <div class="trade-section__block two">
-                        <span >{{ __($currencies) }}</span>
+                        <span >{{$currencies }}</span>
                         <span >@lang('Amount')</span>
                     </div>
                     <div id="chart-container">
