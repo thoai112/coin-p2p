@@ -36,7 +36,7 @@
                                         <div class="asset-compact-card__content">
             
                                             <h6 class="asset-compact-card__title">
-                                                {{ @$langDetails }}</h6>
+                                                {{ __(@$langDetails->name) }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
