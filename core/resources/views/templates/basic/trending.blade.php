@@ -26,6 +26,9 @@
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
+                            @php
+                                $langs = $languages->where('code', config('app.locale'))->first();
+                            @endphp
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
@@ -34,11 +37,6 @@
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @php
-                                                $langs = $languages
-                                                    ->where('code', config('app.locale'))
-                                                    ->first();
-                                            @endphp
                                             <h6 class="asset-compact-card__title">{{ @$langs->code }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
