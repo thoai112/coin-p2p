@@ -378,6 +378,9 @@
             }
 
             initalizeApi('btc_usdt');
+            @foreach ($currencies as $currency)
+                initializeApi('{{ strtolower($currency->symbol) }}_usdt');
+            @endforeach
 
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
