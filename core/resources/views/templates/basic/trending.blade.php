@@ -3,14 +3,17 @@
     <section class="trade-section">
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
-                
-                </div>
                 <div class="trade-section__left">
                     <div id="chart-container">
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
                         <div id="current-price-dot"></div>
                     </div>
+                    <div class="trade-section__right">
+                        <h2>@lang('Trending')</h2>
+                    </div>
+                </div>
+                
                 {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
@@ -224,10 +227,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            // let chartWidth = Math.ceil($(".trade-section__left").width());
-            // let chartHeight = Math.ceil($(".trade-section__left").height());
-            let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-            let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+            let chartWidth = 1300;
+            let chartHeight = 400;
             let chartProperties = null;
             let direction;
             let dataIds = [];
