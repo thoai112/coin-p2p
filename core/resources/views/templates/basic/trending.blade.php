@@ -118,7 +118,6 @@
 
         #chart-container {
             width: 100%;
-            height: 400px;
             background-color: transparent;
             position: relative;
             overflow: hidden;
