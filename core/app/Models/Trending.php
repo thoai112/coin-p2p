@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use App\Constants\Status;
 use App\Traits\GlobalStatus;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Trending extends Model
 {
     use GlobalStatus;
 
+    public function scopeCow($query)
+    {
+        $query->where('status', Status::ENABLE);
+    }
     
     public function scopeRankOrdering($query)
     {
