@@ -20,5 +20,10 @@ class Trending extends Model
     {
         return $query->orderByRaw('ranking = 0 ASC, ranking ASC');
     }
+
+    public function marketData()
+    {
+        return $this->hasOne(MarketData::class, 'currency_id');
+    }
 }
 
