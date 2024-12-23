@@ -36,7 +36,13 @@
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
-                                            <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
+                                            <h6 class="asset-compact-card__title">
+                                                @if (@$langDetails->code == 'en')
+                                                    USD
+                                                @else
+                                                    VND
+                                                @endif
+                                            </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ @$langDetails->code }} </h6>
