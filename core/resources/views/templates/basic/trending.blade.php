@@ -118,7 +118,6 @@
     <style>
         #chart-container {
             width: 100%;
-            height: 50%;
             background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
@@ -227,8 +226,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = Math.ceil($(".trade-section__left").width());
-            let chartHeight = Math.ceil($(".trade-section__left").height());
+            let chartWidth = 1300;
+            let chartHeight = 500;
             let chartProperties = null;
             let direction;
             let dataIds = [];
