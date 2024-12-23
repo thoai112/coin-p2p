@@ -116,7 +116,7 @@
         #chart-container {
             width: 100%;
             height: 400px;
-            background-color: #da2b4842;
+            background-color: transparent;
             position: relative;
             overflow: hidden;
             border-radius: 8px
