@@ -466,9 +466,9 @@
             }
 
 
-            $('.trade-section__left').removeAttr('style');
-            $(this).find("span").text("Show History");
-            $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
+            // $('.trade-section__left').removeAttr('style');
+            // $(this).find("span").text("Show History");
+            // $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
             chartPropertiesFunc($('.trade-section__left').height());
