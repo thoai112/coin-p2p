@@ -27,7 +27,7 @@
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
                             @php
-                                $langs = $languages->where('code', config('app.locale'))->first();
+                                $langs = @$languages->where('code', config('app.locale'))->first();
                             @endphp
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
