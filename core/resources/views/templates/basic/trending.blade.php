@@ -28,30 +28,28 @@
                         <ul class="nav-horizontal-menu" id="show-currency-list">
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <span>{{ $currency->name }}</span>
-                                    <span>{{ $currency->symbol }}</span>
-                                    {{-- <div class="asset-compact-card coinBtn {{ $coinPair->id == $activeCoin->id ? 'active' : '' }}"
-                                        data-id="{{ $coinPair->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                        title="{{ str_replace('_', '/', $coinPair->symbol) }} - {{ getAmount($coinPair->binary_trade_profit) }}% profit">
+                                    <div class="asset-compact-card coinBtn {{ $currency->id == $activeCoin->id ? 'active' : '' }}"
+                                        data-id="{{ $currency->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                        title="% profit">
                                         <div class="avatar">
                                             <img class="avatar-img"
-                                                src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->coin->image, getFileSize('currency')) }}"
+                                                src=""
                                                 alt="">
-                                            <img class="avatar-img"
+                                            {{-- <img class="avatar-img"
                                                 src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->market->currency->image, getFileSize('currency')) }}"
-                                                alt="">
+                                                alt=""> --}}
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ str_replace('_', '/', $coinPair->symbol) }}
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}
                                             </h6>
                                             <span
-                                                class="asset-compact-card__percentage">{{ getAmount($coinPair->binary_trade_profit) }}%</span>
+                                                class="asset-compact-card__percentage">%</span>
                                         </div>
                                         @if (!$loop->first)
                                             <button class="asset-compact-card__close" type="button"><i
                                                     class="fas fa-times"></i></button>
                                         @endif
-                                    </div> --}}
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
