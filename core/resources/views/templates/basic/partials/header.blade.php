@@ -73,7 +73,7 @@
                         @php
                             $langDetailss = $languages->where('code', config('app.locale'))->first();
                         @endphp
-                        <a class="nav-link" href="#">{{ @$langDetailss }}</a>
+                        <a class="nav-link" href="#">{{ @$langDetailss->code }}</a>
                     </li>
 
                     {{-- NAV P2P --}}
