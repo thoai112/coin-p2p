@@ -113,17 +113,17 @@
 
 @push('style')
     <style>
-        /* #chart-container {
+        #chart-container {
             width: 100%;
             height: 400px;
-            background-color: #2a2e3942;
+            background-color: #da2b4842;
             position: relative;
             overflow: hidden;
             border-radius: 8px
-        } */
+        }
 
         #trading-controls {
-            background-color: #2a2e3942;
+            background-color: #ec7c1242;
             border-radius: 10px;
             padding: 20px;
             height: 100%;
