@@ -46,8 +46,7 @@
                                             <td>
                                                 <div class="button--group">
                                                     <button type="button" class="btn btn-sm btn-outline--primary editBtn"
-                                                        data-currency='@json($currency)'
-                                                        data-image="">
+                                                        data-currency='@json($currency)' data-image="">
                                                         <i class="la la-pencil"></i>@lang('Edit')
                                                     </button>
                                                 </div>
@@ -181,51 +180,60 @@
                                         <input type="text" class="form-control" name="sign"
                                             value="{{ old('sign') }}">
                                     </div>
+                                    @if ($type == Status::TRENDING)
                                     <div class="form-group col-lg-12">
-                                        <label>@lang('Price')</label>
-                                        <div class="input-group">
-                                            <input type="number" class="form-control" step="any" name="price"
-                                                value="{{ old('price') }}" required>
-                                            <span class="input-group-text">{{ __(gs('cur_text')) }}</span>
-                                        </div>
+                                        <label>@lang('TYPE')</label>
+                                        <input type="number" class="form-control" name="type"
+                                            value="{{ old('type') }}">
                                     </div>
-                                    @if ($type == Status::CRYPTO_CURRENCY)
+                                    @else
                                         <div class="form-group col-lg-12">
-                                            <label>@lang('P2P SN')</label>
-                                            <input type="number" class="form-control" name="p2p_sn"
-                                                value="{{ old('p2p_sn') }}">
+                                            <label>@lang('Price')</label>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" step="any" name="price"
+                                                    value="{{ old('price') }}" required>
+                                                <span class="input-group-text">{{ __(gs('cur_text')) }}</span>
+                                            </div>
                                         </div>
-                                        <div class="form-group col-lg-12">
-                                            <label>@lang('Highlight Coin')</label>
-                                            <input type="checkbox" data-width="100%" data-height="40px"
-                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
-                                                data-on="@lang('YES')" data-off="@lang('NO')"
-                                                name="is_highlighted_coin">
-                                        </div>
-                                    @endif
-                                    @if ($type == Status::FIAT_CURRENCY)
-                                        <div class="form-group col-lg-4">
-                                            <label>@lang('P2P SN')</label>
-                                            <input type="number" class="form-control" name="p2p_sn"
-                                                value="{{ old('p2p_sn') }}">
-                                        </div>
-                                        <div class="form-group col-lg-4">
-                                            <label>@lang('Basic Unit')</label>
-                                            <input type="number" class="form-control" name="basicunit"
-                                                value="{{ old('basicunit') }}">
-                                        </div>
-                                        <div class="form-group col-lg-4">
-                                            <label>@lang('Minor Single')</label>
-                                            <input type="text" class="form-control" name="minorSingle"
-                                                value="{{ old('minorSingle') }}">
-                                        </div>
-                                        <div class="form-group col-lg-12">
-                                            <label>@lang('Using Cow')</label>
-                                            <input type="checkbox" data-width="100%" data-height="40px"
-                                                data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
-                                                data-on="@lang('YES')" data-off="@lang('NO')"
-                                                name="is_cow">
-                                        </div>
+
+                                        @if ($type == Status::CRYPTO_CURRENCY)
+                                            <div class="form-group col-lg-12">
+                                                <label>@lang('P2P SN')</label>
+                                                <input type="number" class="form-control" name="p2p_sn"
+                                                    value="{{ old('p2p_sn') }}">
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                <label>@lang('Highlight Coin')</label>
+                                                <input type="checkbox" data-width="100%" data-height="40px"
+                                                    data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
+                                                    data-on="@lang('YES')" data-off="@lang('NO')"
+                                                    name="is_highlighted_coin">
+                                            </div>
+                                        @endif
+                                        @if ($type == Status::FIAT_CURRENCY)
+                                            <div class="form-group col-lg-4">
+                                                <label>@lang('P2P SN')</label>
+                                                <input type="number" class="form-control" name="p2p_sn"
+                                                    value="{{ old('p2p_sn') }}">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>@lang('Basic Unit')</label>
+                                                <input type="number" class="form-control" name="basicunit"
+                                                    value="{{ old('basicunit') }}">
+                                            </div>
+                                            <div class="form-group col-lg-4">
+                                                <label>@lang('Minor Single')</label>
+                                                <input type="text" class="form-control" name="minorSingle"
+                                                    value="{{ old('minorSingle') }}">
+                                            </div>
+                                            <div class="form-group col-lg-12">
+                                                <label>@lang('Using Cow')</label>
+                                                <input type="checkbox" data-width="100%" data-height="40px"
+                                                    data-onstyle="-success" data-offstyle="-danger"
+                                                    data-bs-toggle="toggle" data-on="@lang('YES')"
+                                                    data-off="@lang('NO')" name="is_cow">
+                                            </div>
+                                        @endif
                                     @endif
                                 </div>
 
@@ -237,6 +245,7 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 
@@ -300,6 +309,7 @@
                         </div>
                     </form>
                 @endif
+
                 <div class="modal-loader">
                     <div class="spinner-border text-primary" role="status"></div>
                 </div>
@@ -374,23 +384,27 @@
                 modal.find("input[name=symbol]").val(data.symbol);
                 modal.find("input[name=rank]").val(data.ranking);
                 modal.find("input[name=sign]").val(data.sign);
-                modal.find("input[name=p2p_sn]").val(data.p2p_sn);
-                modal.find("input[name=price]").val(getAmount(data.rate));
-                modal.find("input[name=basicunit]").val(data.basicunit);
-                @if ($type == Status::CRYPTO_CURRENCY)
-                    if (data.highlighted_coin == 1) {
-                        modal.find('input[name=is_highlighted_coin]').bootstrapToggle('on');
-                    } else {
-                        modal.find('input[name=is_highlighted_coin]').bootstrapToggle('off');
-                    }
-                @endif
-                @if ($type == Status::FIAT_CURRENCY)
-                    modal.find('input[name=minorSingle]').val(data.minorSingle);
-                    if (data.iscow == 1) {
-                        modal.find('input[name=is_cow]').bootstrapToggle('on');
-                    } else {
-                        modal.find('input[name=is_cow]').bootstrapToggle('off');
-                    }
+                @if ($type == Status::TRENDING)
+                    modal.find("input[name=type]").val(data.type);
+                @else
+                    modal.find("input[name=p2p_sn]").val(data.p2p_sn);
+                    modal.find("input[name=price]").val(getAmount(data.rate));
+                    modal.find("input[name=basicunit]").val(data.basicunit);
+                    @if ($type == Status::CRYPTO_CURRENCY)
+                        if (data.highlighted_coin == 1) {
+                            modal.find('input[name=is_highlighted_coin]').bootstrapToggle('on');
+                        } else {
+                            modal.find('input[name=is_highlighted_coin]').bootstrapToggle('off');
+                        }
+                    @endif
+                    @if ($type == Status::FIAT_CURRENCY)
+                        modal.find('input[name=minorSingle]').val(data.minorSingle);
+                        if (data.iscow == 1) {
+                            modal.find('input[name=is_cow]').bootstrapToggle('on');
+                        } else {
+                            modal.find('input[name=is_cow]').bootstrapToggle('off');
+                        }
+                    @endif
                 @endif
                 modal.find('.modal-title').text("@lang('Update Currency')");
 

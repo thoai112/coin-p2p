@@ -1871,6 +1871,8 @@ INSERT INTO `cron_jobs` (`id`, `name`, `alias`, `action`, `url`, `cron_schedule_
 --   `id` bigint(20) UNSIGNED NOT NULL,
 --   `type` tinyint(1) NOT NULL DEFAULT '3' COMMENT '1=Cow,2=Crypto,3=finance',
 --   `name` text NOT NULL,
+--   `sign` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+--   `symbol` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
 --   `ranking` int NOT NULL DEFAULT '0',
 --   `status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=Enable,0=Disable',
 --   `created_at` timestamp NULL DEFAULT NULL,
