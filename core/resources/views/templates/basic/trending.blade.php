@@ -475,6 +475,7 @@
 
             $(document).ready(function() {
                 initializeChart();
+                cleanupChart();
             });
             // chartPropertiesFunc(chartWidth, chartHeight);
             // cleanupChart();
