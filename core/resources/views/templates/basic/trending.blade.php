@@ -35,7 +35,7 @@
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $language }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
@@ -434,8 +434,7 @@
                 }
                 loadHistoricalData();
                 initializeWebSocket();
-                setupDirectionIndicators()
-
+                setupDirectionIndicators();
             }
 
             async function loadHistoricalData() {
