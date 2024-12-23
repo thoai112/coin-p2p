@@ -70,7 +70,7 @@
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        <a class="nav-link" href="#">{{@$langDetails->code}} @lang('COIN MARKET')</a>
                     </li>
 
                     {{-- NAV P2P --}}
