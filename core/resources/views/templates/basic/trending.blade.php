@@ -281,16 +281,7 @@
                         },
                         textColor: '#D1D4DC',
                     },
-                    grid: {
-                        vertLines: {
-                            color: '#1E222D'
-                            visible: false,
-                        },
-                        horzLines: {
-                            color: '#1E222D',
-                            visible: false,
-                        },
-                    },
+
                     crosshair: {
                         mode: LightweightCharts.CrosshairMode.Normal,
                         vertLine: {
