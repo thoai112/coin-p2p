@@ -117,7 +117,7 @@
 @push('style')
     <style>
         #chart-container {
-            width: 100%;
+            width: 1300;
             height: 400px;
             background-color: #2a2e3942;
             position: relative;
@@ -227,8 +227,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = 1300;
-            let chartHeight = 400;
+            // let chartWidth = Math.ceil($(".trade-section__left").width());
+            // let chartHeight = Math.ceil($(".trade-section__left").height());
             let chartProperties = null;
             let direction;
             let dataIds = [];
@@ -251,11 +251,11 @@
                 $('#loading-overlay').remove();
             }
 
-            chartPropertiesFunc(chartHeight)
+            chartPropertiesFunc(chartWidth,chartHeight)
 
-            function chartPropertiesFunc(height) {
+            function chartPropertiesFunc(width,height) {
                 chartProperties = {
-                    width: chartWidth,
+                    width: width,
                     height: height,
                     timeScale: {
                         timeVisible: true,
@@ -473,7 +473,7 @@
             // $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
-            chartPropertiesFunc($('.trade-section__left').height());
+            chartPropertiesFunc($('.trade-section__left').width(),$('.trade-section__left').height());
             cleanupChart();
             initializeChart();
             
