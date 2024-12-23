@@ -29,8 +29,7 @@
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn "
-                                        data-id="{{ $currency->id }}" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                        title="% profit">
+                                        data-id="{{ $currency->id }}">
                                         <div class="avatar">
                                             <img class="avatar-img"
                                                 src=""
