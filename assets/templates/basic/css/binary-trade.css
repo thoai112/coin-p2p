@@ -716,7 +716,6 @@ body {
 
 .asset-compact-card {
   width: 100%;
-  max-width: 148px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
