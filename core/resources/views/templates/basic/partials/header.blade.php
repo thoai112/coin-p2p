@@ -12,7 +12,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-menu me-auto align-items-lg-center flex-wrap">
                     <li class="nav-item d-block d-lg-none">
-                        @if (gs("multi_language"))
+                        @if (gs('multi_language'))
                             @php
                                 $langDetails = $languages->where('code', config('app.locale'))->first();
                             @endphp
@@ -62,17 +62,20 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/trending"><i class="las la-home"></i>@lang('HOME')</a>
-                        
+
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="#">@lang('COIN MARKET')</a>
-                        
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COW MARKET')</a>
+                        @php
+                            $langDetails = $languages->where('code', config('app.locale'))->first();
+                        @endphp
+                        <a class="nav-link" href="#">{{ @langDetails->name }}</a>
                     </li>
-                    
+
                     {{-- NAV P2P --}}
                     {{-- <li class="nav-item">
                         <a class="nav-link" href="{{route('p2p')}}">@lang('P2P')</a>
@@ -159,14 +162,13 @@
                                     <a href="{{ route('user.login') }}" class="sign-in">@lang('Login')</a>
                                 </li>
                                 <li class="login-registration-list__item">
-                                    <a href="{{ route('user.register') }}"
-                                        class="btn btn--base btn--sm">@lang('Sign up') </a>
+                                    <a href="{{ route('user.register') }}" class="btn btn--base btn--sm">@lang('Sign up')
+                                    </a>
 
                                 </li>
                             @else
                                 <li class="login-registration-list__item">
-                                    <a href="{{ route('user.home') }}"
-                                        class="btn btn--base btn--sm">@lang('Dashboard')</a>
+                                    <a href="{{ route('user.home') }}" class="btn btn--base btn--sm">@lang('Dashboard')</a>
                                 </li>
                                 <li class="login-registration-list__item">
                                     <a href="{{ route('user.logout') }}" class="sign-in">@lang('Logout')</a>
