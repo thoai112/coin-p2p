@@ -70,10 +70,7 @@
 
                     </li>
                     <li class="nav-item">
-                        @php
-                            $langDetailss = $languages->where('code', config('app.locale'))->first();
-                        @endphp
-                        <a class="nav-link" href="#">{{ @$langDetailss->code }}</a>
+                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
                     </li>
 
                     {{-- NAV P2P --}}
