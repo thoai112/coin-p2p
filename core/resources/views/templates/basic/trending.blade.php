@@ -117,8 +117,8 @@
 @push('style')
     <style>
         #chart-container {
-            width: 1300px;
-            height: 400px;
+            width: 1800px;
+            height: 900px;
             background-color: #2a2e3942;
             position: relative;
             overflow: hidden;
