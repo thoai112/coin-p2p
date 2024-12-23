@@ -958,7 +958,7 @@ body {
 }
 
 .trade-section__right {
-  width: 100%;
+  width: 20%;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
