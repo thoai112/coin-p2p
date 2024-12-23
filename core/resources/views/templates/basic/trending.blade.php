@@ -39,10 +39,8 @@
                                                 alt=""> --}}
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}
-                                            </h6>
-                                            <span
-                                                class="asset-compact-card__percentage">{{ $currency->name }}</span>
+                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                         </div>
                                         {{-- @if (!$loop->first)
                                             <button class="asset-compact-card__close" type="button"><i
