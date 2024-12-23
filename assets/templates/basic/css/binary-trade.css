@@ -868,10 +868,11 @@ body {
 }
 
 .nav-horizontal-menu {
-  overflow: hidden;
+  overflow-y: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  flex-direction: column;
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: start;
