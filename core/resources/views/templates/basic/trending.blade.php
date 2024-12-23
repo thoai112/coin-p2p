@@ -28,15 +28,16 @@
                         <ul class="nav-horizontal-menu" id="show-currency-list">
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
+                                    @php
+                                    $langDetails = $languages->where('code', config('app.locale'))->first();
+                                @endphp
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @php
-                                                $langDetails = $languages->where('code', config('app.locale'))->first();
-                                            @endphp
+            
                                             <h6 class="asset-compact-card__title">
                                                 {{ @$langDetails }}</h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
