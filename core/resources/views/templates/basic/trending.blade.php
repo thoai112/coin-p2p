@@ -258,6 +258,7 @@
                     });
                 }
                 cleanupChart();
+                initializeChart();
             }
 
             $(window).on('resize', function() {
