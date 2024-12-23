@@ -1027,9 +1027,18 @@ body {
 } */
 
 .trade-section__block.one {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 8px;
+  width: 50%;
+}
+
+.trade-section__block.two {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 50%;
+  text-align: end;
 }
 
 .trade-section__block.three {

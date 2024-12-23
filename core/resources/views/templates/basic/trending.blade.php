@@ -11,7 +11,7 @@
                             <span class="profit-percentage">%</span>
                         </span>
                     </div>
-                    <div class="trade-section__block one">
+                    <div class="trade-section__block two">
                         <span >@lang('Value')</span>
                         <span >@lang('Amount')</span>
                     </div>
