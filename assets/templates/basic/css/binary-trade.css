@@ -955,7 +955,6 @@ body {
   flex-grow: 1;
   width: 80%;
   height: calc(100vh - 500px);
-  max-width: calc(100% - 300px);
 }
 
 .trade-section__right {
