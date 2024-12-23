@@ -7,7 +7,6 @@
                     <div id="chart-container">
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
-                        <div id="current-price-dot"></div>
                     </div>
                 </div>
                 
