@@ -227,8 +227,8 @@
             let lastPrice = 0;
             let investmentPriceLine = null;
             let webSocket = null;
-            let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-            let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+            let chartWidth = Math.ceil($(".trade-section__left").width());
+            let chartHeight = Math.ceil($(".trade-section__left").height());
             let chartProperties = null;
             let direction;
             let dataIds = [];
@@ -465,11 +465,6 @@
                 let seconds = parseInt(parts[1], 10);
                 return (minutes * 60) + seconds;
             }
-
-
-            // $('.trade-section__left').removeAttr('style');
-            // $(this).find("span").text("Show History");
-            // $(this).find("i").removeClass("la-angle-down").addClass("la-angle-up");
 
 
             chartPropertiesFunc(chartWidth, chartHeight);
