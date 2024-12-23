@@ -209,8 +209,11 @@
                 },
                 {
                     "keyword": [
-                        "Trending",
-                        "Trending Currency",
+                        "Trending currency",
+                        "Manage Trending",
+                        "Trending currency",
+                        "Traditional currency",
+                        "Paper money",
                         "Trending management"
                     ],
                     "title": "Trending Management",
