@@ -9,9 +9,6 @@
                         <div id="direction-indicator"></div>
                         <div id="current-price-dot"></div>
                     </div>
-                    <div class="trade-section__right">
-                        <h2>@lang('Trending')</h2>
-                    </div>
                 </div>
                 
                 {{-- <div class="trade-section__right">
