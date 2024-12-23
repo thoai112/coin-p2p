@@ -23,17 +23,17 @@
                 <div class="trade-section__right">
                     <h2>@lang('Trending')</h2>
                     <nav class="nav-horizontal">
-                        <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
-                        <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button>
+                        {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
+                        <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn "
                                         data-id="{{ $currency->id }}">
                                         <div class="avatar">
-                                            <img class="avatar-img"
+                                            {{-- <img class="avatar-img"
                                                 src=""
-                                                alt="">
+                                                alt=""> --}}
                                             {{-- <img class="avatar-img"
                                                 src="{{ getImage(getFilePath('currency') . '/' . @$coinPair->market->currency->image, getFileSize('currency')) }}"
                                                 alt=""> --}}
@@ -42,7 +42,7 @@
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}
                                             </h6>
                                             <span
-                                                class="asset-compact-card__percentage">%</span>
+                                                class="asset-compact-card__percentage">{{ $currency->name }}</span>
                                         </div>
                                         {{-- @if (!$loop->first)
                                             <button class="asset-compact-card__close" type="button"><i
