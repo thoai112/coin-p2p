@@ -34,10 +34,10 @@
                                             <h6 class="asset-compact-card__title">{{ $currency->type }}</h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                           
+
                                             <h6 class="asset-compact-card__title">
                                                 @php
-                                                $langDetails = $languages->where('code', config('app.locale'))->first();
+                                                    $languages->where('code', config('app.locale'))->first();
                                                 @endphp
                                             </h6>
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
