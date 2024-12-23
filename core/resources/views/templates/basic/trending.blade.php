@@ -277,7 +277,7 @@
                     layout: {
                         background: {
                             type: 'solid',
-                            color: '#131722'
+                            color: 'transparent',
                         },
                         textColor: '#D1D4DC',
                     },
