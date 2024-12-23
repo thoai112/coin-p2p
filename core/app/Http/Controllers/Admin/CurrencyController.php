@@ -10,6 +10,7 @@ use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
 use App\Models\MarketData;
 use App\Models\CowHistories;
+use App\Models\Trending;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Validator;
@@ -45,6 +46,26 @@ class CurrencyController extends Controller
         return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'avgcow', 'currencyDataProvider'));
     }
 
+    public function trending()
+    {
+        $pageTitle            = "Trending Currency List";
+        $currencies           = $this->trendingData('trending');
+        $type                 = Status::TRENDING;
+        $currencyDataProvider = defaultCurrencyDataProvider(false);
+        return view('admin.currency.list', compact('pageTitle', 'currencies', 'type', 'currencyDataProvider'));
+    }
+
+    private function trendingData($scope = null)
+    {
+        $query = Trending::query();
+        if ($scope) {
+            $query->$scope();
+        }
+        if ($scope == 'trending') {
+            $query->rankOrdering();
+        }
+        return $query->with('marketData')->searchable(['name', 'symbol', 'ranking'])->paginate(getPaginate());
+    }
 
     private function currencyData($scope = null)
     {

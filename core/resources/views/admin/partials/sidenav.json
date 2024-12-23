@@ -206,6 +206,16 @@
                     "title": "Cow Currency",
                     "route_name": "admin.currency.cow",
                     "menu_active": "admin.currency.cow"
+                },
+                {
+                    "keyword": [
+                        "Trending",
+                        "Trending Currency",
+                        "Trending management"
+                    ],
+                    "title": "Trending Management",
+                    "route_name": "admin.currency.trending",
+                    "menu_active": "admin.currency.trending"
                 }
             ]
         },

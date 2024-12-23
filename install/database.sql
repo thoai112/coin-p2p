@@ -1864,3 +1864,22 @@ INSERT INTO `cron_jobs` (`id`, `name`, `alias`, `action`, `url`, `cron_schedule_
 --   `created_at` timestamp NULL DEFAULT NULL,
 --   `updated_at` timestamp NULL DEFAULT NULL
 -- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+-- CREATE TABLE `trendings` (
+--   `id` bigint(20) UNSIGNED NOT NULL,
+--   `type` tinyint(1) NOT NULL DEFAULT '3' COMMENT '1=Cow,2=Crypto,3=finance',
+--   `name` text NOT NULL,
+--   `ranking` int NOT NULL DEFAULT '0',
+--   `created_at` timestamp NULL DEFAULT NULL,
+--   `updated_at` timestamp NULL DEFAULT NULL
+-- ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ALTER TABLE `trendings`
+--   ADD PRIMARY KEY (`id`),
+--   ADD UNIQUE KEY `trendings_name_unique` (`name`);
+
+
+-- ALTER TABLE `trendings`
+--   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
