@@ -9,7 +9,9 @@
                         <div id="direction-indicator"></div>
                     </div>
                 </div>
-                
+                <div class="trade-section__right">
+                    <h2>@lang('Trending')</h2>
+                </div>
                 {{-- <div class="trade-section__right">
                     <button type="button" class="btn--close">
                         <i class="fas fa-times"></i>
