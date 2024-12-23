@@ -23,7 +23,7 @@
                                             <img
                                                 src="{{ getImage(getFilePath('language') . '/' . @$langDetails->flag, getFileSize('language')) }}">
                                         </div>
-                                        <span class="text">{{ __(@$langDetails->name) }}</span>
+                                        <span class="text">{{ __(@$langDetails->flag) }}</span>
                                     </div>
                                     <ul class="dropdown-list">
                                         @foreach ($languages as $language)
