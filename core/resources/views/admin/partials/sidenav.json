@@ -214,7 +214,7 @@
                         "Paper money",
                         "Trending management"
                     ],
-                    "title": "Cow Currency",
+                    "title": "Top Trending Currency",
                     "route_name": "admin.currency.toptrending",
                     "menu_active": "admin.currency.toptrending"
                 }

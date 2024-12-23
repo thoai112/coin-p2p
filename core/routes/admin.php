@@ -93,7 +93,7 @@ Route::middleware('admin')->group(function () {
         Route::get('/fiat', 'fiat')->name('fiat');
         Route::get('/all', 'all')->name('all');
         Route::get('/cow', 'cow')->name('cow');
-        Route::get('/topt-rending', 'toptrending')->name('toptrending');
+        Route::get('/top-trending', 'toptrending')->name('toptrending');
         Route::post('/save/{id?}', 'save')->name('save');
         Route::post('/status/{id?}', 'status')->name('status');
         Route::post('/import', 'import')->name('import');
