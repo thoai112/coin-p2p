@@ -61,7 +61,14 @@ class SiteController extends Controller
     {
         $pageTitle = 'Trending';
         $sections = Page::where('tempname', activeTemplate())->where('slug', 'trending')->first();
-        return view('Template::trending', compact('pageTitle', 'sections'));
+        $query = Trending::active()->with('marketData')->rankOrdering()
+            ->searchable(['name', 'symbol']);
+
+        $total      = (clone $query)->count();
+        $currencies = (clone $query)->skip($request->skip ?? 0)
+            ->take($request->limit ?? 50)
+            ->get();
+        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total'));
     }
 
 
