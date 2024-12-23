@@ -118,6 +118,10 @@
             width: 80%;
         }
 
+        .trade-section__right{
+            width: 20%;
+        }
+
         #chart-container {
             width: 100%;
             height: 400px;
