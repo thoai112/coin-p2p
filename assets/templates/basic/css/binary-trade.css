@@ -884,6 +884,7 @@ body {
   flex-direction: column;
   height: 360px;
   scrollbar-width: none;
+  gap: 10px;
 }
 
 .nav-horizontal-menu__item {
