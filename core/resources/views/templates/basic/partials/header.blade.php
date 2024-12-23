@@ -71,9 +71,9 @@
                     </li>
                     <li class="nav-item">
                         @php
-                            $langDetails = $languages->where('code', config('app.locale'))->first();
+                            $langDetailss = $languages->where('code', config('app.locale'))->first();
                         @endphp
-                        <a class="nav-link" href="#">{{ @langDetails->name }}</a>
+                        <a class="nav-link" href="#">{{ @$langDetailss->name }}</a>
                     </li>
 
                     {{-- NAV P2P --}}
