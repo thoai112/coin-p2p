@@ -7,6 +7,7 @@ use App\Models\AdminNotification;
 use App\Models\CoinPair;
 use App\Models\CowHistories;
 use App\Models\Currency;
+use App\Models\Trending;
 use App\Models\Frontend;
 use App\Models\Language;
 use App\Models\Page;
@@ -257,6 +258,24 @@ class SiteController extends Controller
             'success' => true,
             'pairs'   => $pairs,
             'total'   => $total,
+        ]);
+    }
+
+    
+    public function trendingList(Request $request)
+    {
+        $query = Trending::active()->with('marketData')->rankOrdering()
+            ->searchable(['name', 'symbol']);
+
+        $total      = (clone $query)->count();
+        $currencies = (clone $query)->skip($request->skip ?? 0)
+            ->take($request->limit ?? 50)
+            ->get();
+
+        return response()->json([
+            'success'    => true,
+            'currencies' => $currencies,
+            'total'      => $total,
         ]);
     }
 

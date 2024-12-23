@@ -51,6 +51,7 @@ Route::controller('SiteController')->group(function () {
     Route::get('/about-us', 'about')->name('about');
     Route::post('pusher/auth/{socketId}/{channelName}', "pusherAuthentication");
     Route::get('/trending', 'trending')->name('trending');
+    Route::get('/trending/list', 'trendingList')->name('trending.list');
 
     Route::get('/contact', 'contact')->name('contact');
     Route::post('/contact', 'contactSubmit');

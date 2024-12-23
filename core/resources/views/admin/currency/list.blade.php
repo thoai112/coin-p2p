@@ -386,6 +386,7 @@
                 modal.find("input[name=sign]").val(data.sign);
                 @if ($type == Status::TRENDING)
                     modal.find("input[name=type]").val(data.type);
+                    
                 @else
                     modal.find("input[name=p2p_sn]").val(data.p2p_sn);
                     modal.find("input[name=price]").val(getAmount(data.rate));
