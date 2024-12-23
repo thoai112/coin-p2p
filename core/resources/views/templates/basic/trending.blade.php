@@ -45,10 +45,10 @@
                                             <span
                                                 class="asset-compact-card__percentage">%</span>
                                         </div>
-                                        @if (!$loop->first)
+                                        {{-- @if (!$loop->first)
                                             <button class="asset-compact-card__close" type="button"><i
                                                     class="fas fa-times"></i></button>
-                                        @endif
+                                        @endif --}}
                                     </div>
                                 </li>
                             @endforeach
