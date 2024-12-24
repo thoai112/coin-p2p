@@ -52,7 +52,10 @@
                                                     }, $currency->rate);
 
                                                     // Create a line chart instance
-                                                    $chart = new \OndrejVrto\LineChart\LineChart();
+                                                    $chart = new \OndrejVrto\LineChart\LineChart([
+                                                        'width' => 150,
+                                                        'height' => 50,
+                                                    ]);
                                                     $chart->addData($values);
                                                     $chartHtml = $chart->render();
                                                 @endphp
