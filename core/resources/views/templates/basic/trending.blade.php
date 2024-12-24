@@ -45,8 +45,8 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @if($currency->type != Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
-                                                
+                                            @if($currency->type == Status::TRENDINGTYPE_CRYPTO)
+            
                                                 <svg height="100" width="200">
                                                     <polyline
                                                         points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100"
