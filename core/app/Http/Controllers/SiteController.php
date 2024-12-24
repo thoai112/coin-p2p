@@ -77,7 +77,7 @@ class SiteController extends Controller
         $trendingData = [];
         foreach ($currencies as $currency) {
             if ($currency->type == 2) {
-                $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "&interval=1s&limit=2000";
+                $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
                 $response = CurlRequest::curlContent($url);
                 $data = json_decode($response, true);
                 
@@ -86,7 +86,7 @@ class SiteController extends Controller
                     'name'        => $currency->name,
                     'symbol'      => $currency->symbol,
                     'ranking'     => $currency->ranking,
-                    'rate'        => $data,
+                    'rate'        => $data[0][4],
                     'status'      => $currency->status,
                     'created_at'  => $currency->created_at,
                     'updated_at'  => $currency->updated_at,
