@@ -27,7 +27,7 @@
                 <div class="trade-section__right">
                     <span>{{ gettype($trendingx) }} </span>
                     {{-- <pre>{{ print_r($trendingx, true) }}</pre> --}}
-                    @foreach ($a as $outerArray) {
+                    @foreach ($trendingx as $outerArray) {
                         @foreach ($outerArray as $innerArray) {
                             @foreach ($innerArray as $values) {
                                 
