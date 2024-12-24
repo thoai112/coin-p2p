@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    {{-- <span>{{ $trendingx}} </span> --}}
-                    @foreach ($trendingx as $item)
+                    <span>{{ gettype($trendingx) }} </span>
+                    {{-- @foreach ($trendingx as $item)
                         <div>
                             {{ $item[0][0][4] }}
                         </div>
-                    @endforeach
+                    @endforeach --}}
 
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
