@@ -386,6 +386,27 @@
                 BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
             }
 
+            function initApiTrending(symbolTrending) {
+                let symbol = symbolTrending.replace('_', '');
+                BINANCE_API_URL =
+                    `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
+                BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
+                const response = await fetch(BINANCE_API_URL);
+                const data = await response.json();
+                return data;
+            }
+
+            function listTrending(){
+                const cards = document.querySelectorAll('.coinBtn');
+                cards.forEach(card => {
+                    const currencyId = card.getAttribute('data-id');
+                    if(currencyId!='COW' || currencyId!='XAU' || currencyId!='XAG'){
+                        initApiTrending(`${currencyId}_usdt`);
+                        card.querySelector('.asset-compact-card__title').innerText = data.symbol;
+                    }
+                });
+            }
+
             function cleanupChart() {
                 if (webSocket) {
                     webSocket.close();
