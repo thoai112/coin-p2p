@@ -48,13 +48,15 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
                                                     $points = '';
-                                                    foreach ($currency->rate as $rate) {    
-                                                        $points .= $rate[4] . ',';
+                                                    foreach ($currency->rate as $rate) {
+                                                        if (isset($rate[0]) && isset($rate[4])) {
+                                                            $points .= $rate[0] . ',' . $rate[4] . ' ';
+                                                        }
                                                     }
                                                 @endphp
                                                 <svg height="50" width="80">
                                                     <polyline points="{{ trim($points) }}"
-                                                        style="fill:none;stroke:rgb(238, 52, 52);stroke-width:3" />
+                                                        style="fill:none;stroke:black;stroke-width:3" />
                                                 </svg>
                                             @endif
                                         </div>
