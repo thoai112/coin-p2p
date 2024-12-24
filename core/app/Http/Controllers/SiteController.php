@@ -76,7 +76,7 @@ class SiteController extends Controller
                 $rate = json_decode($currency->rate,true);
                 $rateData[] = [
                     'symbol' => $currency->symbol,
-                    'rate' => $rate[0][4]
+                    'rate' => $rate
                 ];
             }
         }
