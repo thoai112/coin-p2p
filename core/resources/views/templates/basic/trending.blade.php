@@ -57,7 +57,7 @@
                                                             'rgb(0, 166, 215)',
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
-                                                        )
+                                                        )->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
 
