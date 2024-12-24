@@ -85,7 +85,7 @@ class SiteController extends Controller
             $trending[] = $object;
            
         }
-        return $trending;
+        return(object) $trending;
     }
 
     public function contactSubmit(Request $request)
