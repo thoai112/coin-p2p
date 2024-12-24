@@ -50,7 +50,7 @@
                                                     $points = '';
                                                     foreach ($currency->rate as $rate) {
                                                         if (isset($rate[0]) && isset($rate[4])) {
-                                                            $points .= $rate[0] . ',' . $rate[4] . ' ';
+                                                            $points .= $rate[4] . ' ';
                                                         }
                                                     }
                                                 @endphp
