@@ -55,7 +55,7 @@
                                                     print_r($currency->rate);
                                                     // $rateArray = (object) $currency->rate;
                                                     // $result = [];
-                                                    print_r($currency->rate[0][4]);
+                                                    // print_r($currency->rate[4]);
 
                                                     // // Use a for loop to extract the required values and convert them to float
                                                     // for ($i = 0; $i < count($rateArray); $i++) {
