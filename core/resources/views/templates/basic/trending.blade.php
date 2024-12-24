@@ -54,7 +54,7 @@
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
                                                     // Decode JSON data to PHP array
-                                                    $datax = json_decode($currency->rate, true);
+                                                    $datax = json_decode(strval($currency->rate), true);
 
                                                     // Extract specific values
                                                     $result = [];
