@@ -47,23 +47,18 @@
                                         <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
-                                                    $points = [];
-                                                    foreach ($currency->rate as $rate) {
-                                                        if (isset($rate[0]) && isset($rate[4])) {
-                                                            $points[] = $rate[4];
-                                                        }
-                                                    }
+                                                    $values = array_map(function ($item) {
+                                                        return $item[4];
+                                                    }, $currency->rate);
 
-                                                    // Generate the line chart
-                                                    $chart = new \LineChart\Chart();
-                                                    $chart->addLine('Rate', $points);
-                                                    $chart->setWidth(150);
-                                                    $chart->setHeight(50);
-                                                    $chart->render();
+                                                    // Create a line chart instance
+                                                    $chart = new \OndrejVrto\LineChart\LineChart();
+                                                    $chart->addData($values);
+                                                    $chartHtml = $chart->render();
                                                 @endphp
-                                                <div>
-                                                    {!! $chart !!}
-                                                </div>
+
+                                                <!-- Render the line chart -->
+                                                {!! $chartHtml !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
