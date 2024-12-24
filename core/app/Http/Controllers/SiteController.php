@@ -83,7 +83,7 @@ class SiteController extends Controller
             $response = CurlRequest::curlContent($url);
             $array = json_decode($response, true);
             // $object = $array;
-            $currency->rate = $array[0][4];
+            $currency->rate = $array;
         }
         return $currencies;
     }
