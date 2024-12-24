@@ -90,13 +90,12 @@ class SiteController extends Controller
             $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
             $response = CurlRequest::curlContent($url);
             $trendingData[] = [
-                
                 'symbol'      => $currency->symbol,
                 'rate'        => $response,
             ];
         }
 
-        return $trendingData;
+        return array_column($trendingData, 'rate');
     }
     public function contactSubmit(Request $request)
     {
