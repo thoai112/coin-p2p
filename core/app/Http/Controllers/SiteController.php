@@ -74,7 +74,7 @@ class SiteController extends Controller
 
     public function getValueTrending($currencies)
     {
-        // $trendingData = [];
+        $trendingData = [];
         // foreach ($currencies as $currency) {
         //     if ($currency->type == Status::TRENDINGTYPE_CRYPTO) {
         //         $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
@@ -85,9 +85,18 @@ class SiteController extends Controller
         //         }
         //     }
         // }
-        $url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1s&limit=2000";
-        $response = CurlRequest::curlContent($url);
-        return $response;
+        foreach ($currencies as $currency) {
+            if ($currency->type != Status::TRENDINGTYPE_CRYPTO) continue;
+            $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
+            $response = CurlRequest::curlContent($url);
+            $trendingData[] = [
+                
+                'symbol'      => $currency->symbol,
+                'rate'        => $response,
+            ];
+        }
+
+        return $trendingData;
     }
     public function contactSubmit(Request $request)
     {
