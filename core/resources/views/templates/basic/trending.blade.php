@@ -1,6 +1,3 @@
-@php
-    use OndrejVrto\LineChart\LineChart;
-@endphp
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
     @php
@@ -48,16 +45,12 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
+                                            {{-- @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
-                                                    $result = [];
-                                                    foreach ($currency->rate as $item) {
-                                                        $result[] = (int)$item[4];
-                                                    }
+                                       
                                                     
-
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
@@ -71,7 +64,7 @@
 
 
                                                 <!-- Render the line chart -->
-                                                {!! $svg !!}
+                                                {!! $svg !!} --}}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">

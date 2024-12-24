@@ -19,6 +19,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Validator;
+use OndrejVrto\LineChart\LineChart;
 
 class SiteController extends Controller
 {
@@ -69,7 +70,19 @@ class SiteController extends Controller
             ->take($request->limit ?? 50)
             ->get();
         $trendingx = $this->getValueTrending($currencies);
-        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingx'));
+        $rateData = [];
+        foreach ($currencies as $currency) {
+            if ($currency->type == Status::TRENDINGTYPE_CRYPTO){
+                $rate = json_decode($currency->rate,true);
+                $rateData[] = [
+                    'symbol' => $currency->symbol,
+                    'rate' => $rate[0][4]
+                ];
+            }
+        }
+        
+
+        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'rateData'));
     }
 
     public function getValueTrending($currencies)
@@ -77,11 +90,11 @@ class SiteController extends Controller
         foreach ($currencies as $currency) {
             if ($currency->type != Status::TRENDINGTYPE_CRYPTO && $currency->symbol != "USDT")
                 continue;
-            $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=30";
+            $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=500";
             $response = CurlRequest::curlContent($url);
-            $array = json_decode($response, true);
-            $object = $array;
-            $currency->rate = $object;
+            // $array = json_decode($response, true);
+            // $object = $array;
+            $currency->rate = $response;
         }
         return $currencies;
     }
