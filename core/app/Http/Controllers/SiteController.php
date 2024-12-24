@@ -86,7 +86,7 @@ class SiteController extends Controller
                     'name'        => $currency->name,
                     'symbol'      => $currency->symbol,
                     'ranking'     => $currency->ranking,
-                    'rate'        => $data[0],
+                    'rate'        => $data,
                     'status'      => $currency->status,
                     'created_at'  => $currency->created_at,
                     'updated_at'  => $currency->updated_at,
