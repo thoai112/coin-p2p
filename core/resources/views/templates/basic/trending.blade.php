@@ -45,8 +45,9 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ @$langDetails->code }} </h6>
-                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
+                                            <svg height="80" width="100">
+                                                <polyline points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100" style="fill:none;stroke:black;stroke-width:3" />
+                                            </svg>
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
