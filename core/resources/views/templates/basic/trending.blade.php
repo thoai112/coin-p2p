@@ -45,19 +45,20 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            {{-- @isset($currency->rate)
+                                            @if($currency->type != Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
+                                                
                                                 <svg height="100" width="200">
                                                     <polyline
                                                         points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100"
                                                         style="fill:none;stroke:black;stroke-width:3" />
                                                 </svg>
-                                            @endisset --}}
+                                            @endif
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
-                                            @isset($currency->rate)
-                                                <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] }}</h6>
-                                            @endisset
+    
+                                            <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] ?? $$currency->symbol }}</h6>
+                                        
                                         </div>
                                     </div>
                                 </li>
