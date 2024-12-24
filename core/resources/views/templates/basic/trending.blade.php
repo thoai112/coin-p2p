@@ -47,9 +47,15 @@
 
                                         <div class="asset-compact-card__content">
 
-                                            @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != "USDT")
-                                            <h6 class="asset-compact-card__title">
-                                                {{ $currency->rate[-1][0]}}</h6>
+                                            @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
+                                                @php
+                                                    $lastRate = null;
+                                                    for ($i = 0; $i < count($currency->rate); $i++) {
+                                                        $lastRate = $currency->rate[$i];
+                                                    }
+                                                @endphp
+                                                <h6 class="asset-compact-card__title">
+                                                    {{ $lastRate[0] }}</h6>
                                                 {{--    @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
