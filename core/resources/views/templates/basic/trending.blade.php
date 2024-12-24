@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
-                                            <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] ?? $$currency->symbol }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] ?? $currency->symbol }}</h6>
                                         
                                         </div>
                                     </div>
