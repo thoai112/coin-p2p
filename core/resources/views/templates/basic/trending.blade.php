@@ -69,7 +69,7 @@
                                                     //     ->make();
                                                 @endphp
                                                 @foreach ($datax as $key => $value)
-                                                    <span> {{ $value[4] }}</span>
+                                                    <span> {{ $value['4'] }}</span>
                                                 @endforeach
 
                                                 <!-- Render the line chart -->
