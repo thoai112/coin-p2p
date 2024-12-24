@@ -82,7 +82,7 @@ class SiteController extends Controller
             $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=500";
             $response = CurlRequest::curlContent($url);
             $array = json_decode($response, true);
-            // $object = $array;
+
             $currency->rate = $array;
         }
         return $currencies;
