@@ -55,7 +55,7 @@
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
                                                    
                                                     $datax = json_encode($currency->rate, true);
-                                                    print_r(gettype($datax));
+                                                    print_r($datax);
                                                     // print_r($datax);
                                                     // // Extract specific values
 
