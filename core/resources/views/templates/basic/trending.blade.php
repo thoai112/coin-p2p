@@ -31,7 +31,7 @@
                         @foreach ($outerArray as $innerArray) {
                             @foreach ($innerArray as $values) {
                                 
-                                <span>{{ gettype($values[0]) }} </span>
+                                <span>{{ $values[0] }} </span>
                                 
                             }
                             @endforeach
