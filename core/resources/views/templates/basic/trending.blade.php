@@ -25,9 +25,9 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <span>{{ gettype($currencies) }} </span>
-                    {{-- <pre>{{ print_r($trendingx, true) }}</pre> --}}
-                    {{$trendingx[0][0]}}
+                    <span>{{ gettype($trendingx) }} </span>
+                    <pre>{{ print_r($trendingx, true) }}</pre>
+                    {{-- {{$trendingx[0][0]}} --}}
                     {{-- @foreach ($trendingx as $item)
                         <div>
                             {{ $item[0][0][4] }}
