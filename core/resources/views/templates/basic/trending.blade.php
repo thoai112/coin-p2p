@@ -54,7 +54,7 @@
                                                         }
                                                     }
                                                 @endphp
-                                                <svg height="100" width="200">
+                                                <svg height="50" width="80">
                                                     <polyline points="{{ trim($points) }}"
                                                         style="fill:none;stroke:black;stroke-width:3" />
                                                 </svg>
