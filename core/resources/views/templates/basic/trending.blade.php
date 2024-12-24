@@ -53,12 +53,17 @@
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    $array = $currency->rate;
-                                                    print_r($array);
-                                                    // $values = [];
-                                                    // foreach ($array as $item) {
-                                                    //     $values[] = $item[4];
-                                                    // }
+                                                    // Decode JSON data to PHP array
+                                                    $datax = json_decode($currency->rate, true);
+
+                                                    // Extract specific values
+                                                    $result = [];
+                                                    foreach ($datax as $item) {
+                                                        $result[] = $item[4];
+                                                    }
+
+                                                    // Print the result
+                                                    print_r($result);
 
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
