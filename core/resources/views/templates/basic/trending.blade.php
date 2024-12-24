@@ -72,7 +72,7 @@
                                                 {{-- @foreach ($datax as $key => $value)
                                                     <span> {{ $value['4'] }}</span>
                                                 @endforeach --}}
-                                                <span> {{ $datax['0']['4'] }}</span>
+                                                {{-- <span> {{ $datax['0']['4'] }}</span> --}}
 
                                                 <!-- Render the line chart -->
                                                 {{-- {!! $svg !!} --}}
