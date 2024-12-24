@@ -53,7 +53,7 @@
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
                                                     
-                                                    print_r(gettype(json_decode($currency->rate, true);));
+                                                    print_r(gettype(json_decode($currency->rate, true)));
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
