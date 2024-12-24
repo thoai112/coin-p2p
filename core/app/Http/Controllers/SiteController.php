@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Constants\Status;
 use App\Models\AdminNotification;
 use App\Models\CoinPair;
+use App\Lib\CurlRequest;
 use App\Models\CowHistories;
 use App\Models\Currency;
 use App\Models\Trending;
@@ -68,9 +69,32 @@ class SiteController extends Controller
         $currencies = (clone $query)->skip($request->skip ?? 0)
             ->take($request->limit ?? 50)
             ->get();
-        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total'));
+        $trendingList = $this->getValueTrending($currencies);
+        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingList'));
     }
 
+    private function getValueTrending($currencies){
+        $trendingData = [];
+        foreach ($currencies as $currency) {
+            if ($currency->type == 2) {
+                $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "&interval=1s&limit=2000";
+                $response = CurlRequest::curlContent($url);
+                $data = json_decode($response, true);
+                
+                $trendingData[] = [
+                    'id'          => $currency->id,
+                    'name'        => $currency->name,
+                    'symbol'      => $currency->symbol,
+                    'ranking'     => $currency->ranking,
+                    'rate'        => $data[0][4],
+                    'status'      => $currency->status,
+                    'created_at'  => $currency->created_at,
+                    'updated_at'  => $currency->updated_at,
+                ];
+            }
+        }
+        return $trendingData;
+    }
 
     public function contactSubmit(Request $request)
     {
