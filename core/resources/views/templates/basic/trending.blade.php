@@ -51,8 +51,14 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-
-                                                    $svg = LineChart::new($data)->make();
+                                                    $svg = LineChart::new($data)
+                                                        ->withColorGradient(
+                                                            'rgb(48, 231, 237)',
+                                                            'rgb(0, 166, 215)',
+                                                            'rgb(0, 88, 179)',
+                                                            'rgb(0, 27, 135)',
+                                                        )
+                                                        ->make();
                                                 @endphp
 
                                                 <!-- Render the line chart -->
