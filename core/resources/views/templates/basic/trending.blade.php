@@ -31,8 +31,7 @@
                         @foreach ($outerArray as $innerArray) {
                             @foreach ($innerArray as $values) {
                                 
-                                    echo "Value 1: " . $values[0] . "\n";
-                                    echo "Value 2: " . $values[4] . "\n";
+                                <span>{{ gettype($values[0]) }} </span>
                                 
                             }
                             @endforeach
