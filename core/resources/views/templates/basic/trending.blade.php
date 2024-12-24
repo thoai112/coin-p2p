@@ -48,7 +48,8 @@
                                         <div class="asset-compact-card__content">
 
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != "USDT")
-                                                <span>{{ $currency->rate[0][4] }}</span>
+                                            <h6 class="asset-compact-card__title">
+                                                {{ $currency->rate[0][4]}}</h6>
                                                 {{--    @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
