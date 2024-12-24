@@ -47,17 +47,23 @@
                                         <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
-                                                    $points = '';
+                                                    $points = [];
                                                     foreach ($currency->rate as $rate) {
                                                         if (isset($rate[0]) && isset($rate[4])) {
-                                                            $points .= $rate[4] . ' ';
+                                                            $points[] = $rate[4];
                                                         }
                                                     }
+
+                                                    // Generate the line chart
+                                                    $chart = new \LineChart\Chart();
+                                                    $chart->addLine('Rate', $points);
+                                                    $chart->setWidth(150);
+                                                    $chart->setHeight(50);
+                                                    $chart->render();
                                                 @endphp
-                                                <svg height="50" width="80">
-                                                    <polyline points="{{ trim($points) }}"
-                                                        style="fill:none;stroke:black;stroke-width:3" />
-                                                </svg>
+                                                <div>
+                                                    {!! $chart !!}
+                                                </div>
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">

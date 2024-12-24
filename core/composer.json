@@ -16,6 +16,7 @@
         "google/apiclient": "^2.15",
         "guzzlehttp/guzzle": "^7.8",
         "intervention/image": "^3.6",
+        "kornrunner/keccak": "^1.1",
         "laramin/utility": "^1.0",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
@@ -25,15 +26,15 @@
         "mailjet/mailjet-apiv3-php": "^1.6",
         "messagebird/php-rest-api": "^3.1",
         "mollie/laravel-mollie": "^3.0",
+        "ondrej-vrto/php-linechart": "^1.1",
         "phpmailer/phpmailer": "^6.9",
         "pusher/pusher-php-server": "^7.2",
         "razorpay/razorpay": "^2.9",
         "sendgrid/sendgrid": "^8.1",
+        "simplito/elliptic-php": "^1.0",
         "stripe/stripe-php": "^13.13",
         "twilio/sdk": "^7.16",
-        "vonage/client": "^4.0",
-        "kornrunner/keccak": "^1.1",
-        "simplito/elliptic-php": "^1.0"
+        "vonage/client": "^4.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",
