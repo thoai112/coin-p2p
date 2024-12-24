@@ -76,26 +76,15 @@ class SiteController extends Controller
     {
         $trendingData = [];
         // foreach ($currencies as $currency) {
-        //     if ($currency->type == Status::TRENDINGTYPE_CRYPTO) {
-        //         $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
-        //         $response = CurlRequest::curlContent($url);
-        //         $data = json_decode($response, true);
-        //         if (is_array($data)) {
-        //             $trendingData = array_merge($trendingData, $data);
-        //         }
-        //     }
+        //     if ($currency->type != Status::TRENDINGTYPE_CRYPTO) continue;
         // }
-        foreach ($currencies as $currency) {
-            if ($currency->type != Status::TRENDINGTYPE_CRYPTO) continue;
-            $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
-            $response = CurlRequest::curlContent($url);
-            $trendingData[] = [
-                'symbol'      => $currency->symbol,
-                'rate'        => $response,
-            ];
-        }
-
-        return array_column($trendingData, 'rate');
+        $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
+        $response = CurlRequest::curlContent($url);
+            // $trendingData[] = [
+            //     'symbol'      => $currency->symbol,
+            //     'rate'        => $response,
+            // ];
+        return $response;
     }
     public function contactSubmit(Request $request)
     {
