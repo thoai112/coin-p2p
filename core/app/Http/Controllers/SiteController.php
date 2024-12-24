@@ -70,19 +70,8 @@ class SiteController extends Controller
             ->take($request->limit ?? 50)
             ->get();
         $trendingx = $this->getValueTrending($currencies);
-        $rateData = [];
-        foreach ($currencies as $currency) {
-            if ($currency->type == Status::TRENDINGTYPE_CRYPTO){
-                $rate = json_decode($currency->rate,true);
-                $rateData[] = [
-                    'symbol' => $currency->symbol,
-                    'rate' => $rate
-                ];
-            }
-        }
-        
 
-        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'rateData'));
+        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total'));
     }
 
     public function getValueTrending($currencies)
@@ -92,9 +81,9 @@ class SiteController extends Controller
                 continue;
             $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=500";
             $response = CurlRequest::curlContent($url);
-            // $array = json_decode($response, true);
+            $array = json_decode($response, true);
             // $object = $array;
-            $currency->rate = $response;
+            $currency->rate = $array[0][4];
         }
         return $currencies;
     }
