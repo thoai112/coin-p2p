@@ -68,7 +68,7 @@ class SiteController extends Controller
         $currencies = (clone $query)->skip($request->skip ?? 0)
             ->take($request->limit ?? 50)
             ->get();
-        $trendingx = $this->getValueTrending($currencies);
+        $trendingx = $this->getValueTrending(implode(',', $currencies));;
         return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingx'));
     }
 
