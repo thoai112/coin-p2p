@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h2>{{ gettype($trendingx) }} </h2>
+                    <span>{{ gettype($trendingx) }} </span>
                     
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
