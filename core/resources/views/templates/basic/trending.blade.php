@@ -53,28 +53,24 @@
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    // Decode JSON data to PHP array
-                                                    $datax = json_decode(strval(implode(', ', $currency->rate)), true);
+                                                   
+                                                    $datax = $currency->rate;
 
-                                                    // Extract specific values
-                                                    $result = [];
-                                                    foreach ($datax as $item) {
-                                                        $result[] = $item[4];
-                                                    }
+                                                    // // Extract specific values
 
-                                                    // Print the result
-                                                    print_r($result);
-
-                                                    $svg = LineChart::new($data)
-                                                        ->withColorGradient(
-                                                            'rgb(48, 231, 237)',
-                                                            'rgb(0, 166, 215)',
-                                                            'rgb(0, 88, 179)',
-                                                            'rgb(0, 27, 135)',
-                                                        )
-                                                        ->withDimensions(110, 50)
-                                                        ->make();
+                                                    // $svg = LineChart::new($data)
+                                                    //     ->withColorGradient(
+                                                    //         'rgb(48, 231, 237)',
+                                                    //         'rgb(0, 166, 215)',
+                                                    //         'rgb(0, 88, 179)',
+                                                    //         'rgb(0, 27, 135)',
+                                                    //     )
+                                                    //     ->withDimensions(110, 50)
+                                                    //     ->make();
                                                 @endphp
+                                                @foreach ($datax as $key => $value)
+                                                    <span> {{ $value[4] }}</span>
+                                                @endforeach
 
                                                 <!-- Render the line chart -->
                                                 {!! $svg !!}
