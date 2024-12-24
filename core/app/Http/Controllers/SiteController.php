@@ -85,7 +85,7 @@ class SiteController extends Controller
         //         }
         //     }
         // }
-        $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
+        $url = "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1s&limit=2000";
         $response = CurlRequest::curlContent($url);
         return $response;
     }
