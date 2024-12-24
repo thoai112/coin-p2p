@@ -54,9 +54,9 @@
 
                                                     $result = [];
                                                     foreach ($currency->rate as $item) {
-                                                        $result[] = $item[4];
+                                                        $result[] = (int)$item[4];
                                                     }
-                                                    // // Extract specific values
+                                                    
 
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
