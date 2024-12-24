@@ -396,16 +396,16 @@
                 return data;
             }
 
-            function listTrending(){
-                const cards = document.querySelectorAll('.coinBtn');
-                cards.forEach(card => {
-                    const currencyId = card.getAttribute('data-id');
-                    if(currencyId!='COW' || currencyId!='XAU' || currencyId!='XAG'){
-                        initApiTrending(`${currencyId}_usdt`);
-                        card.querySelector('.asset-compact-card__title').innerText = data.symbol;
-                    }
-                });
-            }
+            // function listTrending(){
+            //     const cards = document.querySelectorAll('.coinBtn');
+            //     cards.forEach(card => {
+            //         const currencyId = card.getAttribute('data-id');
+            //         if(currencyId!='COW' || currencyId!='XAU' || currencyId!='XAG'){
+            //             initApiTrending(`${currencyId}_usdt`);
+            //             card.querySelector('.asset-compact-card__title').innerText = data.symbol;
+            //         }
+            //     });
+            // }
 
             function cleanupChart() {
                 if (webSocket) {
