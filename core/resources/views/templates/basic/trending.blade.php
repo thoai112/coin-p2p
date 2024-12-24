@@ -56,7 +56,7 @@
 
                                                     $datax = json_decode(json_encode($currency->rate), true);
                                                     // $specificValue = $datax[0];
-                                                    print_r($datax);
+                                                    print_r(gettype($datax));
                                                     // // Extract specific values
 
                                                     // $svg = LineChart::new($data)
