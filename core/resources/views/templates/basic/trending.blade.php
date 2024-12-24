@@ -26,7 +26,17 @@
                 </div>
                 <div class="trade-section__right">
                     <span>{{ gettype($trendingx) }} </span>
-                    <pre>{{ print_r($trendingx, true) }}</pre>
+                    @foreach ($trendingx as $object)
+                        @foreach ($object as $array)
+                            <p>Timestamp: {{ $array[0] }}</p>
+                            <p>Open: {{ $array[1] }}</p>
+                            <p>High: {{ $array[2] }}</p>
+                            <p>Low: {{ $array[3] }}</p>
+                            <p>Close: {{ $array[4] }}</p>
+                            <p>Volume: {{ $array[5] }}</p>
+                            <!-- Add more fields as needed -->
+                        @endforeach
+                    @endforeach
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
