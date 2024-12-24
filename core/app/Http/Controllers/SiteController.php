@@ -78,8 +78,9 @@ class SiteController extends Controller
         $response = CurlRequest::curlContent($url);
         $responseArray = json_decode($response, true);
         $responseType = gettype($responseArray);
-        return  $responseType;
+        return  $responseArray;
     }
+
     public function contactSubmit(Request $request)
     {
         $request->validate([
