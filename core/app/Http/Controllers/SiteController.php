@@ -87,7 +87,7 @@ class SiteController extends Controller
         // }
         foreach ($currencies as $currency) {
             if ($currency->type != Status::TRENDINGTYPE_CRYPTO) continue;
-            $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
+            $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
             $response = CurlRequest::curlContent($url);
             $trendingData[] = [
                 'symbol'      => $currency->symbol,
