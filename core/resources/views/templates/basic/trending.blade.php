@@ -52,9 +52,10 @@
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
-                                                    
-                                                    
-                                                    print_r($currency->rate);
+                                                    $result = [];
+                                                    foreach ($currency->type as $item) {
+                                                        $result[] = $item[4];
+                                                    }
                                                     // // Extract specific values
 
                                                     $svg = LineChart::new($data)
@@ -67,7 +68,7 @@
                                                         ->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
-                                            
+
 
                                                 <!-- Render the line chart -->
                                                 {!! $svg !!}
