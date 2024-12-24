@@ -57,44 +57,45 @@ class SiteController extends Controller
         return view('Template::contact', compact('pageTitle', 'user', 'sections', 'seoContents', 'seoImage'));
     }
 
-
-    public function trending()
+    public function trending(Request $request)
     {
         $pageTitle = 'Trending';
         $sections = Page::where('tempname', activeTemplate())->where('slug', 'trending')->first();
         $query = Trending::active()->rankOrdering()
             ->searchable(['name', 'symbol']);
-
-        $total      = (clone $query)->count();
+    
+        $total = (clone $query)->count();
         $currencies = (clone $query)->skip($request->skip ?? 0)
             ->take($request->limit ?? 50)
             ->get();
         $trendingList = $this->getValueTrending($currencies);
         return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingList'));
     }
-
-    public function getValueTrending($currencies){
+    
+    public function getValueTrending($currencies)
+    {
         $trendingData = [];
         foreach ($currencies as $currency) {
-            if ($currency->type == 2) {
+            if ($currency->type == Status::TRENDINGTYPE_CRYPTO) {
                 $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
                 $response = CurlRequest::curlContent($url);
                 $data = json_decode($response, true);
-                
-                $trendingData[] = [
-                    'id'          => $currency->id,
-                    'name'        => $currency->name,
-                    'symbol'      => $currency->symbol,
-                    'rate'        => $data,
-                    'status'      => $currency->status,
-                    'created_at'  => $currency->created_at,
-                    'updated_at'  => $currency->updated_at,
-                ];
+    
+                if (json_last_error() === JSON_ERROR_NONE && is_array($data)) {
+                    $trendingData[] = [
+                        'id'          => $currency->id,
+                        'name'        => $currency->name,
+                        'symbol'      => $currency->symbol,
+                        'rate'        => $data,
+                        'status'      => $currency->status,
+                        'created_at'  => $currency->created_at,
+                        'updated_at'  => $currency->updated_at,
+                    ];
+                } 
             }
         }
         return $trendingData;
     }
-
     public function contactSubmit(Request $request)
     {
         $request->validate([
