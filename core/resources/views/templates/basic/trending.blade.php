@@ -26,8 +26,20 @@
                 </div>
                 <div class="trade-section__right">
                     <span>{{ gettype($trendingx) }} </span>
-                    <pre>{{ print_r($trendingx, true) }}</pre>
-                    
+                    {{-- <pre>{{ print_r($trendingx, true) }}</pre> --}}
+                    @foreach ($a as $outerArray) {
+                        @foreach ($outerArray as $innerArray) {
+                            @foreach ($innerArray as $values) {
+                                
+                                    echo "Value 1: " . $values[0] . "\n";
+                                    echo "Value 2: " . $values[4] . "\n";
+                                
+                            }
+                            @endforeach
+                        }@endforeach
+                    }@endforeach
+                   
+
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
