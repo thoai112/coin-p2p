@@ -70,17 +70,8 @@
                                                 @endphp
                                                 <h6 class="asset-compact-card__title">
                                                     {{ $lastRate[4] }}</h6>
-                                                {{--    @php
-                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
-                                       
-                                                    
-                                                   
-                                                @endphp
-
-
-                                                <!-- Render the line chart -->
-                                                {!! $svg !!} --}}
+                                                {!! $svg !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
