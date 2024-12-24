@@ -68,16 +68,14 @@
                                                         ->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
-                                                <h6 class="asset-compact-card__title">
-                                                    {{ $lastRate[4] }}</h6>
-
+                                                
                                                 {!! $svg !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             <h6 class="asset-compact-card__title">
-                                                {{ $currency->rate[0][4] ?? $currency->symbol }}</h6>
+                                                {{  $lastRate[4] ?? $currency->symbol }}</h6>
 
                                         </div>
                                     </div>
