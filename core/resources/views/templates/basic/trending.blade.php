@@ -402,7 +402,7 @@
                     const currencyId = card.getAttribute('data-id');
                     if(currencyId!='COW' || currencyId!='XAU' || currencyId!='XAG'){
                         initApiTrending(`${currencyId}_usdt`);
-                        card.querySelector('.asset-compact-card__title').innerText = data.symbol;
+                        card.querySelector('.asset-compact-card__title').innerText = data;
                     }
                 });
             }
