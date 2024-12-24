@@ -73,7 +73,7 @@ class SiteController extends Controller
         return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingList'));
     }
 
-    private function getValueTrending($currencies){
+    public function getValueTrending($currencies){
         $trendingData = [];
         foreach ($currencies as $currency) {
             if ($currency->type == 2) {
@@ -85,7 +85,6 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currency->name,
                     'symbol'      => $currency->symbol,
-                    'ranking'     => $currency->ranking,
                     'rate'        => $data,
                     'status'      => $currency->status,
                     'created_at'  => $currency->created_at,
