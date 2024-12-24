@@ -25,18 +25,9 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <span>{{ gettype($trendingx) }} </span>
+                    <span>{{ $trendingx[0][0][0][0] }} </span>
                     {{-- <pre>{{ print_r($trendingx, true) }}</pre> --}}
-                    @foreach ($trendingx as $outerArray) {
-                        @foreach ($outerArray as $innerArray) {
-                            @foreach ($innerArray as $values) {
-                                
-                                <span>{{ $values[0] }} </span>
-                                
-                            }
-                            @endforeach
-                        }@endforeach
-                    }@endforeach
+                    
                    
 
                     <nav class="nav-horizontal">
