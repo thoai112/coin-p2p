@@ -51,10 +51,15 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
 
-                                                    $values = array_map(function ($item) {
-                                                        return $item[4]; // Extracting the closing price
+                                                    values = array_map(function ($item) {
+                                                        return is_array($item) ? $item[4] : null; // Extracting the closing price if $item is an array
                                                     }, $currency->rate);
-                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
+
+                                                    // Filter out null values
+                                                    $values = array_filter($values, function ($value) {
+                                                        return !is_null($value);
+                                                    });
+
                                                     $svg = LineChart::new($values)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
