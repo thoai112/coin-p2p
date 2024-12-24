@@ -26,7 +26,6 @@
                 </div>
                 <div class="trade-section__right">
                     <span>{{ $currencies }} </span>
-                    <span>{{ $trendingx }} </span>
                     {{-- <pre>{{ print_r($trendingx, true) }}</pre> --}}
                     
                 
