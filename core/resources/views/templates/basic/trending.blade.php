@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <span>@lang('Trending'){{$rateData}}</span>
+                    <span>@lang('Trending')</span>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
@@ -46,8 +46,9 @@
                                         </div>
                                         
                                         <div class="asset-compact-card__content">
+                                            
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
-                                        <span> TEXT </span>
+                                            <span>{{$currency->rate }}</span>
                                              {{--    @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
