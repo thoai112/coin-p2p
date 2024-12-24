@@ -50,6 +50,7 @@
                                         <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 <span> {{ gettype($currency->rate) }}</span>
+                                                <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
                                                     
