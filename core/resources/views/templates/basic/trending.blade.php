@@ -44,14 +44,13 @@
                                                 @endif
                                             </h6>
                                         </div>
-                                                                                <div class="asset-compact-card__content">
+                                        <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
                                                     $points = '';
                                                     foreach ($currency->rate as $rate) {    
                                                         $points .= $rate[4] . ',';
                                                     }
-                                                    $points = rtrim($points, ','); // Remove the trailing comma
                                                 @endphp
                                                 <svg height="50" width="80">
                                                     <polyline points="{{ trim($points) }}"
