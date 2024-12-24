@@ -1,3 +1,6 @@
+@php
+    use OndrejVrto\LineChart\LineChart;
+@endphp
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
     @php
