@@ -74,17 +74,11 @@ class SiteController extends Controller
 
     public function getValueTrending($currencies)
     {
-        $trendingData = [];
-        // foreach ($currencies as $currency) {
-        //     if ($currency->type != Status::TRENDINGTYPE_CRYPTO) continue;
-        // }
+        
         $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
         $response = CurlRequest::curlContent($url);
-            // $trendingData[] = [
-            //     'symbol'      => $currency->symbol,
-            //     'rate'        => $response,
-            // ];
-        return $response;
+        $responsex = json_decode($response, true);
+        return $responsex;
     }
     public function contactSubmit(Request $request)
     {
