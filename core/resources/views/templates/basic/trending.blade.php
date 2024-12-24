@@ -28,7 +28,7 @@
                     {{-- <span>{{ $trendingx}} </span> --}}
                     @foreach ($trendingx as $item)
                         <div>
-                            {{ $item }}
+                            {{ $item[0][4] }}
                         </div>
                     @endforeach
 
