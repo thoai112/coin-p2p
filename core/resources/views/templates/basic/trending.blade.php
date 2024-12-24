@@ -45,19 +45,26 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @if($currency->type == Status::TRENDINGTYPE_CRYPTO)
-            
+                                            @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
+                                                @php
+                                                    $points = '';
+                                                    foreach ($currency->rate as $rate) {
+                                                        if (isset($rate[0]) && isset($rate[4])) {
+                                                            $points .= $rate[0] . ',' . $rate[4] . ' ';
+                                                        }
+                                                    }
+                                                @endphp
                                                 <svg height="100" width="200">
-                                                    <polyline
-                                                        points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100"
+                                                    <polyline points="{{ trim($points) }}"
                                                         style="fill:none;stroke:black;stroke-width:3" />
                                                 </svg>
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
-                                            <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] ?? $currency->symbol }}</h6>
-                                        
+                                            <h6 class="asset-compact-card__title">
+                                                {{ $currency->rate[0][4] ?? $currency->symbol }}</h6>
+
                                         </div>
                                     </div>
                                 </li>
