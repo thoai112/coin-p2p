@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <span>@lang('Trending') {{$currencies}} </span>
+                    <span>@lang('Trending') {{ $currencies }} </span>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-                            
+
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}">
@@ -45,16 +45,18 @@
                                             </h6>
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            @isset($currency->rate)
-                                            <svg height="100" width="200">
-                                                <polyline points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100" style="fill:none;stroke:black;stroke-width:3" />
-                                            </svg>
-                                        @endisset
+                                            {{-- @isset($currency->rate)
+                                                <svg height="100" width="200">
+                                                    <polyline
+                                                        points="{{ $currency->rate[0][0] }},0 {{ $currency->rate[0][4] }},100"
+                                                        style="fill:none;stroke:black;stroke-width:3" />
+                                                </svg>
+                                            @endisset --}}
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             @isset($currency->rate)
-                                            <h6 class="asset-compact-card__title">{{ $currency->rate[0][4]}}</h6>
+                                                <h6 class="asset-compact-card__title">{{ $currency->rate[0][4] }}</h6>
                                             @endisset
                                         </div>
                                     </div>
