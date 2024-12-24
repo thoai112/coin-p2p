@@ -69,9 +69,9 @@
                                                     //     ->withDimensions(110, 50)
                                                     //     ->make();
                                                 @endphp
-                                                @foreach ($datax as $key => $value)
+                                                {{-- @foreach ($datax as $key => $value)
                                                     <span> {{ $value['4'] }}</span>
-                                                @endforeach
+                                                @endforeach --}}
 
                                                 <!-- Render the line chart -->
                                                 {{-- {!! $svg !!} --}}
