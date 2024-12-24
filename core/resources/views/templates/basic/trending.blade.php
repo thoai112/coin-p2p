@@ -50,14 +50,19 @@
                                         <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
+
+                                                    $values = array_map(function ($item) {
+                                                        return $item[4]; // Extracting the closing price
+                                                    }, $currency->rate);
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    $svg = LineChart::new($data)
+                                                    $svg = LineChart::new($values)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
                                                             'rgb(0, 166, 215)',
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
-                                                        )->withDimensions(110, 50)
+                                                        )
+                                                        ->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
 
