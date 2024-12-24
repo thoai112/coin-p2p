@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h2>@lang('Trending'){{$trendingList}} </h2>
+                    <h2>@lang('Trending'){{$trendingx}} </h2>
                     
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
