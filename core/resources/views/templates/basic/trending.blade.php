@@ -263,7 +263,21 @@
                 return data;
             }
 
-            document.addEventListener('DOMContentLoaded', async () => {
+            // document.addEventListener('DOMContentLoaded', async () => {
+            //     const currencyElements = document.querySelectorAll('.coinBtn');
+            //     for (const element of currencyElements) {
+            //         const symbol = element.getAttribute('data-id');
+            //         const imput = symbol+'usdt';
+            //         const data = await fetchCurrencyData(imput);
+            //         // Assuming you want to display the latest price
+            //         const latestPrice = data[data.length - 1][4]; // Close price of the latest candle
+            //         const priceElement = document.createElement('h6');
+            //         priceElement.className = 'asset-compact-card__title';
+            //         priceElement.innerText = `Price: ${latestPrice}`;
+            //         element.querySelector('.asset-compact-card__content').appendChild(priceElement);
+            //     }
+            // });
+            $(document).ready(async() {
                 const currencyElements = document.querySelectorAll('.coinBtn');
                 for (const element of currencyElements) {
                     const symbol = element.getAttribute('data-id');
@@ -277,7 +291,7 @@
                     element.querySelector('.asset-compact-card__content').appendChild(priceElement);
                 }
             });
-        });
+        })(jQuery)
     </script>
 @endpush
 
