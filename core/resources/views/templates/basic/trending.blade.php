@@ -28,7 +28,7 @@
                     <h2>@lang('Trending') </h2>
                     <ul>
                         @foreach ($trendingList as $item)
-                            <li>{{ $item }}</li>
+                            <li>{{ $item['rate'] }}</li>
                         @endforeach
                     </ul>
                     <nav class="nav-horizontal">
