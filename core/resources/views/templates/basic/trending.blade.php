@@ -250,6 +250,36 @@
     </style>
 @endpush
 
+@push('script')
+    <script>
+        (function($) {
+            "use strict";
+
+            async function fetchCurrencyData(symbol) {
+                const response = await fetch(
+                    `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`
+                    );
+                const data = await response.json();
+                return data;
+            }
+
+            document.addEventListener('DOMContentLoaded', async () => {
+                const currencyElements = document.querySelectorAll('.coinBtn');
+                for (const element of currencyElements) {
+                    const symbol = element.getAttribute('data-id');
+                    const imput = symbol+'usdt';
+                    const data = await fetchCurrencyData(imput);
+                    // Assuming you want to display the latest price
+                    const latestPrice = data[data.length - 1][4]; // Close price of the latest candle
+                    const priceElement = document.createElement('h6');
+                    priceElement.className = 'asset-compact-card__title';
+                    priceElement.innerText = `Price: ${latestPrice}`;
+                    element.querySelector('.asset-compact-card__content').appendChild(priceElement);
+                }
+            });
+        });
+    </script>
+@endpush
 
 @push('script')
     <script>
@@ -378,7 +408,7 @@
             }
 
             initalizeApi('btc_usdt');
-           
+
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
                 BINANCE_API_URL =
