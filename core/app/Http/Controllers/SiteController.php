@@ -63,7 +63,7 @@ class SiteController extends Controller
         $sections = Page::where('tempname', activeTemplate())->where('slug', 'trending')->first();
         $query = Trending::active()->rankOrdering()
             ->searchable(['name', 'symbol']);
-    
+
         $total = (clone $query)->count();
         $currencies = (clone $query)->skip($request->skip ?? 0)
             ->take($request->limit ?? 50)
@@ -71,7 +71,7 @@ class SiteController extends Controller
         $trendingList = $this->getValueTrending($currencies);
         return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'trendingList'));
     }
-    
+
     public function getValueTrending($currencies)
     {
         $trendingData = [];
@@ -80,18 +80,7 @@ class SiteController extends Controller
                 $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1s&limit=2000";
                 $response = CurlRequest::curlContent($url);
                 $data = json_decode($response, true);
-    
-                if (json_last_error() === JSON_ERROR_NONE && is_array($data)) {
-                    $trendingData[] = [
-                        'id'          => $currency->id,
-                        'name'        => $currency->name,
-                        'symbol'      => $currency->symbol,
-                        'rate'        => $data,
-                        'status'      => $currency->status,
-                        'created_at'  => $currency->created_at,
-                        'updated_at'  => $currency->updated_at,
-                    ];
-                } 
+                $trendingData = array_merge($trendingData, $data);
             }
         }
         return $trendingData;
@@ -292,7 +281,7 @@ class SiteController extends Controller
         ]);
     }
 
-    
+
     public function trendingList(Request $request)
     {
         $query = Trending::active()->with('marketData')->rankOrdering()
@@ -350,16 +339,14 @@ class SiteController extends Controller
             $query      = Currency::active()->cow()->symbolOrdering()->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
-            
-        }
-        else{
+        } else {
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
             $currencies = [];
             foreach ($currenciesHistories as $currency) {
                 $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
-        
+
                 $currencies[] = [
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
@@ -372,12 +359,11 @@ class SiteController extends Controller
                     'updated_at'  => $currency->updated_at,
                 ];
             }
-
         }
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => ($formattedRequestDate === $formattedDateTime)?$currencies->avg('rate'): $currenciesHistories->avg('price'),
+            'cow'        => ($formattedRequestDate === $formattedDateTime) ? $currencies->avg('rate') : $currenciesHistories->avg('price'),
             'total'      => $total,
         ]);
     }
