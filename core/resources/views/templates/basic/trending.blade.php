@@ -48,10 +48,8 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
                                                     $points = '';
-                                                    foreach ($currency->rate as $rate) {
-                                                        if (isset($rate[0]) && isset($rate[4])) {
-                                                           $rate[4] . ' ';
-                                                        }
+                                                    foreach ($currency->rate as $rate) {    
+                                                           $rate[4];
                                                     }
                                                 @endphp
                                                 <svg height="50" width="80">
