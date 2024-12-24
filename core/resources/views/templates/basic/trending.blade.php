@@ -47,21 +47,13 @@
                                         <div class="asset-compact-card__content">
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 @php
-                                                    $values = array_map(function ($item) {
-                                                        return $item[4];
-                                                    }, $currency->rate);
+                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
-                                                    // Create a line chart instance
-                                                    $chart = new \OndrejVrto\LineChart\LineChart([
-                                                        'width' => 150,
-                                                        'height' => 50,
-                                                    ]);
-                                                    $chart->addData($values);
-                                                    $chartHtml = $chart->render();
+                                                    $svg = LineChart::new($data)->make();
                                                 @endphp
 
                                                 <!-- Render the line chart -->
-                                                {!! $chartHtml !!}
+                                                {!! $svg !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
