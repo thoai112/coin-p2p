@@ -539,12 +539,9 @@
                 return (minutes * 60) + seconds;
             }
 
-            $(document).addEventListener('DOMContentLoaded', function() {
-                listTrending();
-            });
-
             $(document).ready(function() {
                 initializeChart();
+                listTrending();
             });
 
 
