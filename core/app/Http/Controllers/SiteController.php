@@ -74,10 +74,10 @@ class SiteController extends Controller
 
     public function getValueTrending($currencies)
     {
-        
         $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
         $response = CurlRequest::curlContent($url);
-        return $response[0];
+        $responseType = gettype($response);
+        return  $responseType;
     }
     public function contactSubmit(Request $request)
     {
