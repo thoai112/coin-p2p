@@ -51,8 +51,17 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
-                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    $svg = LineChart::new($data)
+                                                    // $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
+                                                    $data = json_decode($currency->rate, true);
+
+                                                    // Initialize an empty array to store the results
+                                                    $result = [];
+
+                                                    // Use a for loop to extract the required values and convert them to float
+                                                    for ($i = 0; $i < count($data); $i++) {
+                                                        $result[] = (float) $data[$i][4];
+                                                    }
+                                                    $svg = LineChart::new($result)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
                                                             'rgb(0, 166, 215)',
