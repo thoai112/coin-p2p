@@ -82,7 +82,7 @@ class SiteController extends Controller
         //         'value' => (float) $d[4],
         //     ];
         // }, json_decode($response, true));
-        return  $response;
+        return  json_encode($response, JSON_PRETTY_PRINT);
     }
 
     public function contactSubmit(Request $request)
