@@ -81,7 +81,7 @@ class SiteController extends Controller
                 'time' => $d[0] / 1000,
                 'value' => (float) $d[4],
             ];
-        }, $response);
+        }, json_decode($response, true));
         return  $convertedData;
     }
 
