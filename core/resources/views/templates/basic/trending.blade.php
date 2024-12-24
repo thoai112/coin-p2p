@@ -44,12 +44,12 @@
                                                 @endif
                                             </h6>
                                         </div>
-                                        
+
                                         <div class="asset-compact-card__content">
-                                            
+
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO)
-                                            {{-- <span>{{$currency->rate }}</span> --}}
-                                             {{--    @php
+                                                <span>{{ $currency->rate[0][4] }}</span>
+                                                {{--    @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
                                        
