@@ -26,9 +26,7 @@
                 </div>
                 <div class="trade-section__right">
                     <span>{{ gettype($trendingx) }} </span>
-                    @foreach ($trendingx as $key => $value)
-                        <p>{{ $key }}: {{ $value }}</p>
-                    @endforeach
+                    <pre>{{ print_r($trendingx, true) }}</pre>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
