@@ -52,7 +52,7 @@
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    print_r($currency->rate);
+                                                    print_r($currency->rate[0][0][4]);
                                                     // $rateArray = (object) $currency->rate;
                                                     // $result = [];
                                                     // print_r($currency->rate[4]);
