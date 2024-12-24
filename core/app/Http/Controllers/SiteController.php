@@ -76,13 +76,14 @@ class SiteController extends Controller
     {
         $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
         $response = CurlRequest::curlContent($url);
+        $object = json_decode($response);
         // $convertedData = array_map(function($d) {
         //     return [
         //         'time' => $d[0] / 1000,
         //         'value' => (float) $d[4],
         //     ];
         // }, json_decode($response, true));
-        return  json_encode($response, JSON_PRETTY_PRINT);
+        return $object[0];
     }
 
     public function contactSubmit(Request $request)
