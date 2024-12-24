@@ -53,10 +53,10 @@
                                                 <span> {{ print_r($currency->rate) }}</span> --}}
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                   
-                                                    $datax = json_encode($currency->rate, true);
-                                                    print_r($datax);
-                                                    // print_r($datax);
+
+                                                    $datax = json_decode(json_encode($currency->rate), true);
+                                                    $specificValue = $datax[0];
+                                                    print_r($specificValue);
                                                     // // Extract specific values
 
                                                     // $svg = LineChart::new($data)
