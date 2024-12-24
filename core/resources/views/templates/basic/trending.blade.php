@@ -25,12 +25,12 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h2>@lang('Trending')</h2>
+                    <h2>@lang('Trending') {{$currencies}}</h2>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-
+                            
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}">
@@ -248,51 +248,6 @@
             color: hsl(var(--white) / 0.7);
         }
     </style>
-@endpush
-
-@push('script')
-    <script>
-        (function($) {
-            "use strict";
-
-            async function fetchCurrencyData(symbol) {
-                const response = await fetch(
-                    `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`
-                    );
-                const data = await response.json();
-                return data;
-            }
-
-            // document.addEventListener('DOMContentLoaded', async () => {
-            //     const currencyElements = document.querySelectorAll('.coinBtn');
-            //     for (const element of currencyElements) {
-            //         const symbol = element.getAttribute('data-id');
-            //         const imput = symbol+'usdt';
-            //         const data = await fetchCurrencyData(imput);
-            //         // Assuming you want to display the latest price
-            //         const latestPrice = data[data.length - 1][4]; // Close price of the latest candle
-            //         const priceElement = document.createElement('h6');
-            //         priceElement.className = 'asset-compact-card__title';
-            //         priceElement.innerText = `Price: ${latestPrice}`;
-            //         element.querySelector('.asset-compact-card__content').appendChild(priceElement);
-            //     }
-            // });
-            $(document).ready(async() {
-                const currencyElements = document.querySelectorAll('.coinBtn');
-                for (const element of currencyElements) {
-                    const symbol = element.getAttribute('data-id');
-                    const imput = symbol+'usdt';
-                    const data = await fetchCurrencyData(imput);
-                    // Assuming you want to display the latest price
-                    const latestPrice = data[data.length - 1][4]; // Close price of the latest candle
-                    const priceElement = document.createElement('h6');
-                    priceElement.className = 'asset-compact-card__title';
-                    priceElement.innerText = `Price: ${latestPrice}`;
-                    element.querySelector('.asset-compact-card__content').appendChild(priceElement);
-                }
-            });
-        })(jQuery)
-    </script>
 @endpush
 
 @push('script')
