@@ -52,15 +52,15 @@
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    print_r($currency->rate)
+                                                    print_r($currency->rate);
                                                     // $rateArray = (object) $currency->rate;
                                                     // $result = [];
 
                                                     // // Use a for loop to extract the required values and convert them to float
                                                     // for ($i = 0; $i < count($rateArray); $i++) {
-                                                        
+
                                                     //         $result[] = (float) $rateArray[$i][4];
-                                        
+
                                                     // }
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
