@@ -53,7 +53,14 @@
                                                 <span> {{ print_r($currency->rate) }}</span>
                                                 @php
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-                                                    
+
+                                                    $values = [];
+                                                    foreach ($currency->rate as $item) {
+                                                        $values[] = $item[0];
+                                                    }
+
+                                                    print_r($values);
+
                                                     $svg = LineChart::new($data)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
