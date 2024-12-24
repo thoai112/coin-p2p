@@ -1,3 +1,6 @@
+@php
+    use OndrejVrto\LineChart\LineChart;
+@endphp
 @extends($activeTemplate . 'layouts.frontend')
 @section('content')
     @php
@@ -50,18 +53,12 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
                                                 @php
                                                     $lastRate = null;
+                                                    $points = [];
                                                     for ($i = 0; $i < count($currency->rate); $i++) {
                                                         $lastRate = $currency->rate[$i];
+                                                        $points[] = $lastRate[4];
                                                     }
-                                                @endphp
-                                                <h6 class="asset-compact-card__title">
-                                                    {{ $lastRate[4] }}</h6>
-                                                {{--    @php
-                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
-
-                                       
-                                                    
-                                                    $svg = LineChart::new($data)
+                                                    $svg = LineChart::new($points)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
                                                             'rgb(0, 166, 215)',
@@ -70,6 +67,15 @@
                                                         )
                                                         ->withDimensions(110, 50)
                                                         ->make();
+                                                @endphp
+                                                <h6 class="asset-compact-card__title">
+                                                    {{ $lastRate[4] }}</h6>
+                                                {{--    @php
+                                                    $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
+
+                                       
+                                                    
+                                                   
                                                 @endphp
 
 
