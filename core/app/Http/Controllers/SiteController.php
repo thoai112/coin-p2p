@@ -79,7 +79,13 @@ class SiteController extends Controller
             'Accepts: application/json',
         ];
         $response = CurlRequest::curlContent($url, $headers);
-        return  json_decode($response);
+        $convertedData = array_map(function($d) {
+            return [
+                'time' => $d[0] / 1000,
+                'value' => (float) $d[4],
+            ];
+        }, $response);
+        return  $convertedData;
     }
 
     public function contactSubmit(Request $request)
