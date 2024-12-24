@@ -73,7 +73,7 @@
                                                 @endforeach
 
                                                 <!-- Render the line chart -->
-                                                {!! $svg !!}
+                                                {{-- {!! $svg !!} --}}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
