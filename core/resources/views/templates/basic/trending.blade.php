@@ -33,7 +33,7 @@
 
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->id }}">
+                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
@@ -378,10 +378,7 @@
             }
 
             initalizeApi('btc_usdt');
-            @foreach ($currencies as $currency)
-                initializeApi('{{ strtolower($currency->symbol) }}_usdt');
-            @endforeach
-
+           
             function initalizeApi(activeCoin) {
                 let symbol = activeCoin.replace('_', '');
                 BINANCE_API_URL =
