@@ -53,7 +53,7 @@
                                                     $data = [0, 2, 1, 3, 3, 2, 1, 5, 4];
 
                                                     $result = [];
-                                                    foreach ($currency->type as $item) {
+                                                    foreach ($currency->rate as $item) {
                                                         $result[] = $item[4];
                                                     }
                                                     // // Extract specific values
