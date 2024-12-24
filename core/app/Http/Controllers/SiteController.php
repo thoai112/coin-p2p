@@ -76,7 +76,8 @@ class SiteController extends Controller
     {
         $url = "https://api.binance.com/api/v3/klines?symbol=TONUSDT&interval=1s&limit=2000";
         $response = CurlRequest::curlContent($url);
-        $responseType = gettype($response);
+        $responseArray = json_decode($response, true);
+        $responseType = gettype($responseArray);
         return  $responseType;
     }
     public function contactSubmit(Request $request)
