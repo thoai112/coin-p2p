@@ -268,7 +268,7 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
-            let trendingRates = {{ $defaultActive->rate }};
+            let trendingRates = @json($defaultActive->rate);
             
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
