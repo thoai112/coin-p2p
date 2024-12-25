@@ -473,7 +473,7 @@
                 if (parseInt(trendingType, 5) === 2) {
                     initializeWebSocket();
                 }
-                setupDirectionIndicators();
+                // setupDirectionIndicators();
             }
 
             async function loadHistoricalData() {
@@ -487,9 +487,9 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
-                        chartData = time.map((t, index) => ({
+                        chartData = {{$dates}}.map((t, index) => ({
                             time: t,
-                            value: value[index]
+                            value: {{$points}}[index]
                         }));
                     }
                     console.log(chartData);
