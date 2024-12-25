@@ -258,7 +258,7 @@
                 let durationText = $(this).text();
                 countdownTimer.text(durationText);
             });
-            let trendingActivate = $('.nav-horizontal-menu__item').eq(0);
+            let trendingActivate = {{ $defaultActive }};
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -295,10 +295,11 @@
                     return;
                 }
                 let clickedCoin = $(this);
-                const symbol_id = clickedCoin.data('id');
+                trendingActivate = clickedCoin.data('id');
                 showLoading();
-                initalizeApi(symbol_id);
-                initializeChart();
+                console.log('sdfhjkg:', trendingActivate);
+                // initalizeApi(symbol_id);
+                // initializeChart();
                 
                 
             });
