@@ -258,11 +258,7 @@
                 let durationText = $(this).text();
                 countdownTimer.text(durationText);
             });
-            @if (isset($defaultActive))
-                let trendingActivate = {{ $defaultActive }};
-            @else
-                let trendingActivate = 0; // or any default value you prefer
-            @endif
+            let trendingActivate = "{{ $defaultActive }}";
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
