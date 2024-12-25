@@ -268,6 +268,8 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
+            let trendingRates = {{ $defaultActive->type }};
+            
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -303,6 +305,7 @@
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
                 trendingType = clickedCoin.data('type');
+                trendingRates = clickedCoin.data('rate');
                 showLoading();
                 setTimeout(() => {
                     hideLoading();
@@ -487,13 +490,12 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
-                        let clicked = $(this);
-                        const rateData = clicked.data('rate');
-                        console.log(typeof rateData);
+                        
+                        console.log(typeof trendingRates);
                         const dates = [];
                         const points= [];
                         
-                        rateData.forEach(function(entry) {
+                        trendingRates.forEach(function(entry) {
                             dates.push(entry.timestamp);
                             points.push(entry.rate);
                         });
