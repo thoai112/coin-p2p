@@ -496,12 +496,18 @@
                         
                         const dates = [];
                         const points= [];
-                        
-                        for (let i = 0; i < trendingRates.length; i++) {
+                        if (parseInt(trendingType, 5) === 3) {
+                            for (let i = 0; i < trendingRates.length; i++) {
+                                dates.push(trendingRates[i].Date);
+                                points.push(trendingRates[i]['Price per Ounce']);
+                            }
+                        } else{
+                            for (let i = 0; i < trendingRates.length; i++) {
                             dates.push(trendingRates[i].timestamp);
                             points.push(trendingRates[i].rate);
                         }
-                       
+                        } 
+                        
                         chartData = dates.map((t, index) => ({
                             time: t,
                             value: points[index]
