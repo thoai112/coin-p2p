@@ -297,9 +297,9 @@
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
                 showLoading();
-                console.log('sdfhjkg:', trendingActivate);
-                // initalizeApi(symbol_id);
-                // initializeChart();
+                initalizeApi(trendingActivate);
+                initializeChart();
+                hideLoading();
 
 
             });
