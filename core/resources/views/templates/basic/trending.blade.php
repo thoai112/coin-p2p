@@ -96,10 +96,26 @@
                                                 {!! $metal !!}
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
-                                            
-                                                <h6 class="asset-compact-card__title">
-                                                    {{ print_r($currency->rate) }}</h6>
-                                                
+                                                @php
+                                                    $cowTimes = [];
+                                                    $cowPrices = [];
+
+                                                    foreach ($currency->rate as $entry) {
+                                                        $cowTimes[] = $entry['timestamp'];
+                                                        $cowPrices[] = $entry['rate'];
+                                                    }
+
+                                                    $cow = LineChart::new($cowPrices)
+                                                        ->withColorGradient(
+                                                            'rgb(48, 231, 237)',
+                                                            'rgb(0, 166, 215)',
+                                                            'rgb(0, 88, 179)',
+                                                            'rgb(0, 27, 135)',
+                                                        )
+                                                        ->withDimensions(110, 50)
+                                                        ->make();
+                                                @endphp
+                                                {!! $cow !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
