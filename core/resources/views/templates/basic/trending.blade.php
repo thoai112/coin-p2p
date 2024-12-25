@@ -492,13 +492,14 @@
                     } else {
                         
                         console.log(typeof trendingRates);
+                        console.log(trendingRates);
                         const dates = [];
                         const points= [];
                         
-                        trendingRates.forEach(function(entry) {
-                            dates.push(entry.timestamp);
-                            points.push(entry.rate);
-                        });
+                        for (let i = 0; i < trendingRates.length; i++) {
+                            dates.push(trendingRates['timestamp']);
+                            points.push(trendingRates['rate']);
+                        }
                         // foreach($rateData as $entry) {
                         //     $dates[] = $entry['timestamp'];
                         //     $points[] = $entry['rate'];
