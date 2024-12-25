@@ -397,6 +397,7 @@
             initalizeApi('btc_usdt');
 
             function initalizeApi(activeCoin) {
+                if ()
                 let symbol = activeCoin.replace('_', '');
                 BINANCE_API_URL =
                     `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
