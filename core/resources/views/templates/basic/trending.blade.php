@@ -264,7 +264,8 @@
                 let durationText = $(this).text();
                 countdownTimer.text(durationText);
             });
-            let trendingActivate = "{{ $defaultActive }}";
+            let trendingActivate = "{{ $defaultActive->symbol }}";
+            let trendingType = "{{ $defaultActive->type }}";
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -397,11 +398,15 @@
             initalizeApi('btc_usdt');
 
             function initalizeApi(activeCoin) {
-                if ()
-                let symbol = activeCoin.replace('_', '');
-                BINANCE_API_URL =
-                    `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
-                BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
+                if (trendingType === 2) {
+                    let symbol = activeCoin.replace('_', '');
+                    BINANCE_API_URL =
+                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
+                    BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
+                }
+                else if (trendingType === 1) {
+                    console.log('financexxx');
+                }
             }
 
             function cleanupChart() {
