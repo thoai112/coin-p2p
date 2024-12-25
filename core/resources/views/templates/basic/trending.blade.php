@@ -267,7 +267,7 @@
                 countdownTimer.text(durationText);
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
-            let trendingType = "{{ $defaultActive->type }}";
+            let trendingType = {{$defaultActive->type}};
             let trendingRates = {{ $defaultActive->rate }};
             
             let BINANCE_API_URL;
@@ -407,7 +407,7 @@
 
             function initalizeApi(activeCoin) {
 
-                if (parseInt(trendingType, 5) === 2) {
+                if (trendingType === 2) {
                     let symbol = activeCoin.replace('_', '');
                     BINANCE_API_URL =
                         `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
@@ -473,7 +473,7 @@
                     tvLogo.style.display = 'none';
                 }
                 loadHistoricalData();
-                if (parseInt(trendingType, 5) === 2) {
+                if (trendingType === 2) {
                     initializeWebSocket();
                 }
                 // setupDirectionIndicators();
@@ -482,7 +482,7 @@
             async function loadHistoricalData() {
                 try {
                     let chartData = [];
-                    if (parseInt(trendingType, 5) === 2) {
+                    if (trendingType === 2) {
                         const response = await fetch(BINANCE_API_URL);
                         const data = await response.json();
                         chartData = data.map(d => ({
