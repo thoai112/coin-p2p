@@ -123,7 +123,7 @@
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
-                                            <span>{{ print_r($dates) }} </span>
+                                           
                                         </div>
                                         <div class="asset-compact-card__content">
                                             @php
