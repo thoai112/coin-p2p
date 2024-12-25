@@ -72,7 +72,7 @@ class SiteController extends Controller
         $trendingx = $this->getValueTrending($currencies);
         $defaultActive = $currencies->first()->symbol;
 
-        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total'));
+        return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total', 'defaultActive'));
     }
 
     public function getValueTrending($currencies)
