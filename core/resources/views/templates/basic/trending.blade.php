@@ -291,12 +291,13 @@
 
             $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
                 e.stopPropagation();
-                if (isTradeRunning) {
-                    return;
-                }
+                // if (isTradeRunning) {
+                //     return;
+                // }
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
                 cleanupChart();
+ 
                 initalizeApi(trendingActivate);
                 initializeChart();
 
