@@ -6,6 +6,7 @@ use App\Constants\Status;
 use App\Models\AdminNotification;
 use App\Models\CoinPair;
 use App\Lib\CurlRequest;
+use App\Models\CowCurrency;
 use App\Models\CowHistories;
 use App\Models\Currency;
 use App\Models\Trending;
@@ -77,7 +78,10 @@ class SiteController extends Controller
     {
         foreach ($currencies as $currency) {
             if ($currency->type == Status::TRENDINGTYPE_COW)
-                continue;
+                {
+                    $query = CowCurrency::TimeOrdering()->searchable(['name', 'symbol'])->get();
+                    $currency->rate = $query;
+                }
             elseif ($currency->type == Status::TRENDINGTYPE_CRYPTO)
             {
                 $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1d&limit=100";

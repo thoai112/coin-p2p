@@ -93,7 +93,13 @@
                                                 @endphp
                                                 <h6 class="asset-compact-card__title">
                                                     {{ gettype($currency->rate) }}</h6>
-                                                     {!! $metal !!}
+                                                {!! $metal !!}
+                                            @endif
+                                            @if ($currency->type == Status::TRENDINGTYPE_COW)
+                                            
+                                                <h6 class="asset-compact-card__title">
+                                                    {{ print_r($currency->rate) }}</h6>
+                                                
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
@@ -109,7 +115,7 @@
                     </nav>
 
                 </div>
-              
+
             </div>
         </div>
     </section>

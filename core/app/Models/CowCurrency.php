@@ -17,19 +17,19 @@ class CowCurrency extends Model
     protected $appends = [
         'image_url'
     ];
-    protected $guarded = ['rate']; 
+    protected $guarded = ['rate'];
 
     public function nameAndSymbol(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->name . '-' . $this->symbol,
+            get: fn() => $this->name . '-' . $this->symbol,
         );
     }
 
     public function imageUrl(): Attribute
     {
         return new Attribute(
-            get: fn () => getImage(getFilePath('currency') . '/' . $this->image, getFileSize('currency')),
+            get: fn() => getImage(getFilePath('currency') . '/' . $this->image, getFileSize('currency')),
         );
     }
 
@@ -88,17 +88,20 @@ class CowCurrency extends Model
         $query->orderByRaw('p2p_sn = 0, p2p_sn ASC');
     }
 
+    public function scopeTimeOrdering($query)
+    {
+        $query->orderBy('timestamp', 'ASC');
+    }
+
     public function typeBadge(): Attribute
     {
         return new Attribute(function () {
             $html = '';
             if ($this->type == Status::CRYPTO_CURRENCY) {
                 $html = '<span class="badge badge--primary">' . trans('Crypto') . '</span>';
-            } 
-            else if($this->type == Status::COW_CURRENCY) {
+            } else if ($this->type == Status::COW_CURRENCY) {
                 $html = '<span class="badge badge--primary">' . trans('Cow') . '</span>';
-            }
-            else {
+            } else {
                 $html = '<span class="badge badge--success">' . trans('Fiat') . '</span>';
             }
             return $html;
