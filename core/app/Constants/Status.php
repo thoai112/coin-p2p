@@ -47,7 +47,9 @@ class Status
     const COW_CURRENCY    = 3;
     const TRENDING        = 4;
 
+    const TRENDINGTYPE_COW = 1;
     const TRENDINGTYPE_CRYPTO = 2;
+    const TRENDINGTYPE_FINANCE = 3;
 
     const BUY_SIDE_ORDER  = 1;
     const SELL_SIDE_ORDER = 2;

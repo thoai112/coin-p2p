@@ -71,6 +71,10 @@
                                                 
                                                 {!! $svg !!}
                                             @endif
+                                            @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
+                                                <h6 class="asset-compact-card__title">
+                                                    {{ print_r($currency->rate) }}</h6>
+                                            @endif
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>

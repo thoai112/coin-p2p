@@ -76,13 +76,28 @@ class SiteController extends Controller
     public function getValueTrending($currencies)
     {
         foreach ($currencies as $currency) {
-            if ($currency->type != Status::TRENDINGTYPE_CRYPTO && $currency->symbol != "USDT")
+            if ($currency->type == Status::TRENDINGTYPE_COW)
                 continue;
-            $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1d&limit=100";
-            $response = CurlRequest::curlContent($url);
-            $array = json_decode($response, true);
+            elseif ($currency->type == Status::TRENDINGTYPE_CRYPTO)
+            {
+                $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1d&limit=100";
+                $response = CurlRequest::curlContent($url);
+                $array = json_decode($response, true);
 
-            $currency->rate = $array;
+                $currency->rate = $array;
+            }   
+            else 
+            {
+                $url = "https://www.xe.com/api/protected/charting-rates/?fromCurrency=".strtoupper($currency->symbol).".&toCurrency=USD&crypto=true";
+                $headers = [
+                    'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
+                ];
+                $response = CurlRequest::curlContent($url, $headers);
+                $array = json_decode($response, true);
+
+                $currency->rate = $array;
+            }
+                
         }
         return $currencies;
     }
