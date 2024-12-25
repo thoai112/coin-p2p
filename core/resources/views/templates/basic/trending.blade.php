@@ -500,14 +500,10 @@
                         const points= [];
                         
                         for (let i = 0; i < trendingRates.length; i++) {
-                            dates.push(trendingRates['timestamp']);
-                            points.push(trendingRates['rate']);
+                            dates.push(trendingRates.timestamp);
+                            points.push(trendingRates.rate);
                         }
-                        // foreach($rateData as $entry) {
-                        //     $dates[] = $entry['timestamp'];
-                        //     $points[] = $entry['rate'];
-                        //     $lastRate = $entry['rate'];
-                        // }
+                       
                         chartData = dates.map((t, index) => ({
                             time: t,
                             value: points[index]
