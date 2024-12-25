@@ -404,6 +404,9 @@
                     `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
                 BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
                 console.log(trendingActivate);
+                console.log(trendingType);
+                console.log(typeof trendingType);
+                
 
             }
 
