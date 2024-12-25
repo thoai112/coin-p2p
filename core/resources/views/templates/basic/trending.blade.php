@@ -60,7 +60,6 @@
                                                         $points[] = $currency->rate[$i][4];
                                                         $lastRate = $currency->rate[$i][4];
                                                     }
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)-2] *100;
 
                                                     $svg = LineChart::new($points)
                                                         ->withColorGradient(
@@ -85,7 +84,6 @@
                                                         $points[] = $entry['Price per Ounce'];
                                                         $lastRate = $entry['Price per Ounce'];
                                                     }
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)-2] *100;
 
                                                     $metal = LineChart::new($points)
                                                         ->withColorGradient(
@@ -120,15 +118,23 @@
                                                         )
                                                         ->withDimensions(110, 50)
                                                         ->make();
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) / $points[count($points)-2] *100;
+
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
+                                            @php
+                                                $lastRate = round($lastRate, 4);
+                                                $valueChange = round(
+                                                    ((end($points) - $points[count($points) - 2]) /
+                                                        $points[count($points) - 2]) *
+                                                        100,
+                                                    2,
+                                                );
+                                            @endphp
                                             <h6 class="asset-compact-card__title">
                                                 {{ $lastRate }}</h6>
-
                                             <h6 class="asset-compact-card__title">{{ $valueChange }} %</h6>
 
                                         </div>
@@ -297,7 +303,7 @@
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
                 cleanupChart();
- 
+
                 initalizeApi(`${trendingActivate}_usdt`);
                 initializeChart();
 
