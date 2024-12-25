@@ -485,8 +485,10 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
-                        chartData.time = {{$dates}};
-                        chartData.value = {{$points}};
+                        chartData = time.map((t, index) => ({
+                            time: t,
+                            value: value[index]
+                        }));
                     }
 
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
