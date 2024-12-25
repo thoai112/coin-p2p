@@ -87,8 +87,11 @@ class SiteController extends Controller
                 $currency->rate = $array;
             }   
             else 
-            {
-                $url = 'https://static.dwcdn.net/data/q7hEo.csv';
+            {   
+                if($currency->symbol == 'XAU')
+                    $url = 'https://static.dwcdn.net/data/q7hEo.csv';
+                else if($currency->symbol == 'XAG')
+                    $url = 'https://static.dwcdn.net/data/xbqP6.csv'; 
                 $array = $this->getPriceMetal($url);
                 $currency->rate = json_decode($array, true);
             }
