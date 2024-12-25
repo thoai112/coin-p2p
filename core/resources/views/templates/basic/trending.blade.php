@@ -98,7 +98,7 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
                                             
                                                 <h6 class="asset-compact-card__title">
-                                                    {{ $currency->rate[0] }}</h6>
+                                                    {{ print_r($currency->rate) }}</h6>
                                                 
                                             @endif
                                         </div>
