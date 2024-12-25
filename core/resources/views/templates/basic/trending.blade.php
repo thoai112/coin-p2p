@@ -522,8 +522,7 @@
                 }
                 let clickedCoin = $(this);
                 symbol_id = clickedCoin.data('id');
-                print_r(symbol_id);
-               
+                initalizeApi(symbol_id);
                 showLoading();
                 
             });
