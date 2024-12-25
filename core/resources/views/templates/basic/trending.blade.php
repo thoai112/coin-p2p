@@ -296,6 +296,7 @@
                 }
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
+                cleanupChart();
                 initalizeApi(trendingActivate);
                 initializeChart();
 
