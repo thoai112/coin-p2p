@@ -37,7 +37,7 @@
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
-                                        data-type="{{ $currency->type }}" data-rate="{{ $currency->rate }}">
+                                        data-type="{{ $currency->type }}" data-rate="{{ json_encode($currency->rate) }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
@@ -487,15 +487,23 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
+                        let clicked = $(this);
+                        const rateData = json_decode(clicked.data('rate'));
                         const dates = [];
-                        const points = [];
-                        @foreach ($currency->rate as $entry)
-                            dates.push('{{ $entry['timestamp'] }}');
-                            points.push('{{ $entry['rate'] }}');
-                        @endforeach
-                        chartData = dates.map((t, index) => ({
+                        const points= [];
+                        
+                        rateData.forEach(function(entry) {
+                            dates.push(entry.timestamp);
+                            points.push(entry.rate);
+                        });
+                        // foreach($rateData as $entry) {
+                        //     $dates[] = $entry['timestamp'];
+                        //     $points[] = $entry['rate'];
+                        //     $lastRate = $entry['rate'];
+                        // }
+                        chartData = $dates.map((t, index) => ({
                             time: t,
-                            value: points[index]
+                            value: $points[index]
                         }));
                     }
                     console.log(chartData);
