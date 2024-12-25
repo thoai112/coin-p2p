@@ -295,11 +295,10 @@
                     return;
                 }
                 let clickedCoin = $(this);
-                trendingActivate = clickedCoin.data('id');
-                showLoading();
+                trendingActivate = clickedCoin.data('id');\
+                cleanupChart();
                 initalizeApi(trendingActivate);
                 initializeChart();
-                hideLoading();
 
 
             });
