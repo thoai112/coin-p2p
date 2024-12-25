@@ -268,6 +268,9 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
+
+            let dates = {!! json_encode($dates) !!};
+            let points ={!! json_encode($points) !!};
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -487,9 +490,9 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
-                        chartData = {{$dates}}.map((t, index) => ({
+                        chartData = dates.map((t, index) => ({
                             time: t,
-                            value: {{$points}}[index]
+                            value: points[index]
                         }));
                     }
                     console.log(chartData);
