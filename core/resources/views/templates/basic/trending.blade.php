@@ -488,7 +488,7 @@
                         }));
                     } else {
                         let clicked = $(this);
-                        const rateData = json_decode(clicked.data('rate'));
+                        const rateData = JSON.parse(clicked.data('rate'));
                         const dates = [];
                         const points= [];
                         
