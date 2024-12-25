@@ -68,18 +68,38 @@
                                                         ->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
-                                                
+
                                                 {!! $svg !!}
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
-                                                <h6 class="asset-compact-card__title">
-                                                    {{ print_r($currency->rate) }}</h6>
+                                                @php
+                                                    $dates = [];
+                                                    $prices = [];
+
+                                                    foreach ($data as $entry) {
+                                                        $dates[] = $entry['Date'];
+                                                        $prices[] = $entry['Price per Ounce'];
+                                                    }
+
+                                                    $metal = LineChart::new($prices)
+                                                        ->withColorGradient(
+                                                            'rgb(48, 231, 237)',
+                                                            'rgb(0, 166, 215)',
+                                                            'rgb(0, 88, 179)',
+                                                            'rgb(0, 27, 135)',
+                                                        )
+                                                        ->withDimensions(110, 50)
+                                                        ->make();
+                                                @endphp
+                                                {{-- <h6 class="asset-compact-card__title">
+                                                    {{ print_r($currency->rate) }}</h6> --}}
+                                                     {!! $metal !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             <h6 class="asset-compact-card__title">
-                                                {{  $lastRate[4] ?? $currency->symbol }}</h6>
+                                                {{ $lastRate[4] ?? $currency->symbol }}</h6>
 
                                         </div>
                                     </div>
