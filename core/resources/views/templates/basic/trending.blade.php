@@ -60,7 +60,7 @@
                                                         $points[] = $currency->rate[$i][4];
                                                         $lastRate = $currency->rate[$i][4];
                                                     }
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)-2] *100;
 
                                                     $svg = LineChart::new($points)
                                                         ->withColorGradient(
@@ -85,7 +85,7 @@
                                                         $points[] = $entry['Price per Ounce'];
                                                         $lastRate = $entry['Price per Ounce'];
                                                     }
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)-2] *100;
 
                                                     $metal = LineChart::new($points)
                                                         ->withColorGradient(
@@ -120,7 +120,7 @@
                                                         )
                                                         ->withDimensions(110, 50)
                                                         ->make();
-                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) / $points[count($points)-2] *100;
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
