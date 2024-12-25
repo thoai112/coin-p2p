@@ -76,7 +76,7 @@
                                                     $dates = [];
                                                     $prices = [];
 
-                                                    foreach ($data as $entry) {
+                                                    foreach ($currency->rate as $entry) {
                                                         $dates[] = $entry['Date'];
                                                         $prices[] = $entry['Price per Ounce'];
                                                     }
