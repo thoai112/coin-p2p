@@ -470,7 +470,9 @@
                     tvLogo.style.display = 'none';
                 }
                 loadHistoricalData();
-                initializeWebSocket();
+                if (parseInt(trendingType, 5) === 2) {
+                    initializeWebSocket();
+                }
                 setupDirectionIndicators();
             }
 
@@ -490,7 +492,8 @@
                             value: value[index]
                         }));
                     }
-
+                    console.log(chartData);
+                        
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                             .time)) ===
                         i);
