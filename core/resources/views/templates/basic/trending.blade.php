@@ -60,7 +60,7 @@
                                                         $points[] = $currency->rate[$i][4];
                                                         $lastRate = $currency->rate[$i][4];
                                                     }
-                                                    $valueChange = end($points) - $points[count($points) - 2];
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
 
                                                     $svg = LineChart::new($points)
                                                         ->withColorGradient(
@@ -85,7 +85,7 @@
                                                         $points[] = $entry['Price per Ounce'];
                                                         $lastRate = $entry['Price per Ounce'];
                                                     }
-                                                    $valueChange = end($points) - $points[count($points) - 2];
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
 
                                                     $metal = LineChart::new($points)
                                                         ->withColorGradient(
@@ -120,7 +120,7 @@
                                                         )
                                                         ->withDimensions(110, 50)
                                                         ->make();
-                                                    $valueChange = end($points) - $points[count($points) - 2];
+                                                    $valueChange = (end($points) - $points[count($points) - 2]) /$points[count($points)] *100;
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
@@ -129,7 +129,7 @@
                                             <h6 class="asset-compact-card__title">
                                                 {{ $lastRate }}</h6>
 
-                                            <h6 class="asset-compact-card__title">{{ $valueChange }}</h6>
+                                            <h6 class="asset-compact-card__title">{{ $valueChange }} %</h6>
 
                                         </div>
                                     </div>
