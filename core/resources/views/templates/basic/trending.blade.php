@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h6>@lang('Trending') {{$defaultActive}}</h6>
+                    <h6>@lang('Trending') {{ $defaultActive }}</h6>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
@@ -258,7 +258,11 @@
                 let durationText = $(this).text();
                 countdownTimer.text(durationText);
             });
-            let trendingActivate = {{ $defaultActive }};
+            @if (isset($defaultActive))
+                let trendingActivate = {{ $defaultActive }};
+            @else
+                let trendingActivate = 0; // or any default value you prefer
+            @endif
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -300,8 +304,8 @@
                 console.log('sdfhjkg:', trendingActivate);
                 // initalizeApi(symbol_id);
                 // initializeChart();
-                
-                
+
+
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
 
