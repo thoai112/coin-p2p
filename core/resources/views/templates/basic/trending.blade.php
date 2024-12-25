@@ -498,12 +498,12 @@
                         const points= [];
                         if (parseInt(trendingType, 5) === 3) {
                             for (let i = 0; i < trendingRates.length; i++) {
-                                dates.push(trendingRates[i].Date);
+                                dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
                                 points.push(trendingRates[i]['Price per Ounce']);
                             }
                         } else{
                             for (let i = 0; i < trendingRates.length; i++) {
-                            dates.push(trendingRates[i].timestamp);
+                            dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
                             points.push(trendingRates[i].rate);
                         }
                         } 
