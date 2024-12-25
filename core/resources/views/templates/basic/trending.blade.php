@@ -492,9 +492,7 @@
                     } else {
                         
                         console.log(typeof trendingRates);
-                        if(typeof trendingRates == 'string'){
-                            trendingRates = JSON.parse(trendingRates);
-                        }
+                        console.log(trendingRates);
                         
                         const dates = [];
                         const points= [];
