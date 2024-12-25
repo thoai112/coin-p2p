@@ -37,7 +37,7 @@
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
-                                        data-type="{{ $currency->type }}">
+                                        data-type="{{ $currency->type }}" data-rate="{{ $currency->rate }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
@@ -123,7 +123,7 @@
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
-                                           
+
                                         </div>
                                         <div class="asset-compact-card__content">
                                             @php
@@ -268,9 +268,6 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
-
-            let dates = {!! json_encode($dates) !!};
-            let points ={!! json_encode($points) !!};
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -490,13 +487,19 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
+                        const dates = [];
+                        const points = [];
+                        @foreach ($currency->rate as $entry)
+                            dates.push('{{ $entry['timestamp'] }}');
+                            points.push('{{ $entry['rate'] }}');
+                        @endforeach
                         chartData = dates.map((t, index) => ({
                             time: t,
                             value: points[index]
                         }));
                     }
                     console.log(chartData);
-                        
+
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                             .time)) ===
                         i);
