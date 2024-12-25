@@ -492,6 +492,9 @@
                     } else {
                         
                         console.log(typeof trendingRates);
+                        if(typeof trendingRates == 'string'){
+                            trendingRates = JSON.parse(trendingRates);
+                        }
                         
                         const dates = [];
                         const points= [];
@@ -507,7 +510,7 @@
                         // }
                         chartData = dates.map((t, index) => ({
                             time: t,
-                            value: $points[index]
+                            value: points[index]
                         }));
                     }
                     console.log(chartData);
