@@ -268,7 +268,7 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
-            let trendingRates = {{ $defaultActive->type }};
+            let trendingRates = {{ $defaultActive->rate }};
             
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
@@ -505,7 +505,7 @@
                         //     $points[] = $entry['rate'];
                         //     $lastRate = $entry['rate'];
                         // }
-                        chartData = $dates.map((t, index) => ({
+                        chartData = dates.map((t, index) => ({
                             time: t,
                             value: $points[index]
                         }));
