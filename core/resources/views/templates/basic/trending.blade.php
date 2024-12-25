@@ -523,19 +523,9 @@
                 let clickedCoin = $(this);
                 symbol_id = clickedCoin.data('id');
                 print_r(symbol_id);
-                // let url = `{{ route('binary.trade.tab.update') }}/${coinPairId}`;
+               
                 showLoading();
-                // $.get(url, function(response) {
-                //         $('#show-currency-list').find('li .coinBtn').removeClass('active');
-                //         clickedCoin.addClass('active');
-                //         updatePageData(response);
-                //     })
-                //     .fail(function(xhr, status, error) {
-                //         notify('error', 'Something went wrong');
-                //     })
-                //     .always(function() {
-                //         hideLoading();
-                //     });
+                
             });
 
             $(document).ready(function() {
