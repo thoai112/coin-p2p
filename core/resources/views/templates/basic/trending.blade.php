@@ -395,7 +395,7 @@
                 };
             }
 
-            initalizeApi('btc_usdt');
+            initalizeApi(`${trendingActivate}_usdt`);
 
             function initalizeApi(activeCoin) {
 
