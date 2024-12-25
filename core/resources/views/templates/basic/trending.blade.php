@@ -298,15 +298,17 @@
 
             $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
                 e.stopPropagation();
-                // if (isTradeRunning) {
-                //     return;
-                // }
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
+                showLoading();
+                setTimeout(() => {
+                    hideLoading();
+                }, 1000);
                 cleanupChart();
-
                 initalizeApi(`${trendingActivate}_usdt`);
                 initializeChart();
+
+
 
 
             });
@@ -404,8 +406,7 @@
                     BINANCE_API_URL =
                         `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
                     BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
-                }
-                else{
+                } else {
                     let symbol = activeCoin.replace('_', '');
                     BINANCE_API_URL =
                         `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
