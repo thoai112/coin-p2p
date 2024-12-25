@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h6>@lang('Trending')</h6>
+                    <h6>@lang('Trending') </h6>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
@@ -36,7 +36,8 @@
 
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}" data-type="{{ $currency->type }}">
+                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
+                                        data-type="{{ $currency->type }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
@@ -122,6 +123,7 @@
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
+                                            <span>{{$dates}} </span>
                                         </div>
                                         <div class="asset-compact-card__content">
                                             @php
@@ -257,32 +259,32 @@
 @push('script')
     <script>
         (function($) {
-            "use strict";
+                "use strict";
 
-            let countdownTimer = $('.timer-value').eq(0);
-            $(document).on('click', '.trade-duration-presets__item', function(e) {
-                let durationText = $(this).text();
-                countdownTimer.text(durationText);
-            });
-            let trendingActivate = "{{ $defaultActive->symbol }}";
-            let trendingType = "{{ $defaultActive->type }}";
-            let BINANCE_API_URL;
-            let BINANCE_WEBSOCKET_URL;
-            let chart = null;
-            let lineSeries = null;
-            let areaSeries = null;
-            let lastPrice = 0;
-            let investmentPriceLine = null;
-            let webSocket = null;
-            let chartProperties = null;
-            let direction;
-            let dataIds = [];
-            let isTradeRunning = false;
+                let countdownTimer = $('.timer-value').eq(0);
+                $(document).on('click', '.trade-duration-presets__item', function(e) {
+                    let durationText = $(this).text();
+                    countdownTimer.text(durationText);
+                });
+                let trendingActivate = "{{ $defaultActive->symbol }}";
+                let trendingType = "{{ $defaultActive->type }}";
+                let BINANCE_API_URL;
+                let BINANCE_WEBSOCKET_URL;
+                let chart = null;
+                let lineSeries = null;
+                let areaSeries = null;
+                let lastPrice = 0;
+                let investmentPriceLine = null;
+                let webSocket = null;
+                let chartProperties = null;
+                let direction;
+                let dataIds = [];
+                let isTradeRunning = false;
 
 
 
-            function showLoading() {
-                $('body').append(`<div id="loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
+                function showLoading() {
+                    $('body').append(`<div id="loading-overlay" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999;">
                     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
                         <div class="spinner-border text-light" role="status" style="width: 3rem; height: 3rem;">
                             <span class="visually-hidden">Loading...</span>
@@ -290,269 +292,272 @@
                         <div style="color: white; margin-top: 1rem; font-size: 1.1rem;">Loading...</div>
                     </div>
                 </div>`);
-            }
+                }
 
-            function hideLoading() {
-                $('#loading-overlay').remove();
-            }
+                function hideLoading() {
+                    $('#loading-overlay').remove();
+                }
 
-            $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
-                e.stopPropagation();
-                let clickedCoin = $(this);
-                trendingActivate = clickedCoin.data('id');
-                trendingType = clickedCoin.data('type');
-                showLoading();
-                setTimeout(() => {
-                    hideLoading();
-                }, 700);
-                cleanupChart();
+                $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
+                    e.stopPropagation();
+                    let clickedCoin = $(this);
+                    trendingActivate = clickedCoin.data('id');
+                    trendingType = clickedCoin.data('type');
+                    showLoading();
+                    setTimeout(() => {
+                        hideLoading();
+                    }, 700);
+                    cleanupChart();
+                    initalizeApi(`${trendingActivate}_usdt`);
+                    initializeChart();
+
+
+
+
+                });
+                // chartPropertiesFunc(chartWidth,chartHeight)
+
+                function updateChartDimensions() {
+                    let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                    let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+                    if (chart) {
+                        chart.applyOptions({
+                            width: chartWidth,
+                            height: chartHeight
+                        });
+                    }
+                    cleanupChart();
+                    initializeChart();
+                }
+
+                $(window).on('resize', function() {
+                    updateChartDimensions();
+                });
+
+                function chartPropertiesFunc(width, height) {
+                    chartProperties = {
+                        width: width,
+                        height: height,
+                        timeScale: {
+                            timeVisible: true,
+                            secondsVisible: false,
+                            rightOffset: 100,
+                            barSpacing: 5,
+                            borderColor: '#363C4E',
+                            tickMarkFormatter: (time) => {
+                                const date = new Date(time * 1000);
+                                return date.toLocaleTimeString([], {
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    hour12: false,
+                                });
+                            },
+                        },
+                        leftPriceScale: {
+                            borderColor: '#363C4E',
+                        },
+                        layout: {
+                            background: {
+                                type: 'solid',
+                                color: 'transparent',
+                            },
+                            textColor: '#D1D4DC',
+                        },
+                        grid: {
+                            vertLines: {
+                                color: 'transparent',
+                            },
+                            horzLines: {
+                                color: 'transparent',
+                            },
+                        },
+                        crosshair: {
+                            mode: LightweightCharts.CrosshairMode.Normal,
+                            vertLine: {
+                                width: 1,
+                                color: `#{{ gs('base_color') }}`,
+                                style: LightweightCharts.LineStyle.Dashed,
+                                labelBackgroundColor: `#{{ gs('base_color') }}`,
+                            },
+                            horzLine: {
+                                width: 1,
+                                color: `#{{ gs('base_color') }}`,
+                                style: LightweightCharts.LineStyle.Dashed,
+                                labelBackgroundColor: `#{{ gs('base_color') }}`,
+                            },
+                        },
+                        handleScale: {
+                            mouseWheel: true,
+                            pinch: true,
+                            axisPressedMouseMove: true,
+                        },
+                        handleScroll: {
+                            mouseWheel: true,
+                            pressedMouseMove: true,
+                            horzTouchDrag: true,
+                            vertTouchDrag: true,
+                        }
+                    };
+                }
+
                 initalizeApi(`${trendingActivate}_usdt`);
-                initializeChart();
 
+                function initalizeApi(activeCoin) {
 
-
-
-            });
-            // chartPropertiesFunc(chartWidth,chartHeight)
-
-            function updateChartDimensions() {
-                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
-                if (chart) {
-                    chart.applyOptions({
-                        width: chartWidth,
-                        height: chartHeight
-                    });
-                }
-                cleanupChart();
-                initializeChart();
-            }
-
-            $(window).on('resize', function() {
-                updateChartDimensions();
-            });
-
-            function chartPropertiesFunc(width, height) {
-                chartProperties = {
-                    width: width,
-                    height: height,
-                    timeScale: {
-                        timeVisible: true,
-                        secondsVisible: false,
-                        rightOffset: 100,
-                        barSpacing: 5,
-                        borderColor: '#363C4E',
-                        tickMarkFormatter: (time) => {
-                            const date = new Date(time * 1000);
-                            return date.toLocaleTimeString([], {
-                                hour: '2-digit',
-                                minute: '2-digit',
-                                hour12: false,
-                            });
-                        },
-                    },
-                    leftPriceScale: {
-                        borderColor: '#363C4E',
-                    },
-                    layout: {
-                        background: {
-                            type: 'solid',
-                            color: 'transparent',
-                        },
-                        textColor: '#D1D4DC',
-                    },
-                    grid: {
-                        vertLines: {
-                            color: 'transparent',
-                        },
-                        horzLines: {
-                            color: 'transparent',
-                        },
-                    },
-                    crosshair: {
-                        mode: LightweightCharts.CrosshairMode.Normal,
-                        vertLine: {
-                            width: 1,
-                            color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Dashed,
-                            labelBackgroundColor: `#{{ gs('base_color') }}`,
-                        },
-                        horzLine: {
-                            width: 1,
-                            color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Dashed,
-                            labelBackgroundColor: `#{{ gs('base_color') }}`,
-                        },
-                    },
-                    handleScale: {
-                        mouseWheel: true,
-                        pinch: true,
-                        axisPressedMouseMove: true,
-                    },
-                    handleScroll: {
-                        mouseWheel: true,
-                        pressedMouseMove: true,
-                        horzTouchDrag: true,
-                        vertTouchDrag: true,
-                    }
-                };
-            }
-
-            initalizeApi(`${trendingActivate}_usdt`);
-
-            function initalizeApi(activeCoin) {
-
-                if (parseInt(trendingType, 5) === 2) {
-                    let symbol = activeCoin.replace('_', '');
-                    BINANCE_API_URL =
-                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
-                    BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
-                } else if (parseInt(trendingType, 5) === 1) {
-                    let symbol = activeCoin.replace('_', '');
-                    BINANCE_API_URL = null;
-                    BINANCE_WEBSOCKET_URL = null;
-                    console.log(trendingActivate);
-                }
-
-            }
-
-            function cleanupChart() {
-                if (webSocket) {
-                    webSocket.close();
-                    webSocket = null;
-                }
-                if (chart) {
-                    if (lineSeries) {
-                        chart.removeSeries(lineSeries);
-                        lineSeries = null;
-                    }
-                    if (areaSeries) {
-                        chart.removeSeries(areaSeries);
-                        areaSeries = null;
+                    if (parseInt(trendingType, 5) === 2) {
+                        let symbol = activeCoin.replace('_', '');
+                        BINANCE_API_URL =
+                            `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
+                        BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
                     }
 
-                    chart.remove();
-                    chart = null;
+                }
 
-                    const container = document.getElementById('chart-container');
-                    container.innerHTML = `
+                function cleanupChart() {
+                    if (webSocket) {
+                        webSocket.close();
+                        webSocket = null;
+                    }
+                    if (chart) {
+                        if (lineSeries) {
+                            chart.removeSeries(lineSeries);
+                            lineSeries = null;
+                        }
+                        if (areaSeries) {
+                            chart.removeSeries(areaSeries);
+                            areaSeries = null;
+                        }
+
+                        chart.remove();
+                        chart = null;
+
+                        const container = document.getElementById('chart-container');
+                        container.innerHTML = `
                                             <div id="countdown"></div>
                                             <div id="direction-indicator"></div>
                                         `;
+                    }
                 }
-            }
 
-            function initializeChart() {
-                let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+                function initializeChart() {
+                    let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
+                    let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
 
-                chartPropertiesFunc(chartWidth, chartHeight);
+                    chartPropertiesFunc(chartWidth, chartHeight);
 
-                chart = LightweightCharts.createChart(
-                    document.getElementById('chart-container'),
-                    chartProperties
-                );
+                    chart = LightweightCharts.createChart(
+                        document.getElementById('chart-container'),
+                        chartProperties
+                    );
 
-                lineSeries = chart.addLineSeries({
-                    color: '#02d428',
-                    lineWidth: 2,
-                    lastPriceAnimation: LightweightCharts.LastPriceAnimationMode.OnDataUpdate,
-                    lastValueVisible: false,
-                    priceLineVisible: false,
-                });
+                    lineSeries = chart.addLineSeries({
+                        color: '#02d428',
+                        lineWidth: 2,
+                        lastPriceAnimation: LightweightCharts.LastPriceAnimationMode.OnDataUpdate,
+                        lastValueVisible: false,
+                        priceLineVisible: false,
+                    });
 
-                areaSeries = chart.addAreaSeries({
-                    topColor: 'rgba(33, 150, 243, 0.56)',
-                    bottomColor: 'rgba(33, 150, 243, 0.04)',
-                    lineColor: `#{{ gs('base_color') }}`,
-                    lineWidth: 2,
-                });
+                    areaSeries = chart.addAreaSeries({
+                        topColor: 'rgba(33, 150, 243, 0.56)',
+                        bottomColor: 'rgba(33, 150, 243, 0.04)',
+                        lineColor: `#{{ gs('base_color') }}`,
+                        lineWidth: 2,
+                    });
 
-                const tvLogo = document.querySelector('#tv-attr-logo');
-                if (tvLogo) {
-                    tvLogo.style.display = 'none';
+                    const tvLogo = document.querySelector('#tv-attr-logo');
+                    if (tvLogo) {
+                        tvLogo.style.display = 'none';
+                    }
+                    loadHistoricalData();
+                    initializeWebSocket();
+                    setupDirectionIndicators();
                 }
-                loadHistoricalData();
-                initializeWebSocket();
-                setupDirectionIndicators();
-            }
 
-            async function loadHistoricalData() {
-                try {
-                    const response = await fetch(BINANCE_API_URL);
-                    const data = await response.json();
+                async function loadHistoricalData() {
+                    try {
+                        let chartData = [];
+                        if (parseInt(trendingType, 5) === 2) {
+                            const response = await fetch(BINANCE_API_URL);
+                            const data = await response.json();
+                            chartData = data.map(d => ({
+                                time: d[0] / 1000,
+                                value: parseFloat(d[4]),
+                            }));
+                        } else {
+                            data = @json($defaultActive->rate);
+                            chartData = data.map(d => ({
+                                time: d[0] / 1000,
+                                value: parseFloat(d[4]),
+                            }));
 
-                    const chartData = data.map(d => ({
-                        time: d[0] / 1000,
-                        value: parseFloat(d[4]),
-                    }));
+                            const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
+                                .time)) ===
+                                i);
 
-                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v.time)) ===
-                        i);
+                            lineSeries.setData(uniqueChartData);
+                            areaSeries.setData(uniqueChartData);
+                            lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
+                            chart.timeScale().fitContent();
 
-                    lineSeries.setData(uniqueChartData);
-                    areaSeries.setData(uniqueChartData);
-                    lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
-                    chart.timeScale().fitContent();
+                        } catch (error) {
+                            console.error('Error loading historical data:', error);
+                        }
+                    }
 
-                } catch (error) {
-                    console.error('Error loading historical data:', error);
-                }
-            }
+                    function initializeWebSocket() {
+                        webSocket = new WebSocket(BINANCE_WEBSOCKET_URL);
+                        webSocket.onmessage = handleWebSocketMessage;
+                    }
 
-            function initializeWebSocket() {
-                webSocket = new WebSocket(BINANCE_WEBSOCKET_URL);
-                webSocket.onmessage = handleWebSocketMessage;
-            }
+                    function handleWebSocketMessage(event) {
+                        const message = JSON.parse(event.data);
+                        const candlestick = message.k;
 
-            function handleWebSocketMessage(event) {
-                const message = JSON.parse(event.data);
-                const candlestick = message.k;
+                        lastPrice = parseFloat(candlestick.c);
 
-                lastPrice = parseFloat(candlestick.c);
+                        const newData = {
+                            time: candlestick.t / 1000,
+                            value: lastPrice,
+                        };
+                        updateChartData(newData);
+                    }
 
-                const newData = {
-                    time: candlestick.t / 1000,
-                    value: lastPrice,
-                };
-                updateChartData(newData);
-            }
+                    function updateChartData(newData) {
+                        lineSeries.update(newData);
+                        areaSeries.update(newData);
+                        if (investmentPriceLine) {
+                            updateInvestmentLine();
+                        }
+                    }
 
-            function updateChartData(newData) {
-                lineSeries.update(newData);
-                areaSeries.update(newData);
-                if (investmentPriceLine) {
-                    updateInvestmentLine();
-                }
-            }
+                    function updateInvestmentLine() {
 
-            function updateInvestmentLine() {
-
-                var color = direction == 'higher' ? 'green' : 'red';
-                lineSeries.removePriceLine(investmentPriceLine);
-                investmentPriceLine = lineSeries.createPriceLine({
-                    price: investmentPriceLine.options().price,
-                    color: color,
-                    lineWidth: 2,
-                    lineStyle: LightweightCharts.LineStyle.Dashed,
-                    axisLabelVisible: true,
-                    title: investmentPriceLine.options().title,
-                });
-            }
-
-
-            function convertToSeconds(time) {
-                let parts = time.split(":");
-                let minutes = parseInt(parts[0], 10);
-                let seconds = parseInt(parts[1], 10);
-                return (minutes * 60) + seconds;
-            }
-
-            $(document).ready(function() {
-                initializeChart();
-            });
+                        var color = direction == 'higher' ? 'green' : 'red';
+                        lineSeries.removePriceLine(investmentPriceLine);
+                        investmentPriceLine = lineSeries.createPriceLine({
+                            price: investmentPriceLine.options().price,
+                            color: color,
+                            lineWidth: 2,
+                            lineStyle: LightweightCharts.LineStyle.Dashed,
+                            axisLabelVisible: true,
+                            title: investmentPriceLine.options().title,
+                        });
+                    }
 
 
-        })(jQuery)
+                    function convertToSeconds(time) {
+                        let parts = time.split(":");
+                        let minutes = parseInt(parts[0], 10);
+                        let seconds = parseInt(parts[1], 10);
+                        return (minutes * 60) + seconds;
+                    }
+
+                    $(document).ready(function() {
+                        initializeChart();
+                    });
+
+
+                })(jQuery)
     </script>
 @endpush
