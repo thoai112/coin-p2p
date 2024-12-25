@@ -258,7 +258,7 @@
                 let durationText = $(this).text();
                 countdownTimer.text(durationText);
             });
-
+            let trendingActivate = $('.nav-horizontal-menu__item').eq(0);
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -289,6 +289,19 @@
                 $('#loading-overlay').remove();
             }
 
+            $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
+                e.stopPropagation();
+                if (isTradeRunning) {
+                    return;
+                }
+                let clickedCoin = $(this);
+                const symbol_id = clickedCoin.data('id');
+                showLoading();
+                initalizeApi(symbol_id);
+                initializeChart();
+                
+                
+            });
             // chartPropertiesFunc(chartWidth,chartHeight)
 
             function updateChartDimensions() {
@@ -514,20 +527,6 @@
                 let seconds = parseInt(parts[1], 10);
                 return (minutes * 60) + seconds;
             }
-
-            $(document).on('click', '.nav-horizontal-menu__item .coinBtn', function(e) {
-                e.stopPropagation();
-                if (isTradeRunning) {
-                    return;
-                }
-                let clickedCoin = $(this);
-                symbol_id = clickedCoin.data('id');
-                showLoading();
-                initalizeApi(symbol_id);
-                initializeChart();
-                
-                
-            });
 
             $(document).ready(function() {
                 initializeChart();

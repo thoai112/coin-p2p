@@ -70,6 +70,7 @@ class SiteController extends Controller
             ->take($request->limit ?? 50)
             ->get();
         $trendingx = $this->getValueTrending($currencies);
+        $defaultActive = $currencies->first()->symbol;
 
         return view('Template::trending', compact('pageTitle', 'sections', 'currencies', 'total'));
     }
