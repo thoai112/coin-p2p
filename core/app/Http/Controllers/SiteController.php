@@ -81,6 +81,7 @@ class SiteController extends Controller
                 {
                     $query = CowCurrency::TimeOrdering()->select(['timestamp', 'rate'])->get();
                     $currency->rate = $query;
+                    
                 }
             elseif ($currency->type == Status::TRENDINGTYPE_CRYPTO)
             {
