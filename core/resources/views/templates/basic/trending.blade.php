@@ -53,12 +53,15 @@
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
                                                 @php
                                                     $lastRate = null;
+                                                    $dates = [];
                                                     $points = [];
                                                     for ($i = 0; $i < count($currency->rate); $i++) {
-                                                        $last = $currency->rate[$i];
-                                                        $points[] = $last[4];
-                                                        $lastRate = $last[4];
+                                                        $dates[] = $currency->rate[$i][0];
+                                                        $points[] = $currency->rate[$i][4];
+                                                        $lastRate = $currency->rate[$i][4];
                                                     }
+                                                    $valueChange = end($points) - $points[count($points) - 2];
+
                                                     $svg = LineChart::new($points)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
@@ -74,16 +77,17 @@
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
                                                 @php
-                                                    $dates = [];
-                                                    $prices = [];
                                                     $lastRate = null;
+                                                    $dates = [];
+                                                    $points = [];
                                                     foreach ($currency->rate as $entry) {
                                                         $dates[] = $entry['Date'];
-                                                        $prices[] = $entry['Price per Ounce'];
+                                                        $points[] = $entry['Price per Ounce'];
                                                         $lastRate = $entry['Price per Ounce'];
                                                     }
+                                                    $valueChange = end($points) - $points[count($points) - 2];
 
-                                                    $metal = LineChart::new($prices)
+                                                    $metal = LineChart::new($points)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
                                                             'rgb(0, 166, 215)',
@@ -97,16 +101,18 @@
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
                                                 @php
-                                                    $cowTimes = [];
-                                                    $cowPrices = [];
+                                                    $lastRate = null;
+                                                    $dates = [];
+                                                    $points = [];
+                                
 
                                                     foreach ($currency->rate as $entry) {
-                                                        $cowTimes[] = $entry['timestamp'];
-                                                        $cowPrices[] = $entry['rate'];
+                                                        $dates[] = $entry['timestamp'];
+                                                        $points[] = $entry['rate'];
                                                         $lastRate = $entry['rate'];
                                                     }
 
-                                                    $cow = LineChart::new($cowPrices)
+                                                    $cow = LineChart::new($points)
                                                         ->withColorGradient(
                                                             'rgb(48, 231, 237)',
                                                             'rgb(0, 166, 215)',
@@ -115,14 +121,16 @@
                                                         )
                                                         ->withDimensions(110, 50)
                                                         ->make();
+                                                    $valueChange = end($points) - $points[count($points) - 2];
                                                 @endphp
                                                 {!! $cow !!}
                                             @endif
                                         </div>
                                         <div class="asset-compact-card__content">
-                                            <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             <h6 class="asset-compact-card__title">
-                                                {{ $lastRate}}</h6>
+                                                {{ $lastRate }}</h6>
+
+                                            <h6 class="asset-compact-card__title">{{ $valueChange }}</h6>
 
                                         </div>
                                     </div>
