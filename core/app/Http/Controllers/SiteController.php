@@ -79,7 +79,7 @@ class SiteController extends Controller
         foreach ($currencies as $currency) {
             if ($currency->type == Status::TRENDINGTYPE_COW)
                 {
-                    $query = CowCurrency::select(['timestamp', 'rate'])->TimeOrdering()->get();
+                    $query = CowCurrency::select(['timestamp', 'rate'])->get();
                     $currency->rate = $query;
                     
                 }
