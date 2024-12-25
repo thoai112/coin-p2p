@@ -36,7 +36,7 @@
 
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}">
+                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}" data-type="{{ $currency->type }}">
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
@@ -300,6 +300,7 @@
                 e.stopPropagation();
                 let clickedCoin = $(this);
                 trendingActivate = clickedCoin.data('id');
+                trendingType = clickedCoin.data('type');
                 showLoading();
                 setTimeout(() => {
                     hideLoading();
