@@ -298,7 +298,7 @@
                 trendingActivate = clickedCoin.data('id');
                 cleanupChart();
  
-                initalizeApi(`{{$trendingActivate}}_usdt`);
+                initalizeApi(`${trendingActivate}_usdt`);
                 initializeChart();
 
 
