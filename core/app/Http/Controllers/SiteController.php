@@ -95,7 +95,7 @@ class SiteController extends Controller
                 $response = CurlRequest::curlContent($url, $headers);
                 $array = json_decode($response, true);
 
-                $currency->rate = $array;
+                $currency->rate = $array['batchList'];
             }
                 
         }
