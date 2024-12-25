@@ -90,7 +90,7 @@ class SiteController extends Controller
             {
                 $url = 'https://static.dwcdn.net/data/q7hEo.csv';
                 $array = $this->getPriceMetal($url);
-                $currency->rate = $array;
+                $currency->rate = json_decode($array, true);
             }
                 
         }
