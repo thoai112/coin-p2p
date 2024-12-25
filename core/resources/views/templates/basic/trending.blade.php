@@ -137,7 +137,9 @@
                                             @endphp
                                             <h6 class="asset-compact-card__title">
                                                 {{ $lastRate }}</h6>
-                                            <h6 class="asset-compact-card__title">{{ $valueChange }} %</h6>
+                                                <h6 class="asset-compact-card__title" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
+                                                    {{ $valueChange }} %
+                                                </h6>
 
                                         </div>
                                     </div>
