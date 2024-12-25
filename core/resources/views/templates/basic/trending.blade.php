@@ -489,6 +489,7 @@
                     } else {
                         let clicked = $(this);
                         const rateData = clicked.data('rate');
+                        console.log(typeof rateData);
                         const dates = [];
                         const points= [];
                         
