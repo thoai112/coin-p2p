@@ -55,8 +55,9 @@
                                                     $lastRate = null;
                                                     $points = [];
                                                     for ($i = 0; $i < count($currency->rate); $i++) {
-                                                        $lastRate = $currency->rate[$i];
-                                                        $points[] = $lastRate[4];
+                                                        $last = $currency->rate[$i];
+                                                        $points[] = $last[4];
+                                                        $lastRate = $last[4];
                                                     }
                                                     $svg = LineChart::new($points)
                                                         ->withColorGradient(
@@ -75,10 +76,11 @@
                                                 @php
                                                     $dates = [];
                                                     $prices = [];
-
+                                                    $lastRate = null;
                                                     foreach ($currency->rate as $entry) {
                                                         $dates[] = $entry['Date'];
                                                         $prices[] = $entry['Price per Ounce'];
+                                                        $lastRate = $entry['Price per Ounce'];
                                                     }
 
                                                     $metal = LineChart::new($prices)
@@ -91,8 +93,6 @@
                                                         ->withDimensions(110, 50)
                                                         ->make();
                                                 @endphp
-                                                <h6 class="asset-compact-card__title">
-                                                    {{ gettype($currency->rate) }}</h6>
                                                 {!! $metal !!}
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
@@ -103,6 +103,7 @@
                                                     foreach ($currency->rate as $entry) {
                                                         $cowTimes[] = $entry['timestamp'];
                                                         $cowPrices[] = $entry['rate'];
+                                                        $lastRate = $entry['rate'];
                                                     }
 
                                                     $cow = LineChart::new($cowPrices)
@@ -121,7 +122,7 @@
                                         <div class="asset-compact-card__content">
                                             <h6 class="asset-compact-card__title">{{ $currency->name }}</h6>
                                             <h6 class="asset-compact-card__title">
-                                                {{ $lastRate[4] ?? $currency->symbol }}</h6>
+                                                {{ $lastRate}}</h6>
 
                                         </div>
                                     </div>
