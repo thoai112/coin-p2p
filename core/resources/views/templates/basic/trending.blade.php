@@ -268,7 +268,7 @@
             });
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
-            let trendingRates = {{ $defaultActive->rate }};
+            let trendingRates = "{{ $defaultActive->rate }}";
             
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
@@ -492,7 +492,7 @@
                     } else {
                         
                         console.log(typeof trendingRates);
-                        console.log(trendingRates);
+                        
                         const dates = [];
                         const points= [];
                         
