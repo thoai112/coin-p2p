@@ -88,18 +88,36 @@ class SiteController extends Controller
             }   
             else 
             {
-                $url = "https://www.xe.com/api/protected/charting-rates/?fromCurrency=".strtoupper($currency->symbol).".&toCurrency=USD&crypto=true";
-                $headers = [
-                    'Authorization:Basic bG9kZXN0YXI6cHVnc25heA==',
-                ];
-                $response = CurlRequest::curlContent($url, $headers);
-                $array = json_decode($response, true);
-
-                $currency->rate = $array['batchList'];
+                $url = 'https://static.dwcdn.net/data/q7hEo.csv';
+                $array = $this->getPriceMetal($url);
+                $currency->rate = $array;
             }
                 
         }
         return $currencies;
+    }
+
+    
+   
+    private function getPriceMetal($url) {
+        
+        $csv = file_get_contents($url);
+        
+        $lines = explode(PHP_EOL, $csv);
+        $headers = str_getcsv(array_shift($lines));
+        
+        $data = array();
+        foreach ($lines as $line) {
+            if (!empty($line)) {
+                $row = array();
+                $fields = str_getcsv($line);
+                foreach ($headers as $i => $header) {
+                    $row[$header] = $fields[$i];
+                }
+                $data[] = $row;
+            }
+        }
+        return json_encode($data, JSON_PRETTY_PRINT);
     }
 
     public function contactSubmit(Request $request)
