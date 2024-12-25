@@ -522,8 +522,10 @@
                 }
                 let clickedCoin = $(this);
                 symbol_id = clickedCoin.data('id');
-                initalizeApi(symbol_id);
                 showLoading();
+                initalizeApi(symbol_id);
+                initializeChart();
+                
                 
             });
 
