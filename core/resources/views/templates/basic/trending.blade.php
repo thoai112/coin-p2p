@@ -498,8 +498,8 @@
                         const points= [];
                         
                         for (let i = 0; i < trendingRates.length; i++) {
-                            dates.push(trendingRates.timestamp);
-                            points.push(trendingRates.rate);
+                            dates.push(trendingRates[i].timestamp);
+                            points.push(trendingRates[i].rate);
                         }
                        
                         chartData = dates.map((t, index) => ({
