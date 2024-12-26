@@ -549,9 +549,6 @@
                 };
                 updateChartData(newData);
 
-                document.querySelectorAll('.lastRate').forEach((element) => {
-                    element.textContent = lastPrice.toFixed(2);
-                });
             }
 
             function updateChartData(newData) {
