@@ -19,6 +19,8 @@
                         </span>
                     </div>
                     <div class="trade-section__block two">
+                        <span>@lang('Value')</span>
+                        <span>@lang('Amount')</span>
                         <div class="time-selection">
                             <label for="time-period">@lang('Choose Time Period:')</label>
                             <select id="time-period" name="time-period">
@@ -28,8 +30,6 @@
                                 <option value="30d">@lang('30 Days')</option>
                             </select>
                         </div>
-                        <span>@lang('Value')</span>
-                        <span>@lang('Amount')</span>
                     </div>
                     <div id="chart-container">
                         <div id="countdown"></div>
@@ -267,6 +267,8 @@
         }
 
         .time-selection {
+            display: flex;
+            align-items: center;
             margin-top: 20px;
         }
 
