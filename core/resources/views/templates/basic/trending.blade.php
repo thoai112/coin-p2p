@@ -69,7 +69,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(180, 50)
+                                                        ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
 
@@ -93,7 +93,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(180, 50)
+                                                        ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
                                                 {!! $metal !!}
@@ -117,7 +117,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(180, 50)
+                                                        ->withDimensions(150, 50)
                                                         ->make();
 
                                                 @endphp
@@ -125,7 +125,7 @@
                                             @endif
 
                                         </div>
-                                        <div class="asset-compact-card__rate">
+                                        <div class="asset-compact-card__content">
                                             @php
                                                 $lastRate = round($lastRate, 4);
                                                 $valueChange = round(
