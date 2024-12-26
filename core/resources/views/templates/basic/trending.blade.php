@@ -135,9 +135,9 @@
                                                     2,
                                                 );
                                             @endphp
-                                            <h6 class="asset-compact-card__title">
+                                            <h6 class="asset-compact-card__rate">
                                                 {{ $lastRate }}</h6>
-                                                <h6 class="asset-compact-card__title" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
+                                                <h6 class="asset-compact-card__rate" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
                                                     {{ $valueChange }} %
                                                 </h6>
 
@@ -555,6 +555,7 @@
                 if (investmentPriceLine) {
                     updateInvestmentLine();
                 }
+
             }
 
             function updateInvestmentLine() {
