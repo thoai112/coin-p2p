@@ -265,6 +265,22 @@
         .table tbody tr td:nth-last-child(3) {
             color: hsl(var(--white) / 0.7);
         }
+
+        .time-selection {
+            margin-top: 20px;
+        }
+
+        .time-selection label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .time-selection select {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
     </style>
 @endpush
 
