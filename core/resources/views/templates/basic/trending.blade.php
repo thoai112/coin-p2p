@@ -69,7 +69,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(110, 50)
+                                                        ->withDimensions(180, 50)
                                                         ->make();
                                                 @endphp
 
@@ -93,7 +93,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(110, 50)
+                                                        ->withDimensions(180, 50)
                                                         ->make();
                                                 @endphp
                                                 {!! $metal !!}
@@ -117,7 +117,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(110, 50)
+                                                        ->withDimensions(180, 50)
                                                         ->make();
 
                                                 @endphp
@@ -125,7 +125,7 @@
                                             @endif
 
                                         </div>
-                                        <div class="asset-compact-card__content">
+                                        <div class="asset-compact-card__rate">
                                             @php
                                                 $lastRate = round($lastRate, 4);
                                                 $valueChange = round(
@@ -135,9 +135,9 @@
                                                     2,
                                                 );
                                             @endphp
-                                            <h6 class="asset-compact-card__rate">
+                                            <h6 class="asset-compact-card__title">
                                                 {{ $lastRate }}</h6>
-                                                <h6 class="asset-compact-card__rate" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
+                                                <h6 class="asset-compact-card__title" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
                                                     {{ $valueChange }} %
                                                 </h6>
 
