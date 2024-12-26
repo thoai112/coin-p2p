@@ -779,7 +779,7 @@ body {
   font-weight: 500;
   line-height: 1;
   text-transform: uppercase;
-  margin-bottom: 0;
+  margin:8px 0;
   color: hsl(var(--gray-l-100));
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -795,26 +795,6 @@ body {
   }
 }
 
-.asset-compact-card__rate {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1;
-  text-transform: uppercase;
-  margin-bottom: 0;
-  color: hsl(var(--gray-l-100));
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: end;
-}
-
-@media screen and (max-width: 575px) {
-  .asset-compact-card__title {
-    font-size: 0.75rem;
-  }
-}
 
 .asset-compact-card__percentage {
   font-size: 0.875rem;
