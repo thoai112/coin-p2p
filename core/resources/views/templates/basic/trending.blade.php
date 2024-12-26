@@ -19,6 +19,15 @@
                         </span>
                     </div>
                     <div class="trade-section__block two">
+                        <div class="time-selection">
+                            <label for="time-period">@lang('Choose Time Period:')</label>
+                            <select id="time-period" name="time-period">
+                                <option value="1h">@lang('1 Hour')</option>
+                                <option value="24h">@lang('24 Hours')</option>
+                                <option value="7d">@lang('7 Days')</option>
+                                <option value="30d">@lang('30 Days')</option>
+                            </select>
+                        </div>
                         <span>@lang('Value')</span>
                         <span>@lang('Amount')</span>
                     </div>
