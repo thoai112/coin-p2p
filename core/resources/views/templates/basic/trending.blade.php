@@ -135,11 +135,12 @@
                                                     2,
                                                 );
                                             @endphp
-                                            <h6 class="asset-compact-card__title">
+                                            <h6 class="asset-compact-card__title lastRate">
                                                 {{ $lastRate }}</h6>
-                                                <h6 class="asset-compact-card__title" style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
-                                                    {{ $valueChange }} %
-                                                </h6>
+                                            <h6 class="asset-compact-card__title"
+                                                style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
+                                                {{ $valueChange }} %
+                                            </h6>
 
                                         </div>
                                     </div>
@@ -271,7 +272,7 @@
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
             let trendingRates = @json($defaultActive->rate);
-            
+
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
             let chart = null;
@@ -492,24 +493,24 @@
                             value: parseFloat(d[4]),
                         }));
                     } else {
-                        
+
                         console.log(typeof trendingRates);
                         console.log(trendingRates);
-                        
+
                         const dates = [];
-                        const points= [];
+                        const points = [];
                         if (parseInt(trendingType, 5) === 3) {
                             for (let i = 0; i < trendingRates.length; i++) {
                                 dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
                                 points.push(trendingRates[i]['Price per Ounce']);
                             }
-                        } else{
+                        } else {
                             for (let i = 0; i < trendingRates.length; i++) {
-                            dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
-                            points.push(trendingRates[i].rate);
+                                dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
+                                points.push(trendingRates[i].rate);
+                            }
                         }
-                        } 
-                        
+
                         chartData = dates.map((t, index) => ({
                             time: t,
                             value: points[index]
@@ -547,6 +548,10 @@
                     value: lastPrice,
                 };
                 updateChartData(newData);
+
+                document.querySelectorAll('.lastRate').forEach((element) => {
+                    element.textContent = lastPrice.toFixed(2);
+                });
             }
 
             function updateChartData(newData) {
@@ -570,6 +575,7 @@
                     axisLabelVisible: true,
                     title: investmentPriceLine.options().title,
                 });
+
             }
 
 
