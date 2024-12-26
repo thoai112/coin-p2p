@@ -266,20 +266,24 @@
             color: hsl(var(--white) / 0.7);
         }
 
+
         .time-selection {
             display: flex;
             align-items: center;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .time-selection label {
             font-weight: bold;
             margin-right: 10px;
+            flex: 1 1 100%;
         }
 
         .time-period-options {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .time-period-option {
@@ -288,6 +292,8 @@
             border-radius: 5px;
             font-size: 14px;
             cursor: pointer;
+            flex: 1 1 auto;
+            text-align: center;
         }
 
         .time-period-option:hover {
@@ -297,6 +303,33 @@
         .time-period-option.active {
             background-color: #007bff;
             color: white;
+        }
+
+        @media (max-width: 768px) {
+            .time-selection {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .time-selection label {
+                margin-bottom: 10px;
+            }
+
+            .time-period-options {
+                width: 100%;
+            }
+
+            .time-period-option {
+                flex: 1 1 45%;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .time-period-option {
+                flex: 1 1 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 @endpush
