@@ -23,12 +23,12 @@
                         <span>@lang('Amount')</span>
                         <div class="time-selection">
                             <label for="time-period">@lang('Choose Time Period:')</label>
-                            <select id="time-period" name="time-period">
-                                <option value="1h">@lang('1 Hour')</option>
-                                <option value="24h">@lang('24 Hours')</option>
-                                <option value="7d">@lang('7 Days')</option>
-                                <option value="30d">@lang('30 Days')</option>
-                            </select>
+                            <div id="time-period" class="time-period-options">
+                                <div class="time-period-option" data-value="1h">@lang('1 Hour')</div>
+                                <div class="time-period-option" data-value="24h">@lang('24 Hours')</div>
+                                <div class="time-period-option" data-value="7d">@lang('7 Days')</div>
+                                <div class="time-period-option" data-value="30d">@lang('30 Days')</div>
+                            </div>
                         </div>
                     </div>
                     <div id="chart-container">
@@ -277,11 +277,26 @@
             margin-right: 10px;
         }
 
-        .time-selection select {
+        .time-period-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .time-period-option {
             padding: 5px 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 14px;
+            cursor: pointer;
+        }
+
+        .time-period-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .time-period-option.active {
+            background-color: #007bff;
+            color: white;
         }
     </style>
 @endpush
