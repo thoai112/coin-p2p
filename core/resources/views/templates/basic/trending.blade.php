@@ -22,12 +22,12 @@
                         <span>@lang('Value')</span>
                         <span>@lang('Amount')</span>
                         <div class="time-selection">
-                            <label for="time-period">@lang('Choose Time Period:')</label>
                             <div id="time-period" class="time-period-options">
-                                <div class="time-period-option" data-value="1h">@lang('1 Hour')</div>
-                                <div class="time-period-option" data-value="24h">@lang('24 Hours')</div>
-                                <div class="time-period-option" data-value="7d">@lang('7 Days')</div>
-                                <div class="time-period-option" data-value="30d">@lang('30 Days')</div>
+                                <div class="time-period-option" data-value="1m">@lang('1m')</div>
+                                <div class="time-period-option" data-value="1d">@lang('1d')</div>
+                                <div class="time-period-option" data-value="5d">@lang('5d')</div>
+                                <div class="time-period-option" data-value="1M">@lang('1M')</div>
+                                <div class="time-period-option" data-value="1y">@lang('1Y')</div>
                             </div>
                         </div>
                     </div>
