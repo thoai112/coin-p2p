@@ -237,7 +237,7 @@ class CurrencyController extends Controller
         // $date = Carbon::parse(trim($checkDate))->format('Y-m-d');
         $parameters = [
             'from' => $request->from ?? 'USD',
-            'date' => Carbon::parse(trim($request->date))->format('Y-m-d') ?? Carbon::parse(trim(now()))->format('Y-m-d'),
+            'date' => Carbon::parse(trim($request->date))->format('Y-m-d'),// ?? Carbon::parse(trim(now()))->format('Y-m-d'),
         ];
 
         try {
