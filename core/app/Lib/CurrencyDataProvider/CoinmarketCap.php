@@ -401,7 +401,13 @@ class CoinmarketCap extends CurrencyDataProvider
             $newCowCurrencies ->name = 'COW';
             $newCowCurrencies ->symbol = 'COW';
             $newCowCurrencies ->timestamp = $checkDate;
-            $newCowCurrencies ->rate = $currencies->avg('rate');
+
+            // Calculate the average rate manually
+            $rates = array_column($cowHistories, 'price');
+            $averageRate = array_sum($rates) / count($rates);
+            $newCowCurrencies ->rate = $averageRate;
+
+
             $newCowCurrencies ->created_at = $now;
             $newCowCurrencies ->updated_at = $now;
             $newCowCurrencies ->save();
