@@ -884,7 +884,7 @@ body {
   scroll-behavior: smooth;
   flex-direction: column;
   width:300px;
-  height: 400px;
+  height: 450px;
   scrollbar-width: none;
   gap: 10px;
 }
