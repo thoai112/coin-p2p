@@ -380,7 +380,7 @@ class SiteController extends Controller
         $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
 
         if ($formattedRequestDate === $formattedDateTime) {
-            $query      = Currency::active()->cow()->symbolOrdering()->searchable(['name', 'symbol']);
+            $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
         } else {
