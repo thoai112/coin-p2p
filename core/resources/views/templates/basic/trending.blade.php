@@ -570,11 +570,10 @@
                         }));
                     } else {
 
-                        console.log(typeof trendingRates);
-                        console.log(trendingRates);
-
                         const dates = [];
                         const points = [];
+                        let filteredDates;
+                        let filteredPoints;
                         if (parseInt(trendingType, 5) === 3) {
                             for (let i = 0; i < trendingRates.length; i++) {
                                 dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
@@ -597,7 +596,7 @@
                                 filteredDates = dates.slice(-7);
                                 filteredPoints = points.slice(-7);
                                 break;
-                            case '1m':
+                            case '1M':
                                 // Filter for the last 1 month (assuming 30 days)
                                 filteredDates = dates.slice(-30);
                                 filteredPoints = points.slice(-30);
