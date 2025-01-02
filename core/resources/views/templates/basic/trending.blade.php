@@ -347,6 +347,7 @@
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
             let trendingRates = @json($defaultActive->rate);
+            let selectedTimePeriod = '7d';
 
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
@@ -585,13 +586,32 @@
                                 points.push(trendingRates[i].rate);
                             }
                         }
+                        switch (selectedTimePeriod) {
+                            case '24h':
+                                // Filter for the last 24 hours
+                                filteredDates = dates.slice(-24);
+                                filteredPoints = points.slice(-24);
+                                break;
+                            case '7d':
+                                // Filter for the last 7 days
+                                filteredDates = dates.slice(-7);
+                                filteredPoints = points.slice(-7);
+                                break;
+                            case '1m':
+                                // Filter for the last 1 month (assuming 30 days)
+                                filteredDates = dates.slice(-30);
+                                filteredPoints = points.slice(-30);
+                                break;
+                            default:
+                                // Handle default case
+                                break;
+                        }
 
-                        chartData = dates.map((t, index) => ({
+                        chartData = filteredDates.map((t, index) => ({
                             time: t,
-                            value: points[index]
+                            value: filteredPoints[index]
                         }));
                     }
-                    console.log(chartData);
 
                     const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                             .time)) ===
