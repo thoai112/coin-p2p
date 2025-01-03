@@ -632,14 +632,27 @@
                         }));
                     }
 
-                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
-                            .time)) ===
-                        i);
+                    // const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
+                    //         .time)) ===
+                    //     i);
 
-                    lineSeries.setData(uniqueChartData);
-                    areaSeries.setData(uniqueChartData);
-                    lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
-                    chart.timeScale().fitContent();
+                    // lineSeries.setData(uniqueChartData);
+                    // areaSeries.setData(uniqueChartData);
+                    // lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
+                    // chart.timeScale().fitContent();
+
+                    if(uniqueChartData.length > 0) {
+                        lineSeries.setData(uniqueChartData);
+                        areaSeries.setData(uniqueChartData);
+                        lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
+                        chart.timeScale().fitContent();
+                    } else {
+                        // Handle the case where there is no data
+                        // lineSeries.setData([]);
+                        // areaSeries.setData([]);
+                        lastPrice = null;
+                        // Optionally, you can display a message or handle the UI to indicate no data
+                    }
 
                 } catch (error) {
                     console.error('Error loading historical data:', error);
