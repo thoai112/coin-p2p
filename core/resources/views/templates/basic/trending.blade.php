@@ -492,14 +492,14 @@
                 };
             }
 
-            initalizeApi(`${trendingActivate}_usdt`);
+            initalizeApi(`${trendingActivate}_usdt`,selectedTimePeriod);
 
-            function initalizeApi(activeCoin) {
+            function initalizeApi(activeCoin, timePeriod) {
 
                 if (parseInt(trendingType, 5) === 2) {
                     let symbol = activeCoin.replace('_', '');
                     BINANCE_API_URL =
-                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=1s&limit=2000`;
+                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=${timePeriod}&limit=2000`;
                     BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
                 }
 
