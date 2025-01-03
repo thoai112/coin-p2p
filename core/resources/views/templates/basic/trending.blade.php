@@ -646,8 +646,12 @@
                         lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                         chart.timeScale().fitContent();
                     }else{
-
-                        document.getElementById('noDataMessage').style.display = 'block';
+                        const noData = document.getElementById('noDataMessage');
+                        
+                        noData.innerHTML = `
+                                            <div id="noDataMessage" style="display: none;">No data found</div>
+                                        `;
+                        
                     }
 
 
