@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="trade-section__right">
-                    <h6 class="title-trending">@lang('Trending') </h6>
+                    <h6 class="title-trending">@lang('List Trending') </h6>
                     <nav class="nav-horizontal">
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
@@ -180,12 +180,10 @@
 @push('style')
     <style>
         .title-trending {
-            font-size: 20px;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 20px;
             display: flex;
-            justify-content: space-between;
-            justify-items: center;
+            justify-content: center;
         }
         #chart-container {
             width: 100%;
