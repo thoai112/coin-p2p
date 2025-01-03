@@ -61,8 +61,7 @@
                         @endif
                     </li>
                     <li class="nav-item">
-                        <i class="las la-home"></i>
-                        <a class="nav-link" href="/trending">@lang('HOME')</a>
+                        <a class="nav-link" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
 
                     </li>
 
