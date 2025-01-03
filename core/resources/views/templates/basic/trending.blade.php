@@ -33,6 +33,7 @@
                         </div>
                     </div>
                     <div id="chart-container">
+                        <div id="noDataMessage" style="display: none;">No data found</div>
                         <div id="countdown"></div>
                         <div id="direction-indicator"></div>
                     </div>
@@ -640,13 +641,13 @@
                                 .time)) ===
                             i);
 
-
                         lineSeries.setData(uniqueChartData);
                         areaSeries.setData(uniqueChartData);
                         lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                         chart.timeScale().fitContent();
                     }else{
-                        console.log('No data found');
+
+                        document.getElementById('noDataMessage').style.display = 'block';
                     }
 
 
