@@ -336,8 +336,9 @@
         }
 
         @media (max-width: 991px){
-            .time-period-options {
-                width: 70%;
+            .time-period-option {
+                font-size: 12px;
+                padding: 3px 10px;
             }
 
         }
