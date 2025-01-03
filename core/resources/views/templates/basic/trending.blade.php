@@ -27,7 +27,7 @@
                                 <div class="time-period-option" data-value="1d">@lang('24h')</div>
                                 <div class="time-period-option" data-value="7d">@lang('7d')</div>
                                 <div class="time-period-option" data-value="1M">@lang('1M')</div>
-                                <div class="time-period-option" data-value="1y">@lang('1Y')</div>
+                                <div class="time-period-option" data-value="1Y">@lang('1Y')</div>
                                 <div class="time-period-option" data-value="all">@lang('ALL')</div>
                             </div>
                         </div>
@@ -598,8 +598,8 @@
                         switch (selectedTimePeriod) {
                             case '24h':
                                 // Filter for the last 24 hours
-                                filteredDates = dates.slice(-24);
-                                filteredPoints = points.slice(-24);
+                                // filteredDates = dates.slice(-24);
+                                // filteredPoints = points.slice(-24);
                                 break;
                             case '7d':
                                 // Filter for the last 7 days
@@ -610,6 +610,16 @@
                                 // Filter for the last 1 month (assuming 30 days)
                                 filteredDates = dates.slice(-30);
                                 filteredPoints = points.slice(-30);
+                                break;
+                            case '1Y':
+                                // Filter for the last 1 year (assuming 365 days)
+                                filteredDates = dates.slice(-365);
+                                filteredPoints = points.slice(-365);
+                                break;
+                            case 'all':
+                                // Show all data
+                                filteredDates = dates;
+                                filteredPoints = points;
                                 break;
                             default:
                                 // Handle default case
