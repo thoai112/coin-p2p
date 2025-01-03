@@ -454,13 +454,13 @@
                         vertLine: {
                             width: 1,
                             color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Solid,
+                            style: LightweightCharts.LineStyle.SparseDotted,
                             labelBackgroundColor: `#{{ gs('base_color') }}`,
                         },
                         horzLine: {
                             width: 1,
                             color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Solid,
+                            style: LightweightCharts.LineStyle.SparseDotted,
                             labelBackgroundColor: `#{{ gs('base_color') }}`,
                         },
                     },
