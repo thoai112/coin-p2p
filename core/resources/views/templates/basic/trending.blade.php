@@ -598,8 +598,8 @@
                         switch (selectedTimePeriod) {
                             case '24h':
                                 // Filter for the last 24 hours
-                                // filteredDates = dates.slice(-24);
-                                // filteredPoints = points.slice(-24);
+                                filteredDates = null;
+                                filteredPoints = null;
                                 break;
                             case '7d':
                                 // Filter for the last 7 days
@@ -631,16 +631,18 @@
                             value: filteredPoints[index]
                         }));
                     }
-
-                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
+                    console.log('sdkfjghsdjf:', chartData);
+                    if (chartData.length === 0) {
+                        const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                             .time)) ===
                         i);
 
-                    console.log('sdkfjghsdjf:', uniqueChartData);
+                    
                     lineSeries.setData(uniqueChartData);
                     areaSeries.setData(uniqueChartData);
                     lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                     chart.timeScale().fitContent();
+                    }
 
                 } catch (error) {
                     console.error('Error loading historical data:', error);
