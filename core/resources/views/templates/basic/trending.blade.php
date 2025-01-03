@@ -394,6 +394,13 @@
                 initializeChart();
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
+            $(document).on('click', '.time-period-option', function(e) {
+                e.stopPropagation();
+                let clickTimePeriod = $(this);
+                const ti = clickTimePeriod.data('value');
+                console.log('dghs:', ti);
+                showLoading();
+            });
 
             function updateChartDimensions() {
                 let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
