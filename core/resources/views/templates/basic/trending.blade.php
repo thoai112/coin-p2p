@@ -317,10 +317,10 @@
 
        @media (max-width: 1440px){
         .asset-compact-card__content{
-            width: 80%;
+            width: 99%;
         }
         .asset-compact-card__content svg{
-            width: 80%;
+            width: 99%;
         }
        }
 
