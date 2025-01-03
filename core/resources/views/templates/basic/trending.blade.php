@@ -632,7 +632,7 @@
                         }));
                     }
                     console.log('sdkfjghsdjf:', chartData);
-                    if (chartData.length === 0) {
+                    if (chartData.length != 0) {
                         const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                             .time)) ===
                         i);
@@ -642,6 +642,8 @@
                     areaSeries.setData(uniqueChartData);
                     lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                     chart.timeScale().fitContent();
+                    }else{
+                        console.log('No data found');
                     }
 
                 } catch (error) {
