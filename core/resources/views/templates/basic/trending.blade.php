@@ -397,9 +397,14 @@
             $(document).on('click', '.time-period-option', function(e) {
                 e.stopPropagation();
                 let clickTimePeriod = $(this);
-                const ti = clickTimePeriod.data('value');
-                console.log('dghs:', ti);
-                // showLoading();
+                selectedTimePeriod = clickTimePeriod.data('value');
+                showLoading();
+                setTimeout(() => {
+                    hideLoading();
+                }, 700);
+                cleanupChart();
+                initalizeApi(`${trendingActivate}_usdt`);
+                initializeChart();
             });
 
             function updateChartDimensions() {
