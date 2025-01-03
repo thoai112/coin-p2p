@@ -391,7 +391,7 @@
                     hideLoading();
                 }, 700);
                 cleanupChart();
-                initalizeApi(`${trendingActivate}_usdt`);
+                initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
@@ -404,7 +404,7 @@
                     hideLoading();
                 }, 700);
                 cleanupChart();
-                initalizeApi(`${trendingActivate}_usdt`);
+                initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
             });
 
