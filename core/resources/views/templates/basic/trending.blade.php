@@ -636,23 +636,11 @@
                             .time)) ===
                         i);
 
-                    // lineSeries.setData(uniqueChartData);
-                    // areaSeries.setData(uniqueChartData);
-                    // lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
-                    // chart.timeScale().fitContent();
-
-                    if(uniqueChartData.length > 0) {
-                        lineSeries.setData(uniqueChartData);
-                        areaSeries.setData(uniqueChartData);
-                        lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
-                        chart.timeScale().fitContent();
-                    } else {
-                        // Handle the case where there is no data
-                        // lineSeries.setData([]);
-                        // areaSeries.setData([]);
-                        console.log('No data available');
-                        // Optionally, you can display a message or handle the UI to indicate no data
-                    }
+                    console.log('sdkfjghsdjf:', uniqueChartData);
+                    lineSeries.setData(uniqueChartData);
+                    areaSeries.setData(uniqueChartData);
+                    lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
+                    chart.timeScale().fitContent();
 
                 } catch (error) {
                     console.error('Error loading historical data:', error);
