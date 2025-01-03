@@ -888,6 +888,12 @@ body {
   scrollbar-width: none;
   gap: 10px;
 }
+@media screen and (max-width: 1440px) {
+  .nav-horizontal-menu {
+    width: 80%;
+  }
+  
+}
 
 .nav-horizontal-menu__item {
   -ms-flex-negative: 0;
