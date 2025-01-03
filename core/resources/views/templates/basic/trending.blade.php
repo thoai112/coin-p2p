@@ -345,10 +345,10 @@
 
         @media (max-width: 768px) {
 
-            .time-selection {
+            /* .time-selection {
                 flex-direction: column;
                 align-items: flex-start;
-            }
+            } */
 
             .time-selection label {
                 margin-bottom: 10px;
