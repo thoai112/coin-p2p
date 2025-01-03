@@ -82,8 +82,9 @@
                                                         ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
-
-                                                {!! $svg !!}
+                                                <div class="chart-card">
+                                                    {!! $svg !!}
+                                                </div>
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
                                                 @php
@@ -106,7 +107,9 @@
                                                         ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
-                                                {!! $metal !!}
+                                                <div class="chart-card">
+                                                    {!! $metal !!}
+                                                </div>
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
                                                 @php
@@ -127,11 +130,13 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(50, 50)
+                                                        ->withDimensions(150, 50)
                                                         ->make();
 
                                                 @endphp
-                                                {!! $cow !!}
+                                                <div class="chart-card">
+                                                    {!! $cow !!}
+                                                </div>
                                             @endif
 
                                         </div>
@@ -185,6 +190,7 @@
             display: flex;
             justify-content: center;
         }
+
         #chart-container {
             width: 100%;
             background-color: transparent;
@@ -310,6 +316,13 @@
         .time-period-option.active {
             background-color: #007bff;
             color: white;
+        }
+
+        @media (max-width: 1450px) {
+            .chart-card {
+                width: 60%;
+                height: auto;
+            }
         }
 
         @media (max-width: 768px) {
@@ -497,7 +510,7 @@
                 };
             }
 
-            initalizeApi(`${trendingActivate}_usdt`,selectedTimePeriod);
+            initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
 
             function initalizeApi(activeCoin, timePeriod) {
 
@@ -639,7 +652,7 @@
                         }
 
                     }
-                    
+
                     if (chartData.length != 0) {
                         const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
                                 .time)) ===
