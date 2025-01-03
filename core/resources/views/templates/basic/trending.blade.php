@@ -43,7 +43,7 @@
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-                        
+
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
@@ -315,14 +315,25 @@
             color: white;
         }
 
-       @media (max-width: 1440px){
-        .asset-compact-card__contentchart{
-            width: 99%;
+        @media (max-width: 1440px) {
+            .asset-compact-card__contentchart {
+                width: 99%;
+            }
+
+            .asset-compact-card__contentchart svg {
+                width: 99%;
+            }
         }
-        .asset-compact-card__contentchart svg{
-            width: 99%;
+
+        @media (max-width: 1190px) {
+            .asset-compact-card__contentchart {
+                display: none;
+            }
+
+            .asset-compact-card__contentchart svg {
+                display: none;
+            }
         }
-       }
 
         @media (max-width: 768px) {
 
