@@ -43,7 +43,7 @@
                         {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                         <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                         <ul class="nav-horizontal-menu" id="show-currency-list">
-
+                        
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
@@ -128,7 +128,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(15%, 50)
+                                                        ->withDimensions('55%', 50)
                                                         ->make();
 
                                                 @endphp
