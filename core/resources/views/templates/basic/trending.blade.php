@@ -399,7 +399,7 @@
                 let clickTimePeriod = $(this);
                 const ti = clickTimePeriod.data('value');
                 console.log('dghs:', ti);
-                showLoading();
+                // showLoading();
             });
 
             function updateChartDimensions() {
