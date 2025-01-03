@@ -601,7 +601,7 @@
                                 filteredDates = null;
                                 filteredPoints = null;
                                 break;
-                            case '7d':
+                            case '1w':
                                 // Filter for the last 7 days
                                 filteredDates = dates.slice(-7);
                                 filteredPoints = points.slice(-7);
