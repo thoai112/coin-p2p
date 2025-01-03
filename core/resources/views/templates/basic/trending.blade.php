@@ -340,10 +340,6 @@
                 width: 70%;
             }
 
-            .time-period-option {
-                flex: 1 1 45%;
-                margin-bottom: 10px;
-            }
         }
 
         @media (max-width: 768px) {
