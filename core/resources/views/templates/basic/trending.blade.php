@@ -632,9 +632,9 @@
                         }));
                     }
 
-                    // const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
-                    //         .time)) ===
-                    //     i);
+                    const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
+                            .time)) ===
+                        i);
 
                     // lineSeries.setData(uniqueChartData);
                     // areaSeries.setData(uniqueChartData);
