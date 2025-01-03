@@ -419,7 +419,7 @@
                     timeScale: {
                         timeVisible: true,
                         secondsVisible: false,
-                        rightOffset: 5,
+                        rightOffset: 1,
                         barSpacing: 5,
                         borderColor: '#363C4E',
                         tickMarkFormatter: (time) => {
