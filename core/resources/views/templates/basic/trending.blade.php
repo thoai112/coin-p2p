@@ -315,7 +315,11 @@
             color: white;
         }
 
-       
+       @media (max-width: 1440px){
+        .asset-compact-card__content {
+            width: 50%;
+        }
+       }
 
         @media (max-width: 768px) {
             .time-selection {
