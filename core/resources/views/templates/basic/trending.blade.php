@@ -128,7 +128,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions('55%', 50)
+                                                        ->withDimensions('40%', 50)
                                                         ->make();
 
                                                 @endphp
