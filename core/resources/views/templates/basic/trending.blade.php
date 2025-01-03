@@ -48,7 +48,7 @@
                                 <li class="nav-horizontal-menu__item">
                                     <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
                                         data-type="{{ $currency->type }}" data-rate="{{ json_encode($currency->rate) }}">
-                                        <div class="asset-compact-card__content">
+                                        <div class="asset-compact-card__content ">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
                                             <h6 class="asset-compact-card__title">
                                                 @if (@$langDetails->code == 'en')
@@ -59,7 +59,7 @@
                                             </h6>
                                         </div>
 
-                                        <div class="asset-compact-card__content">
+                                        <div class="asset-compact-card__contentchart">
 
                                             @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
                                                 @php
@@ -316,15 +316,16 @@
         }
 
        @media (max-width: 1440px){
-        .asset-compact-card__content{
+        .asset-compact-card__contentchart{
             width: 99%;
         }
-        .asset-compact-card__content svg{
+        .asset-compact-card__contentchart svg{
             width: 99%;
         }
        }
 
         @media (max-width: 768px) {
+
             .time-selection {
                 flex-direction: column;
                 align-items: flex-start;
