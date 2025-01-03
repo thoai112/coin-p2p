@@ -82,9 +82,8 @@
                                                         ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
-                                                <div class="chart-card">
-                                                    {!! $svg !!}
-                                                </div>
+
+                                                {!! $svg !!}
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
                                                 @php
@@ -107,9 +106,8 @@
                                                         ->withDimensions(150, 50)
                                                         ->make();
                                                 @endphp
-                                                <div class="chart-card">
-                                                    {!! $metal !!}
-                                                </div>
+
+                                                {!! $metal !!}
                                             @endif
                                             @if ($currency->type == Status::TRENDINGTYPE_COW)
                                                 @php
@@ -130,13 +128,12 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(150, 50)
+                                                        ->withDimensions(15%, 50)
                                                         ->make();
 
                                                 @endphp
-                                                <div class="chart-card">
-                                                    {!! $cow !!}
-                                                </div>
+
+                                                {!! $cow !!}
                                             @endif
 
                                         </div>
