@@ -392,10 +392,6 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`);
                 initializeChart();
-
-
-
-
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
 
@@ -458,13 +454,13 @@
                         vertLine: {
                             width: 1,
                             color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Dashed,
+                            style: LightweightCharts.LineStyle.Solid,
                             labelBackgroundColor: `#{{ gs('base_color') }}`,
                         },
                         horzLine: {
                             width: 1,
                             color: `#{{ gs('base_color') }}`,
-                            style: LightweightCharts.LineStyle.Dashed,
+                            style: LightweightCharts.LineStyle.Solid,
                             labelBackgroundColor: `#{{ gs('base_color') }}`,
                         },
                     },
