@@ -25,7 +25,7 @@
                             <div id="time-period" class="time-period-options">
                                 <div class="time-period-option" data-value="1m">@lang('1m')</div>
                                 <div class="time-period-option" data-value="1d">@lang('24h')</div>
-                                <div class="time-period-option" data-value="7d">@lang('7d')</div>
+                                <div class="time-period-option" data-value="1w">@lang('1w')</div>
                                 <div class="time-period-option" data-value="1M">@lang('1M')</div>
                                 <div class="time-period-option" data-value="1Y">@lang('1Y')</div>
                                 <div class="time-period-option" data-value="all">@lang('ALL')</div>
@@ -348,7 +348,7 @@
             let trendingActivate = "{{ $defaultActive->symbol }}";
             let trendingType = "{{ $defaultActive->type }}";
             let trendingRates = @json($defaultActive->rate);
-            let selectedTimePeriod = '7d';
+            let selectedTimePeriod = '1w';
 
             let BINANCE_API_URL;
             let BINANCE_WEBSOCKET_URL;
