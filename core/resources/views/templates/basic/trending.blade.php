@@ -650,7 +650,7 @@
                         // Handle the case where there is no data
                         // lineSeries.setData([]);
                         // areaSeries.setData([]);
-                        lastPrice = null;
+                        console.log('No data available');
                         // Optionally, you can display a message or handle the UI to indicate no data
                     }
 
