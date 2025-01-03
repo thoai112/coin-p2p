@@ -316,8 +316,11 @@
         }
 
        @media (max-width: 1440px){
+        .asset-compact-card__content{
+            width: 80%;
+        }
         .asset-compact-card__content svg{
-            width: 50%;
+            width: 80%;
         }
        }
 
