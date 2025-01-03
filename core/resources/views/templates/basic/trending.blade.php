@@ -626,25 +626,27 @@
                                 break;
                         }
 
-                        chartData = filteredDates.map((t, index) => ({
-                            time: t,
-                            value: filteredPoints[index]
-                        }));
+                        if (filteredDates && filteredPoints) {
+                            chartData = filteredDates.map((t, index) => ({
+                                time: t,
+                                value: filteredPoints[index]
+                            }));
+                        }
+
                     }
                     console.log('sdkfjghsdjf:', chartData);
                     if (chartData.length != 0) {
                         const uniqueChartData = chartData.filter((v, i, a) => a.findIndex(t => (t.time === v
-                            .time)) ===
-                        i);
+                                .time)) ===
+                            i);
 
-                    
-                    lineSeries.setData(uniqueChartData);
-                    areaSeries.setData(uniqueChartData);
-                    lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
-                    chart.timeScale().fitContent();
-                    }else{
-                        console.log('No data found');
+
+                        lineSeries.setData(uniqueChartData);
+                        areaSeries.setData(uniqueChartData);
+                        lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
+                        chart.timeScale().fitContent();
                     }
+
 
                 } catch (error) {
                     console.error('Error loading historical data:', error);
