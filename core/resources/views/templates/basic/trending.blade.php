@@ -79,7 +79,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(150, 50)
+                                                        ->withDimensions(50%, 50)
                                                         ->make();
                                                 @endphp
 
@@ -103,7 +103,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(150, 50)
+                                                        ->withDimensions(50%, 50)
                                                         ->make();
                                                 @endphp
                                                 {!! $metal !!}
@@ -127,7 +127,7 @@
                                                             'rgb(0, 88, 179)',
                                                             'rgb(0, 27, 135)',
                                                         )
-                                                        ->withDimensions(150, 50)
+                                                        ->withDimensions(50%, 50)
                                                         ->make();
 
                                                 @endphp
