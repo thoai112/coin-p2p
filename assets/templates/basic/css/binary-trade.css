@@ -951,8 +951,7 @@ body {
 
 @media screen and (max-width: 991px) {
   .trade-section__inner {
-    
-    gap: 80px 12px;
+    margin-top: 10%;
   }
 }
 
