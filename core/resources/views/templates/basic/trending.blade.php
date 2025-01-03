@@ -420,7 +420,7 @@
                         timeVisible: true,
                         secondsVisible: false,
                         rightOffset: 100,
-                        barSpacing: 5,
+                        barSpacing: 1,
                         borderColor: '#363C4E',
                         tickMarkFormatter: (time) => {
                             const date = new Date(time * 1000);
