@@ -315,12 +315,7 @@
             color: white;
         }
 
-        @media (max-width: 1450px) {
-            .chart-card {
-                width: 60%;
-                height: auto;
-            }
-        }
+       
 
         @media (max-width: 768px) {
             .time-selection {
