@@ -179,6 +179,9 @@
                 // Get the search value
                 let search = $(this).find('.market-list-search-field').val().trim();
 
+                if(search===''){
+                    getPairList();
+                }
                 // Reset variables and table before performing the search
                 resetVariable();
                 // getPairList();
