@@ -627,7 +627,7 @@ p {
     .table tbody tr td::before,
     .table thead tr th,
     .table {
-        font-size: 0.65rem;
+        font-size: 0.67rem;
     }
     .customer__name{
         font-size: 0.65rem;
@@ -2244,6 +2244,12 @@ table tr:first-child th:first-child {
     border-radius: 10px;
     text-align: center;
 }
+@media screen {
+    .table thead tr th
+    {
+        padding: 10px 10px;
+    } 
+}
 
 .table tbody {
     border: 0 !important;
@@ -2258,8 +2264,6 @@ table tr:first-child th:first-child {
 .table tbody tr td {
     vertical-align: middle;
     padding: 10px 15px;
-    border-width: 1px;
-    border-radius: 10px;
     border: 0;
     font-family: var(--heading-font);
     color: hsl(var(--black)/0.7);
