@@ -170,12 +170,11 @@
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
             let date = '2025-01-01';
-
+            console.log('sdhgfdsf',datex)
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
                 $(this).addClass('active');
                 $('.date-range').click();
-                console.log(datex)
                 // type = $(this).data('type');
                 // resetVariable()
                 // getPairList();
