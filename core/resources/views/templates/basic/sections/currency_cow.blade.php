@@ -29,7 +29,7 @@
                     placeholder="@lang('Search here ')...">
                 <i class="las la-search"></i>
             </form>
-            <span></span>
+            <span>1 COW = {{$cow}}</span>
         </div>
     </div>
     <div class="table-container">
