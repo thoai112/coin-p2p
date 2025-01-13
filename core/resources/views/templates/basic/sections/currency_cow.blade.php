@@ -88,7 +88,7 @@
             <i class="las la-retweet"></i>
             <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
-                <option value="">-- None --</option>
+                <option value="">@lang('Select')</option>
             </select>
         </span>
 
