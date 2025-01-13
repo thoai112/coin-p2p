@@ -187,18 +187,46 @@
                 highlightTableRows(search);
             });
 
+            // function highlightTableRows(search) {
+            //     if (!search) return; // Exit if the search value is empty
+
+            //     // Iterate over table rows and add highlighting
+            //     $('#market-list-body tr').each(function() {
+            //         let rowText = $(this).text().toLowerCase();
+            //         if (rowText.includes(search.toLowerCase())) {
+            //             $(this).addClass('highlight'); // Add a highlight class
+            //         } else {
+            //             $(this).removeClass('highlight'); // Remove the highlight class if not matching
+            //         }
+            //     });
+            // }
             function highlightTableRows(search) {
                 if (!search) return; // Exit if the search value is empty
 
+                // Clear any existing highlights first
+                $('#market-list-body tbody tr').removeClass('highlight'); // Target the correct rows
+
+                let foundMatch = false; // Flag to track if any match is found
+
                 // Iterate over table rows and add highlighting
-                $('#market-list-body tr').each(function() {
+                $('#market-list-body tbody tr').each(function() {
                     let rowText = $(this).text().toLowerCase();
                     if (rowText.includes(search.toLowerCase())) {
                         $(this).addClass('highlight'); // Add a highlight class
-                    } else {
-                        $(this).removeClass('highlight'); // Remove the highlight class if not matching
+                        if (!foundMatch) {
+                            // Scroll to the first matching row
+                            $('html, body').animate({
+                                scrollTop: $(this).offset().top - 50 // Adjust the scroll position
+                            }, 300); // Scroll animation duration
+                            foundMatch = true; // Ensure we only scroll to the first match
+                        }
                     }
                 });
+
+                if (!foundMatch) {
+                    // If no match is found, you can show a message or handle it as needed
+                    console.log("No matching rows found");
+                }
             }
 
             function getPairList() {
@@ -224,8 +252,7 @@
                         if (loadMore) {
                             $('.load-more-market-list').html(
                                 `<i class="fa fa-spinner"></i> @lang('Load More')`)
-                        } 
-                        else {
+                        } else {
                             removeSkeleton();
                         }
                     },
@@ -312,7 +339,7 @@
                 }, 1000);
             }
             removeSkeleton();
-            
+
 
         })(jQuery);
     </script>
