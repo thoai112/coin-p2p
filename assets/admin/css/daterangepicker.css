@@ -431,6 +431,9 @@
 .daterangepicker .ranges li.active {
      background-color: #4634FF !important;
 }
+.cancelBtn{
+    color: #000 !important;
+}
 
 .cancelBtn.btn:hover:hover{
     color: #000 !important;
