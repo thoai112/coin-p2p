@@ -86,7 +86,11 @@
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
+            <select id="currency" name="currency">
+                <option value="">-- Select a Currency --</option>
+            </select>
         </span>
+
         {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
             @endforeach --}}
@@ -338,9 +342,10 @@
                         });
 
                         $('#cow-value').html(
-                        `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} VND </span>`);
-                        
-                        $('#average-price').html(`<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} VND </span>`);
+
+                        $('#average-price').html(
+                            `<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
@@ -353,6 +358,15 @@
                         } else {
                             $('.load-more-market-list').removeClass('d-none')
                         }
+
+                        $.each(resp.currencies || [], function(i, currency) {
+                            $('#currency').append(
+                                $('<option>', {
+                                    value: currency.code,
+                                    text: `${currency.code}`
+                                })
+                            );
+                        });
                     }
                 });
             }
