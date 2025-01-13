@@ -29,8 +29,8 @@
                     placeholder="@lang('Search here ')...">
                 <i class="las la-search"></i>
             </form>
-            <span id ="cow-value">1 COW =</span>
         </div>
+        <span id ="cow-value">1 COW =</span>
     </div>
     <div class="table-container">
         <table class="table coin-pair-list-table coin-pair-list">
