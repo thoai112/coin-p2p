@@ -82,7 +82,7 @@
 @push('style-lib')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/daterangepicker.css') }}">
 @endpush
-@push('script')
+{{-- @push('script')
     <script>
         (function($) {
             "use strict"
@@ -109,14 +109,12 @@
             $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
                 const selectedDate = picker.startDate.format('YYYY-MM-DD');
                 $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
-                console.log("Selected Date:", selectedDate); // Log selected date
             });
 
             // Reset button content to default with current date on cancel
             $('#showDateRangePicker').on('cancel.daterangepicker', function() {
                 $(this).html(
                 `<i class="las la-border-all"></i> ${nowDate}`); // Reset to default label with current date
-                console.log("Date selection cleared, reset to current date:", nowDate);
             });
 
         })(jQuery);
@@ -133,7 +131,7 @@
             border-radius: 4px;
         }
     </style>
-@endpush
+@endpush --}}
 
 
 
@@ -159,25 +157,57 @@
         "use strict";
         (function($) {
 
-            @if (!app()->offsetExists('lisiten_market_data_event'))
-                pusherConnection('market-data', marketChangeHtml);
-                @php app()->offsetSet('lisiten_market_data_event',true) @endphp
-            @endif
-
             let type = "all";
             let loadMore = false;
             let skip = 0;
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
             let date = '2025-01-01';
-            console.log('sdhgfdsf',datex)
+
+            // Get current date in YY-MM-DD format
+            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
+
+            // Initialize the single date picker
+            const datePicker = $('#showDateRangePicker').daterangepicker({
+                singleDatePicker: true, // Enable single date selection
+                autoUpdateInput: false, // Prevent automatic value update
+                showDropdowns: true, // Allow year/month dropdowns
+                locale: {
+                    format: 'YYYY-MM-DD', // Date format for selection
+                    cancelLabel: 'Clear', // Label for the clear button
+                },
+                maxDate: moment() // Set the maximum date to today
+            });
+
+            // Set default label to the button with the current date
+            $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${nowDate}`);
+
+            // Update button content on date selection
+            $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
+                const selectedDate = picker.startDate.format('YYYY-MM-DD');
+                date = selectedDate;
+                $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
+                getPairList();
+            });
+
+            // Reset button content to default with current date on cancel
+            $('#showDateRangePicker').on('cancel.daterangepicker', function() {
+                $(this).html(
+                `<i class="las la-border-all"></i> ${nowDate}`); // Reset to default label with current date
+            });
+
+            //get pairlist
+            @if (!app()->offsetExists('lisiten_market_data_event'))
+                pusherConnection('market-data', marketChangeHtml);
+                @php app()->offsetSet('lisiten_market_data_event',true) @endphp
+            @endif
+
+
+            
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
                 $(this).addClass('active');
                 $('.date-range').click();
-                // type = $(this).data('type');
-                // resetVariable()
-                // getPairList();
             });
 
             $('.load-more-market-list').on('click', function(e) {
@@ -305,6 +335,18 @@
 
         })(jQuery);
     </script>
+    <style>
+        .datepicker {
+            z-index: 9999 !important;
+        }
+
+        .date-range {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
 @endpush
 
 
