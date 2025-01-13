@@ -2126,14 +2126,14 @@ table tr:first-child th:first-child {
 
 @media screen and (max-width: 991px) {
     .table-header-menu__link {
-        font-size: 20px;
+        font-size: 1rem;
         padding: 10px 5px;
     }
 }
 
 @media screen and (max-width: 767px) {
     .table-header-menu__link {
-        font-size: 17px;
+        font-size: 0.8rem;
         margin-right: 10px;
     }
 }
