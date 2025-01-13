@@ -83,7 +83,7 @@
             ) / 158
         </p>
         <span className="cow-row">
-            <span className="average-price"></span>
+            <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             </svg>
         </span>
