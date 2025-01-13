@@ -451,7 +451,6 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
-            justify-content: center;
         }
 
         #selectedCurrency {
