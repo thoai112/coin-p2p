@@ -308,7 +308,7 @@
 
             function removeSkeleton() {
                 setTimeout(() => {
-                    $('.coin-pair-list tr').removeClass('skeleton');
+                    // $('.coin-pair-list tr').removeClass('skeleton');
                     highlightTableRows(search);
                 }, 1000);
             }
