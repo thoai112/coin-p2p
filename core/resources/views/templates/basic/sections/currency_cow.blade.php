@@ -2,7 +2,6 @@
     $meta = (object) $meta;
     $content = getContent('currency_cow.content', true);
     $elements = getContent('currency_cow.element', orderById: true);
-    $cowValue = $cow;
 @endphp
 <div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
@@ -30,7 +29,7 @@
                     placeholder="@lang('Search here ')...">
                 <i class="las la-search"></i>
             </form>
-            <span>1 COW = {{$cowValue}}</span>
+            <span id ="cow-value">1 COW =</span>
         </div>
     </div>
     <div class="table-container">
@@ -315,7 +314,7 @@
                             </tr>
                             `
                         });
-
+                         $('#cow-value').html(`<span id="cow-value"> 1 COW = ${resp.cow}</span>`);
 
 
                         $('.load-more-market-list').removeClass('d-none');
