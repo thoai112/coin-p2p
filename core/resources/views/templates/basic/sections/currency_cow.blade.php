@@ -82,58 +82,6 @@
 @push('style-lib')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/admin/css/daterangepicker.css') }}">
 @endpush
-{{-- @push('script')
-    <script>
-        (function($) {
-            "use strict"
-
-            // Get current date in YY-MM-DD format
-            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
-            let datex = nowDate;
-            // Initialize the single date picker
-            const datePicker = $('#showDateRangePicker').daterangepicker({
-                singleDatePicker: true, // Enable single date selection
-                autoUpdateInput: false, // Prevent automatic value update
-                showDropdowns: true, // Allow year/month dropdowns
-                locale: {
-                    format: 'YYYY-MM-DD', // Date format for selection
-                    cancelLabel: 'Clear', // Label for the clear button
-                },
-                maxDate: moment() // Set the maximum date to today
-            });
-
-            // Set default label to the button with the current date
-            $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${nowDate}`);
-
-            // Update button content on date selection
-            $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
-                const selectedDate = picker.startDate.format('YYYY-MM-DD');
-                $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
-            });
-
-            // Reset button content to default with current date on cancel
-            $('#showDateRangePicker').on('cancel.daterangepicker', function() {
-                $(this).html(
-                `<i class="las la-border-all"></i> ${nowDate}`); // Reset to default label with current date
-            });
-
-        })(jQuery);
-    </script>
-    <style>
-        .datepicker {
-            z-index: 9999 !important;
-        }
-
-        .date-range {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-    </style>
-@endpush --}}
-
-
 
 @push('script')
     <script>
@@ -157,15 +105,15 @@
         "use strict";
         (function($) {
 
+            // Get current date in YY-MM-DD format
+            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
+
             let type = "all";
             let loadMore = false;
             let skip = 0;
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
-            let date = '2025-01-01';
-
-            // Get current date in YY-MM-DD format
-            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
+            let date = nowDate;
 
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
@@ -193,7 +141,9 @@
             // Reset button content to default with current date on cancel
             $('#showDateRangePicker').on('cancel.daterangepicker', function() {
                 $(this).html(
-                `<i class="las la-border-all"></i> ${nowDate}`); // Reset to default label with current date
+                `<i class="las la-border-all"></i> ${nowDate}`);
+                date = nowDate;
+                getPairList();
             });
 
             //get pairlist
