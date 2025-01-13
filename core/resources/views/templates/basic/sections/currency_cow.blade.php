@@ -85,7 +85,7 @@
         <span className="cow-row">
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
-            <i class="las la-convert"></i>
+            <i class="las la-retweet"></i>
         </span>
         {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
