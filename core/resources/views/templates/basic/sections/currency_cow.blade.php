@@ -89,7 +89,7 @@
 
             // Get current date in YY-MM-DD format
             const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
-
+            let datex = nowDate;
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
                 singleDatePicker: true, // Enable single date selection
@@ -175,6 +175,7 @@
                 $('.market-type').removeClass('active');
                 $(this).addClass('active');
                 $('.date-range').click();
+                console.log(datex)
                 // type = $(this).data('type');
                 // resetVariable()
                 // getPairList();
