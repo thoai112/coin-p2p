@@ -218,7 +218,7 @@
                             // Scroll the table container to the first matching row
                             $('#market-list-body').animate({
                                 scrollTop: $(this).offset().top - $('#market-list-body').offset().top +
-                                    $('#market-list-body').scrollTop() - 50
+                                    $('#market-list-body').scrollTop() - 20
                             }, 300); // Smooth scroll to the row (adjust the -50 as needed)
                             foundMatch = true; // Ensure we only scroll to the first match
                         }
