@@ -200,24 +200,26 @@
             //         }
             //     });
             // }
+
             function highlightTableRows(search) {
                 if (!search) return; // Exit if the search value is empty
 
                 // Clear any existing highlights first
-                $('#market-list-body tbody tr').removeClass('highlight'); // Target the correct rows
+                $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
 
                 let foundMatch = false; // Flag to track if any match is found
 
                 // Iterate over table rows and add highlighting
-                $('#market-list-body tbody tr').each(function() {
+                $('#market-list-body tr').each(function() {
                     let rowText = $(this).text().toLowerCase();
                     if (rowText.includes(search.toLowerCase())) {
                         $(this).addClass('highlight'); // Add a highlight class
                         if (!foundMatch) {
-                            // Scroll to the first matching row
-                            $('html, body').animate({
-                                scrollTop: $(this).offset().top - 50 // Adjust the scroll position
-                            }, 300); // Scroll animation duration
+                            // Scroll the table container to the first matching row
+                            $('#market-list-body').animate({
+                                scrollTop: $(this).offset().top - $('#market-list-body').offset().top +
+                                    $('#market-list-body').scrollTop() - 50
+                            }, 300); // Smooth scroll to the row (adjust the -50 as needed)
                             foundMatch = true; // Ensure we only scroll to the first match
                         }
                     }
@@ -228,6 +230,7 @@
                     console.log("No matching rows found");
                 }
             }
+
 
             function getPairList() {
                 let action = "{{ route('cow.list') }}";
