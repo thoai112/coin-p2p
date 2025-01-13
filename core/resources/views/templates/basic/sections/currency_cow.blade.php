@@ -9,7 +9,7 @@
         <div class="table-header-menu">
             <button type="datetime-local" class="table-header-menu__link market-type active date-range" data-type="fiat"
                 id="showDateRangePicker">
-                <i class="las la-border-all"></i> @lang('All')
+                <i class="las la-border-all"></i> @lang(now())
             </button>
         </div>
         <div class="market-list__left">
@@ -140,12 +140,12 @@
                 const selectedDate = picker.startDate.format('MMMM DD, YYYY');
                 $(this).val(selectedDate); // Format date and update input
                 $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${selectedDate}`);
-                console.log("Selected Date:", selectedDate); // Log selected date to console
             });
 
             // Clear input field on cancel
             $('.date-range').on('cancel.daterangepicker', function() {
                 $(this).val(''); // Clear the input field
+                $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${now()}`);
             });
 
         })(jQuery);
