@@ -171,7 +171,7 @@
             let skip = 0;
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
-            let date = '20255-01-01';
+            let date = '2025-01-01';
 
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
