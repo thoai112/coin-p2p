@@ -623,6 +623,11 @@ p {
     }
 }
 
+@media screen and (max-width: 500px) {
+    .table thead tr th {
+        font-size: 0.75rem;
+    }
+}
 .fs-18,
 .btn,
 .custom--accordion .accordion-button {
