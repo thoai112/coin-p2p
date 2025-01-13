@@ -225,9 +225,9 @@
                             $('.load-more-market-list').html(
                                 `<i class="fa fa-spinner"></i> @lang('Load More')`)
                         } 
-                        // else {
-                        //     removeSkeleton();
-                        // }
+                        else {
+                            removeSkeleton();
+                        }
                     },
                     success: function(resp) {
 
@@ -309,6 +309,7 @@
             function removeSkeleton() {
                 setTimeout(() => {
                     $('.coin-pair-list tr').removeClass('skeleton');
+                    highlightTableRows(search);
                 }, 1000);
             }
             removeSkeleton();
