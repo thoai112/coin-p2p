@@ -136,7 +136,10 @@
 
             // Update input field with the selected date
             $('.date-range').on('apply.daterangepicker', function(event, picker) {
-                $(this).val(picker.startDate.format('MMMM DD, YYYY')); // Format date and update input
+                // $(this).val(picker.startDate.format('MMMM DD, YYYY')); // Format date and update input
+                const selectedDate = picker.startDate.format('MMMM DD, YYYY');
+                $(this).val(selectedDate); // Format date and update input
+                console.log("Selected Date:", selectedDate); // Log selected date to console
             });
 
             // Clear input field on cancel
