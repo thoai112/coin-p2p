@@ -67,7 +67,21 @@
     <div class="section-heading">
         <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
         <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
-
+        <p>
+            (
+            <span>
+                V<sub>1</sub>
+            </span>
+            +
+            <span>
+                V<sub>2</sub>
+            </span>
+            + ... +
+            <span>
+                V<sub>158</sub>
+            </span>
+            ) / 158
+        </p>
         {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
             @endforeach --}}
@@ -181,7 +195,7 @@
                 // Get the search value
                 let search = $(this).find('.market-list-search-field').val().trim();
 
-                if(search===''){
+                if (search === '') {
                     getPairList();
                 }
                 // Reset variables and table before performing the search
@@ -222,7 +236,8 @@
                         if (!foundMatch) {
                             // Scroll the table container to the first matching row
                             $('.table-body-container').animate({
-                                scrollTop: $(this).offset().top - $('.table-body-container').offset().top +
+                                scrollTop: $(this).offset().top - $('.table-body-container').offset()
+                                    .top +
                                     $('.table-body-container').scrollTop() - 50
                             }, 300); // Smooth scroll to the row (adjust the -50 as needed)
                             foundMatch = true; // Ensure we only scroll to the first match
@@ -285,7 +300,7 @@
                                 html);
                             return;
                         }
-                       
+
                         $.each(resp.currencies || [], function(i, currency) {
                             html += `
                             <tr class="${!loadMore ? 'skeleton' : ''}">
@@ -316,8 +331,9 @@
                             </tr>
                             `
                         });
-                        
-                        $('#cow-value').html(`<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} </span>`);
+
+                        $('#cow-value').html(
+                        `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} </span>`);
 
 
                         $('.load-more-market-list').removeClass('d-none');
@@ -353,11 +369,12 @@
         })(jQuery);
     </script>
     <style>
-        .cow-value{
+        .cow-value {
             display: flex;
             justify-content: flex-end;
             margin-bottom: 20px;
         }
+
         .datepicker {
             z-index: 9999 !important;
         }
