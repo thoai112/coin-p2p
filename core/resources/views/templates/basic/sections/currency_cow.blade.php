@@ -191,7 +191,7 @@
                 if (!search) return; // Exit if the search value is empty
 
                 // Iterate over table rows and add highlighting
-                $('#market-list-body tbody tr').each(function() {
+                $('#market-list-body tr').each(function() {
                     let rowText = $(this).text().toLowerCase();
                     if (rowText.includes(search.toLowerCase())) {
                         $(this).addClass('highlight'); // Add a highlight class
