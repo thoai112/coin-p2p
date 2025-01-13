@@ -86,6 +86,7 @@
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
+            <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
                 <option value="">-- Select a Currency --</option>
             </select>
@@ -362,10 +363,14 @@
                         $.each(resp.currencies || [], function(i, currency) {
                             $('#currency').append(
                                 $('<option>', {
-                                    value: currency.symbol,
-                                    text: `${currency.symbol} - ${currency.name}`
+                                    value: showAmount(currency.rate,2),
+                                    text: `${currency.symbol}`
                                 })
                             );
+                        });
+                        $('#currency').on('change', function () {
+                            const cow = $(this).val();
+                            $('#selectedCurrency').text(cow || 'None');
                         });
                     }
                 });
