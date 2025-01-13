@@ -233,16 +233,16 @@
                 if (foundMatch) {
                     // If no match is found, you can show a message or handle it as needed
                     console.log("No matching rows found");
-                    const noMatching += `<tr class="text-center">
-                                <td colspan="100%">
-                                    <div class="empty-thumb">
-                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="empty-sell"> 'No value found'}</p>
-                                    </div>
-                                </td>
-                            </tr>`;
+                    // const noMatching += `<tr class="text-center">
+                    //             <td colspan="100%">
+                    //                 <div class="empty-thumb">
+                    //                     <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
+                    //                     <p class="empty-sell"> 'No value found'}</p>
+                    //                 </div>
+                    //             </td>
+                    //         </tr>`;
                     
-                    $('#market-list-body').html(noMatching);
+                    // $('#market-list-body').html(noMatching);
                 }
             }
 
