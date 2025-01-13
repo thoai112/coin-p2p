@@ -414,6 +414,43 @@
         .highlight {
             background-color: #71e2f16e;
         }
+
+        select {
+            appearance: none; /* Remove default dropdown styling */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+            border: 1px solid #ccc;
+            padding: 10px 15px;
+            font-size: 16px;
+            color: #333;
+            border-radius: 5px;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-color: #999;
+        }
+
+        select:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        select option {
+            background-color: #fff;
+            color: #333;
+        }
+
+        #selectedCurrency {
+            margin-top: 15px;
+            font-weight: bold;
+        }
     </style>
 @endpush
 
