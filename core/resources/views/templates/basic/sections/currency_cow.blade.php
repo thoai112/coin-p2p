@@ -29,8 +29,10 @@
                     placeholder="@lang('Search here ')...">
                 <i class="las la-search"></i>
             </form>
-            <p id ="cow-value">1 COW =</p>
         </div>
+    </div>
+    <div class="cow-value">
+        <span id ="cow-value"></span>
     </div>
     <div class="table-container">
         <table class="table coin-pair-list-table coin-pair-list">
@@ -350,6 +352,10 @@
         })(jQuery);
     </script>
     <style>
+        .cow-value{
+            display: flex;
+            justify-content: flex-end;
+        }
         .datepicker {
             z-index: 9999 !important;
         }
