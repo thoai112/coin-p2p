@@ -224,9 +224,10 @@
                         if (loadMore) {
                             $('.load-more-market-list').html(
                                 `<i class="fa fa-spinner"></i> @lang('Load More')`)
-                        } else {
-                            removeSkeleton();
-                        }
+                        } 
+                        // else {
+                        //     removeSkeleton();
+                        // }
                     },
                     success: function(resp) {
 
@@ -311,6 +312,7 @@
                 }, 1000);
             }
             removeSkeleton();
+            
 
         })(jQuery);
     </script>
