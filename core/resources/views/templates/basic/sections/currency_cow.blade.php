@@ -5,7 +5,7 @@
 @endphp
 <div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
-    <div class=" table-wrapper__item">
+    <div class="table-wrapper__item">
         <div class="table-header-menu">
             <button type="datetime-local" class="table-header-menu__link market-type active date-range" data-type="fiat"
                 id="showDateRangePicker">
