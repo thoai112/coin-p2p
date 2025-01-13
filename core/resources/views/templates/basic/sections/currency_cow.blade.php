@@ -308,11 +308,11 @@
 
             function removeSkeleton() {
                 setTimeout(() => {
-                    // $('.coin-pair-list tr').removeClass('skeleton');
-                    highlightTableRows(search);
+                    $('.coin-pair-list tr').removeClass('skeleton');
                 }, 1000);
             }
             removeSkeleton();
+            highlightTableRows(search);
             
 
         })(jQuery);
