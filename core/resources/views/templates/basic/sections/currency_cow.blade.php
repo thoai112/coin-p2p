@@ -363,7 +363,7 @@
                             $('#currency').append(
                                 $('<option>', {
                                     value: currency.symbol,
-                                    text: `${currency.code} - ${currency.name}`
+                                    text: `${currency.symbol} - ${currency.name}`
                                 })
                             );
                         });
