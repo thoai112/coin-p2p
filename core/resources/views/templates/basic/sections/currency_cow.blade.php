@@ -444,6 +444,10 @@
 
         select option {
             background-color: #102239f5;
+            max-width: 50px; 
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
         }
 
         #selectedCurrency {
