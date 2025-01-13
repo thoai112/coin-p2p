@@ -362,8 +362,8 @@
                         $.each(resp.currencies || [], function(i, currency) {
                             $('#currency').append(
                                 $('<option>', {
-                                    value: currency.code,
-                                    text: `${currency.code}`
+                                    value: currency.symbol,
+                                    text: `${currency.symbol}`
                                 })
                             );
                         });
