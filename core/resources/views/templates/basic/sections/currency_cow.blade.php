@@ -139,6 +139,7 @@
                 // $(this).val(picker.startDate.format('MMMM DD, YYYY')); // Format date and update input
                 const selectedDate = picker.startDate.format('MMMM DD, YYYY');
                 $(this).val(selectedDate); // Format date and update input
+                $('#showDateRangePicker').val(selectedDate); // Set button text to default label
                 console.log("Selected Date:", selectedDate); // Log selected date to console
             });
 
