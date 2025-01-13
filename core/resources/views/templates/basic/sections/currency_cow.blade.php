@@ -230,7 +230,7 @@
                     }
                 });
 
-                if (!foundMatch) {
+                if (foundMatch) {
                     // If no match is found, you can show a message or handle it as needed
                     console.log("No matching rows found");
                     const noMatching += `<tr class="text-center">
