@@ -107,7 +107,7 @@
 
             // Update button content on date selection
             $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
-                const selectedDate = picker.startDate.format('YY-MM-DD');
+                const selectedDate = picker.startDate.format('YYYY-MM-DD');
                 $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
                 console.log("Selected Date:", selectedDate); // Log selected date
             });
