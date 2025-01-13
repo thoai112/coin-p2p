@@ -314,7 +314,7 @@
                             </tr>
                             `
                         });
-                        $('#cow-value').html(`<span id="cow-value"> 1 COW = ${resp.cow.toFixed(2)} </span>`);
+                        $('#cow-value').html(`<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} </span>`);
 
 
                         $('.load-more-market-list').removeClass('d-none');
