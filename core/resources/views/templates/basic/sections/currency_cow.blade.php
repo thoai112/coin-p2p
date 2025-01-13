@@ -419,21 +419,21 @@
             appearance: none; /* Remove default dropdown styling */
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
-            border: 1px solid #ccc;
+            background-color: rgba(255, 255, 255, 0); /* Transparent background */
+            border: 1px solid #65e8ff;
             padding: 10px 15px;
             font-size: 16px;
             color: #333;
             border-radius: 5px;
             outline: none;
-            width: 100%;
-            max-width: 300px;
+            width: 30%;
+            max-width: 100px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         select:hover {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(255, 255, 255, 0);
             border-color: #999;
         }
 
@@ -443,7 +443,7 @@
         }
 
         select option {
-            background-color: #fff;
+            background-color: #ffffff00;
             color: #333;
         }
 
