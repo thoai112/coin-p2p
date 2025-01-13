@@ -416,10 +416,10 @@
         }
 
         select {
-            appearance: none; /* Remove default dropdown styling */
+            appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-color: rgba(13, 41, 73, 0.418); /* Transparent background */
+            background-color: rgba(13, 41, 73, 0.418); 
             border: 1px solid #65e8ff;
             padding: 10px 15px;
             font-size: 16px;
@@ -430,6 +430,9 @@
             cursor: pointer;
             transition: all 0.3s ease;
             scrollbar-width: none;
+        }
+        select::-webkit-scrollbar {
+            display: none; 
         }
 
         select:hover {
@@ -448,6 +451,7 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
+            justify-content: center;
         }
 
         #selectedCurrency {
