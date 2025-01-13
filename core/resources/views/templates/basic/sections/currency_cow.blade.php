@@ -88,7 +88,7 @@
             "use strict"
 
             // Get current date in YY-MM-DD format
-            const nowDate = moment().format('YY-MM-DD'); // Format the date using Moment.js
+            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
 
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
@@ -96,7 +96,7 @@
                 autoUpdateInput: false, // Prevent automatic value update
                 showDropdowns: true, // Allow year/month dropdowns
                 locale: {
-                    format: 'YY-MM-DD', // Date format for selection
+                    format: 'YYYY-MM-DD', // Date format for selection
                     cancelLabel: 'Clear', // Label for the clear button
                 },
                 maxDate: moment() // Set the maximum date to today
