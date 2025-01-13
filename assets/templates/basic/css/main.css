@@ -1582,6 +1582,12 @@ button:focus {
         padding: 10px;
     }
 }
+
+@media screen and (max-width: 424px) {
+    .form--control {
+        padding: 7px;
+    }
+}
 .form--control.style-two {
     border-color: hsl(var(--white)/0.2);
     padding: 5px;
@@ -2139,6 +2145,13 @@ table tr:first-child th:first-child {
     .table-header-menu__link {
         font-size: 0.8rem;
         margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .table-header-menu__link {
+        font-size: 0.65rem;
+        margin-right: 5px;
     }
 }
 
