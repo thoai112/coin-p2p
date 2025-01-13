@@ -355,6 +355,7 @@
         .cow-value{
             display: flex;
             justify-content: flex-end;
+            margin-bottom: 20px;
         }
         .datepicker {
             z-index: 9999 !important;

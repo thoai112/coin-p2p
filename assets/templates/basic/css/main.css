@@ -2099,7 +2099,6 @@ table tr:first-child th:first-child {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 20px;
     align-items: center;
 }
 
