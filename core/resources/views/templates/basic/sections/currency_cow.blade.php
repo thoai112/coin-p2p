@@ -181,7 +181,7 @@
 
                 // Reset variables and table before performing the search
                 resetVariable();
-                getPairList();
+                // getPairList();
 
                 // Highlight rows in the table
                 highlightTableRows(search);
@@ -312,7 +312,6 @@
                 }, 1000);
             }
             removeSkeleton();
-            highlightTableRows(search);
             
 
         })(jQuery);
