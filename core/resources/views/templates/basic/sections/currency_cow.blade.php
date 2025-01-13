@@ -29,6 +29,7 @@
                     placeholder="@lang('Search here ')...">
                 <i class="las la-search"></i>
             </form>
+            <span></span>
         </div>
     </div>
     <div class="table-container">
@@ -141,7 +142,7 @@
             // Reset button content to default with current date on cancel
             $('#showDateRangePicker').on('cancel.daterangepicker', function() {
                 $(this).html(
-                `<i class="las la-border-all"></i> ${nowDate}`);
+                    `<i class="las la-border-all"></i> ${nowDate}`);
                 date = nowDate;
                 getPairList();
             });
@@ -153,7 +154,7 @@
             @endif
 
 
-            
+
             $('.market-type').on('click', function(e) {
                 $('.market-type').removeClass('active');
                 $(this).addClass('active');
@@ -165,12 +166,40 @@
                 getPairList();
             });
 
+            // $('.market-list-search').on('submit', function(e) {
+            //     e.preventDefault();
+            //     search = $(this).find('.market-list-search-field').val()
+            //     resetVariable();
+            //     getPairList();
+            // });
+
             $('.market-list-search').on('submit', function(e) {
                 e.preventDefault();
-                search = $(this).find('.market-list-search-field').val()
+
+                // Get the search value
+                let search = $(this).find('.market-list-search-field').val().trim();
+
+                // Reset variables and table before performing the search
                 resetVariable();
                 getPairList();
+
+                // Highlight rows in the table
+                highlightTableRows(search);
             });
+
+            function highlightTableRows(search) {
+                if (!search) return; // Exit if the search value is empty
+
+                // Iterate over table rows and add highlighting
+                $('.market-table tbody tr').each(function() {
+                    let rowText = $(this).text().toLowerCase();
+                    if (rowText.includes(search.toLowerCase())) {
+                        $(this).addClass('highlight'); // Add a highlight class
+                    } else {
+                        $(this).removeClass('highlight'); // Remove the highlight class if not matching
+                    }
+                });
+            }
 
             function getPairList() {
                 let action = "{{ route('cow.list') }}";
@@ -295,6 +324,10 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
+        }
+
+        .highlight {
+            background-color: #ffff99;
         }
     </style>
 @endpush
