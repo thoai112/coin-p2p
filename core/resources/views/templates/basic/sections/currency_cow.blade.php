@@ -9,7 +9,7 @@
         <div class="table-header-menu">
             <button type="datetime-local" class="table-header-menu__link market-type active date-range" data-type="fiat"
                 id="showDateRangePicker">
-                <i class="las la-border-all"></i> @lang(ALL)
+                <i class="las la-border-all"></i> @lang('${now()}')
             </button>
         </div>
         <div class="market-list__left">
@@ -87,65 +87,36 @@
         (function($) {
             "use strict"
 
-            // const datePicker = $('.date-range').daterangepicker({
-            //     autoUpdateInput: false,
-            //     locale: {
-            //         cancelLabel: 'Clear'
-            //     },
-            //     showDropdowns: true,
-            //     ranges: {
-            //         'Today': [moment(), moment()],
-            //         'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            //         'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            //         'Last 15 Days': [moment().subtract(14, 'days'), moment()],
-            //         'Last 30 Days': [moment().subtract(30, 'days'), moment()],
-            //         'This Month': [moment().startOf('month'), moment().endOf('month')],
-            //         'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month')
-            //             .endOf('month')
-            //         ],
-            //         'Last 6 Months': [moment().subtract(6, 'months').startOf('month'), moment().endOf('month')],
-            //         'This Year': [moment().startOf('year'), moment().endOf('year')],
-            //     },
-            //     maxDate: moment()
-            // });
+            // Get current date in YY-MM-DD format
+            const nowDate = moment().format('YY-MM-DD'); // Format the date using Moment.js
 
-
-            // const changeDatePickerText = (event, startDate) => {
-            //     $(event.target).val(startDate.format('MMMM DD, YYYY'));
-            // }
-
-            // $('.date-range').on('apply.datepicker', (event, picker) => changeDatePickerText(event, picker
-            //     .startDate));
-
-            // if ($('.date-range').val()) {
-            //     let dateRange = $('.date-range').val().split(' - ');
-            //     $('.date-range').data('datepicker').setStartDate(new Date(dateRange[0]));
-            //     // $('.date-range').data('daterangepicker').setEndDate(new Date(dateRange[1]));
-            // }
-
-            const datePicker = $('.date-range').daterangepicker({
+            // Initialize the single date picker
+            const datePicker = $('#showDateRangePicker').daterangepicker({
                 singleDatePicker: true, // Enable single date selection
                 autoUpdateInput: false, // Prevent automatic value update
                 showDropdowns: true, // Allow year/month dropdowns
                 locale: {
-                    format: 'MMMM DD, YYYY', // Date format
-                    cancelLabel: 'Clear' // Label for the clear button
+                    format: 'YY-MM-DD', // Date format for selection
+                    cancelLabel: 'Clear', // Label for the clear button
                 },
                 maxDate: moment() // Set the maximum date to today
             });
 
-            // Update input field with the selected date
-            $('.date-range').on('apply.daterangepicker', function(event, picker) {
-                // $(this).val(picker.startDate.format('MMMM DD, YYYY')); // Format date and update input
-                const selectedDate = picker.startDate.format('MMMM DD, YYYY');
-                $(this).val(selectedDate); // Format date and update input
-                $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${selectedDate}`);
+            // Set default label to the button with the current date
+            $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${nowDate}`);
+
+            // Update button content on date selection
+            $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
+                const selectedDate = picker.startDate.format('YY-MM-DD');
+                $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
+                console.log("Selected Date:", selectedDate); // Log selected date
             });
 
-            // Clear input field on cancel
-            $('.date-range').on('cancel.daterangepicker', function() {
-                $(this).val(''); // Clear the input field
-                $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${now()}`);
+            // Reset button content to default with current date on cancel
+            $('#showDateRangePicker').on('cancel.daterangepicker', function() {
+                $(this).html(
+                `<i class="las la-border-all"></i> ${nowDate}`); // Reset to default label with current date
+                console.log("Date selection cleared, reset to current date:", nowDate);
             });
 
         })(jQuery);
