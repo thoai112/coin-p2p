@@ -362,7 +362,7 @@
         }
 
         .highlight {
-            background-color: #ffff99;
+            background-color: #71e2f16e;
         }
     </style>
 @endpush
