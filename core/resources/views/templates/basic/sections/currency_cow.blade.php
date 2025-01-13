@@ -340,7 +340,7 @@
                         $('#cow-value').html(
                         `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} VND </span>`);
                         
-                        $('.average-price').textContent = `${resp.cow.toFixed(3)} VND`;
+                        $('#average-price').html(`<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
