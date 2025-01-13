@@ -627,8 +627,11 @@ p {
     .table tbody tr td::before,
     .table thead tr th,
     .table {
-            font-size: 0.6rem;
-        }
+        font-size: 0.7rem;
+    }
+    .customer__name{
+        font-size: 0.65rem;
+    }
 }
 .fs-18,
 .btn,
