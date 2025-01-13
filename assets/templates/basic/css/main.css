@@ -1241,7 +1241,7 @@ button:focus {
 .btn:hover,
 .btn:focus,
 .btn:focus-visible {
-    color: hsl(var(--white));
+    color: hsl(var(--static-black));
     box-shadow: none !important;
 }
 
