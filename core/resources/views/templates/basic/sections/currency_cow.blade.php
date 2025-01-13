@@ -229,8 +229,18 @@
                 });
 
                 if (!foundMatch) {
-                    // If no match is found, you can show a message or handle it as needed
-                    console.log("No matching rows found");
+                    
+                    let html += `<tr class="text-center">
+                                <td colspan="100%">
+                                    <div class="empty-thumb">
+                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
+                                        <p class="empty-sell">${loadMore ? 'No more value found' : 'No value found'}</p>
+                                    </div>
+                                </td>
+                            </tr>`;
+                            $('.load-more-market-list').addClass('d-none');
+                            loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(
+                                html);
                 }
             }
 
