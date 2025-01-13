@@ -242,7 +242,7 @@
                                 </td>
                             </tr>`;
                     
-                    $('#market-list-body').html(html);
+                    $('#market-list-body').html(noMatching);
                 }
             }
 
