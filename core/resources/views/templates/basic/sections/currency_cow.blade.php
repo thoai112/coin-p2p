@@ -442,7 +442,7 @@
         }
 
         select option {
-            background-color: #ffffff00;
+            background-color: rgba(13, 41, 73, 0.418);
         }
 
         #selectedCurrency {
