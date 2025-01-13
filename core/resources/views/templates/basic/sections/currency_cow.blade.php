@@ -9,7 +9,7 @@
         <div class="table-header-menu">
             <button type="datetime-local" class="table-header-menu__link market-type active date-range" data-type="fiat"
                 id="showDateRangePicker">
-                <i class="las la-border-all"></i> @lang(now())
+                <i class="las la-border-all"></i> @lang(ALL)
             </button>
         </div>
         <div class="market-list__left">
