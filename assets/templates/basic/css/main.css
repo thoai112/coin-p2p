@@ -624,9 +624,11 @@ p {
 }
 
 @media screen and (max-width: 500px) {
-    .table thead tr th {
-        font-size: 0.75rem;
-    }
+    .table tbody tr td::before,
+    .table thead tr th,
+    .table {
+            font-size: 0.6rem;
+        }
 }
 .fs-18,
 .btn,
