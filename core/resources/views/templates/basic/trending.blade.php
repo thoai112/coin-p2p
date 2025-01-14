@@ -213,7 +213,7 @@
                         "isTransparent": true,
                         "displayMode": "regular",
                         "width": "90%",
-                        "height": "300",
+                        "height": "440",
                         "colorTheme": "dark",
                         "locale": "en"
                     }
