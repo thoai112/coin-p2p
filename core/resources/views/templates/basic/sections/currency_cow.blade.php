@@ -458,12 +458,13 @@
         .convert,
         .formula {
             align-items: center;
-            color: #b46a16
-        }
-
-        .formula {
+            color: #b46a16;
             padding-left: 20%;
         }
+
+        /* .formula {
+            padding-left: 20%;
+        } */
 
         @media screen and (max-width: 575px) {
             .convert {
