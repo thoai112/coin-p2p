@@ -473,6 +473,7 @@
                 align-items: center;
                 justify-items: center;
                 font-size: 0.8rem;
+                padding-left: 0;
             }
 
             .convert span, .convert i, select{
