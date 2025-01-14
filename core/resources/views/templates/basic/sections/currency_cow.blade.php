@@ -455,13 +455,12 @@
 
         .convert,
         .formula {
-            ;
             align-items: center;
             color: #b46a16
         }
 
         .formula {
-            padding-left: 10px;
+            padding-left: 20%;
         }
 
         @media screen and (max-width: 575px) {
@@ -484,7 +483,7 @@
 
             .formula {
                 font-size: 1.1rem;
-                justify-content: center;
+                padding-left: 10%;
                 gap: 10;
             }
         }
