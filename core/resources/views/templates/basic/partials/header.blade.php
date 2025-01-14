@@ -178,20 +178,6 @@
             </ul>
             @if (!request()->routeIs('trade'))
                 <div class="theme-switch-wrapper">
-                    <ul class="nav-list">
-                        <li class="nav-item">
-                            <a class="nav-bar" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
-    
-                        </li>
-    
-                        <li class="nav-item">
-                            <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
-    
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
-                        </li>
-                    </ul>
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" class="d-none" id="checkbox">
                         <span class="slider">
@@ -200,6 +186,20 @@
                     </label>
                 </div>
             @endif
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-bar" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
+
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+                </li>
+            </ul>
         </nav>
     </div>
 </header>
