@@ -203,7 +203,7 @@
 
             </div>
             <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container-news">
                 <div class="tradingview-widget-container__widget"></div>
                 <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
                         target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
@@ -220,7 +220,6 @@
                 </script>
             </div>
             <!-- TradingView Widget END -->
-
         </div>
     </section>
 @endsection
@@ -385,6 +384,11 @@
             /* Ensures it's on top of other content */
         }
 
+        .tradingview-widget-container-news {
+            margin-top: 20px;
+            /* Adjust the value as needed */
+        }
+
         @media (max-width: 1440px) {
             .asset-compact-card__contentchart {
                 width: 99%;
@@ -420,9 +424,9 @@
         @media (max-width: 768px) {
 
             /* .time-selection {
-                                                flex-direction: column;
-                                                align-items: flex-start;
-                                            } */
+                                                    flex-direction: column;
+                                                    align-items: flex-start;
+                                                } */
 
             .time-selection label {
                 margin-bottom: 10px;
