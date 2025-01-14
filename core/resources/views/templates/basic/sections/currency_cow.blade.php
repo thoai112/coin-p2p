@@ -426,7 +426,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             background-color: transparent;
-            padding: 10px 0;
+            padding: 5px 0;
             font-size: 16px;
             max-width: 100px;
             cursor: pointer;
@@ -475,7 +475,7 @@
             }
 
             .convert span, .convert i{
-                gap : 10;
+                margin : 5px 0;
             }
 
             .cow-value {
