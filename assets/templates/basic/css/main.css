@@ -626,7 +626,8 @@ p {
 @media screen and (max-width: 500px) {
     .table tbody tr td::before,
     .table thead tr th,
-    .table {
+    .table,
+    .coincheck-item__desc{
         font-size: 0.67rem;
     }
     .customer__name{
