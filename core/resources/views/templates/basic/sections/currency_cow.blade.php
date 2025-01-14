@@ -210,7 +210,7 @@
                 // Get the search value
                 let search = $(this).find('.market-list-search-field').val().trim();
 
-                if (search === '' || !foundMatch) {
+                if (search === '' || foundMatch) {
                     getPairList();
                 }
                 // Reset variables and table before performing the search
@@ -248,7 +248,10 @@
                             </tr>`;
 
                 $('.load-more-market-list').removeClass('d-none');
-                
+                if ($('#market-list-body').find('tr.text-center').length > 0) {
+                    $('#market-list-body').find('tr.text-center').remove();
+                }
+
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
                 $('#market-list-body tr').each(function() {
