@@ -260,7 +260,6 @@
 
                 if (!foundMatch) {
                     
-                    console.log("No matching rows found");
                     const matching = `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
@@ -271,11 +270,12 @@
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').hmtl(matching);
-                } else {
-                    $('.load-more-market-list').removeClass('d-none');
-                    $('#market-list-body')
-                        .remove();
-                }
+                } 
+                // else {
+                //     $('.load-more-market-list').removeClass('d-none');
+                //     $('#market-list-body')
+                //         .remove();
+                // }
             }
 
 
