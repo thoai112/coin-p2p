@@ -186,21 +186,21 @@
                     </label>
                 </div>
             @endif
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a class="nav-bar" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
-
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
-
-                </li>
-                <li class="nav-item">
-                    <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
-                </li>
-            </ul>
         </nav>
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a class="nav-bar" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
+
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+            </li>
+        </ul>
     </div>
 </header>
 
