@@ -451,7 +451,6 @@
         .convert{
             display: flex;
             color:#e69d00;
-            align-items: center;
             gap: 10;
         }
     </style>
