@@ -240,7 +240,6 @@
 
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
-
                     $('#market-list-body tr').each(function() {
                         let rowText = $(this).text().toLowerCase();
                         if (rowText.includes(search.toLowerCase())) {
@@ -259,7 +258,6 @@
                     });
 
                 if (!foundMatch) {
-                    
                     const matching = `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
@@ -269,13 +267,13 @@
                                 </td>
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').hmtl(matching);
+                    $('#market-list-body').html(matching);
                 } 
-                // else {
-                //     $('.load-more-market-list').removeClass('d-none');
-                //     $('#market-list-body')
-                //         .remove();
-                // }
+                else {
+                    $('.load-more-market-list').removeClass('d-none');
+                    $('#market-list-body')
+                        .remove();
+                }
             }
 
 
