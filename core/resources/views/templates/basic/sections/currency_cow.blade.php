@@ -135,129 +135,131 @@
         "use strict";
         (function($) {
 
-                // Get current date in YY-MM-DD format
-                const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
+            // Get current date in YY-MM-DD format
+            const nowDate = moment().format('YYYY-MM-DD'); // Format the date using Moment.js
 
-                let type = "all";
-                let loadMore = false;
-                let skip = 0;
-                let limit = "{{ $meta->limit ?? 15 }}";
-                let search = "";
-                let date = nowDate;
-                let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
-                let foundMatch = false;
+            let type = "all";
+            let loadMore = false;
+            let skip = 0;
+            let limit = "{{ $meta->limit ?? 15 }}";
+            let search = "";
+            let date = nowDate;
+            let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
+            let foundMatch = false;
 
-                // Initialize the single date picker
-                const datePicker = $('#showDateRangePicker').daterangepicker({
-                    singleDatePicker: true, // Enable single date selection
-                    autoUpdateInput: false, // Prevent automatic value update
-                    showDropdowns: true, // Allow year/month dropdowns
-                    locale: {
-                        format: 'YYYY-MM-DD', // Date format for selection
-                        cancelLabel: 'Clear', // Label for the clear button
-                    },
-                    maxDate: moment() // Set the maximum date to today
-                });
+            // Initialize the single date picker
+            const datePicker = $('#showDateRangePicker').daterangepicker({
+                singleDatePicker: true, // Enable single date selection
+                autoUpdateInput: false, // Prevent automatic value update
+                showDropdowns: true, // Allow year/month dropdowns
+                locale: {
+                    format: 'YYYY-MM-DD', // Date format for selection
+                    cancelLabel: 'Clear', // Label for the clear button
+                },
+                maxDate: moment() // Set the maximum date to today
+            });
 
-                // Set default label to the button with the current date
-                $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${nowDate}`);
+            // Set default label to the button with the current date
+            $('#showDateRangePicker').html(`<i class="las la-border-all"></i> ${nowDate}`);
 
-                // Update button content on date selection
-                $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
-                    const selectedDate = picker.startDate.format('YYYY-MM-DD');
-                    date = selectedDate;
-                    $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
+            // Update button content on date selection
+            $('#showDateRangePicker').on('apply.daterangepicker', function(event, picker) {
+                const selectedDate = picker.startDate.format('YYYY-MM-DD');
+                date = selectedDate;
+                $(this).html(`<i class="las la-border-all"></i> ${selectedDate}`); // Update button content
+                getPairList();
+            });
+
+            // Reset button content to default with current date on cancel
+            $('#showDateRangePicker').on('cancel.daterangepicker', function() {
+                $(this).html(
+                    `<i class="las la-border-all"></i> ${nowDate}`);
+                date = nowDate;
+                getPairList();
+            });
+
+            //get pairlist
+            @if (!app()->offsetExists('lisiten_market_data_event'))
+                pusherConnection('market-data', marketChangeHtml);
+                @php app()->offsetSet('lisiten_market_data_event',true) @endphp
+            @endif
+
+
+
+            $('.market-type').on('click', function(e) {
+                $('.market-type').removeClass('active');
+                $(this).addClass('active');
+                $('.date-range').click();
+            });
+
+            $('.load-more-market-list').on('click', function(e) {
+                loadMore = true;
+                getPairList();
+            });
+
+            // $('.market-list-search').on('submit', function(e) {
+            //     e.preventDefault();
+            //     search = $(this).find('.market-list-search-field').val()
+            //     resetVariable();
+            //     getPairList();
+            // });
+
+            $('.market-list-search').on('submit', function(e) {
+                e.preventDefault();
+
+                // Get the search value
+                let search = $(this).find('.market-list-search-field').val().trim();
+
+                if (search === '') {
                     getPairList();
-                });
+                }
+                // Reset variables and table before performing the search
+                resetVariable();
+                // getPairList();
 
-                // Reset button content to default with current date on cancel
-                $('#showDateRangePicker').on('cancel.daterangepicker', function() {
-                    $(this).html(
-                        `<i class="las la-border-all"></i> ${nowDate}`);
-                    date = nowDate;
-                    getPairList();
-                });
+                // Highlight rows in the table
+                highlightTableRows(search);
+            });
 
-                //get pairlist
-                @if (!app()->offsetExists('lisiten_market_data_event'))
-                    pusherConnection('market-data', marketChangeHtml);
-                    @php app()->offsetSet('lisiten_market_data_event',true) @endphp
-                @endif
+            // function highlightTableRows(search) {
+            //     if (!search) return; // Exit if the search value is empty
 
+            //     // Iterate over table rows and add highlighting
+            //     $('#market-list-body tr').each(function() {
+            //         let rowText = $(this).text().toLowerCase();
+            //         if (rowText.includes(search.toLowerCase())) {
+            //             $(this).addClass('highlight'); // Add a highlight class
+            //         } else {
+            //             $(this).removeClass('highlight'); // Remove the highlight class if not matching
+            //         }
+            //     });
+            // }
 
+            function highlightTableRows(search) {
+                if (!search) return; // Exit if the search value is empty
 
-                $('.market-type').on('click', function(e) {
-                    $('.market-type').removeClass('active');
-                    $(this).addClass('active');
-                    $('.date-range').click();
-                });
-
-                $('.load-more-market-list').on('click', function(e) {
-                    loadMore = true;
-                    getPairList();
-                });
-
-                // $('.market-list-search').on('submit', function(e) {
-                //     e.preventDefault();
-                //     search = $(this).find('.market-list-search-field').val()
-                //     resetVariable();
-                //     getPairList();
-                // });
-
-                $('.market-list-search').on('submit', function(e) {
-                    e.preventDefault();
-
-                    // Get the search value
-                    let search = $(this).find('.market-list-search-field').val().trim();
-
-                    if (search === '') {
-                        getPairList();
-                    }
-                    // Reset variables and table before performing the search
-                    resetVariable();
-                    // getPairList();
-
-                    // Highlight rows in the table
-                    highlightTableRows(search);
-                });
-
-                // function highlightTableRows(search) {
-                //     if (!search) return; // Exit if the search value is empty
-
-                //     // Iterate over table rows and add highlighting
-                //     $('#market-list-body tr').each(function() {
-                //         let rowText = $(this).text().toLowerCase();
-                //         if (rowText.includes(search.toLowerCase())) {
-                //             $(this).addClass('highlight'); // Add a highlight class
-                //         } else {
-                //             $(this).removeClass('highlight'); // Remove the highlight class if not matching
-                //         }
-                //     });
-                // }
-
-                function highlightTableRows(search) {
-                    if (!search) return; // Exit if the search value is empty
-
-
-                    // Clear any existing highlights first
-                    $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
+                $('.load-more-market-list text-center').removeClass('d-none');
+                    $('#market-list-body')
+                        .remove();
+                }
+                
+                // Clear any existing highlights first
+                $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
                     $('#market-list-body tr').each(function() {
-                            let rowText = $(this).text().toLowerCase();
-                            if (rowText.includes(search.toLowerCase())) {
-                                $(this).addClass('highlight'); // Add a highlight class
-                                if (!foundMatch) {
-                                    // Scroll the table container to the first matching row
-                                    $('.table-body-container').animate({
-                                        scrollTop: $(this).offset().top - $('.table-body-container')
-                                            .offset()
-                                            .top +
-                                            $('.table-body-container').scrollTop() - 50
-                                    }, 300); // Smooth scroll to the row (adjust the -50 as needed)
-                                    foundMatch = true; // Ensure we only scroll to the first match
-                                    $('.load-more-market-list').removeClass('d-none');
-                                    $('#market-list-body text-center').remove();
-                                }
+                        let rowText = $(this).text().toLowerCase();
+                        if (rowText.includes(search.toLowerCase())) {
+                            $(this).addClass('highlight'); // Add a highlight class
+                            if (!foundMatch) {
+                                // Scroll the table container to the first matching row
+                                $('.table-body-container').animate({
+                                    scrollTop: $(this).offset().top - $('.table-body-container')
+                                        .offset()
+                                        .top +
+                                        $('.table-body-container').scrollTop() - 50
+                                }, 300); // Smooth scroll to the row (adjust the -50 as needed)
+                                foundMatch = true; // Ensure we only scroll to the first match
                             }
+                        }
                     });
 
                 if (!foundMatch) {
@@ -271,6 +273,7 @@
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').html(matching);
+                } 
             }
 
 
