@@ -274,7 +274,7 @@
                 if (!foundMatch) {
 
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').html(matching);
+                    $('#market-list-body').append(matching);
                 }
 
             }
