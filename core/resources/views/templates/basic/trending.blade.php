@@ -356,9 +356,9 @@
         @media (max-width: 768px) {
 
             /* .time-selection {
-                        flex-direction: column;
-                        align-items: flex-start;
-                    } */
+                            flex-direction: column;
+                            align-items: flex-start;
+                        } */
 
             .time-selection label {
                 margin-bottom: 10px;
@@ -790,4 +790,21 @@
             "locale": "en"
         }
     </script>
+    <style>
+        <style>.tradingview-widget-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            background-color: #f9f9f9;
+            /* Optional: Add a background color */
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            /* Optional: Add a border */
+            position: sticky;
+            /* Ensures it stays at the top when scrolling */
+            top: 0;
+            z-index: 1000;
+        }
+    </style>
+    </style>
 @endpush
