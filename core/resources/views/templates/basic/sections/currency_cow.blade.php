@@ -241,7 +241,7 @@
                 // Clear any existing highlights first
 
                 if (!foundMatch) {
-                    // If no match is found, you can show a message or handle it as needed
+                    
                     console.log("No matching rows found");
                     const matching = `<tr class="text-center">
                                 <td colspan="100%">
@@ -252,13 +252,13 @@
                                 </td>
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').append(matching);
+                    $('#market-list-body').hmtl(matching);
                 } else {
-                    
                     $('.load-more-market-list').removeClass('d-none');
-                    $('#market-list-body .text-center')
+                    $('#market-list-body')
                         .remove();
-                    $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
+                    
+                        $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
 
                     $('#market-list-body tr').each(function() {
                         let rowText = $(this).text().toLowerCase();
