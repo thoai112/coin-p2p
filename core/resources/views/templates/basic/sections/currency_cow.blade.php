@@ -85,11 +85,13 @@
         <div class="convert">
             <span id="average-price"></span>
             <i class="las la-retweet"></i>
-            <span id="selectedCurrency">None
+            <div> 
+                <span id="selectedCurrency">None</span>
                 <select id="currency" name="currency">
                     <option value="">Select</option>
                 </select>
-            </span>
+            </div>
+
 
         </div>
 
