@@ -374,11 +374,8 @@
         .tradingview-widget-container {
             width: 100%;
             max-height: fit-content;
-            margin: 0 auto;
-            padding: 0;
             text-align: center;
             background-color: transparent;
-            position: absolute;
             z-index: 1000;
         }
 
