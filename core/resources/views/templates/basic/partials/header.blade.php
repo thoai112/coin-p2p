@@ -217,7 +217,7 @@
         /* Media query for screen width 575px or less */
         @media (max-width: 575px) {
             .nav-list {
-                display: block;
+                display: flex;
             }
 
             .nav-item .nav-bar{
