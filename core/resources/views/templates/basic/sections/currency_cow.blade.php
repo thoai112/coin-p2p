@@ -441,6 +441,8 @@
         select option {
             background-color: transparent;
             max-width: 50px; 
+            text-align: center;
+            justify-content: center;
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
