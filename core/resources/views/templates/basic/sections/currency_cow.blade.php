@@ -237,10 +237,19 @@
 
             function highlightTableRows(search) {
                 if (!search) return; // Exit if the search value is empty
+
+                const matching = `<tr class="text-center">
+                                <td colspan="100%">
+                                    <div class="empty-thumb">
+                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
+                                        <p class="empty-sell">No value found</p>
+                                    </div>
+                                </td>
+                            </tr>`;
                 
                 $('.load-more-market-list').removeClass('d-none');
-                $('.text-center').remove();}
-                
+                $('#market-list-body .no-value-found').remove();
+               
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
                     $('#market-list-body tr').each(function() {
@@ -261,17 +270,11 @@
                     });
 
                 if (!foundMatch) {
-                    const matching = `<tr class="text-center">
-                                <td colspan="100%">
-                                    <div class="empty-thumb">
-                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="empty-sell">No value found</p>
-                                    </div>
-                                </td>
-                            </tr>`;
+                    
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').html(matching);
-                } 
+                }
+                
             }
 
 
