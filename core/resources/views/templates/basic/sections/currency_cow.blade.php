@@ -353,7 +353,6 @@
                         $('#average-price').html(
                             `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} = 1 COW</span>`
                         );
-                        $('#currency').prop('selectedIndex', 1);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
@@ -375,6 +374,9 @@
                                 })
                             );
                         });
+                        
+                        $('#currency').prop('selectedIndex', 1);
+
                         $('#currency').on('change', function() {
                             const cow = $(this).val();
                             $('#selectedCurrency').text(cow || 'None');
