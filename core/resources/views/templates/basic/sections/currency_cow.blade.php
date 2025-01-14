@@ -480,8 +480,8 @@
             }
 
             .formula {
-                font-size: 0.63rem;
-                gap: 8;
+                font-size: 0.8rem;
+                gap: 10;
             }
         }
     </style>
