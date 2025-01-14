@@ -8,45 +8,45 @@
         $langDetails = $languages->where('code', config('app.locale'))->first();
     @endphp
     <section class="trade-section">
-         <!-- TradingView Widget BEGIN -->
-
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
-                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-                "symbols": [{
-                        "proName": "FOREXCOM:SPXUSD",
-                        "title": "S&P 500 Index"
-                    },
-                    {
-                        "proName": "FOREXCOM:NSXUSD",
-                        "title": "US 100 Cash CFD"
-                    },
-                    {
-                        "proName": "FX_IDC:EURUSD",
-                        "title": "EUR to USD"
-                    },
-                    {
-                        "proName": "BITSTAMP:BTCUSD",
-                        "title": "Bitcoin"
-                    },
-                    {
-                        "proName": "BITSTAMP:ETHUSD",
-                        "title": "Ethereum"
-                    }
-                ],
-                "showSymbolLogo": true,
-                "isTransparent": true,
-                "displayMode": "adaptive",
-                "colorTheme": "dark",
-                "locale": "en"
-            }
-        </script>
-    </div>
-    <!-- TradingView Widget END -->
         <div class="container-fluid container-fluid--custom">
+            <!-- TradingView Widget BEGIN -->
+
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                        target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [{
+                                "proName": "FOREXCOM:SPXUSD",
+                                "title": "S&P 500 Index"
+                            },
+                            {
+                                "proName": "FOREXCOM:NSXUSD",
+                                "title": "US 100 Cash CFD"
+                            },
+                            {
+                                "proName": "FX_IDC:EURUSD",
+                                "title": "EUR to USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "Bitcoin"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "Ethereum"
+                            }
+                        ],
+                        "showSymbolLogo": true,
+                        "isTransparent": true,
+                        "displayMode": "adaptive",
+                        "colorTheme": "dark",
+                        "locale": "en"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
             <div class="trade-section__inner">
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
@@ -353,6 +353,19 @@
             color: white;
         }
 
+        .tradingview-widget-container {
+            width: 100%;
+            max-height: fit-content;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            background-color: transparent;
+            position: relative;
+            /* Ensures proper placement */
+            z-index: 1000;
+            /* Ensures it's on top of other content */
+        }
+
         @media (max-width: 1440px) {
             .asset-compact-card__contentchart {
                 width: 99%;
@@ -379,14 +392,18 @@
                 padding: 3px 10px;
             }
 
+            .tradingview-widget-container {
+                margin-top:
+            }
+
         }
 
         @media (max-width: 768px) {
 
             /* .time-selection {
-                                        flex-direction: column;
-                                        align-items: flex-start;
-                                    } */
+                                            flex-direction: column;
+                                            align-items: flex-start;
+                                        } */
 
             .time-selection label {
                 margin-bottom: 10px;
@@ -407,19 +424,6 @@
                 flex: 1 1 100%;
                 margin-bottom: 10px;
             }
-        }
-
-        .tradingview-widget-container {
-            width: 100%;
-            max-height: fit-content;
-            margin: 0 auto;
-            padding: 0;
-            text-align: center;
-            background-color: transparent;
-            position: relative;
-            /* Ensures proper placement */
-            z-index: 1000;
-            /* Ensures it's on top of other content */
         }
     </style>
 @endpush
