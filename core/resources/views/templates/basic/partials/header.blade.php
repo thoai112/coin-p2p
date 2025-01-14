@@ -210,8 +210,8 @@
             display: none;
             flex-wrap: wrap;
             list-style: none;
-            padding: 0;
-            margin: 0;
+            justify-content: center;
+            
         }
 
         /* Media query for screen width 575px or less */
@@ -222,6 +222,7 @@
 
             .nav-item .nav-bar{
                 font-size: 0.85rem;
+                padding: 0 10px;
             }
         }
     </style>
