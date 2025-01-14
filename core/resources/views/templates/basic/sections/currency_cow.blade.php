@@ -221,36 +221,8 @@
                 highlightTableRows(search);
             });
 
-            // function highlightTableRows(search) {
-            //     if (!search) return; // Exit if the search value is empty
-
-            //     // Iterate over table rows and add highlighting
-            //     $('#market-list-body tr').each(function() {
-            //         let rowText = $(this).text().toLowerCase();
-            //         if (rowText.includes(search.toLowerCase())) {
-            //             $(this).addClass('highlight'); // Add a highlight class
-            //         } else {
-            //             $(this).removeClass('highlight'); // Remove the highlight class if not matching
-            //         }
-            //     });
-            // }
-
             function highlightTableRows(search) {
                 if (!search) return; // Exit if the search value is empty
-
-                const matching = `<tr class="text-center">
-                                <td colspan="100%">
-                                    <div class="empty-thumb">
-                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="empty-sell">No value found</p>
-                                    </div>
-                                </td>
-                            </tr>`;
-
-                $('.load-more-market-list').removeClass('d-none');
-                if ($('#market-list-body').find('tr.text-center').length > 0) {
-                    $('#market-list-body').find('tr.text-center').remove();
-                }
 
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
@@ -270,12 +242,6 @@
                         }
                     }
                 });
-
-                if (!foundMatch) {
-
-                    $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').prepend(matching);
-                }
 
             }
 
