@@ -41,6 +41,7 @@ body {
 @media screen and (max-width: 991px) {
   .container-fluid.container-fluid--custom {
     --bs-gutter-x: 1.5rem;
+    margin-top: 10%;
   }
 }
 
