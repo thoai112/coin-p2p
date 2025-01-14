@@ -3104,6 +3104,7 @@ table tr:first-child th:first-child {
 @media screen and (max-width: 575px) {
     .theme-switch-wrapper {
         display: flex;
+        margin-left: -10px;
     }
 }
 
