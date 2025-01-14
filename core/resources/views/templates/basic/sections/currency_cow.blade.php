@@ -67,7 +67,7 @@
     <div class="section-heading">
         <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
         <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
-        <p style="display: flex; align-items: center; color:#e69d00" >
+        <p class="convert">
             (
             <span>
                 V<sub>1</sub>
@@ -82,7 +82,7 @@
             </span>
             ) / 158
         </p>
-        <div style="display: flex; align-items: center; gap: 10px; color:#e69d00">
+        <div class="convert">
             <span id="average-price"></span>
             <span class="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
@@ -446,6 +446,13 @@
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;
+        }
+
+        .convert{
+            display: flex;
+            color:#e69d00;
+            align-items: center;
+            gap: 10;
         }
     </style>
 @endpush
