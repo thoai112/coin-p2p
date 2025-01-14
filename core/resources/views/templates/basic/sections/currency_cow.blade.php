@@ -452,7 +452,18 @@
         }
 
         .convert {
-            color: #e69d00;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            color:#b46a16
+        }
+
+        .convert>* {
+            flex: 1;
+            
+            min-width: 100px;
+            /* Ensure items don't shrink too much */
         }
 
         .convert p {
