@@ -951,9 +951,7 @@ body {
 }
 
 @media screen and (max-width: 991px) {
-  .trade-section__inner {
-    margin-top: 10%;
-  }
+
 }
 
 @media screen and (max-width: 767px) {
