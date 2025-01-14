@@ -476,6 +476,7 @@
 
             .convert span, .convert i{
                 margin : 5px 0;
+                padding: 0 0;
             }
 
             .cow-value {
