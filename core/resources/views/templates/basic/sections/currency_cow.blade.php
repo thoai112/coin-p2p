@@ -141,6 +141,7 @@
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
             let date = nowDate;
+            let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
 
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
@@ -343,10 +344,10 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} {{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}</span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} </span>`);
 
                         $('#average-price').html(
-                            `<span className="average-price">${resp.cow.toFixed(3)} {{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}</span>`);
+                            `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} </span>`);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
