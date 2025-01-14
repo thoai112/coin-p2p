@@ -461,7 +461,7 @@
         }
 
         @media screen and (max-width: 575px) {
-            .cow-value {
+            .cow-value, .convert p {
                 font-size:0.8rem; 
             }
         }
