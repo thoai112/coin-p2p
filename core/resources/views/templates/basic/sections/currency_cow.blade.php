@@ -465,7 +465,7 @@
             }
 
             .convert {
-                font-size:0.65rem; 
+                font-size:0.62rem; 
             }
         }
     </style>
