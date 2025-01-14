@@ -2,7 +2,6 @@
     $meta = (object) $meta;
     $content = getContent('currency_cow.content', true);
     $elements = getContent('currency_cow.element', orderById: true);
-    $la = $langDetails;
 @endphp
 <div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
@@ -87,7 +86,7 @@
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
-            <span id="selectedCurrency">{{$la}}</span>
+            <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
                 <option value="">Select</option>
             </select>
@@ -344,7 +343,7 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} {{$langDetails}} </span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} </span>`);
 
                         $('#average-price').html(
                             `<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
