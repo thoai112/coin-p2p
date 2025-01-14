@@ -438,10 +438,6 @@
             border-color: #999;
         }
 
-        select:focus {
-            box-shadow: 0 0 5px rgba(78, 149, 224, 0.5);
-        }
-
         select option {
             background-color: #102239f5;
             max-width: 50px; 
