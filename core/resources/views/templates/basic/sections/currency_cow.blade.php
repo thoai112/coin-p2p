@@ -480,7 +480,7 @@
             }
 
             .formula {
-                font-size: 0.8rem;
+                font-size: 1rem;
                 gap: 10;
             }
         }
