@@ -667,10 +667,9 @@ p {
 /* ====================== Section Heading ==================== */
 .section-heading {
     text-align: start;
-    margin-bottom: 50px;
 }
 
-@media screen and (max-width: 1199px) {
+/* @media screen and (max-width: 1199px) {
     .section-heading {
         margin-bottom: 40px;
     }
@@ -680,7 +679,7 @@ p {
     .section-heading {
         margin-bottom: 30px;
     }
-}
+} */
 
 .section-heading__desc {
     max-width: 720px;
