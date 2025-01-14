@@ -86,7 +86,7 @@
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
-            <span id="selectedCurrency">None {{ session('lang', 'en') }}</span>
+            <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
                 <option value="">Select</option>
             </select>
@@ -343,10 +343,10 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} </span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} {{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}</span>`);
 
                         $('#average-price').html(
-                            `<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
+                            `<span className="average-price">${resp.cow.toFixed(3)} {{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}</span>`);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
