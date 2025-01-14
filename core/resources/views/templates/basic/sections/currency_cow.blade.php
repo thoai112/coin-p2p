@@ -345,11 +345,11 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} </span>`
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} = 1 COW</span>`
                         );
 
                         $('#average-price').html(
-                            `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} </span>`
+                            `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} = 1 COW</span>`
                         );
 
                         $('.load-more-market-list').removeClass('d-none');
