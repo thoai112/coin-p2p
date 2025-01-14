@@ -467,7 +467,7 @@
                 grid-template-rows: repeat(3, auto);
                 gap: 10px;
                 align-items: center;
-                justify-items: flex-start;
+                justify-items: center;
                 
             }
 
