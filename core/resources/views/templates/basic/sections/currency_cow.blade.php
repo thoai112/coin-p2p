@@ -298,7 +298,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.currencies.length <= 0 || !foundMatch) {
+                        if (resp.currencies.length <= 0 || foundMatch) {
                             html += `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
