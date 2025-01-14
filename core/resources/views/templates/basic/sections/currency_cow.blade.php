@@ -258,7 +258,6 @@
                                     $('#market-list-body text-center').remove();
                                 }
                             }
-                        }
                     });
 
                 if (!foundMatch) {
