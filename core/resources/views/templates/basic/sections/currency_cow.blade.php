@@ -67,7 +67,7 @@
     <div class="section-heading">
         <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
         <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
-        <p style="color:#e69d00" >
+        <p style="display: flex; align-items: center; color:#e69d00" >
             (
             <span>
                 V<sub>1</sub>
