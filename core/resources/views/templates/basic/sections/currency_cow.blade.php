@@ -479,7 +479,7 @@
                 padding: 0 0;
             }
 
-            .cow-value {
+            .cow-value, select {
                 font-size: 0.8rem;
             }
 
