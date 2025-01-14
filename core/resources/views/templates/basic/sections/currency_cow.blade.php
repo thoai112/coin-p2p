@@ -423,6 +423,7 @@
 
         select {
             appearance: none;
+            border:none;
             -webkit-appearance: none;
             -moz-appearance: none;
             background-color: transparent;
