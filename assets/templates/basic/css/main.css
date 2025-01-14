@@ -2965,7 +2965,6 @@ table tr:first-child th:first-child {
         justify-content: space-between;
         align-items: center;
         margin: 0 !important;
-        border-bottom: 1px solid hsl(var(--static-white)/0.2);
         color: hsl(var(--static-white)) !important;
     }
 
