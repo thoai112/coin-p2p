@@ -84,7 +84,7 @@
 
                             @foreach ($currencies as $currency)
                                 <li class="nav-horizontal-menu__item">
-                                    <div class="asset-compact-card coinBtn " data-id="{{ $currency->symbol }}"
+                                    <div class="asset-compact-card coinBtn" data-id="{{ $currency->symbol }}"
                                         data-type="{{ $currency->type }}" data-rate="{{ json_encode($currency->rate) }}">
                                         <div class="asset-compact-card__content ">
                                             <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
@@ -202,6 +202,25 @@
                 </div>
 
             </div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                        target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+                    {
+                        "feedMode": "all_symbols",
+                        "isTransparent": false,
+                        "displayMode": "regular",
+                        "width": "100%",
+                        "height": "100%",
+                        "colorTheme": "dark",
+                        "locale": "en"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+
         </div>
     </section>
 @endsection
@@ -401,9 +420,9 @@
         @media (max-width: 768px) {
 
             /* .time-selection {
-                                            flex-direction: column;
-                                            align-items: flex-start;
-                                        } */
+                                                flex-direction: column;
+                                                align-items: flex-start;
+                                            } */
 
             .time-selection label {
                 margin-bottom: 10px;
