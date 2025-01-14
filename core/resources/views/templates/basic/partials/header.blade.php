@@ -207,31 +207,17 @@
 @push('script')
     <style>
         .nav-list {
-            display: flex;
+            display: none;
             flex-wrap: wrap;
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .nav-item {
-            margin: 5px;
-        }
-
         /* Media query for screen width 575px or less */
         @media (max-width: 575px) {
             .nav-list {
-                flex-direction: row;
-                /* Arrange items in a row */
-                justify-content: space-between;
-                /* Optional: space out items evenly */
-            }
-
-            .nav-item {
-                flex: 1;
-                /* Makes all items take up equal space */
-                text-align: center;
-                /* Centers the content inside each item */
+                display: flex
             }
         }
     </style>
