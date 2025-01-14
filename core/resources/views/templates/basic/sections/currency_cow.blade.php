@@ -86,7 +86,7 @@
             <span id="average-price"></span>
             <span className="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
-            <span id="selectedCurrency">None </span>
+            <span id="selectedCurrency">None {{ session('lang', 'en') }}</span>
             <select id="currency" name="currency">
                 <option value="">Select</option>
             </select>
