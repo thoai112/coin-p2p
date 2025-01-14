@@ -82,15 +82,15 @@
             </span>
             ) / 158
         </p>
-        <span className="cow-row">
+        <div style="display: flex; align-items: center; gap: 10px;">
             <span id="average-price"></span>
-            <span className="cow"> = 1 Cow</span>
+            <span class="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
             <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
                 <option value="">Select</option>
             </select>
-        </span>
+        </div>
 
         {{-- @foreach ($elements as $element)
                 <p class="coincheck-item__desc"> {{ __(@$element->data_values->subheading) }}</p>
