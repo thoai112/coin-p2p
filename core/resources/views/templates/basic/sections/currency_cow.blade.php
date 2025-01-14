@@ -483,7 +483,8 @@
             }
 
             .formula {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                justify-content: center;
                 gap: 10;
             }
         }
