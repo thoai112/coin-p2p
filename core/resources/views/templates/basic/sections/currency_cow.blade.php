@@ -2,6 +2,7 @@
     $meta = (object) $meta;
     $content = getContent('currency_cow.content', true);
     $elements = getContent('currency_cow.element', orderById: true);
+    $langDetails = $languages->where('code', config('app.locale'))->first();
 @endphp
 <div class="col-lg-6 table-wrapper">
     {{-- <div class="table-wrapper"> --}}
