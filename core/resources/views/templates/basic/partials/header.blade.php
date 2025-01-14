@@ -217,12 +217,11 @@
         /* Media query for screen width 575px or less */
         @media (max-width: 575px) {
             .nav-list {
-                display: flex
+                display: block;
             }
 
             .nav-item .nav-bar{
                 font-size: 0.6rem;
-                justify-content: start;
             }
         }
     </style>
