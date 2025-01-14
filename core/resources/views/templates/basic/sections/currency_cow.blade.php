@@ -472,7 +472,7 @@
                 grid-template-rows: repeat(3, auto);
                 align-items: center;
                 justify-items: center;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 padding-left: 0;
             }
 
@@ -482,7 +482,7 @@
             }
 
             .cow-value, select {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
 
             .formula {
