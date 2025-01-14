@@ -412,10 +412,6 @@
                 padding: 3px 10px;
             }
 
-            .tradingview-widget-container {
-                margin-top:
-            }
-
         }
 
         @media (max-width: 768px) {
