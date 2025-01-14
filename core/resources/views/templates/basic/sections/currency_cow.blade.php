@@ -468,13 +468,12 @@
             .convert {
                 display: grid;
                 grid-template-rows: repeat(3, auto);
-                gap: 5px;
                 align-items: center;
                 justify-items: center;
                 font-size: 0.8rem;
             }
 
-            .convert span, .convert i{
+            .convert span, .convert i, select{
                 margin : 5px 0;
                 padding: 0 0;
             }
