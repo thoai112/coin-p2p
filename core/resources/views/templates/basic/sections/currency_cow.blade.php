@@ -370,7 +370,7 @@
                             );
                         });
                         $('#currency').on('change', function () {
-                            const cow = $(this).val();
+                            const cow = $(this).val() + $(this).text();
                             $('#selectedCurrency').text(cow || 'None');
                         });
                     }
