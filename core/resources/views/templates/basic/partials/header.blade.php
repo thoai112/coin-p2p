@@ -220,7 +220,7 @@
                 display: flex
             }
 
-            .nav-list .nav-item .nav-link{
+            .nav-item .nav-link{
                 font-size: 0.8rem;
             }
         }
