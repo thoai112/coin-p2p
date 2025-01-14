@@ -210,7 +210,7 @@
                 // Get the search value
                 let search = $(this).find('.market-list-search-field').val().trim();
 
-                if (search === '' || foundMatch) {
+                if (search === '') {
                     getPairList();
                 }
                 // Reset variables and table before performing the search
@@ -274,7 +274,7 @@
                 if (!foundMatch) {
 
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').html(matching);
+                    $('#market-list-body').prepend(matching);
                 }
 
             }
