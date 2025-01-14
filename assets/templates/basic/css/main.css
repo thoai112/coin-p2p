@@ -4849,7 +4849,6 @@ span.ui-slider-handle.ui-corner-all.ui-state-default:last-child {
     background-color: hsl(var(--body-background));
     border-radius: 15px;
     transition: 0.2s linear;
-    border-width: 2px;
     text-align: center;
     justify-items: center;
     margin-left: 5%;
