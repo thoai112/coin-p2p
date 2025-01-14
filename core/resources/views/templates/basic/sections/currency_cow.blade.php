@@ -449,11 +449,6 @@
             overflow: hidden;
             white-space: nowrap;
         }
-
-        #selectedCurrency {
-            margin-top: 15px;
-            font-weight: bold;
-        }
     </style>
 @endpush
 
