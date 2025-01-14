@@ -60,7 +60,7 @@
                             </div>
                         @endif
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
 
                     </li>
@@ -71,7 +71,20 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">@lang('COIN MARKET')</a>
-                    </li>
+                    </li> --}}
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/trending">
+                                <i class="las la-home">@lang('HOME')</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        </li>
+                    </ul>
 
                     {{-- NAV P2P --}}
                     {{-- <li class="nav-item">
