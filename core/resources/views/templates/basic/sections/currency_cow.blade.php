@@ -82,7 +82,7 @@
             </span>
             ) / 158
         </p>
-        <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="display: flex; align-items: center; gap: 10px; color:#e69d00">
             <span id="average-price"></span>
             <span class="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
@@ -426,7 +426,6 @@
             width: 30%;
             max-width: 100px;
             cursor: pointer;
-            color: #999
             transition: all 0.3s ease;
             scrollbar-width: none;
         }
