@@ -461,8 +461,12 @@
         }
 
         @media screen and (max-width: 575px) {
-            .cow-value, .convert p span {
+            .cow-value {
                 font-size:0.8rem; 
+            }
+
+            .convert p span {
+                font-size:0.78rem; 
             }
         }
     </style>
