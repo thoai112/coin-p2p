@@ -472,7 +472,10 @@
                 align-items: center;
                 justify-items: center;
                 font-size: 0.8rem;
+            }
 
+            .convert span, .convert i{
+                gap : 10;
             }
 
             .cow-value {
