@@ -239,23 +239,6 @@
                 if (!search) return; // Exit if the search value is empty
 
                 // Clear any existing highlights first
-                $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
-
-                $('#market-list-body tr').each(function() {
-                    let rowText = $(this).text().toLowerCase();
-                    if (rowText.includes(search.toLowerCase())) {
-                        $(this).addClass('highlight'); // Add a highlight class
-                        if (!foundMatch) {
-                            // Scroll the table container to the first matching row
-                            $('.table-body-container').animate({
-                                scrollTop: $(this).offset().top - $('.table-body-container').offset()
-                                    .top +
-                                    $('.table-body-container').scrollTop() - 50
-                            }, 300); // Smooth scroll to the row (adjust the -50 as needed)
-                            foundMatch = true; // Ensure we only scroll to the first match
-                        }
-                    }
-                });
 
                 if (!foundMatch) {
                     // If no match is found, you can show a message or handle it as needed
@@ -269,7 +252,30 @@
                                 </td>
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').html(matching);
+                    $('#market-list-body').append(matching);
+                } else {
+                    
+                    $('.load-more-market-list').removeClass('d-none');
+                    $('#market-list-body .text-center')
+                        .remove();
+                    $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
+
+                    $('#market-list-body tr').each(function() {
+                        let rowText = $(this).text().toLowerCase();
+                        if (rowText.includes(search.toLowerCase())) {
+                            $(this).addClass('highlight'); // Add a highlight class
+                            if (!foundMatch) {
+                                // Scroll the table container to the first matching row
+                                $('.table-body-container').animate({
+                                    scrollTop: $(this).offset().top - $('.table-body-container')
+                                        .offset()
+                                        .top +
+                                        $('.table-body-container').scrollTop() - 50
+                                }, 300); // Smooth scroll to the row (adjust the -50 as needed)
+                                foundMatch = true; // Ensure we only scroll to the first match
+                            }
+                        }
+                    });
                 }
             }
 
@@ -386,9 +392,9 @@
                         $('#currency').prop('selectedIndex', 1);
 
                         const defaultValue = $('#currency')
-                    .val(); // Get the default value of the select dropdown
+                            .val(); // Get the default value of the select dropdown
                         $('#selectedCurrency').text(defaultValue ||
-                        'None'); // Set the default value in #selectedCurrency
+                            'None'); // Set the default value in #selectedCurrency
 
                         $('#currency').on('change', function() {
                             const cow = $(this).val();
