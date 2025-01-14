@@ -422,7 +422,6 @@
             background-color: transparent; 
             padding: 10px 15px;
             font-size: 16px;
-            outline: none;
             width: 30%;
             max-width: 100px;
             cursor: pointer;
@@ -439,7 +438,7 @@
         }
 
         select option {
-            background-color: #102239f5;
+            background-color: transparent;
             max-width: 50px; 
             text-overflow: ellipsis;
             overflow: hidden;
