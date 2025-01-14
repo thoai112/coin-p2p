@@ -451,19 +451,9 @@
             white-space: nowrap;
         }
 
-        .convert {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .convert {;
             align-items: center;
             color:#b46a16
-        }
-
-        .convert>* {
-            flex: 1;
-            
-            min-width: 100px;
-            /* Ensure items don't shrink too much */
         }
 
         .convert p {
