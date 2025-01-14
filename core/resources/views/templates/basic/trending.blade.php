@@ -210,7 +210,7 @@
                 <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
                     {
                         "feedMode": "all_symbols",
-                        "isTransparent": false,
+                        "isTransparent": True,
                         "displayMode": "regular",
                         "width": "100%",
                         "height": "100%",
