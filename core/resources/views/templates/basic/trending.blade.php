@@ -212,8 +212,8 @@
                         "feedMode": "all_symbols",
                         "isTransparent": true,
                         "displayMode": "regular",
-                        "width": "100%",
-                        "height": "100%",
+                        "width": "90%",
+                        "height": "300px",
                         "colorTheme": "dark",
                         "locale": "en"
                     }
