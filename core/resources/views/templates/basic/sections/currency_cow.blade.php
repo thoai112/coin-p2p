@@ -260,7 +260,7 @@
                 if (!foundMatch) {
                     // If no match is found, you can show a message or handle it as needed
                     console.log("No matching rows found");
-                    const matching += `<tr class="text-center">
+                    const matching = `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
                                         <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
