@@ -246,35 +246,37 @@
                                     </div>
                                 </td>
                             </tr>`;
-                
+
                 $('.load-more-market-list').removeClass('d-none');
-                $('#market-list-body .no-value-found').remove();
-               
+                if ($('#market-list-body').find('tr.text-center').length > 0) {
+                    $('#market-list-body').find('tr.text-center').remove();
+                }
+
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
-                    $('#market-list-body tr').each(function() {
-                        let rowText = $(this).text().toLowerCase();
-                        if (rowText.includes(search.toLowerCase())) {
-                            $(this).addClass('highlight'); // Add a highlight class
-                            if (!foundMatch) {
-                                // Scroll the table container to the first matching row
-                                $('.table-body-container').animate({
-                                    scrollTop: $(this).offset().top - $('.table-body-container')
-                                        .offset()
-                                        .top +
-                                        $('.table-body-container').scrollTop() - 50
-                                }, 300); // Smooth scroll to the row (adjust the -50 as needed)
-                                foundMatch = true; // Ensure we only scroll to the first match
-                            }
+                $('#market-list-body tr').each(function() {
+                    let rowText = $(this).text().toLowerCase();
+                    if (rowText.includes(search.toLowerCase())) {
+                        $(this).addClass('highlight'); // Add a highlight class
+                        if (!foundMatch) {
+                            // Scroll the table container to the first matching row
+                            $('.table-body-container').animate({
+                                scrollTop: $(this).offset().top - $('.table-body-container')
+                                    .offset()
+                                    .top +
+                                    $('.table-body-container').scrollTop() - 50
+                            }, 300); // Smooth scroll to the row (adjust the -50 as needed)
+                            foundMatch = true; // Ensure we only scroll to the first match
                         }
-                    });
+                    }
+                });
 
                 if (!foundMatch) {
-                    
+
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').html(matching);
                 }
-                
+
             }
 
 
