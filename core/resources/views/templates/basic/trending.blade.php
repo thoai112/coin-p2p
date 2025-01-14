@@ -40,7 +40,7 @@
                         ],
                         "showSymbolLogo": true,
                         "isTransparent": true,
-                        "displayMode": "adaptive",
+                        "displayMode": "regular",
                         "colorTheme": "dark",
                         "locale": "en"
                     }
