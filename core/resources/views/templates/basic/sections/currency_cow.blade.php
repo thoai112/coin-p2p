@@ -428,7 +428,6 @@
             background-color: transparent;
             padding: 10px 0;
             font-size: 16px;
-            width: 30%;
             max-width: 100px;
             cursor: pointer;
             transition: all 0.3s ease;
