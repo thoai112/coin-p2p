@@ -85,7 +85,7 @@
         <div class="convert">
             <span id="average-price"></span>
             <i class="las la-retweet"></i>
-            <span> 
+            <span>
                 <span id="selectedCurrency">None</span>
                 <select id="currency" name="currency">
                     <option value="">Select</option>
@@ -260,6 +260,16 @@
                 if (!foundMatch) {
                     // If no match is found, you can show a message or handle it as needed
                     console.log("No matching rows found");
+                    const matching += `<tr class="text-center">
+                                <td colspan="100%">
+                                    <div class="empty-thumb">
+                                        <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
+                                        <p class="empty-sell">${loadMore ? 'No more value found' : 'No value found'}</p>
+                                    </div>
+                                </td>
+                            </tr>`;
+                    $('.load-more-market-list').addClass('d-none');
+                    loadMore ? $('#market-list-body').append(matching);
                 }
             }
 
@@ -298,7 +308,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.currencies.length <= 0 || foundMatch) {
+                        if (resp.currencies.length <= 0) {
                             html += `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
@@ -375,8 +385,10 @@
 
                         $('#currency').prop('selectedIndex', 1);
 
-                        const defaultValue = $('#currency').val();  // Get the default value of the select dropdown
-                        $('#selectedCurrency').text(defaultValue || 'None'); // Set the default value in #selectedCurrency
+                        const defaultValue = $('#currency')
+                    .val(); // Get the default value of the select dropdown
+                        $('#selectedCurrency').text(defaultValue ||
+                        'None'); // Set the default value in #selectedCurrency
 
                         $('#currency').on('change', function() {
                             const cow = $(this).val();
@@ -427,7 +439,7 @@
 
         select {
             appearance: none;
-            border:none;
+            border: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             background-color: transparent;
@@ -475,12 +487,15 @@
                 font-size: 0.9rem;
             }
 
-            .convert span, .convert i, select{
-                margin : 5px 0;
+            .convert span,
+            .convert i,
+            select {
+                margin: 5px 0;
                 padding: 0 0;
             }
 
-            .cow-value, select {
+            .cow-value,
+            select {
                 font-size: 0.9rem;
             }
 
