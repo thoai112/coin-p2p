@@ -376,10 +376,9 @@
                         });
 
                         $('#currency').prop('selectedIndex', 1);
-//                         const defaultCurrencyText = $('#currency option').eq(1).text(); // Get text of the option at index 1
-// $('#selectedCurrency').text(defaultCurrencyText || 'None'); // Set the text to the selected option or 'None'
 
-                        $('#selectedCurrency').text($('#currency').val(); || 'None');
+                        const defaultValue = $('#currency').val();  // Get the default value of the select dropdown
+                        $('#selectedCurrency').text(defaultValue || 'None'); // Set the default value in #selectedCurrency
 
                         $('#currency').on('change', function() {
                             const cow = $(this).val();
