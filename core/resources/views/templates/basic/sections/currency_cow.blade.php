@@ -425,6 +425,7 @@
             width: 30%;
             max-width: 100px;
             cursor: pointer;
+            color: #999
             transition: all 0.3s ease;
             scrollbar-width: none;
         }
