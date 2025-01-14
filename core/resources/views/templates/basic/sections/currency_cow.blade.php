@@ -85,10 +85,12 @@
         <div class="convert">
             <span id="average-price"></span>
             <i class="las la-retweet"></i>
-            <span id="selectedCurrency">None</span>
-            <select id="currency" name="currency">
-                <option value="">Select</option>
-            </select>
+            <span id="selectedCurrency">None
+                <select id="currency" name="currency">
+                    <option value="">Select</option>
+                </select>
+            </span>
+
         </div>
 
         {{-- @foreach ($elements as $element)
@@ -468,7 +470,7 @@
                 gap: 10px;
                 align-items: center;
                 justify-items: center;
-                
+
             }
 
             .cow-value {
