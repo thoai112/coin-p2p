@@ -471,6 +471,7 @@
                 gap: 5px;
                 align-items: center;
                 justify-items: center;
+                font-size: 0.8rem;
 
             }
 
@@ -479,7 +480,7 @@
             }
 
             .formula {
-                font-size: 0.64rem;
+                font-size: 0.63rem;
                 gap: 8;
             }
         }
