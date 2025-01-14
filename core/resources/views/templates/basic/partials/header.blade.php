@@ -219,6 +219,10 @@
             .nav-list {
                 display: flex
             }
+
+            .nav-list .nav-item .nav-link{
+                font-size: 0.8rem;
+            }
         }
     </style>
 @endpush
