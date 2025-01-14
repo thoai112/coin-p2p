@@ -345,11 +345,11 @@
 
                         $('#cow-value').html(
                             `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} </span>`
-                            );
+                        );
 
                         $('#average-price').html(
                             `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} </span>`
-                            );
+                        );
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
@@ -460,12 +460,17 @@
         }
 
         @media screen and (max-width: 575px) {
+            .convert {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .cow-value {
-                font-size:0.8rem; 
+                font-size: 0.8rem;
             }
 
             .convert {
-                font-size:0.62rem; 
+                font-size: 0.62rem;
             }
         }
     </style>
