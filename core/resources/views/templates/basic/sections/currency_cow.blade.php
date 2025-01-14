@@ -145,6 +145,7 @@
             let search = "";
             let date = nowDate;
             let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
+            let foundMatch = false;
 
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
@@ -240,9 +241,6 @@
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
 
-                let foundMatch = false; // Flag to track if any match is found
-
-                // Iterate over table rows and add highlighting
                 $('#market-list-body tr').each(function() {
                     let rowText = $(this).text().toLowerCase();
                     if (rowText.includes(search.toLowerCase())) {
@@ -300,7 +298,7 @@
                             return false;
                         }
                         let html = '';
-                        if (resp.currencies.length <= 0) {
+                        if (resp.currencies.length <= 0 && !foundMatch) {
                             html += `<tr class="text-center">
                                 <td colspan="100%">
                                     <div class="empty-thumb">
