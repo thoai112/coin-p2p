@@ -255,8 +255,7 @@
                                     }, 300); // Smooth scroll to the row (adjust the -50 as needed)
                                     foundMatch = true; // Ensure we only scroll to the first match
                                     $('.load-more-market-list').removeClass('d-none');
-                                    $('#market-list-body text-center')
-                                        .remove();
+                                    $('#market-list-body text-center').remove();
                                 }
                             }
                         }
@@ -273,7 +272,6 @@
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').html(matching);
-                }
             }
 
 
