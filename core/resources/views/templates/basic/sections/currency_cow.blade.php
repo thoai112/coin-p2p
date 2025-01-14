@@ -67,7 +67,7 @@
     <div class="section-heading">
         <h4 class="section-heading__title"> {{ __(@$content->data_values->cow_heading) }} </h4>
         <p class="coincheck-item__desc"> {{ __(@$content->data_values->cow_subheading) }}</p>
-        <p class="convert">
+        <p class="formula">
             (
             <span>
                 V<sub>1</sub>
@@ -84,7 +84,6 @@
         </p>
         <div class="convert">
             <span id="average-price"></span>
-            <span class="cow"> = 1 Cow</span>
             <i class="las la-retweet"></i>
             <span id="selectedCurrency">None</span>
             <select id="currency" name="currency">
@@ -451,12 +450,12 @@
             white-space: nowrap;
         }
 
-        .convert {;
+        .convert, .formula {;
             align-items: center;
             color:#b46a16
         }
 
-        .convert p {
+        .formula {
             padding-left: 10px;
         }
 
@@ -470,7 +469,7 @@
                 font-size: 0.8rem;
             }
 
-            .convert {
+            .formula {
                 font-size: 0.62rem;
             }
         }
