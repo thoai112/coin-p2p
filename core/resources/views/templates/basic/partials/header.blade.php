@@ -180,16 +180,16 @@
                 <div class="theme-switch-wrapper">
                     <ul class="nav-list">
                         <li class="nav-item">
-                            <a class="nav-link" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
+                            <a class="nav-bar" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
     
                         </li>
     
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                            <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
     
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                            <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
                         </li>
                     </ul>
                     <label class="theme-switch" for="checkbox">
@@ -220,7 +220,7 @@
                 display: flex
             }
 
-            .nav-item .nav-link{
+            .nav-item .nav-bar{
                 font-size: 0.8rem;
             }
         }
