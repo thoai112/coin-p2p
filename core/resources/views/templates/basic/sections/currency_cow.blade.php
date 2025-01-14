@@ -353,6 +353,7 @@
                         $('#average-price').html(
                             `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} = 1 COW</span>`
                         );
+                        $('#currency').prop('selectedIndex', 1);
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
