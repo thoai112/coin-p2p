@@ -450,9 +450,11 @@
             white-space: nowrap;
         }
 
-        .convert, .formula {;
+        .convert,
+        .formula {
+            ;
             align-items: center;
-            color:#b46a16
+            color: #b46a16
         }
 
         .formula {
@@ -461,8 +463,12 @@
 
         @media screen and (max-width: 575px) {
             .convert {
-                flex-direction: column;
-                align-items: flex-start;
+                display: grid;
+                grid-template-rows: repeat(3, auto);
+                gap: 10px;
+                align-items: center;
+                justify-items: flex-start;
+                
             }
 
             .cow-value {
