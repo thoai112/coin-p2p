@@ -141,7 +141,6 @@
             let limit = "{{ $meta->limit ?? 15 }}";
             let search = "";
             let date = nowDate;
-            let langDe = "{{$langDetails}}";
 
             // Initialize the single date picker
             const datePicker = $('#showDateRangePicker').daterangepicker({
@@ -344,7 +343,7 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDe} </span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} {{$langDetails}} </span>`);
 
                         $('#average-price').html(
                             `<span className="average-price">${resp.cow.toFixed(3)} VND</span>`);
