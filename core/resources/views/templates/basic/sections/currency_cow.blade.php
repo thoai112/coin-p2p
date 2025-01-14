@@ -419,11 +419,9 @@
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-color: rgba(13, 41, 73, 0.418); 
-            border: 1px solid #65e8ff;
+            background-color: transparent; 
             padding: 10px 15px;
             font-size: 16px;
-            border-radius: 5px;
             outline: none;
             width: 30%;
             max-width: 100px;
@@ -436,12 +434,11 @@
         }
 
         select:hover {
-            background-color: rgba(13, 41, 73, 0.418);
+            background-color: transparent;
             border-color: #999;
         }
 
         select:focus {
-            border-color: #007BFF;
             box-shadow: 0 0 5px rgba(78, 149, 224, 0.5);
         }
 
