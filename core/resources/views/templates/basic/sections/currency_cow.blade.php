@@ -344,10 +344,12 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} </span>`);
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} </span>`
+                            );
 
                         $('#average-price').html(
-                            `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} </span>`);
+                            `<span className="average-price">${resp.cow.toFixed(3)} ${langDetails} </span>`
+                            );
 
                         $('.load-more-market-list').removeClass('d-none');
                         loadMore ? $('#market-list-body').append(html) : $('#market-list-body').html(html);
@@ -364,12 +366,12 @@
                         $.each(resp.currencies || [], function(i, currency) {
                             $('#currency').append(
                                 $('<option>', {
-                                    value: showAmount(currency.rate,2),
+                                    value: showAmount(currency.rate, 2),
                                     text: `${currency.symbol}`
                                 })
                             );
                         });
-                        $('#currency').on('change', function () {
+                        $('#currency').on('change', function() {
                             const cow = $(this).val();
                             $('#selectedCurrency').text(cow || 'None');
                         });
@@ -420,7 +422,7 @@
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
-            background-color: transparent; 
+            background-color: transparent;
             padding: 10px 0;
             font-size: 16px;
             width: 30%;
@@ -429,8 +431,9 @@
             transition: all 0.3s ease;
             scrollbar-width: none;
         }
+
         select::-webkit-scrollbar {
-            display: none; 
+            display: none;
         }
 
         select:hover {
@@ -440,7 +443,7 @@
 
         select option {
             background-color: transparent;
-            max-width: 50px; 
+            max-width: 50px;
             text-align: center;
             justify-content: center;
             text-overflow: ellipsis;
@@ -448,12 +451,19 @@
             white-space: nowrap;
         }
 
-        .convert{
-            color:#e69d00;
+        .convert {
+            color: #e69d00;
             gap: 10;
         }
-        .convert p{
-            padding-left: 10px; 
+
+        .convert p {
+            padding-left: 10px;
+        }
+
+        @media screen and (max-width: 575px) {
+            .cow-value {
+                font-size:0.8rem; 
+            }
         }
     </style>
 @endpush
