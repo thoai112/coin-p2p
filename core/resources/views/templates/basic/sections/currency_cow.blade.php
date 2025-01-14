@@ -449,9 +449,11 @@
         }
 
         .convert{
-            display: flex;
             color:#e69d00;
             gap: 10;
+        }
+        .convert p{
+            padding-left: 10px; 
         }
     </style>
 @endpush
