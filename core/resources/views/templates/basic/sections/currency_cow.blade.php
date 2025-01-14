@@ -430,6 +430,7 @@
             font-size: 16px;
             max-width: 100px;
             cursor: pointer;
+            color: #b46a16;
             transition: all 0.3s ease;
             scrollbar-width: none;
         }
