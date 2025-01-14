@@ -221,7 +221,8 @@
             }
 
             .nav-item .nav-bar{
-                font-size: 0.8rem;
+                font-size: 0.6rem;
+                justify-content: start;
             }
         }
     </style>
