@@ -127,20 +127,6 @@
                         <a class="nav-link" href="{{ route('contact') }}"> @lang('Contact') </a>
                     </li> --}}
                 </ul>
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
-
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
-                    </li>
-                </ul>
             </div>
             <ul class="header-right d-lg-block d-none">
                 <li class="nav-item">
@@ -192,6 +178,20 @@
             </ul>
             @if (!request()->routeIs('trade'))
                 <div class="theme-switch-wrapper">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/trending"><i class="las la-home">@lang('HOME')</i></a>
+    
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+    
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        </li>
+                    </ul>
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" class="d-none" id="checkbox">
                         <span class="slider">
