@@ -365,12 +365,13 @@
                             $('#currency').append(
                                 $('<option>', {
                                     value: showAmount(currency.rate,2),
+                                    symbol: `${currency.symbol}`
                                     text: `${currency.symbol}`
                                 })
                             );
                         });
                         $('#currency').on('change', function () {
-                            const cow = $(this).val() + $(this).text();
+                            const cow = $(this).val() + $(this).attr('symbol');
                             $('#selectedCurrency').text(cow || 'None');
                         });
                     }
