@@ -421,7 +421,7 @@
             -webkit-appearance: none;
             -moz-appearance: none;
             background-color: transparent; 
-            padding: 10px 15px;
+            padding: 10px 0;
             font-size: 16px;
             width: 30%;
             max-width: 100px;
