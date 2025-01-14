@@ -7,7 +7,8 @@
         $languages = App\Models\Language::get();
         $langDetails = $languages->where('code', config('app.locale'))->first();
     @endphp
-    <!-- TradingView Widget BEGIN -->
+    <section class="trade-section">
+         <!-- TradingView Widget BEGIN -->
 
     <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
@@ -45,7 +46,6 @@
         </script>
     </div>
     <!-- TradingView Widget END -->
-    <section class="trade-section">
         <div class="container-fluid container-fluid--custom">
             <div class="trade-section__inner">
                 <div class="trade-section__left">
