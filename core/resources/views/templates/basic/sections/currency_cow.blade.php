@@ -347,7 +347,7 @@
                         });
 
                         $('#cow-value').html(
-                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails} = 1 COW</span>`
+                            `<span id="cow-value"> 1 COW = ${resp.cow.toFixed(5)} ${langDetails}</span>`
                         );
 
                         $('#average-price').html(
