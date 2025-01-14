@@ -378,7 +378,7 @@
             padding: 0;
             text-align: center;
             background-color: transparent;
-            position: relative;
+            position: absolute;
             z-index: 1000;
         }
 
