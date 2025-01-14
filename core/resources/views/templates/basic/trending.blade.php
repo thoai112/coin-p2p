@@ -13,37 +13,6 @@
         <div class="tradingview-widget-container__widget"></div>
         <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
                 target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-            {
-                "symbols": [{
-                        "proName": "FOREXCOM:SPXUSD",
-                        "title": "S&P 500 Index"
-                    },
-                    {
-                        "proName": "FOREXCOM:NSXUSD",
-                        "title": "US 100 Cash CFD"
-                    },
-                    {
-                        "proName": "FX_IDC:EURUSD",
-                        "title": "EUR to USD"
-                    },
-                    {
-                        "proName": "BITSTAMP:BTCUSD",
-                        "title": "Bitcoin"
-                    },
-                    {
-                        "proName": "BITSTAMP:ETHUSD",
-                        "title": "Ethereum"
-                    }
-                ],
-                "showSymbolLogo": true,
-                "isTransparent": true,
-                "displayMode": "adaptive",
-                "colorTheme": "dark",
-                "locale": "en"
-            }
-        </script>
-
     </div>
     <!-- TradingView Widget END -->
     <section class="trade-section">
@@ -412,13 +381,11 @@
 
         .tradingview-widget-container {
             width: 100%;
+            max-height: fit-content;
             margin: 0 auto;
             padding: 0;
             text-align: center;
-            background-color: #f9f9f9;
-            /* Optional: Add background color */
-            border-bottom: 1px solid #ddd;
-            /* Optional: Add border */
+            background-color: transparent;
             position: relative;
             /* Ensures proper placement */
             z-index: 1000;
@@ -803,7 +770,7 @@
     </script>
 @endpush
 
-{{-- @push('script')
+@push('script')
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
         {
             "symbols": [{
@@ -834,21 +801,5 @@
             "locale": "en"
         }
     </script>
-    <style>
-        <style>.tradingview-widget-container {
-            width: 100%;
-            margin: 0 auto;
-            padding: 0;
-            background-color: #f9f9f9;
-            /* Optional: Add a background color */
-            text-align: center;
-            border-bottom: 1px solid #ddd;
-            /* Optional: Add a border */
-            position: sticky;
-            /* Ensures it stays at the top when scrolling */
-            top: 0;
-            z-index: 1000;
-        }
-    </style>
-    </style>
-@endpush --}}
+
+@endpush
