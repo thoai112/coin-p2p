@@ -385,6 +385,7 @@
         .tradingview-widget-container-news {
             margin-top: 50px;
             text-align: center;
+            justify-content: center;
 
         }
 
