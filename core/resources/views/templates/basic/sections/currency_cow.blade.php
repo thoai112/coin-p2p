@@ -238,6 +238,11 @@
             function highlightTableRows(search) {
                 if (!search) return; // Exit if the search value is empty
 
+                $('.load-more-market-list').removeClass('d-none');
+                    $('#market-list-body')
+                        .remove();
+                }
+                
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
                     $('#market-list-body tr').each(function() {
@@ -269,11 +274,6 @@
                     $('.load-more-market-list').addClass('d-none');
                     $('#market-list-body').html(matching);
                 } 
-                else {
-                    $('.load-more-market-list').removeClass('d-none');
-                    $('#market-list-body')
-                        .remove();
-                }
             }
 
 
