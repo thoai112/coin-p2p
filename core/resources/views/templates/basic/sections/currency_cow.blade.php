@@ -379,7 +379,7 @@
 //                         const defaultCurrencyText = $('#currency option').eq(1).text(); // Get text of the option at index 1
 // $('#selectedCurrency').text(defaultCurrencyText || 'None'); // Set the text to the selected option or 'None'
 
-                        $('#selectedCurrency').text($(this).val() || 'None');
+                        $('#selectedCurrency').text($('#currency').val(); || 'None');
 
                         $('#currency').on('change', function() {
                             const cow = $(this).val();
