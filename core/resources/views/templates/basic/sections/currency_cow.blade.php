@@ -468,7 +468,7 @@
             .convert {
                 display: grid;
                 grid-template-rows: repeat(3, auto);
-                gap: 10px;
+                gap: 5px;
                 align-items: center;
                 justify-items: center;
 
@@ -479,7 +479,8 @@
             }
 
             .formula {
-                font-size: 0.62rem;
+                font-size: 0.64rem;
+                gap: 8;
             }
         }
     </style>
