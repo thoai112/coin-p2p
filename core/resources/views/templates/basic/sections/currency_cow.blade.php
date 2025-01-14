@@ -249,7 +249,7 @@
 
                 $('.load-more-market-list').removeClass('d-none');
                 if ($('#market-list-body').find('tr.text-center').length > 0) {
-                    $('#market-list-body').find('tr.text-center').remove();
+                    getPairList();
                 }
 
                 // Clear any existing highlights first
