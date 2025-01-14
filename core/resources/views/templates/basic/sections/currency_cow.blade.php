@@ -453,7 +453,6 @@
 
         .convert {
             color: #e69d00;
-            gap: 10;
         }
 
         .convert p {
@@ -465,7 +464,7 @@
                 font-size:0.8rem; 
             }
 
-            .convert p span {
+            .convert {
                 font-size:0.78rem; 
             }
         }
