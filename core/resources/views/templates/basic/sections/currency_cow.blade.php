@@ -371,7 +371,7 @@
                             );
                         });
                         $('#currency').on('change', function () {
-                            const cow = $(this).val() + $(this).attr('symbol');
+                            const cow = $(this).attr('symbol');
                             $('#selectedCurrency').text(cow || 'None');
                         });
                     }
