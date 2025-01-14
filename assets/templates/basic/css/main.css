@@ -666,7 +666,7 @@ p {
 
 /* ====================== Section Heading ==================== */
 .section-heading {
-    text-align: start;
+    text-align: center;
 }
 
 /* @media screen and (max-width: 1199px) {

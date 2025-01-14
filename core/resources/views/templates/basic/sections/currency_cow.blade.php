@@ -459,12 +459,8 @@
         .formula {
             align-items: center;
             color: #b46a16;
-            padding-left: 20%;
         }
 
-        /* .formula {
-            padding-left: 20%;
-        } */
 
         @media screen and (max-width: 575px) {
             .convert {
@@ -473,7 +469,6 @@
                 align-items: center;
                 justify-items: center;
                 font-size: 0.9rem;
-                padding-left: 0;
             }
 
             .convert span, .convert i, select{
@@ -487,7 +482,6 @@
 
             .formula {
                 font-size: 1.1rem;
-                padding-left: 10%;
                 gap: 10;
             }
         }
