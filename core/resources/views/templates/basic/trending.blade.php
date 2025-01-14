@@ -215,7 +215,7 @@
                         "width": "90%",
                         "height": "440",
                         "colorTheme": "dark",
-                        "locale": "vn"
+                        "locale": "vi_VN"
                     }
                 </script>
             </div>
