@@ -379,14 +379,12 @@
             text-align: center;
             background-color: transparent;
             position: relative;
-            /* Ensures proper placement */
             z-index: 1000;
-            /* Ensures it's on top of other content */
         }
 
         .tradingview-widget-container-news {
-            margin-top: 20px;
-            /* Adjust the value as needed */
+            margin-top: 50px;
+
         }
 
         @media (max-width: 1440px) {
