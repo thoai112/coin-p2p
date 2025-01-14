@@ -239,9 +239,9 @@
                 if (!search) return; // Exit if the search value is empty
 
                 $('.load-more-market-list').removeClass('d-none');
-                    $('#market-list-body .text-center')
-                        .remove();
-                }
+                //     $('#market-list-body .text-center')
+                //         .remove();
+                // }
                 
                 // Clear any existing highlights first
                 $('#market-list-body tr').removeClass('highlight'); // Target the correct rows
