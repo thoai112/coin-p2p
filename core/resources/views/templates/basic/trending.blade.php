@@ -9,12 +9,35 @@
     @endphp
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <div class="tradingview-widget-copyright">
-            <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-                <span class="blue-text">Track all markets on TradingView</span>
-            </a>
-        </div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker.js">
+            {
+                "symbols": [{
+                        "proName": "FOREXCOM:SPXUSD",
+                        "title": "S&P 500"
+                    },
+                    {
+                        "proName": "FOREXCOM:NSXUSD",
+                        "title": "US 100"
+                    },
+                    {
+                        "proName": "FX_IDC:EURUSD",
+                        "title": "EUR/USD"
+                    },
+                    {
+                        "proName": "BITSTAMP:BTCUSD",
+                        "title": "BTC/USD"
+                    },
+                    {
+                        "proName": "BITSTAMP:ETHUSD",
+                        "title": "ETH/USD"
+                    }
+                ],
+                "colorTheme": "light",
+                "isTransparent": false,
+                "displayMode": "adaptive",
+                "locale": "en"
+            }
+        </script>
     </div>
     <!-- TradingView Widget END -->
     <section class="trade-section">
@@ -356,9 +379,9 @@
         @media (max-width: 768px) {
 
             /* .time-selection {
-                            flex-direction: column;
-                            align-items: flex-start;
-                        } */
+                                flex-direction: column;
+                                align-items: flex-start;
+                            } */
 
             .time-selection label {
                 margin-bottom: 10px;
@@ -379,6 +402,21 @@
                 flex: 1 1 100%;
                 margin-bottom: 10px;
             }
+        }
+
+        .tradingview-widget-container {
+            width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+            /* Optional: Add background color */
+            border-bottom: 1px solid #ddd;
+            /* Optional: Add border */
+            position: relative;
+            /* Ensures proper placement */
+            z-index: 1000;
+            /* Ensures it's on top of other content */
         }
     </style>
 @endpush
@@ -759,7 +797,7 @@
     </script>
 @endpush
 
-@push('script')
+{{-- @push('script')
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
         {
             "symbols": [{
@@ -807,4 +845,4 @@
         }
     </style>
     </style>
-@endpush
+@endpush --}}
