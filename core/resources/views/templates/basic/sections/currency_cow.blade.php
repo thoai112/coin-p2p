@@ -264,12 +264,12 @@
                                 <td colspan="100%">
                                     <div class="empty-thumb">
                                         <img src="{{ asset('assets/images/extra_images/empty.png') }}"/>
-                                        <p class="empty-sell">${loadMore ? 'No more value found' : 'No value found'}</p>
+                                        <p class="empty-sell">No value found</p>
                                     </div>
                                 </td>
                             </tr>`;
                     $('.load-more-market-list').addClass('d-none');
-                    $('#market-list-body').append(matching);
+                    $('#market-list-body').html(matching);
                 }
             }
 
