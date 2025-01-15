@@ -915,7 +915,7 @@ body {
 
 @media screen and (max-width: 767px) {
   .nav-horizontal-menu {
-    overflow: hidden;
+    overflow: auto;
     display: -webkit-box;
     display: -ms-flexbox;
     -webkit-box-pack: start;
