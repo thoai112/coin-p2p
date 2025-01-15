@@ -560,7 +560,7 @@
                     },
                     leftPriceScale: {
                         borderColor: '#363C4E',
-                        visible:false,
+                        visible:true,
                     },
                     layout: {
                         background: {
