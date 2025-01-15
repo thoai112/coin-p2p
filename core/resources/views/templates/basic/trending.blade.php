@@ -520,7 +520,7 @@
 
             function updateChartDimensions() {
                 let chartWidth = Math.ceil($(".trade-section__left").outerWidth());
-                let chartHeight = Math.ceil($(".trade-section__left").outerHeight());
+                let chartHeight = 400;
                 if (chart) {
                     chart.applyOptions({
                         width: chartWidth,
