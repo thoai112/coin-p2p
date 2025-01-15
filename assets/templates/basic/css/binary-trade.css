@@ -927,7 +927,7 @@ body {
     -webkit-transition: 0.3s linear;
     transition: 0.3s linear;
     scroll-behavior: smooth;
-    height: 0;
+    height: fit-content;
   }
 }
 
