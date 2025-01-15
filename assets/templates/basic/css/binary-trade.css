@@ -1060,7 +1060,8 @@ body {
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
-  text-align: end;
+  align-items: flex-end;
+  text-align: right; 
 }
 
 .trade-section__block.three {
