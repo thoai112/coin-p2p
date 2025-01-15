@@ -1076,10 +1076,12 @@ body {
 @media screen and (max-width: 767px) {
   .trade-section__block.one {
     width: 100%;
+    text-align: center;
   }
 
   .trade-section__block.two {
     width: 100%;
+    text-align: center;
   }
 }
 
