@@ -422,7 +422,7 @@
                                                     align-items: flex-start;
                                                 } */
 
-            .time-selection label {
+            /* .time-selection label {
                 margin-bottom: 10px;
             }
 
@@ -433,14 +433,14 @@
             .time-period-option {
                 flex: 1 1 45%;
                 margin-bottom: 10px;
-            }
+            } */
         }
 
         @media (max-width: 480px) {
-            .time-period-option {
+            /* .time-period-option {
                 flex: 1 1 100%;
                 margin-bottom: 10px;
-            }
+            } */
         }
     </style>
 @endpush
