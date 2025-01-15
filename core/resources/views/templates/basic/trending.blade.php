@@ -554,6 +554,9 @@
                             });
                         },
                     },
+                    rightPriceScale: {
+                        visible:false,
+                    },
                     leftPriceScale: {
                         borderColor: '#363C4E',
                         visible:true,
