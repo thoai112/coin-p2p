@@ -48,6 +48,127 @@
             </div>
             <!-- TradingView Widget END -->
             <div class="trade-section__inner">
+                <nav class="nav-horizontal" style="display: none" >
+                    {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
+                    <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
+                    <ul class="nav-horizontal-menu" id="show-currency-list">
+
+                        @foreach ($currencies as $currency)
+                            <li class="nav-horizontal-menu__item">
+                                <div class="asset-compact-card coinBtn" data-id="{{ $currency->symbol }}"
+                                    data-type="{{ $currency->type }}" data-rate="{{ json_encode($currency->rate) }}">
+                                    <div class="asset-compact-card__content ">
+                                        <h6 class="asset-compact-card__title">{{ $currency->symbol }}</h6>
+                                        <h6 class="asset-compact-card__title">
+                                            @if (@$langDetails->code == 'en')
+                                                USD
+                                            @else
+                                                VND
+                                            @endif
+                                        </h6>
+                                    </div>
+
+                                    <div class="asset-compact-card__contentchart">
+
+                                        @if ($currency->type == Status::TRENDINGTYPE_CRYPTO && $currency->symbol != 'USDT')
+                                            @php
+                                                $lastRate = null;
+                                                $dates = [];
+                                                $points = [];
+                                                for ($i = 0; $i < count($currency->rate); $i++) {
+                                                    $dates[] = $currency->rate[$i][0];
+                                                    $points[] = $currency->rate[$i][4];
+                                                    $lastRate = $currency->rate[$i][4];
+                                                }
+
+                                                $svg = LineChart::new($points)
+                                                    ->withColorGradient(
+                                                        'rgb(48, 231, 237)',
+                                                        'rgb(0, 166, 215)',
+                                                        'rgb(0, 88, 179)',
+                                                        'rgb(0, 27, 135)',
+                                                    )
+                                                    ->withDimensions(150, 50)
+                                                    ->make();
+                                            @endphp
+
+                                            {!! $svg !!}
+                                        @endif
+                                        @if ($currency->type == Status::TRENDINGTYPE_FINANCE)
+                                            @php
+                                                $lastRate = null;
+                                                $dates = [];
+                                                $points = [];
+                                                foreach ($currency->rate as $entry) {
+                                                    $dates[] = $entry['Date'];
+                                                    $points[] = $entry['Price per Ounce'];
+                                                    $lastRate = $entry['Price per Ounce'];
+                                                }
+
+                                                $metal = LineChart::new($points)
+                                                    ->withColorGradient(
+                                                        'rgb(48, 231, 237)',
+                                                        'rgb(0, 166, 215)',
+                                                        'rgb(0, 88, 179)',
+                                                        'rgb(0, 27, 135)',
+                                                    )
+                                                    ->withDimensions(150, 50)
+                                                    ->make();
+                                            @endphp
+
+                                            {!! $metal !!}
+                                        @endif
+                                        @if ($currency->type == Status::TRENDINGTYPE_COW)
+                                            @php
+                                                $lastRate = null;
+                                                $dates = [];
+                                                $points = [];
+
+                                                foreach ($currency->rate as $entry) {
+                                                    $dates[] = $entry['timestamp'];
+                                                    $points[] = $entry['rate'];
+                                                    $lastRate = $entry['rate'];
+                                                }
+
+                                                $cow = LineChart::new($points)
+                                                    ->withColorGradient(
+                                                        'rgb(48, 231, 237)',
+                                                        'rgb(0, 166, 215)',
+                                                        'rgb(0, 88, 179)',
+                                                        'rgb(0, 27, 135)',
+                                                    )
+                                                    ->withDimensions(150, 50)
+                                                    ->make();
+
+                                            @endphp
+
+                                            {!! $cow !!}
+                                        @endif
+
+                                    </div>
+                                    <div class="asset-compact-card__content">
+                                        @php
+                                            $lastRate = round($lastRate, 4);
+                                            $valueChange = round(
+                                                ((end($points) - $points[count($points) - 2]) /
+                                                    $points[count($points) - 2]) *
+                                                    100,
+                                                2,
+                                            );
+                                        @endphp
+                                        <h6 class="asset-compact-card__title lastRate">
+                                            {{ $lastRate }}</h6>
+                                        <h6 class="asset-compact-card__title"
+                                            style="color: {{ $valueChange < 0 ? 'red' : 'green' }};">
+                                            {{ $valueChange }} %
+                                        </h6>
+
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </nav>
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
                         <span>@lang('Profit')</span>
