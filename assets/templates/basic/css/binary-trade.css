@@ -976,6 +976,8 @@ body {
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  justify-content: center;
+  align-items: center;
   width: 80%;
   height: calc(100vh - 500px);
 }
@@ -1054,13 +1056,13 @@ body {
   flex-direction: column;
   gap: 8px;
   width: 50%;
+  text-align: left;
 }
 
 .trade-section__block.two {
   display: inline-flex;
   flex-direction: column;
   gap: 8px;
-  align-items: flex-end;
   text-align: right; 
 }
 
