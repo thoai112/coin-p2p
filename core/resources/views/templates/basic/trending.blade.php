@@ -557,6 +557,9 @@
                     rightPriceScale: {
                         borderColor: '#363C4E',
                     },
+                    leftPriceScale: {
+                        borderColor: '#363C4E',
+                    },
                     layout: {
                         background: {
                             type: 'solid',
