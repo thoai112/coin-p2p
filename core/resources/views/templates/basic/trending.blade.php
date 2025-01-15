@@ -336,7 +336,7 @@
 
         .time-selection {
             display: flex;
-            align-items: center;
+            justify-content: end;
             margin-top: 20px;
             flex-wrap: wrap;
         }
@@ -503,6 +503,7 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
+                
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
