@@ -1061,7 +1061,7 @@ body {
 
 .trade-section__block.two {
   display: inline-flex;
-  width: 50%;
+  width: 49%;
   flex-direction: column;
   gap: 8px;
   text-align: right; 
