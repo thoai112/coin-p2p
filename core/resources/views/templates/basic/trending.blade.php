@@ -59,15 +59,15 @@
                     <div class="trade-section__block two">
                         <span>@lang('Value')</span>
                         <span>@lang('Amount')</span>
-                        <div class="time-selection">
-                            <div id="time-period" class="time-period-options">
-                                <div class="time-period-option" data-value="1m">@lang('1m')</div>
-                                <div class="time-period-option" data-value="1d">@lang('24h')</div>
-                                <div class="time-period-option" data-value="1w">@lang('1w')</div>
-                                <div class="time-period-option" data-value="1M">@lang('1M')</div>
-                                <div class="time-period-option" data-value="1Y">@lang('1Y')</div>
-                                <div class="time-period-option" data-value="all">@lang('ALL')</div>
-                            </div>
+                    </div>
+                    <div class="time-selection">
+                        <div id="time-period" class="time-period-options">
+                            <div class="time-period-option" data-value="1m">@lang('1m')</div>
+                            <div class="time-period-option" data-value="1d">@lang('24h')</div>
+                            <div class="time-period-option" data-value="1w">@lang('1w')</div>
+                            <div class="time-period-option" data-value="1M">@lang('1M')</div>
+                            <div class="time-period-option" data-value="1Y">@lang('1Y')</div>
+                            <div class="time-period-option" data-value="all">@lang('ALL')</div>
                         </div>
                     </div>
                     <div id="chart-container">
