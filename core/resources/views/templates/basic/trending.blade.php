@@ -555,6 +555,7 @@
                         },
                     },
                     leftPriceScale: {
+                        visible: false,
                         borderColor: '#363C4E',
                     },
                     layout: {
