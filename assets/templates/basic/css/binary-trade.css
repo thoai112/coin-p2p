@@ -1073,19 +1073,15 @@ body {
   gap: 16px;
 }
 
-/* @media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .trade-section__block.one {
-    width: 30%;
+    width: 100%;
   }
 
   .trade-section__block.two {
-    width: 30%;
+    width: 100%;
   }
-
-  .trade-section__block.three {
-    width: 40%;
-  }
-} */
+}
 
 /* @media screen and (max-width: 575px) {
   .trade-section__block.one {
