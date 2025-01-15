@@ -842,6 +842,12 @@ body {
   position: relative;
 }
 
+@media screen and (max-width: 767px) {
+  .nav-horizontal {
+    display: flex;
+  }
+}
+
 .nav-horizontal__btn {
   height: 100%;
   position: absolute;
@@ -905,7 +911,24 @@ body {
   .nav-horizontal-menu {
     width: 95%;
   }
-  
+}
+
+@media screen and (max-width: 767px) {
+  .nav-horizontal-menu {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: 0.3s linear;
+    transition: 0.3s linear;
+    scroll-behavior: smooth;
+  }
 }
 
 .nav-horizontal-menu__item {
