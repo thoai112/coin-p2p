@@ -222,6 +222,7 @@
             <!-- TradingView Widget END -->
         </div>
     </section>
+   
 @endsection
 
 
@@ -417,29 +418,29 @@
         @media (max-width: 768px) {
 
             /* .time-selection {
-                                                        flex-direction: column;
-                                                        align-items: flex-start;
-                                                    } */
+                                                    flex-direction: column;
+                                                    align-items: flex-start;
+                                                } */
 
             /* .time-selection label {
-                    margin-bottom: 10px;
-                }
+                margin-bottom: 10px;
+            }
 
-                .time-period-options {
-                    width: 100%;
-                }
+            .time-period-options {
+                width: 100%;
+            }
 
-                .time-period-option {
-                    flex: 1 1 45%;
-                    margin-bottom: 10px;
-                } */
+            .time-period-option {
+                flex: 1 1 45%;
+                margin-bottom: 10px;
+            } */
         }
 
         @media (max-width: 480px) {
             /* .time-period-option {
-                    flex: 1 1 100%;
-                    margin-bottom: 10px;
-                } */
+                flex: 1 1 100%;
+                margin-bottom: 10px;
+            } */
         }
     </style>
 @endpush
@@ -502,7 +503,7 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
-
+                
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
@@ -555,11 +556,11 @@
                         },
                     },
                     rightPriceScale: {
-                        visible: false,
+                        visible:false,
                     },
                     leftPriceScale: {
                         borderColor: '#363C4E',
-                        visible: true,
+                        visible:true,
                     },
                     layout: {
                         background: {
@@ -741,7 +742,7 @@
 
                         if (filteredDates && filteredPoints) {
                             chartData = filteredDates.map((t, index) => ({
-                                time: new Date(t).toLocaleString(), 
+                                time: t,
                                 value: filteredPoints[index]
                             }));
                         }
