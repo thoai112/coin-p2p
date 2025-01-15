@@ -48,7 +48,7 @@
             </div>
             <!-- TradingView Widget END -->
             <div class="trade-section__inner">
-                <nav class="nav-horizontal" style="display: none" >
+                <nav class="nav-horizontal show">
                     {{-- <button class="nav-horizontal__btn prev"><i class="las la-angle-left"></i></button>
                     <button class="nav-horizontal__btn next"><i class="las la-angle-right"></i></button> --}}
                     <ul class="nav-horizontal-menu" id="show-currency-list">
@@ -359,6 +359,10 @@
 
 @push('style')
     <style>
+        .show{
+            display: none
+        }
+
         .title-trending {
             font-size: 2rem;
             font-weight: 600;
@@ -537,6 +541,9 @@
         }
 
         @media (max-width: 768px) {
+            .show{
+                display: -webkit-box;
+            }
 
             /* .time-selection {
                                                     flex-direction: column;

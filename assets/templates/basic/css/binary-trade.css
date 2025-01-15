@@ -918,7 +918,6 @@ body {
     overflow: hidden;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: start;
