@@ -363,7 +363,7 @@
         }
 
         .title-trending {
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 600;
             display: flex;
             justify-content: center;
