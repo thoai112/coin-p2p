@@ -812,6 +812,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
+                console.log("treiding:", trendingRates)
                 $('.value').text(`1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce'] } ${langDetails}`);
             }
 
