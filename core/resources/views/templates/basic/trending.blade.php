@@ -532,6 +532,9 @@
         }
 
         @media (max-width: 991px) {
+            .title-trending{
+                font-size: 1.3rem;
+            }
             .time-period-option {
                 font-size: 12px;
                 padding: 3px 10px;
