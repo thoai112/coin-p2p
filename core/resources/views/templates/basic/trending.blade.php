@@ -7,7 +7,7 @@
         $languages = App\Models\Language::get();
         $langDetails = $languages->where('code', config('app.locale'))->first();
     @endphp
-    <section class="banner-section">
+    <section>
         <div class="container-fluid container-fluid--custom">
             <!-- TradingView Widget BEGIN -->
 
