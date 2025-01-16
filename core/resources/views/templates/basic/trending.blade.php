@@ -598,7 +598,7 @@
             let dataIds = [];
             let isTradeRunning = false;
             let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
-
+            let currentDate = new Date();
 
 
             function showLoading() {
@@ -811,6 +811,8 @@
             function updateChartTitle(){
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
+                $('.date').text(`${currentDate.toUTCString()}`);
+                $('.value').text(`1 COW =`);
             }
 
             async function loadHistoricalData() {
@@ -952,6 +954,8 @@
                 initializeChart();
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
+                $('.date').text(`${currentDate.toUTCString()}`);
+                $('.value').text(`1 COW =`);
             });
 
 
