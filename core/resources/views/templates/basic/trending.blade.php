@@ -891,6 +891,7 @@
                         areaSeries.setData(uniqueChartData);
                         lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                         chart.timeScale().fitContent();
+                        
                     }
 
 
@@ -915,6 +916,7 @@
                     value: lastPrice,
                 };
                 updateChartData(newData);
+
 
             }
 
