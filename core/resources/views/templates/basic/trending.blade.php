@@ -597,6 +597,7 @@
             let direction;
             let dataIds = [];
             let isTradeRunning = false;
+            let langDetails = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
 
 
 
@@ -945,6 +946,8 @@
 
             $(document).ready(function() {
                 initializeChart();
+                $('.name').text(`${trendingActivate}`);
+                $('.fiat').text(`${trendingActivate} to ${langDetails}`);
             });
 
 
