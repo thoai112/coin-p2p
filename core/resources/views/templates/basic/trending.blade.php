@@ -739,7 +739,7 @@
                 if (parseInt(trendingType, 5) === 2) {
                     let symbol = activeCoin.replace('_', '');
                     BINANCE_API_URL =
-                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=${timePeriod}&limit=2000`;
+                        `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=${timePeriod}&limit=5000`;
                     BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
                 }
 
@@ -812,7 +812,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
-                $('.value').text(`1 COW =`);
+                $('.value').text(`1 COW = {{$lastRate}}`);
             }
 
             async function loadHistoricalData() {
@@ -955,7 +955,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
-                $('.value').text(`1 COW =`);
+                $('.value').text(`1 COW = {{$lastRate}}`);
             });
 
 
