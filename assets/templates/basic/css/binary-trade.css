@@ -1006,12 +1006,10 @@ body {
   }
 }
 
-@media screen and (max-width: 991px) {
-
-}
-
 @media screen and (max-width: 767px) {
-
+  .trade-section__inner {
+    flex-direction: column;
+  }
 }
 
 .trade-section__left {
