@@ -176,8 +176,8 @@
                         
                     </div>
                     <div class="trade-section__block two">
-                        <span>@lang('Value')</span>
-                        <span>@lang('Amount')</span>
+                        <span class="date">@lang('Value')</span>
+                        <span class="value">@lang('Amount')</span>
                     </div>
                     <div class="time-selection">
                         <div id="time-period" class="time-period-options">
