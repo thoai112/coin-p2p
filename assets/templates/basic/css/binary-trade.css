@@ -1051,9 +1051,9 @@ body {
 
 @media screen and (max-width: 767px) {
   .trade-section__left {
-    width: 100%;
+    width: 90%;
   }
-  
+
   .trade-section__right {
     max-width: 250px;
     position: fixed;
