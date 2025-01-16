@@ -913,7 +913,7 @@ body {
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .nav-horizontal-menu {
     overflow: auto;
     display: -webkit-box;
@@ -927,7 +927,7 @@ body {
     -webkit-transition: 0.3s linear;
     transition: 0.3s linear;
     scroll-behavior: smooth;
-    width: 80%;
+    width: 550px;
     height: fit-content;
   }
 }
