@@ -1019,7 +1019,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: calc(100vh - 500px);
 }
 
 .trade-section__right {
