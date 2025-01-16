@@ -46,11 +46,15 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-
+  .container-fluid.container-fluid--custom {
+    margin-top: 15%;
+  }
 }
 
 @media screen and (max-width: 575px) {
-
+  .container-fluid.container-fluid--custom {
+    margin-top: 22%;
+  }
 }
 
 /* ======================= Avatar CSS Start ======================= */
@@ -1007,9 +1011,7 @@ body {
 }
 
 @media screen and (max-width: 767px) {
-  .trade-section__inner {
-    flex-direction: column;
-  }
+
 }
 
 .trade-section__left {
