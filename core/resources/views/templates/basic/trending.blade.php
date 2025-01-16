@@ -629,7 +629,7 @@
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
                 
-                document.querySelector('.name').textContent = `${trendingActivate}`;
+                $('.name').text(`${trendingActivate}_usdt`);
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
