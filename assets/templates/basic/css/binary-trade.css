@@ -927,6 +927,26 @@ body {
     -webkit-transition: 0.3s linear;
     transition: 0.3s linear;
     scroll-behavior: smooth;
+    width: 600px;
+    height: fit-content;
+  }
+}
+
+
+@media screen and (max-width: 575px) {
+  .nav-horizontal-menu {
+    overflow: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: 0.3s linear;
+    transition: 0.3s linear;
+    scroll-behavior: smooth;
     width: 400px;
     height: fit-content;
   }

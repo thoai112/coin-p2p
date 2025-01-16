@@ -545,6 +545,10 @@
                 display: -webkit-box;
             }
 
+            .tradingview-widget-container{
+                display: none;
+            }
+
             /* .time-selection {
                                                     flex-direction: column;
                                                     align-items: flex-start;
@@ -564,11 +568,6 @@
             } */
         }
 
-        @media (max-width: 575px) {
-            .tradingview-widget-container{
-                display: none;
-            }
-        }
     </style>
 @endpush
 
