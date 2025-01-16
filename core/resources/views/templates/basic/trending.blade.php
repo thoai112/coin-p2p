@@ -171,11 +171,9 @@
                 </nav>
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
-                        <span>@lang('Profit')</span>
-                        <span>
-                            <span class="profit-value">0.00</span>
-                            <span class="profit-percentage">%</span>
-                        </span>
+                        <span class="name">@lang('name')</span>
+                        <span class="fiat">0.00</span>
+                        
                     </div>
                     <div class="trade-section__block two">
                         <span>@lang('Value')</span>
