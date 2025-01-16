@@ -812,7 +812,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
-                $('.value').text(`1 COW = {{$lastRate}}`);
+                $('.value').text(`1 COW = ${trendingRates}`);
             }
 
             async function loadHistoricalData() {
@@ -955,7 +955,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
-                $('.value').text(`1 COW = {{$lastRate}}`);
+                $('.value').text(`1 COW = ${trendingRates}`);
             });
 
 
