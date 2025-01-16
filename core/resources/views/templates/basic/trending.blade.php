@@ -628,7 +628,8 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
-                $('.name').textContent = `${trendingActivate}`;
+                
+                document.querySelector('.name').textContent = `${trendingActivate}`;
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
