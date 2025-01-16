@@ -812,7 +812,7 @@
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
-                $('.value').text(`1 COW = ${trendingRates[trendingRates.length - 1]?.rate?.['Price per Ounce'] } ${langDetails}`);
+                $('.value').text(`1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce'] } ${langDetails}`);
             }
 
             async function loadHistoricalData() {
