@@ -321,29 +321,27 @@
                     </nav>
 
                 </div>
-
             </div>
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container-news">
-                <div class="tradingview-widget-container__widget"></div>
-                <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
-                        target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-                    {
-                        "feedMode": "all_symbols",
-                        "isTransparent": true,
-                        "displayMode": "regular",
-                        "width": "90%",
-                        "height": "440",
-                        "colorTheme": "dark",
-                        "locale": "vi_VN"
-                    }
-                </script>
-            </div>
-            <!-- TradingView Widget END -->
         </div>
     </section>
-   
+   <!-- TradingView Widget BEGIN -->
+   <div class="tradingview-widget-container-news">
+    <div class="tradingview-widget-container__widget"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+            target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+        {
+            "feedMode": "all_symbols",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "width": "90%",
+            "height": "440",
+            "colorTheme": "dark",
+            "locale": "vi_VN"
+        }
+    </script>
+</div>
+<!-- TradingView Widget END -->
 @endsection
 
 
