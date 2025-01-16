@@ -171,8 +171,8 @@
                 </nav>
                 <div class="trade-section__left">
                     <div class="trade-section__block one">
-                        <span class="name">@lang('name')</span>
-                        <span class="fiat">0.00</span>
+                        <span class="name"></span>
+                        <span class="fiat"></span>
                         
                     </div>
                     <div class="trade-section__block two">
@@ -628,7 +628,7 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
-
+                $('.name').textContent = `${trendingActivate}`;
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
