@@ -629,8 +629,7 @@
                 cleanupChart();
                 initalizeApi(`${trendingActivate}_usdt`, selectedTimePeriod);
                 initializeChart();
-                
-                $('.name').text(`${trendingActivate}_usdt`);
+                updateChartTitle();
             });
             // chartPropertiesFunc(chartWidth,chartHeight)
             $(document).on('click', '.time-period-option', function(e) {
@@ -807,6 +806,11 @@
                     initializeWebSocket();
                 }
                 // setupDirectionIndicators();
+            }
+
+            function updateChartTitle(){
+                $('.name').text(`${trendingActivate}`);
+                $('.fiat').text(`${trendingActivate} to ${langDetails}`);
             }
 
             async function loadHistoricalData() {
