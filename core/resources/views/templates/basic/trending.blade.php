@@ -564,11 +564,10 @@
             } */
         }
 
-        @media (max-width: 480px) {
-            /* .time-period-option {
-                flex: 1 1 100%;
-                margin-bottom: 10px;
-            } */
+        @media (max-width: 575px) {
+            .tradingview-widget-container{
+                display: none;
+            }
         }
     </style>
 @endpush
