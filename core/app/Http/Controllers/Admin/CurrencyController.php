@@ -116,7 +116,7 @@ class CurrencyController extends Controller
             'name'   => "required|max:255|unique:currencies,name,$id",
             'symbol' => "required|max:40|unique:currencies,symbol,$id",
             'sign'   => "nullable",
-            'image'  => ["$imageValidation", 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
+            'image'  => ["nullable", 'image', new FileTypeValidate(['jpg', 'jpeg', 'png'])],
             'type'   => 'required|in:' . Status::FIAT_CURRENCY . ',' . Status::CRYPTO_CURRENCY . '',
             'price'  => 'nullable|numeric|gte:0',
             'p2p_sn' => 'nullable|integer|gte:0',
