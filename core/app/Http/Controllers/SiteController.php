@@ -378,13 +378,13 @@ class SiteController extends Controller
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
 
-            foreach ($currencies as $currency) {
-                if ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
-                    $currency->rate = (float) $currency->rate * $priceFiat['rates']['VND'];
-                } else {
-                    $currency->rate = $currency->rate;
-                }
-            }
+            // foreach ($currencies as $currency) {
+            //     if ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
+            //         $currency->rate = (float) $currency->rate * $priceFiat['rates']['VND'];
+            //     } else {
+            //         $currency->rate = $currency->rate;
+            //     }
+            // }
         } else {
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
@@ -397,7 +397,7 @@ class SiteController extends Controller
                         'id'          => $currency->id,
                         'name'        => $currencyhis->name,
                         'symbol'      => $currency->symbol,
-                        'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
+                        'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
                         'time'        => $currency->time,
                         'basicunit'   => $currencyhis->basicunit,
                         'minorSingle' => $currencyhis->minorSingle,
@@ -412,7 +412,6 @@ class SiteController extends Controller
             'currencies' => $currencies,
             'cow'        => ($formattedRequestDate === $formattedDateTime) ? $currencies->avg('rate') : $currenciesHistories->avg('price'),
             'total'      => $total,
-            'fiat'       => $request->lang,
         ]);
     }
 
