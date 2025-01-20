@@ -389,7 +389,7 @@ class SiteController extends Controller
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
-            if ($currenciesHistories) {
+            if (!$currenciesHistories) {
                 foreach ($currenciesHistories as $currency) {
                     $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
 
