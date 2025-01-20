@@ -374,7 +374,7 @@ class CoinmarketCap extends CurrencyDataProvider
             $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('symbol', $currency->symbol)->where('status', Status::ENABLE)->first();
             if ($currency->symbol == 'SSP') continue;
             if ($currenciesUpdate) {
-                $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
+                $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat["USD"])]);
             }
         }
         return $currencies;
