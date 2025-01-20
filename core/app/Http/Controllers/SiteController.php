@@ -379,7 +379,7 @@ class SiteController extends Controller
             $currencies = (clone $query)->get();
 
             foreach ($currencies as $currency) {
-                if ($request->lang == "VND") {
+                if ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
                     $currency->rate = (float) $currency->rate * $priceFiat['rates']['VND'];
                 } else {
                     $currency->rate = $currency->rate;
@@ -397,7 +397,7 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
                     'symbol'      => $currency->symbol,
-                    'rate'        => $currency->price,
+                    'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
                     'time'        => $currency->time,
                     'basicunit'   => $currencyhis->basicunit,
                     'minorSingle' => $currencyhis->minorSingle,
