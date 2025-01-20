@@ -405,7 +405,7 @@ class SiteController extends Controller
             'currencies' => $currencies,
             'cow'        => ($formattedRequestDate === $formattedDateTime) ? $currencies->avg('rate') : $currenciesHistories->avg('price'),
             'total'      => $total,
-            'fiat'       => $priceFiat,
+            'fiat'       => $request->lang,
         ]);
     }
 
