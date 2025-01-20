@@ -373,29 +373,13 @@ class SiteController extends Controller
         $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
 
         $priceFiat = defaultCurrencyDataProvider()->getPriceFiat();
-        // $currencies = [];
         if ($formattedRequestDate === $formattedDateTime) {
             $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
-            // $currencies_his = (clone $query)->get();
-
-            // foreach ($currencies_his as $currency) {
-            //     $currencies [] =[
-            //         'id'          => $currency->id,
-            //         'name'        => $currency->name,
-            //         'symbol'      => $currency->symbol,
-            //         'rate'        => ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) ? (float) $currency->rate * $priceFiat['rates']['VND'] : $currency->price,
-            //         'time'        => $currency->time,
-            //         'basicunit'   => $currency->basicunit,
-            //         'minorSingle' => $currency->minorSingle,
-            //         'created_at'  => $currency->created_at,
-            //         'updated_at'  => $currency->updated_at,
-            //     ];
-            // }
             $currencies = (clone $query)->get();
 
             foreach ($currencies as $currency) {
-                if ($request->lang === "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
+                if ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
                     $currency->rate = (float) $currency->rate * $priceFiat['rates']['VND'];
                 } else {
                     $currency->rate = $currency->rate;
