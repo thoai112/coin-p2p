@@ -369,11 +369,12 @@
                 modal.find('.modal-title').text("@lang('New Currency')");
                 $(modal).modal('show');
             });
+
             $('.updateBtn').on('click', function() {
                 let action = `{{ route('admin.currency.updatefiat') }}`;
                 $.ajax({
                     url: action,
-                    type: 'GET', 
+                    type: 'GET',
                     success: function(response) {
                         console.log('Update success:', response);
                     },
@@ -383,7 +384,6 @@
                     }
                 });
             });
-
 
             $('input[name=symbol]').on('input', (e) => {
                 let symbol = e.target.value.toUpperCase()
@@ -444,10 +444,10 @@
                 $(modal).modal('show');
             });
 
-            $('.importBtn').on('click', function(e) {
-                let modal = $("#import-modal");
-                $(modal).modal('show');
-            });
+            // $('.importBtn').on('click', function(e) {
+            //     let modal = $("#import-modal");
+            //     $(modal).modal('show');
+            // });
 
             $('#import-form').on('submit', function(event) {
                 event.preventDefault();

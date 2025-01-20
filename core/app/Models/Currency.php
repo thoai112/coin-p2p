@@ -11,6 +11,8 @@ class Currency extends Model
 {
     use GlobalStatus;
 
+    protected $guard = ['symbol'];
+
     protected $casts = [
         'html_classes' => 'object',
     ];
