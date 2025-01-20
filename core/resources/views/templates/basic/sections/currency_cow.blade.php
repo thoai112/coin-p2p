@@ -248,6 +248,7 @@
 
             function getPairList() {
                 let action = "{{ route('cow.list') }}";
+                const lang = "{{ session('lang', 'en') === 'vn' ? 'VND' : 'USD' }}";
                 $.ajax({
                     url: action,
                     type: "GET",
@@ -255,6 +256,7 @@
                     cache: false,
                     data: {
                         date,
+                        lang,
                         type,
                         skip,
                         limit,
