@@ -377,6 +377,7 @@ class CoinmarketCap extends CurrencyDataProvider
                 $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
             }
         }
+        return count($currencies);
     }
 
     public function saveCowData($parameters)

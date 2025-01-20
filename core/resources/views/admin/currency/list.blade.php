@@ -371,7 +371,6 @@
             });
             $('.updateBtn').on('click', function() {
                 let action = `{{ route('admin.currency.updatefiat') }}`;
-
                 $.ajax({
                     url: action,
                     type: 'GET', 
