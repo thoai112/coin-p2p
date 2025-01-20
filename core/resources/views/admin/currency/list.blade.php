@@ -332,9 +332,11 @@
         <button type="button" class="btn btn-outline--primary addBtn ">
             <i class="las la-plus"></i>@lang('New Currency')
         </button>
-        <button type="button" class="btn btn-outline--primary updateBtn ">
-            <i class="las la-update"></i>@lang('Update Fiat')
-        </button>
+        @if ($type == Status::FIAT_CURRENCY)
+            <button type="button" class="btn btn-outline--primary updateBtn ">
+                <i class="las la-retweet"></i>@lang('Update Fiat')
+            </button>
+        @endif
     </div>
 
 @endpush
@@ -365,6 +367,11 @@
                 modal.find('.modal-title').text("@lang('New Currency')");
                 $(modal).modal('show');
             });
+            $('.updateBtn').on('click', function() {
+                let action = `{{ route('admin.currency.update-fiat') }}`;
+                console.log('update');
+            });
+
 
             $('input[name=symbol]').on('input', (e) => {
                 let symbol = e.target.value.toUpperCase()
