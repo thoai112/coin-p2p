@@ -373,24 +373,29 @@ class SiteController extends Controller
         $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
 
         $priceFiat = defaultCurrencyDataProvider()->getPriceFiat();
-
+        $currencies = [];
         if ($formattedRequestDate === $formattedDateTime) {
             $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
-            $currencies = (clone $query)->get();
+            $currencies_his = (clone $query)->get();
 
-            foreach ($currencies as $currency) {
-                if ($request->lang === "VND" && isset($currency->price, $priceFiat['rates']['VND'])) {
-                    $currency->rate = (float) $currency->price * $priceFiat['rates']['VND'];
-                } else {
-                    $currency->rate = $currency->price; 
-                }
+            foreach ($currencies_his as $currency) {
+                $currencies [] =[
+                    'id'          => $currency->id,
+                    'name'        => $currency->name,
+                    'symbol'      => $currency->symbol,
+                    'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
+                    'time'        => $currency->time,
+                    'basicunit'   => $currency->basicunit,
+                    'minorSingle' => $currency->minorSingle,
+                    'created_at'  => $currency->created_at,
+                    'updated_at'  => $currency->updated_at,
+                ];
             }
         } else {
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
-            $currencies = [];
 
             foreach ($currenciesHistories as $currency) {
                 $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
