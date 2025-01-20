@@ -253,4 +253,21 @@ class CurrencyController extends Controller
             ]);
         }
     }
+
+    public function updateFiat()
+    {
+        
+        try {
+            $import = defaultCurrencyDataProvider()->updateFiat();
+            return response()->json([
+                'success' => true,
+                'message' => "$import currencies update successfully"
+            ]);
+        } catch (Exception $ex) {
+            return response()->json([
+                'success' => false,
+                'message' => $ex->getMessage()
+            ]);
+        }
+    }
 }
