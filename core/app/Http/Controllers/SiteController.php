@@ -378,15 +378,14 @@ class SiteController extends Controller
             $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
-            
+
             foreach ($currencies as $currency) {
-                $currencies[] = [
-                    'rate' => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND']))
-                    ? (float) $currency->price * $priceFiat['rates']['VND']
-                    : $currency->price,
-                ]; 
+                if ($request->lang === "VND" && isset($currency->price, $priceFiat['rates']['VND'])) {
+                    $currency->rate = (float) $currency->price * $priceFiat['rates']['VND'];
+                } else {
+                    $currency->rate = $currency->price; 
+                }
             }
-            
         } else {
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
@@ -400,7 +399,7 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
                     'symbol'      => $currency->symbol,
-                    'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND']: $currency->price,
+                    'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
                     'time'        => $currency->time,
                     'basicunit'   => $currencyhis->basicunit,
                     'minorSingle' => $currencyhis->minorSingle,
