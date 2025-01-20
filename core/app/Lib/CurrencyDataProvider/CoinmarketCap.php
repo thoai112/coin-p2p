@@ -372,7 +372,7 @@ class CoinmarketCap extends CurrencyDataProvider
 
         foreach ($currencies as $currency) {
             if ($currency->symbol == 'SSP') continue;
-            $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->where('symbol', $currency->symbol)->first();
+            $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('symbol', $currency['symbol'])->where('status', Status::ENABLE)->first();
             if ($currenciesUpdate) {
                 $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
             }
