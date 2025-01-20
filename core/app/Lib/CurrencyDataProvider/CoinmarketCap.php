@@ -382,7 +382,7 @@ class CoinmarketCap extends CurrencyDataProvider
             ];
         }
         
-        return $currencies;
+        return $data;
     }
 
     public function saveCowData($parameters)
