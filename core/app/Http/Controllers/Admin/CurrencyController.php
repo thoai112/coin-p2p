@@ -261,7 +261,8 @@ class CurrencyController extends Controller
             $import = defaultCurrencyDataProvider()->updateFiat();
             return response()->json([
                 'success' => true,
-                'message' => "$import currencies update successfully"
+                'data' => $import,
+                'message' => "currencies update successfully"
             ]);
         } catch (Exception $ex) {
             return response()->json([
