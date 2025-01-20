@@ -378,6 +378,12 @@ class SiteController extends Controller
             $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currencies = (clone $query)->get();
+            
+            $currencies->transform(function ($currency) use ($request, $priceFiat) {
+                $currency->rate = ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND']))
+                    ? (float)$currency->price * $priceFiat['rates']['VND'] : (float)$currency->price;
+                return $currency;
+            });
         } else {
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
