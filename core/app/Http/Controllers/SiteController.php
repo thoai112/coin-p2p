@@ -78,43 +78,37 @@ class SiteController extends Controller
     public function getValueTrending($currencies)
     {
         foreach ($currencies as $currency) {
-            if ($currency->type == Status::TRENDINGTYPE_COW)
-                {
-                    $query = CowCurrency::select(['timestamp', 'rate'])->TimeOrdering()->searchable(['name', 'symbol'])->get();
-                    $currency->rate = $query;
-                    
-                }
-            elseif ($currency->type == Status::TRENDINGTYPE_CRYPTO)
-            {
+            if ($currency->type == Status::TRENDINGTYPE_COW) {
+                $query = CowCurrency::select(['timestamp', 'rate'])->TimeOrdering()->searchable(['name', 'symbol'])->get();
+                $currency->rate = $query;
+            } elseif ($currency->type == Status::TRENDINGTYPE_CRYPTO) {
                 $url = "https://api.binance.com/api/v3/klines?symbol=" . strtoupper($currency->symbol) . "USDT&interval=1d&limit=100";
                 $response = CurlRequest::curlContent($url);
                 $array = json_decode($response, true);
 
                 $currency->rate = $array;
-            }   
-            else 
-            {   
-                if($currency->symbol == 'XAU')
+            } else {
+                if ($currency->symbol == 'XAU')
                     $url = 'https://static.dwcdn.net/data/q7hEo.csv';
-                else if($currency->symbol == 'XAG')
-                    $url = 'https://static.dwcdn.net/data/xbqP6.csv'; 
+                else if ($currency->symbol == 'XAG')
+                    $url = 'https://static.dwcdn.net/data/xbqP6.csv';
                 $array = $this->getPriceMetal($url);
                 $currency->rate = json_decode($array, true);
             }
-                
         }
         return $currencies;
     }
 
-    
-   
-    private function getPriceMetal($url) {
-        
+
+
+    private function getPriceMetal($url)
+    {
+
         $csv = file_get_contents($url);
-        
+
         $lines = explode(PHP_EOL, $csv);
         $headers = str_getcsv(array_shift($lines));
-        
+
         $data = array();
         foreach ($lines as $line) {
             if (!empty($line)) {
@@ -375,7 +369,6 @@ class SiteController extends Controller
         // }
 
         $dateTime = now();
-
         $formattedRequestDate = Carbon::parse($request->date)->format('Y-m-d');
         $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
 
@@ -390,7 +383,7 @@ class SiteController extends Controller
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
             $currencies = [];
-            
+
             foreach ($currenciesHistories as $currency) {
                 $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
 
@@ -398,7 +391,8 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
                     'symbol'      => $currency->symbol,
-                    'rate'        => $currency->price,
+                    'rate'        => isset($currency->price, $priceFiat['rates']['VND']) ? ($request->lang == "VND" ? 
+                                            $currency->price * $priceFiat['rates']['VND'] : $currency->price): 0,
                     'time'        => $currency->time,
                     'basicunit'   => $currencyhis->basicunit,
                     'minorSingle' => $currencyhis->minorSingle,
