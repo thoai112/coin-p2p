@@ -98,7 +98,7 @@ Route::middleware('admin')->group(function () {
         Route::post('/status/{id?}', 'status')->name('status');
         Route::post('/import', 'import')->name('import');
         Route::post('/save-cow', 'saveCowData')->name('save.cow');
-        Route::post('/updatefiat', 'updateFiat')->name('updatefiat');
+        Route::get('/updatefiat', 'updateFiat')->name('updatefiat');
 
     });
 
