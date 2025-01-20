@@ -397,7 +397,7 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
                     'symbol'      => $currency->symbol,
-                    'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
+                    'rate'        => $currency->price,
                     'time'        => $currency->time,
                     'basicunit'   => $currencyhis->basicunit,
                     'minorSingle' => $currencyhis->minorSingle,
