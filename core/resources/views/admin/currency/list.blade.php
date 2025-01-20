@@ -260,7 +260,7 @@
                 </div>
                 @if ($type == Status::COW_CURRENCY)
                     <form
-                        action="{{ route('admin.currency.cow') }}"
+                        action="{{ route('admin.currency.save.cow') }}"
                         id="import-form" method="POST">
                         @csrf
                         <input type="hidden" name="type" value="{{ $type }}">
