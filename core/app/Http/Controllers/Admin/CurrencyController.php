@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Rules\FileTypeValidate;
 use App\Http\Controllers\Controller;
 use App\Models\MarketData;
-use App\Models\CowHistories;
 use App\Models\Trending;
 use Carbon\Carbon;
 use Exception;

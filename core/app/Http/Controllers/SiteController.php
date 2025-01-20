@@ -379,6 +379,8 @@ class SiteController extends Controller
         $formattedRequestDate = Carbon::parse($request->date)->format('Y-m-d');
         $formattedDateTime = Carbon::parse($dateTime)->format('Y-m-d');
 
+        $priceFiat = defaultCurrencyDataProvider()->getPriceFiat();
+
         if ($formattedRequestDate === $formattedDateTime) {
             $query      = Currency::active()->cow()->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
@@ -409,6 +411,7 @@ class SiteController extends Controller
             'currencies' => $currencies,
             'cow'        => ($formattedRequestDate === $formattedDateTime) ? $currencies->avg('rate') : $currenciesHistories->avg('price'),
             'total'      => $total,
+            'fiat'       => $priceFiat,
         ]);
     }
 
