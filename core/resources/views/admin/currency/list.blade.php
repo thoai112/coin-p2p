@@ -368,7 +368,7 @@
                 $(modal).modal('show');
             });
             $('.updateBtn').on('click', function() {
-                let action = `{{ route('admin.currency.update-fiat') }}`;
+                let action = `{{ route('admin.currency.update.fiat') }}`;
                 console.log('update');
             });
 
