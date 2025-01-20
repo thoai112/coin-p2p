@@ -389,21 +389,22 @@ class SiteController extends Controller
             $query      = CowHistories::whereDate('time', '=', $formattedRequestDate)->orderByRaw('symbol ASC')->searchable(['name', 'symbol']);
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
+            if ($currenciesHistories) {
+                foreach ($currenciesHistories as $currency) {
+                    $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
 
-            foreach ($currenciesHistories as $currency) {
-                $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
-
-                $currencies[] = [
-                    'id'          => $currency->id,
-                    'name'        => $currencyhis->name,
-                    'symbol'      => $currency->symbol,
-                    'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
-                    'time'        => $currency->time,
-                    'basicunit'   => $currencyhis->basicunit,
-                    'minorSingle' => $currencyhis->minorSingle,
-                    'created_at'  => $currency->created_at,
-                    'updated_at'  => $currency->updated_at,
-                ];
+                    $currencies[] = [
+                        'id'          => $currency->id,
+                        'name'        => $currencyhis->name,
+                        'symbol'      => $currency->symbol,
+                        'rate'        => ($request->lang == "VND" && isset($currency->price, $priceFiat['rates']['VND'])) ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price,
+                        'time'        => $currency->time,
+                        'basicunit'   => $currencyhis->basicunit,
+                        'minorSingle' => $currencyhis->minorSingle,
+                        'created_at'  => $currency->created_at,
+                        'updated_at'  => $currency->updated_at,
+                    ];
+                }
             }
         }
         return response()->json([
