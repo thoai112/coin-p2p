@@ -181,11 +181,11 @@
                                             value="{{ old('sign') }}">
                                     </div>
                                     @if ($type == Status::TRENDING)
-                                    <div class="form-group col-lg-12">
-                                        <label>@lang('TYPE')</label>
-                                        <input type="number" class="form-control" name="type"
-                                            value="{{ old('type') }}">
-                                    </div>
+                                        <div class="form-group col-lg-12">
+                                            <label>@lang('TYPE')</label>
+                                            <input type="number" class="form-control" name="type"
+                                                value="{{ old('type') }}">
+                                        </div>
                                     @else
                                         <div class="form-group col-lg-12">
                                             <label>@lang('Price')</label>
@@ -205,9 +205,9 @@
                                             <div class="form-group col-lg-12">
                                                 <label>@lang('Highlight Coin')</label>
                                                 <input type="checkbox" data-width="100%" data-height="40px"
-                                                    data-onstyle="-success" data-offstyle="-danger" data-bs-toggle="toggle"
-                                                    data-on="@lang('YES')" data-off="@lang('NO')"
-                                                    name="is_highlighted_coin">
+                                                    data-onstyle="-success" data-offstyle="-danger"
+                                                    data-bs-toggle="toggle" data-on="@lang('YES')"
+                                                    data-off="@lang('NO')" name="is_highlighted_coin">
                                             </div>
                                         @endif
                                         @if ($type == Status::FIAT_CURRENCY)
@@ -259,11 +259,13 @@
                     </button>
                 </div>
                 @if ($type == Status::COW_CURRENCY)
-                    <form action="{{ route('
-                    
-                    
-                    
-                    .cow') }}" id="import-form" method="POST">
+                    <form
+                        action="{{ route('
+                                            
+                                            
+                                            
+                                            .cow') }}"
+                        id="import-form" method="POST">
                         @csrf
                         <input type="hidden" name="type" value="{{ $type }}">
                         <div class="modal-body">
@@ -369,7 +371,19 @@
             });
             $('.updateBtn').on('click', function() {
                 let action = `{{ route('admin.currency.update.fiat') }}`;
-                console.log('update');
+
+                $.ajax({
+                    url: action,
+                    type: 'GET', 
+                    success: function(response) {
+                        console.log('Update success:', response);
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Update failed:', error);
+                        alert('Có lỗi xảy ra trong quá trình cập nhật.');
+                    }
+                });
             });
 
 
@@ -401,7 +415,6 @@
                 modal.find("input[name=sign]").val(data.sign);
                 @if ($type == Status::TRENDING)
                     modal.find("input[name=type]").val(data.type);
-                    
                 @else
                     modal.find("input[name=p2p_sn]").val(data.p2p_sn);
                     modal.find("input[name=price]").val(getAmount(data.rate));
