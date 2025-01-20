@@ -370,14 +370,14 @@ class CoinmarketCap extends CurrencyDataProvider
         $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->get();
         $pricefiat  = $this->getPriceFiat();
 
-        foreach ($currencies as $currency) {
-            if ($currency->symbol == 'SSP') continue;
-            $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('symbol', $currency['symbol'])->where('status', Status::ENABLE)->first();
-            if ($currenciesUpdate) {
-                $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
-            }
-        }
-        return count($currencies);
+        // foreach ($currencies as $currency) {
+        //     if ($currency->symbol == 'SSP') continue;
+        //     $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('symbol', $currency->symbol)->where('status', Status::ENABLE)->first();
+        //     if ($currenciesUpdate) {
+        //         $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
+        //     }
+        // }
+        return $currencies;
     }
 
     public function saveCowData($parameters)
