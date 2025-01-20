@@ -259,7 +259,11 @@
                     </button>
                 </div>
                 @if ($type == Status::COW_CURRENCY)
-                    <form action="{{ route('admin.currency.save.cow') }}" id="import-form" method="POST">
+                    <form action="{{ route('
+                    
+                    
+                    
+                    .cow') }}" id="import-form" method="POST">
                         @csrf
                         <input type="hidden" name="type" value="{{ $type }}">
                         <div class="modal-body">
@@ -328,7 +332,11 @@
         <button type="button" class="btn btn-outline--primary addBtn ">
             <i class="las la-plus"></i>@lang('New Currency')
         </button>
+        <button type="button" class="btn btn-outline--primary updateBtn ">
+            <i class="las la-update"></i>@lang('Update Fiat')
+        </button>
     </div>
+
 @endpush
 
 @push('script')

@@ -290,7 +290,7 @@ class CoinmarketCap extends CurrencyDataProvider
      */
     public function configuration()
     {
-        $provider = $this->provider  ? $this->provider : CurrencyDataProviderModel::where('alias', "CoinmarketCap")->first();
+        $provider = $this->provider ? $this->provider : CurrencyDataProviderModel::where('alias', "CoinmarketCap")->first();
         return [
             'api_key'  => @$provider->configuration->api_key->value,
             'base_url' => "https://pro-api.coinmarketcap.com/v1/"
@@ -366,6 +366,18 @@ class CoinmarketCap extends CurrencyDataProvider
         return $importCount;
     }
 
+    public function updateFiat(){
+        $currencies = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->get();
+        $pricefiat  = $this->getPriceFiat();
+
+        foreach ($currencies as $currency) {
+            if ($currency->symbol == 'SSP') continue;
+            $currenciesUpdate = Currency::where('type', Status::FIAT_CURRENCY)->where('status', Status::ENABLE)->where('iscow', Status::ENABLE)->where('symbol', $currency->symbol)->first();
+            if ($currenciesUpdate) {
+                $currenciesUpdate->update(['rate' => floatval(1 /$pricefiat[$currency->symbol])]);
+            }
+        }
+    }
 
     public function saveCowData($parameters)
     {   
@@ -434,7 +446,6 @@ class CoinmarketCap extends CurrencyDataProvider
 
             $existingCow =  CowCurrency::whereDate('timestamp', '=', $checkDate)->first();
             $existingCow->update(['rate' => $currencies->avg('rate')]);
-            
             
         }
 
