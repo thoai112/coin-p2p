@@ -376,7 +376,6 @@
                     type: 'GET', 
                     success: function(response) {
                         console.log('Update success:', response);
-                        location.reload();
                     },
                     error: function(xhr, status, error) {
                         console.error('Update failed:', error);
