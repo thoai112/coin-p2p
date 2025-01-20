@@ -316,7 +316,7 @@
                                 <td>
                                     <div class="customer d-flex align-items-center">
                                         <div class="customer__content">
-                                            <h6 class="customer__name">${showAmount(currency.rate,2)}</h6>
+                                            <h6 class="customer__name">${showAmount(currency.rate,6)}</h6>
                                         </div>
                                     </div>
                                    

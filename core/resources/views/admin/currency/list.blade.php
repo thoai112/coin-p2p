@@ -67,9 +67,9 @@
                                                 </td>
                                                 <td>
                                                     @if ($type == Status::CRYPTO_CURRENCY)
-                                                        {{ showAmount(@$currency->marketData->price ?? @$currency->rate) }}
+                                                        {{ showAmount(@$currency->marketData->price ?? @$currency->rate,8) }}
                                                     @else
-                                                        {{ showAmount(@$currency->rate) }}
+                                                        {{ showAmount(@$currency->rate,8) }}
                                                     @endif
                                                 </td>
                                                 <td> @php echo $currency->statusBadge; @endphp </td>
@@ -109,7 +109,7 @@
                                                 <td>{{ showDateTime($currency->timestamp) }}</td>
                                                 <td>{{ $currency->name }}</td>
                                                 <td>
-                                                    {{ showAmount(@$currency->rate ?? @$currency->price) }}
+                                                    {{ showAmount(@$currency->rate ?? @$currency->price , 8) }}
                                                 </td>
                                                 <td> @php echo $currency->type; @endphp </td>
                                                 <td>
@@ -260,11 +260,7 @@
                 </div>
                 @if ($type == Status::COW_CURRENCY)
                     <form
-                        action="{{ route('
-                                            
-                                            
-                                            
-                                            .cow') }}"
+                        action="{{ route('.cow') }}"
                         id="import-form" method="POST">
                         @csrf
                         <input type="hidden" name="type" value="{{ $type }}">
