@@ -379,7 +379,7 @@ class SiteController extends Controller
             $currencies = (clone $query)->get();
 
             foreach ($currencies as $currency) {
-                if ($request->lang == "VND" && isset($currency->rate, $priceFiat['rates']['VND'])) {
+                if ($request->lang == "VND") {
                     $currency->rate = (float) $currency->rate * $priceFiat['rates']['VND'];
                 } else {
                     $currency->rate = $currency->rate;
