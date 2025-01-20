@@ -238,6 +238,7 @@ class CurrencyController extends Controller
             'from' => $request->from ?? 'USD',
             'date' => Carbon::parse(trim($request->date))->format('Y-m-d'),// ?? Carbon::parse(trim(now()))->format('Y-m-d'),
         ];
+        
 
         try {
             $import = defaultCurrencyDataProvider()->saveCowData($parameters);
