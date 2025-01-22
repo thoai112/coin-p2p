@@ -390,21 +390,19 @@ class SiteController extends Controller
             $total      = (clone $query)->count();
             $currenciesHistories = (clone $query)->get();
             $currencies = [];
-            if (!$currenciesHistories) {
-                foreach ($currenciesHistories as $currency) {
-                    $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
-                    $currencies[] = [
-                        'id'          => $currency->id,
-                        'name'        => $currencyhis->name,
-                        'symbol'      => $currency->symbol,
-                        'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price, // 
-                        'time'        => $currency->time,
-                        'basicunit'   => $currencyhis->basicunit,
-                        'minorSingle' => $currencyhis->minorSingle,
-                        'created_at'  => $currency->created_at,
-                        'updated_at'  => $currency->updated_at,
-                    ];
-                }
+            foreach ($currenciesHistories as $currency) {
+                $currencyhis = Currency::where('type', Status::FIAT_CURRENCY)->where('id', $currency->currency_id)->first();
+                $currencies[] = [
+                    'id'          => $currency->id,
+                    'name'        => $currencyhis->name,
+                    'symbol'      => $currency->symbol,
+                    'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price, // 
+                    'time'        => $currency->time,
+                    'basicunit'   => $currencyhis->basicunit,
+                    'minorSingle' => $currencyhis->minorSingle,
+                    'created_at'  => $currency->created_at,
+                    'updated_at'  => $currency->updated_at,
+                ];
             }
         }
         return response()->json([
