@@ -408,7 +408,7 @@ class SiteController extends Controller
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => ($formattedRequestDate === $formattedDateTime ? $currencies->avg('rate') : $currenciesHistories->avg('price')) * ($request->lang == "VND" ? 23500 : 1),
+            'cow'        => ($formattedRequestDate === $formattedDateTime ? (float) $currencies->avg('rate') : (float)$currenciesHistories->avg('price')) * ($request->lang == "VND" ? $priceFiat['rates']['VND'] : 1),
             'total'      => $total,
         ]);
     }
