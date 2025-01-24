@@ -409,7 +409,7 @@ class SiteController extends Controller
             'success'    => true,
             'currencies' => $currencies,
             // 'cow'        => ($request->lang == "VND" ? $priceFiat['rates']['VND'] : 1) * ($formattedRequestDate == $formattedDateTime ? (float) $currencies->avg('price') : (float)$currencies->avg('rate')),
-            'cow'        => (float) $currencies->avg('rate'),
+            'cow'        => ($formattedRequestDate == $formattedDateTime ? (float) $currencies->avg('rate') : (float)$currenciesHistories->avg('price') * ($request->lang == "VND" ? $priceFiat['rates']['VND'] : 1)),
             'total'      => $total,
             'vnd'        => $priceFiat['rates']['VND'],
         ]);
