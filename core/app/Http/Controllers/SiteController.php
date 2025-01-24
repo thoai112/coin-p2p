@@ -396,7 +396,7 @@ class SiteController extends Controller
                     'id'          => $currency->id,
                     'name'        => $currencyhis->name,
                     'symbol'      => $currency->symbol,
-                    'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price, // 
+                    'rate'        => ($request->lang == "VND") ? (float) $currency->price * $priceFiat['rates']['VND'] : $currency->price, 
                     'time'        => $currency->time,
                     'basicunit'   => $currencyhis->basicunit,
                     'minorSingle' => $currencyhis->minorSingle,
@@ -408,7 +408,13 @@ class SiteController extends Controller
         return response()->json([
             'success'    => true,
             'currencies' => $currencies,
-            'cow'        => ($formattedRequestDate === $formattedDateTime) ? $currencies->avg('rate') : $currenciesHistories->avg('price'),
+            'cow'        => ($formattedRequestDate === $formattedDateTime)
+            ? (($request->lang == "VND")
+                ? $currencies->avg('rate') * $priceFiat['rates']['VND']
+                : $currenciesHistories->avg('price') * $priceFiat['rates']['VND'])
+            : (($request->lang == "USD")
+            ? $currencies->avg('rate')
+            : $currenciesHistories->avg('price')),
             'total'      => $total,
         ]);
     }
