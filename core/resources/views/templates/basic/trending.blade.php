@@ -834,29 +834,14 @@
                         const points = [];
                         let filteredDates;
                         let filteredPoints;
-                        // if (parseInt(trendingType, 5) === 3) {
-                        //     for (let i = 0; i < trendingRates.length; i++) {
-                        //         dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
-                        //         points.push(trendingRates[i]['Price per Ounce']);
-                        //     }
-                        // } else {
-                        //     for (let i = 0; i < trendingRates.length; i++) {
-                        //         dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
-                        //         points.push(trendingRates[i].rate);
-                        //     }
-                        // }
                         if (parseInt(trendingType, 5) === 3) {
                             for (let i = 0; i < trendingRates.length; i++) {
-                                const date = new Date(trendingRates[i].Date);
-                                const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
-                                dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
+                                dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
                                 points.push(trendingRates[i]['Price per Ounce']);
                             }
                         } else {
                             for (let i = 0; i < trendingRates.length; i++) {
-                                const date = new Date(trendingRates[i].timestamp);
-                                const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
-                                dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
+                                dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
                                 points.push(trendingRates[i].rate);
                             }
                         }
