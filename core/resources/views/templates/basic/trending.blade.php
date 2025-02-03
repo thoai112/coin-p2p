@@ -840,10 +840,23 @@
                                 points.push(trendingRates[i]['Price per Ounce']);
                             }
                         } else {
+                            // for (let i = 0; i < trendingRates.length; i++) {
+                            //     dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
+                            //     points.push(trendingRates[i].rate);
+                            // }
                             for (let i = 0; i < trendingRates.length; i++) {
-                                dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
-                                points.push(trendingRates[i].rate);
-                            }
+    // Create a Date object from the timestamp
+    const date = new Date(trendingRates[i].timestamp);
+
+    // Adjust the timestamp to local time by subtracting the timezone offset
+    const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
+
+    // Push the adjusted timestamp (in seconds) to the dates array
+    dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
+
+    // Push the rate to the points array
+    points.push(trendingRates[i].rate);
+}
                         }
                         switch (selectedTimePeriod) {
                             case '24h':
