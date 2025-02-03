@@ -742,7 +742,7 @@
                     let symbol = activeCoin.replace('_', '');
                     BINANCE_API_URL =
                         `https://api.binance.com/api/v3/klines?symbol=${symbol.toUpperCase()}&interval=${timePeriod}&limit=5000`;
-                    BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1s`;
+                    BINANCE_WEBSOCKET_URL = `wss://stream.binance.com:9443/ws/${symbol.toLowerCase()}@kline_1m`;
                 }
 
             }
