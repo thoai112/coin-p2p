@@ -816,7 +816,7 @@
                 $('.date').text(`${currentDate.toUTCString()}`);
                 console.log("treiding:", trendingRates)
                 $('.value').text(
-                    `1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce'] } ${langDetails}`);
+                    `1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce']?.['rate'] } ${langDetails}`);
             }
 
             async function loadHistoricalData() {
