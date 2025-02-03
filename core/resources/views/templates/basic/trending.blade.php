@@ -551,22 +551,22 @@
             }
 
             /* .time-selection {
-                                                            flex-direction: column;
-                                                            align-items: flex-start;
-                                                        } */
+                                                                flex-direction: column;
+                                                                align-items: flex-start;
+                                                            } */
 
             /* .time-selection label {
-                        margin-bottom: 10px;
-                    }
+                            margin-bottom: 10px;
+                        }
 
-                    .time-period-options {
-                        width: 100%;
-                    }
+                        .time-period-options {
+                            width: 100%;
+                        }
 
-                    .time-period-option {
-                        flex: 1 1 45%;
-                        margin-bottom: 10px;
-                    } */
+                        .time-period-option {
+                            flex: 1 1 45%;
+                            margin-bottom: 10px;
+                        } */
         }
     </style>
 @endpush
@@ -845,18 +845,18 @@
                             //     points.push(trendingRates[i].rate);
                             // }
                             for (let i = 0; i < trendingRates.length; i++) {
-    // Create a Date object from the timestamp
-    const date = new Date(trendingRates[i].timestamp);
+                                // Create a Date object from the timestamp
+                                const date = new Date(trendingRates[i].timestamp);
 
-    // Adjust the timestamp to local time by subtracting the timezone offset
-    const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
+                                // Adjust the timestamp to local time by subtracting the timezone offset
+                                const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
 
-    // Push the adjusted timestamp (in seconds) to the dates array
-    dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
+                                // Push the adjusted timestamp (in seconds) to the dates array
+                                dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
 
-    // Push the rate to the points array
-    points.push(trendingRates[i].rate);
-}
+                                // Push the rate to the points array
+                                points.push(trendingRates[i].rate);
+                            }
                         }
                         switch (selectedTimePeriod) {
                             case '24h':
