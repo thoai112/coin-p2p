@@ -815,8 +815,12 @@
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
                 console.log("treiding:", trendingRates)
+                const lastRate = trendingRates[trendingRates.length - 1];
+                const value = lastRate?.['Price per Ounce'] !== undefined
+                    ? lastRate['Price per Ounce']
+                    : lastRate?.['rate'];
                 $('.value').text(
-                    `1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce']?.['rate'] } ${langDetails}`);
+                    `1 COW = ${trendingRates[trendingRates.length - 1]?.['rate'] } ${langDetails}`);
             }
 
             async function loadHistoricalData() {
