@@ -173,7 +173,7 @@
                     <div class="trade-section__block one">
                         <span class="name"></span>
                         <span class="fiat"></span>
-                        
+
                     </div>
                     <div class="trade-section__block two">
                         <span class="date">@lang('Value')</span>
@@ -530,9 +530,10 @@
         }
 
         @media (max-width: 991px) {
-            .title-trending{
+            .title-trending {
                 font-size: 1.3rem;
             }
+
             .time-period-option {
                 font-size: 12px;
                 padding: 3px 10px;
@@ -550,22 +551,22 @@
             }
 
             /* .time-selection {
-                                                        flex-direction: column;
-                                                        align-items: flex-start;
-                                                    } */
+                                                            flex-direction: column;
+                                                            align-items: flex-start;
+                                                        } */
 
             /* .time-selection label {
-                    margin-bottom: 10px;
-                }
+                        margin-bottom: 10px;
+                    }
 
-                .time-period-options {
-                    width: 100%;
-                }
+                    .time-period-options {
+                        width: 100%;
+                    }
 
-                .time-period-option {
-                    flex: 1 1 45%;
-                    margin-bottom: 10px;
-                } */
+                    .time-period-option {
+                        flex: 1 1 45%;
+                        margin-bottom: 10px;
+                    } */
         }
     </style>
 @endpush
@@ -808,12 +809,13 @@
                 // setupDirectionIndicators();
             }
 
-            function updateChartTitle(){
+            function updateChartTitle() {
                 $('.name').text(`${trendingActivate}`);
                 $('.fiat').text(`${trendingActivate} to ${langDetails}`);
                 $('.date').text(`${currentDate.toUTCString()}`);
                 console.log("treiding:", trendingRates)
-                $('.value').text(`1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce'] } ${langDetails}`);
+                $('.value').text(
+                    `1 COW = ${trendingRates[trendingRates.length - 1]?.['Price per Ounce'] } ${langDetails}`);
             }
 
             async function loadHistoricalData() {
@@ -832,14 +834,29 @@
                         const points = [];
                         let filteredDates;
                         let filteredPoints;
+                        // if (parseInt(trendingType, 5) === 3) {
+                        //     for (let i = 0; i < trendingRates.length; i++) {
+                        //         dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
+                        //         points.push(trendingRates[i]['Price per Ounce']);
+                        //     }
+                        // } else {
+                        //     for (let i = 0; i < trendingRates.length; i++) {
+                        //         dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
+                        //         points.push(trendingRates[i].rate);
+                        //     }
+                        // }
                         if (parseInt(trendingType, 5) === 3) {
                             for (let i = 0; i < trendingRates.length; i++) {
-                                dates.push(new Date(trendingRates[i].Date).getTime() / 1000);
+                                const date = new Date(trendingRates[i].Date);
+                                const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
+                                dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
                                 points.push(trendingRates[i]['Price per Ounce']);
                             }
                         } else {
                             for (let i = 0; i < trendingRates.length; i++) {
-                                dates.push(new Date(trendingRates[i].timestamp).getTime() / 1000);
+                                const date = new Date(trendingRates[i].timestamp);
+                                const localTimestamp = date.getTime() - (date.getTimezoneOffset() * 60 * 1000);
+                                dates.push(localTimestamp / 1000); // Convert milliseconds to seconds
                                 points.push(trendingRates[i].rate);
                             }
                         }
@@ -892,7 +909,7 @@
                         areaSeries.setData(uniqueChartData);
                         lastPrice = uniqueChartData[uniqueChartData.length - 1].value;
                         chart.timeScale().fitContent();
-                        
+
                     }
 
 
