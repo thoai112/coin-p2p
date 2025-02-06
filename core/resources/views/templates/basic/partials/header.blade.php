@@ -66,11 +66,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        <a class="nav-link" href="p2p">@lang('COIN MARKET')</a>
 
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">@lang('COIN MARKET')</a>
+                        <a class="nav-link" href="#">@lang('COW MARKET')</a>
                     </li>
 
 
@@ -194,11 +194,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+                <a class="nav-bar" href="/p2p">@lang('COIN MARKET')</a>
 
             </li>
             <li class="nav-item">
-                <a class="nav-bar" href="#">@lang('COIN MARKET')</a>
+                <a class="nav-bar" href="#">@lang('COW MARKET')</a>
             </li>
         </ul>
     </div>
